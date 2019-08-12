@@ -54,14 +54,54 @@
 		91B3EB4B2301296E00430D41 /* PinMusubi */ = {
 			isa = PBXGroup;
 			children = (
-				91B3EB4C2301296E00430D41 /* AppDelegate.swift */,
-				91B3EB4E2301296E00430D41 /* ViewController.swift */,
-				91B3EB502301296E00430D41 /* Main.storyboard */,
-				91B3EB532301296F00430D41 /* Assets.xcassets */,
-				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
-				91B3EB582301296F00430D41 /* Info.plist */,
+				91B3EB612301326600430D41 /* Common */,
+				91B3EB602301325100430D41 /* Model */,
+				91B3EB5E2301322200430D41 /* View */,
+				91B3EB5F2301323800430D41 /* Controller */,
+				91B3EB622301332C00430D41 /* Resouce */,
 			);
 			path = PinMusubi;
+			sourceTree = "<group>";
+		};
+		91B3EB5E2301322200430D41 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91B3EB502301296E00430D41 /* Main.storyboard */,
+				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91B3EB5F2301323800430D41 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				91B3EB4E2301296E00430D41 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		91B3EB602301325100430D41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		91B3EB612301326600430D41 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				91B3EB4C2301296E00430D41 /* AppDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		91B3EB622301332C00430D41 /* Resouce */ = {
+			isa = PBXGroup;
+			children = (
+				91B3EB532301296F00430D41 /* Assets.xcassets */,
+				91B3EB582301296F00430D41 /* Info.plist */,
+			);
+			path = Resouce;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
-				INFOPLIST_FILE = PinMusubi/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
-				INFOPLIST_FILE = PinMusubi/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
