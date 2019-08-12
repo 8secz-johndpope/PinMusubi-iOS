@@ -1,3 +1,12 @@
+# Mac
+.DS_Store
+
+#CocoaPod
+PinMusubi/Pods/
+
+#bundle
+PinMusubi/vender/
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
