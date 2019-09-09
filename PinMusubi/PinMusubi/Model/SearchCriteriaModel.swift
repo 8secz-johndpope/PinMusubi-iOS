@@ -19,7 +19,9 @@ protocol SearchCriteriaModelNotify {
 protocol SearchCriteriaModelProtocol: SearchCriteriaModelNotify {
     // 設定地点情報
     var settingPoints: [SettingPointEntity] { get }
-    // 住所等から地理座標を返却する
+    // 地点の名前を設定する
+    func setPointName(name: String, row: Int)
+    // 住所等から地理座標を設定する
     func geocoding(address: String, row: Int)
 }
 
@@ -28,7 +30,12 @@ class SearchCriteriaModel: SearchCriteriaModelProtocol {
     // 設定地点情報
     private(set) var settingPoints = [SettingPointEntity](repeating: SettingPointEntity(), count: 2)
     
-    // 住所等から地理座標を返却する
+    // 地点の名前を設定する
+    func setPointName(name: String, row: Int) {
+        settingPoints[row].name = name
+    }
+    
+    // 住所等から地理座標を設定する
     func geocoding(address: String, row: Int) {
         settingPoints[row].address = address
         CLGeocoder().geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
