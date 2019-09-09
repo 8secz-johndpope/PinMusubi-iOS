@@ -20,7 +20,7 @@ class SearchCriteriaModelTests: XCTestCase {
         XCTAssertEqual(searchCriteriaModel.settingPoints[0].name, testName)
     }
     
-    func testGeocording_ok_validAddress() {
+    func testGeocoding_ok_validAddress() {
         let searchCriteriaModel = SearchCriteriaModel()
         let testAddress = "東京都千代田区丸の内1丁目"
         let testRow = 0
@@ -34,7 +34,7 @@ class SearchCriteriaModelTests: XCTestCase {
         self.waitForExpectations(timeout: 10, handler: nil)
     }
     
-    func testGeocording_ng_invalidAddress() {
+    func testGeocoding_ng_invalidAddress() {
         let searchCriteriaModel = SearchCriteriaModel()
         let testAddress = "無効な住所"
         let testRow = 0
