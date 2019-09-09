@@ -37,13 +37,13 @@ class SearchCriteriaModel: SearchCriteriaModelProtocol {
     
     // 住所等から地理座標を設定する
     func geocoding(address: String, row: Int) {
-        settingPoints[row].address = address
         CLGeocoder().geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
             if((error) == nil){
                 guard let coordinate = placemarks?.first?.location?.coordinate else {
                     self.notify()
                     return
                 }
+                self.settingPoints[row].address = address
                 self.settingPoints[row].latitude = coordinate.latitude
                 self.settingPoints[row].longitude = coordinate.longitude
             }
