@@ -7,24 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
+		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
+		9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6552325396900A5C558 /* PinMusubiTests.swift */; };
+		9197D65F23253ADB00A5C558 /* SearchCriteriaModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */; };
 		91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4C2301296E00430D41 /* AppDelegate.swift */; };
-		91B3EB4F2301296E00430D41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4E2301296E00430D41 /* ViewController.swift */; };
-		91B3EB522301296E00430D41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB502301296E00430D41 /* Main.storyboard */; };
+		91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */; };
+		91B3EB522301296E00430D41 /* SearchCriteria.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB502301296E00430D41 /* SearchCriteria.storyboard */; };
 		91B3EB542301296F00430D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB532301296F00430D41 /* Assets.xcassets */; };
 		91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB552301296F00430D41 /* LaunchScreen.storyboard */; };
+		91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SearchCriteriaModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9197D64A2325395B00A5C558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B3EB412301296E00430D41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91B3EB482301296E00430D41;
+			remoteInfo = PinMusubi;
+		};
+		9197D6582325396900A5C558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B3EB412301296E00430D41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91B3EB482301296E00430D41;
+			remoteInfo = PinMusubi;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointEntity.swift; sourceTree = "<group>"; };
+		9197D6452325395B00A5C558 /* PinMusubiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinMusubiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9197D6472325395B00A5C558 /* PinMusubiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiUITests.swift; sourceTree = "<group>"; };
+		9197D6492325395B00A5C558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9197D6532325396900A5C558 /* PinMusubiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinMusubiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9197D6552325396900A5C558 /* PinMusubiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiTests.swift; sourceTree = "<group>"; };
+		9197D6572325396900A5C558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaModelTests.swift; sourceTree = "<group>"; };
 		91B3EB492301296E00430D41 /* PinMusubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinMusubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B3EB4C2301296E00430D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		91B3EB4E2301296E00430D41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		91B3EB512301296E00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaViewController.swift; sourceTree = "<group>"; };
+		91B3EB512301296E00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchCriteria.storyboard; sourceTree = "<group>"; };
 		91B3EB532301296F00430D41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91B3EB562301296F00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91B3EB582301296F00430D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91BDCB932324B25600E4B5C4 /* SearchCriteriaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9197D6422325395B00A5C558 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9197D6502325396900A5C558 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91B3EB462301296E00430D41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -35,10 +80,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9197D63E23250D2400A5C558 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		9197D6462325395B00A5C558 /* PinMusubiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9197D6472325395B00A5C558 /* PinMusubiUITests.swift */,
+				9197D6492325395B00A5C558 /* Info.plist */,
+			);
+			path = PinMusubiUITests;
+			sourceTree = "<group>";
+		};
+		9197D6542325396900A5C558 /* PinMusubiTests */ = {
+			isa = PBXGroup;
+			children = (
+				9197D65D23253A8100A5C558 /* Model */,
+				9197D6552325396900A5C558 /* PinMusubiTests.swift */,
+				9197D6572325396900A5C558 /* Info.plist */,
+			);
+			path = PinMusubiTests;
+			sourceTree = "<group>";
+		};
+		9197D65D23253A8100A5C558 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		91B3EB402301296E00430D41 = {
 			isa = PBXGroup;
 			children = (
 				91B3EB4B2301296E00430D41 /* PinMusubi */,
+				9197D6462325395B00A5C558 /* PinMusubiUITests */,
+				9197D6542325396900A5C558 /* PinMusubiTests */,
 				91B3EB4A2301296E00430D41 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				91B3EB492301296E00430D41 /* PinMusubi.app */,
+				9197D6452325395B00A5C558 /* PinMusubiUITests.xctest */,
+				9197D6532325396900A5C558 /* PinMusubiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,9 +139,10 @@
 			isa = PBXGroup;
 			children = (
 				91B3EB612301326600430D41 /* Common */,
+				9197D63E23250D2400A5C558 /* Entity */,
 				91B3EB602301325100430D41 /* Model */,
 				91B3EB5E2301322200430D41 /* View */,
-				91B3EB5F2301323800430D41 /* Controller */,
+				91B3EB5F2301323800430D41 /* Presenter */,
 				91B3EB622301332C00430D41 /* Resouce */,
 			);
 			path = PinMusubi;
@@ -66,23 +151,24 @@
 		91B3EB5E2301322200430D41 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				91B3EB502301296E00430D41 /* Main.storyboard */,
-				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
+				91BDCB912324AE3200E4B5C4 /* storyboard */,
+				91BDCB952324B2CB00E4B5C4 /* xib */,
+				91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		91B3EB5F2301323800430D41 /* Controller */ = {
+		91B3EB5F2301323800430D41 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				91B3EB4E2301296E00430D41 /* ViewController.swift */,
 			);
-			path = Controller;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		91B3EB602301325100430D41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91BDCB932324B25600E4B5C4 /* SearchCriteriaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,9 +190,61 @@
 			path = Resouce;
 			sourceTree = "<group>";
 		};
+		91BDCB912324AE3200E4B5C4 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				91B3EB502301296E00430D41 /* SearchCriteria.storyboard */,
+				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
+			);
+			path = storyboard;
+			sourceTree = "<group>";
+		};
+		91BDCB952324B2CB00E4B5C4 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9197D6442325395B00A5C558 /* PinMusubiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9197D64C2325395B00A5C558 /* Build configuration list for PBXNativeTarget "PinMusubiUITests" */;
+			buildPhases = (
+				9197D6412325395B00A5C558 /* Sources */,
+				9197D6422325395B00A5C558 /* Frameworks */,
+				9197D6432325395B00A5C558 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9197D64B2325395B00A5C558 /* PBXTargetDependency */,
+			);
+			name = PinMusubiUITests;
+			productName = PinMusubiUITests;
+			productReference = 9197D6452325395B00A5C558 /* PinMusubiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		9197D6522325396900A5C558 /* PinMusubiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9197D65A2325396900A5C558 /* Build configuration list for PBXNativeTarget "PinMusubiTests" */;
+			buildPhases = (
+				9197D64F2325396900A5C558 /* Sources */,
+				9197D6502325396900A5C558 /* Frameworks */,
+				9197D6512325396900A5C558 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9197D6592325396900A5C558 /* PBXTargetDependency */,
+			);
+			name = PinMusubiTests;
+			productName = PinMusubiTests;
+			productReference = 9197D6532325396900A5C558 /* PinMusubiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		91B3EB482301296E00430D41 /* PinMusubi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91B3EB5B2301296F00430D41 /* Build configuration list for PBXNativeTarget "PinMusubi" */;
@@ -130,10 +268,18 @@
 		91B3EB412301296E00430D41 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = naipaka;
 				TargetAttributes = {
+					9197D6442325395B00A5C558 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 91B3EB482301296E00430D41;
+					};
+					9197D6522325396900A5C558 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 91B3EB482301296E00430D41;
+					};
 					91B3EB482301296E00430D41 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -153,42 +299,90 @@
 			projectRoot = "";
 			targets = (
 				91B3EB482301296E00430D41 /* PinMusubi */,
+				9197D6442325395B00A5C558 /* PinMusubiUITests */,
+				9197D6522325396900A5C558 /* PinMusubiTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9197D6432325395B00A5C558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9197D6512325396900A5C558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91B3EB472301296E00430D41 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
-				91B3EB522301296E00430D41 /* Main.storyboard in Resources */,
+				91B3EB522301296E00430D41 /* SearchCriteria.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9197D6412325395B00A5C558 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9197D64F2325396900A5C558 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9197D65F23253ADB00A5C558 /* SearchCriteriaModelTests.swift in Sources */,
+				9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91B3EB452301296E00430D41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91B3EB4F2301296E00430D41 /* ViewController.swift in Sources */,
+				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
+				91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
+				91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9197D64B2325395B00A5C558 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91B3EB482301296E00430D41 /* PinMusubi */;
+			targetProxy = 9197D64A2325395B00A5C558 /* PBXContainerItemProxy */;
+		};
+		9197D6592325396900A5C558 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91B3EB482301296E00430D41 /* PinMusubi */;
+			targetProxy = 9197D6582325396900A5C558 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		91B3EB502301296E00430D41 /* Main.storyboard */ = {
+		91B3EB502301296E00430D41 /* SearchCriteria.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				91B3EB512301296E00430D41 /* Base */,
 			);
-			name = Main.storyboard;
+			name = SearchCriteria.storyboard;
 			sourceTree = "<group>";
 		};
 		91B3EB552301296F00430D41 /* LaunchScreen.storyboard */ = {
@@ -202,6 +396,88 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9197D64D2325395B00A5C558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NA4GG5YL9W;
+				INFOPLIST_FILE = PinMusubiUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PinMusubi;
+			};
+			name = Debug;
+		};
+		9197D64E2325395B00A5C558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NA4GG5YL9W;
+				INFOPLIST_FILE = PinMusubiUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PinMusubi;
+			};
+			name = Release;
+		};
+		9197D65B2325396900A5C558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NA4GG5YL9W;
+				INFOPLIST_FILE = PinMusubiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinMusubi.app/PinMusubi";
+			};
+			name = Debug;
+		};
+		9197D65C2325396900A5C558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NA4GG5YL9W;
+				INFOPLIST_FILE = PinMusubiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinMusubi.app/PinMusubi";
+			};
+			name = Release;
+		};
 		91B3EB592301296F00430D41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -357,6 +633,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9197D64C2325395B00A5C558 /* Build configuration list for PBXNativeTarget "PinMusubiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9197D64D2325395B00A5C558 /* Debug */,
+				9197D64E2325395B00A5C558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9197D65A2325396900A5C558 /* Build configuration list for PBXNativeTarget "PinMusubiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9197D65B2325396900A5C558 /* Debug */,
+				9197D65C2325396900A5C558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		91B3EB442301296E00430D41 /* Build configuration list for PBXProject "PinMusubi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
