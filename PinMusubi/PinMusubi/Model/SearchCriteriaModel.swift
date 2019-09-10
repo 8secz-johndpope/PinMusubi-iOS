@@ -19,16 +19,22 @@ protocol SearchCriteriaModelNotify {
 protocol SearchCriteriaModelProtocol: SearchCriteriaModelNotify {
     // 設定地点情報
     var settingPoints: [SettingPointEntity] { get }
+    // 中間地点情報
+    var halfwayPoint: CLLocationCoordinate2D { get }
     // 地点の名前を設定する
     func setPointName(name: String, row: Int)
     // 住所等から地理座標を設定する
     func geocoding(address: String, row: Int)
+    // 中間地点を計算して設定する
+    func calculateHalfPoint(settingPoints: [SettingPointEntity])
 }
 
 // 検索条件を設定するビジネスモデル
 class SearchCriteriaModel: SearchCriteriaModelProtocol {
     // 設定地点情報
     private(set) var settingPoints = [SettingPointEntity](repeating: SettingPointEntity(), count: 2)
+    // 中間地点情報
+    private(set) var halfwayPoint = CLLocationCoordinate2D()
     
     // 地点の名前を設定する
     func setPointName(name: String, row: Int) {
@@ -49,6 +55,11 @@ class SearchCriteriaModel: SearchCriteriaModelProtocol {
             }
             self.notify()
         })
+    }
+    
+    // 中間地点を計算して設定する
+    func calculateHalfPoint(settingPoints: [SettingPointEntity]) {
+        
     }
 }
 
