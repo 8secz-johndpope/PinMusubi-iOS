@@ -12,40 +12,44 @@ import XCTest
 
 class SearchCriteriaModelTests: XCTestCase {
     
+    var searchCriteriaModel: SearchCriteriaModel!
+    
+    override func setUp() {
+        super.setUp()
+        self.searchCriteriaModel = SearchCriteriaModel()
+    }
+    
     func testSetPointName_ok_validPointName() {
-        let searchCriteriaModel = SearchCriteriaModel()
-        let testName = "自分の家"
-        let testRow = 0
-        searchCriteriaModel.setPointName(name: testName, row: testRow)
-        XCTAssertEqual(searchCriteriaModel.settingPoints[0].name, testName)
+        let exampleName = "自分の家"
+        let exampleRow = 0
+        searchCriteriaModel.setPointName(name: exampleName, row: exampleRow)
+        XCTAssertEqual(searchCriteriaModel.settingPoints[0].name, exampleName)
     }
     
     func testGeocoding_ok_validAddress() {
-        let searchCriteriaModel = SearchCriteriaModel()
-        let testAddress = "東京都千代田区丸の内1丁目"
-        let testRow = 0
-        self.expectation(forNotification: NSNotification.Name(rawValue: "geocording"), object: nil) { (notification) -> Bool in
-            XCTAssertEqual(searchCriteriaModel.settingPoints[0].address, testAddress)
-            XCTAssertEqual(searchCriteriaModel.settingPoints[0].latitude, 35.67969030795562)
-            XCTAssertEqual(searchCriteriaModel.settingPoints[0].longitude, 139.76127710643334)
-            return true
-        }
-        searchCriteriaModel.geocoding(address: testAddress, row: testRow)
-        self.waitForExpectations(timeout: 10, handler: nil)
+        let geocodingExpectation: XCTestExpectation? = self.expectation(description: "geocoding")
+        let exampleAddress = "東京都千代田区丸の内1丁目"
+        let exampleRow = 0
+        searchCriteriaModel.geocoding(address: exampleAddress, row: exampleRow, complete:{
+            XCTAssertEqual(self.searchCriteriaModel.settingPoints[0].address, exampleAddress)
+            XCTAssertEqual(self.searchCriteriaModel.settingPoints[0].latitude, 35.67969030795562)
+            XCTAssertEqual(self.searchCriteriaModel.settingPoints[0].longitude, 139.76127710643334)
+            geocodingExpectation?.fulfill()
+        })
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
     
     func testGeocoding_ng_invalidAddress() {
-        let searchCriteriaModel = SearchCriteriaModel()
-        let testAddress = "無効な住所"
-        let testRow = 0
-        self.expectation(forNotification: NSNotification.Name(rawValue: "geocording"), object: nil) { (notification) -> Bool in
-            XCTAssertEqual(searchCriteriaModel.settingPoints[0].address, "")
-            XCTAssertEqual(searchCriteriaModel.settingPoints[0].latitude, CLLocationDegrees())
-            XCTAssertEqual(searchCriteriaModel.settingPoints[0].longitude, CLLocationDegrees())
-            return true
-        }
-        searchCriteriaModel.geocoding(address: testAddress, row: testRow)
-        self.waitForExpectations(timeout: 10, handler: nil)
+        let geocodingExpectation: XCTestExpectation? = self.expectation(description: "geocoding")
+        let exampleAddress = "無効な住所"
+        let exampleRow = 0
+        searchCriteriaModel.geocoding(address: exampleAddress, row: exampleRow, complete:{
+            XCTAssertEqual(self.searchCriteriaModel.settingPoints[0].address, "")
+            XCTAssertEqual(self.searchCriteriaModel.settingPoints[0].latitude, CLLocationDegrees())
+            XCTAssertEqual(self.searchCriteriaModel.settingPoints[0].longitude, CLLocationDegrees())
+            geocodingExpectation?.fulfill()
+        })
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
 }
 
