@@ -13,16 +13,16 @@ struct SettingPointEntity {
     var id: String
     var name: String
     var address: String
-    var longitude: CLLocationDegrees
     var latitude: CLLocationDegrees
+    var longitude: CLLocationDegrees
     var searchId: String
     
     init() {
         self.id = UUID().uuidString
         self.name = ""
         self.address = ""
-        self.longitude = CLLocationDegrees()
         self.latitude = CLLocationDegrees()
+        self.longitude = CLLocationDegrees()
         self.searchId = ""
     }
 }
