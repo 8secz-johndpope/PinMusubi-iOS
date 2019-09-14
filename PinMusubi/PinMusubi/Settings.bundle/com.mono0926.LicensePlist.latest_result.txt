@@ -16,6 +16,18 @@ body: TABLE OF CONTENTS
 1…
 version: 3.14.1
 
+name: Realm, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 3.14.1
+
+name: RealmSwift, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 3.14.1
+
 name: RealmSwift, nameSpecified: 
 body: TABLE OF CONTENTS
 
@@ -27,6 +39,18 @@ body: TABLE OF CONTENTS
 
 1…
 version: 3.14.1
+
+name: SwiftLint, nameSpecified: 
+body: The MIT License (MIT…
+version: 0.31.0
+
+name: SwiftLint, nameSpecified: 
+body: The MIT License (MIT…
+version: 0.31.0
+
+name: SwiftLint, nameSpecified: 
+body: The MIT License (MIT…
+version: 0.31.0
 
 add-version-numbers: false
 

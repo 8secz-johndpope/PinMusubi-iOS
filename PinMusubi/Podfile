@@ -8,17 +8,20 @@ target 'PinMusubi' do
   # Pods for PinMusubi
   pod 'RealmSwift'
   pod 'LicensePlist'
+  pod 'SwiftLint'
 
   target 'PinMusubiTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'RealmSwift'
+    pod 'SwiftLint'
   end
 
   target 'PinMusubiUITests' do
     inherit! :search_paths
     # Pods for testing
     pod 'RealmSwift'
+    pod 'SwiftLint'
   end
 
 end

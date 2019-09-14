@@ -6,8 +6,8 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 
 struct SettingPointEntity {
     var id: String
@@ -16,7 +16,7 @@ struct SettingPointEntity {
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
     var searchId: String
-    
+
     init() {
         self.id = UUID().uuidString
         self.name = ""
