@@ -1,0 +1,26 @@
+PODS:
+  - LicensePlist (2.5.0)
+  - Realm (3.14.1):
+    - Realm/Headers (= 3.14.1)
+  - Realm/Headers (3.14.1)
+  - RealmSwift (3.14.1):
+    - Realm (= 3.14.1)
+
+DEPENDENCIES:
+  - LicensePlist
+  - RealmSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - LicensePlist
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  LicensePlist: e5f8f2e3465620e53ec4c669955a5a7d0692b9cb
+  Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
+  RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
+
+PODFILE CHECKSUM: 8aa0d52015d6b4bec27c34b01a85ed13098d8521
+
+COCOAPODS: 1.6.0

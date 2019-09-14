@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17030E95FFCBDC9186A83BD2 /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */; };
+		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
 		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
 		9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6552325396900A5C558 /* PinMusubiTests.swift */; };
@@ -17,6 +19,7 @@
 		91B3EB542301296F00430D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB532301296F00430D41 /* Assets.xcassets */; };
 		91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB552301296F00430D41 /* LaunchScreen.storyboard */; };
 		91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SearchCriteriaModel.swift */; };
+		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18C269437F6D9E80752688A3 /* Pods-PinMusubiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		18EBDFE939DBCE16817C3F1D /* Pods-PinMusubiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3E08172F3AAD4FD73D4643F1 /* Pods-PinMusubi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubi.release.xcconfig"; path = "Target Support Files/Pods-PinMusubi/Pods-PinMusubi.release.xcconfig"; sourceTree = "<group>"; };
+		3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubi.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubi/Pods-PinMusubi.debug.xcconfig"; sourceTree = "<group>"; };
+		689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointEntity.swift; sourceTree = "<group>"; };
 		9197D6452325395B00A5C558 /* PinMusubiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinMusubiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9197D6472325395B00A5C558 /* PinMusubiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiUITests.swift; sourceTree = "<group>"; };
@@ -45,6 +56,7 @@
 		9197D6552325396900A5C558 /* PinMusubiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiTests.swift; sourceTree = "<group>"; };
 		9197D6572325396900A5C558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaModelTests.swift; sourceTree = "<group>"; };
+		91AF02FE84A12FDA85793C7B /* Pods-PinMusubiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B3EB492301296E00430D41 /* PinMusubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinMusubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B3EB4C2301296E00430D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +88,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17030E95FFCBDC9186A83BD2 /* Pods_PinMusubi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AF5D57647BF5B5067C02D3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */,
+				45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */,
+				3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		775C6CE653D600985935A5BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */,
+				3E08172F3AAD4FD73D4643F1 /* Pods-PinMusubi.release.xcconfig */,
+				18C269437F6D9E80752688A3 /* Pods-PinMusubiTests.debug.xcconfig */,
+				689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */,
+				91AF02FE84A12FDA85793C7B /* Pods-PinMusubiUITests.debug.xcconfig */,
+				18EBDFE939DBCE16817C3F1D /* Pods-PinMusubiUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9197D63E23250D2400A5C558 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +160,8 @@
 				9197D6462325395B00A5C558 /* PinMusubiUITests */,
 				9197D6542325396900A5C558 /* PinMusubiTests */,
 				91B3EB4A2301296E00430D41 /* Products */,
+				775C6CE653D600985935A5BA /* Pods */,
+				2AF5D57647BF5B5067C02D3A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,6 +253,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9197D64C2325395B00A5C558 /* Build configuration list for PBXNativeTarget "PinMusubiUITests" */;
 			buildPhases = (
+				598418214F682FC55C061670 /* [CP] Check Pods Manifest.lock */,
 				9197D6412325395B00A5C558 /* Sources */,
 				9197D6422325395B00A5C558 /* Frameworks */,
 				9197D6432325395B00A5C558 /* Resources */,
@@ -231,9 +272,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9197D65A2325396900A5C558 /* Build configuration list for PBXNativeTarget "PinMusubiTests" */;
 			buildPhases = (
+				A948E6F0A1E2098900A38897 /* [CP] Check Pods Manifest.lock */,
 				9197D64F2325396900A5C558 /* Sources */,
 				9197D6502325396900A5C558 /* Frameworks */,
 				9197D6512325396900A5C558 /* Resources */,
+				40C44FE30F52FF892244E7EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,9 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91B3EB5B2301296F00430D41 /* Build configuration list for PBXNativeTarget "PinMusubi" */;
 			buildPhases = (
+				670BF2416EF301958C78F475 /* [CP] Check Pods Manifest.lock */,
 				91B3EB452301296E00430D41 /* Sources */,
 				91B3EB462301296E00430D41 /* Frameworks */,
 				91B3EB472301296E00430D41 /* Resources */,
+				FB9911A95E6F814F4D409BB1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -332,6 +377,123 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40C44FE30F52FF892244E7EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		598418214F682FC55C061670 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinMusubiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		670BF2416EF301958C78F475 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinMusubi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A948E6F0A1E2098900A38897 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinMusubiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB9911A95E6F814F4D409BB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinMusubi/Pods-PinMusubi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinMusubi/Pods-PinMusubi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9197D6412325395B00A5C558 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -398,6 +560,7 @@
 /* Begin XCBuildConfiguration section */
 		9197D64D2325395B00A5C558 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91AF02FE84A12FDA85793C7B /* Pods-PinMusubiUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
@@ -418,6 +581,7 @@
 		};
 		9197D64E2325395B00A5C558 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18EBDFE939DBCE16817C3F1D /* Pods-PinMusubiUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
@@ -438,6 +602,7 @@
 		};
 		9197D65B2325396900A5C558 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18C269437F6D9E80752688A3 /* Pods-PinMusubiTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -459,6 +624,7 @@
 		};
 		9197D65C2325396900A5C558 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -596,11 +762,13 @@
 		};
 		91B3EB5C2301296F00430D41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -614,11 +782,13 @@
 		};
 		91B3EB5D2301296F00430D41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E08172F3AAD4FD73D4643F1 /* Pods-PinMusubi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
