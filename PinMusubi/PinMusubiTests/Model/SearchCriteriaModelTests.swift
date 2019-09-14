@@ -28,8 +28,8 @@ class SearchCriteriaModelTests: XCTestCase {
         let exampleAddress = "東京都千代田区丸の内1丁目"
         searchCriteriaModel.geocoding(address: exampleAddress, row: 0, complete:{
             XCTAssertEqual(searchCriteriaModel.settingPoints[0].address, exampleAddress)
-            XCTAssertEqual(searchCriteriaModel.settingPoints[0].latitude, 35.67969030795562)
-            XCTAssertEqual(searchCriteriaModel.settingPoints[0].longitude, 139.76127710643334)
+            XCTAssertEqual(searchCriteriaModel.settingPoints[0].latitude, 35.68531202403424)
+            XCTAssertEqual(searchCriteriaModel.settingPoints[0].longitude, 139.7631179946106)
             geocodingExpectation?.fulfill()
         })
         self.waitForExpectations(timeout: 1, handler: nil)
