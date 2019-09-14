@@ -25,6 +25,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+PinMusubi/PinMusubi.xcworkspace/xcshareddata/
 
 ## Other
 *.moved-aside
