@@ -17,7 +17,6 @@ public class SettingPointEntity: Object {
     public dynamic var address: String = ""
     public dynamic var latitude = CLLocationDegrees()
     public dynamic var longitude = CLLocationDegrees()
-    public dynamic var searchId: String = ""
 
     override public static func primaryKey() -> String? {
         return "id"

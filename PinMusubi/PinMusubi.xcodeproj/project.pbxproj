@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		17030E95FFCBDC9186A83BD2 /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */; };
 		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
+		915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
 		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
 		9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6552325396900A5C558 /* PinMusubiTests.swift */; };
@@ -48,6 +49,7 @@
 		658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubi.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubi/Pods-PinMusubi.debug.xcconfig"; sourceTree = "<group>"; };
 		689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryEntity.swift; sourceTree = "<group>"; };
 		9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointEntity.swift; sourceTree = "<group>"; };
 		9197D6452325395B00A5C558 /* PinMusubiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinMusubiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9197D6472325395B00A5C558 /* PinMusubiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiUITests.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
+				915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
+				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
