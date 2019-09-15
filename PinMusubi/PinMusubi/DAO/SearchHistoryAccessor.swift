@@ -9,9 +9,13 @@
 import Foundation
 import RealmSwift
 
+/// 検索履歴のデータアクセスクラス
 public class SearchHistoryAccessor: AccessorProtcol {
+    /// オブジェクトタイプの設定
     public typealias ObjectType = SearchHistoryEntity
 
+    /// idから対応するデータを取得
+    /// - Parameter id: 検索ID
     public func getByID(id: String) -> SearchHistoryEntity? {
         do {
             let realm = try Realm()
@@ -25,6 +29,7 @@ public class SearchHistoryAccessor: AccessorProtcol {
         return nil
     }
 
+    /// 全件検索
     public func getAll() -> Results<SearchHistoryEntity>? {
         do {
             let realm = try Realm()

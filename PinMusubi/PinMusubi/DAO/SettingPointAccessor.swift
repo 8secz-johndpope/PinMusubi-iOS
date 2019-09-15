@@ -9,9 +9,13 @@
 import Foundation
 import RealmSwift
 
+/// 設定地点情報のデータアクセスクラス
 public class SettingPointAccessor: AccessorProtcol {
+    /// オブジェクトタイプの設定
     public typealias ObjectType = SettingPointEntity
 
+    /// idから対応するデータを取得
+    /// - Parameter id: 地点ID
     public func getByID(id: String) -> SettingPointEntity? {
         do {
             let realm = try Realm()
@@ -25,6 +29,7 @@ public class SettingPointAccessor: AccessorProtcol {
         return nil
     }
 
+    /// 全件検索
     public func getAll() -> Results<SettingPointEntity>? {
         do {
             let realm = try Realm()

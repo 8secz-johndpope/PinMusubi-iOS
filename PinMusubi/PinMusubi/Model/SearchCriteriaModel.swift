@@ -9,26 +9,27 @@
 import CoreLocation
 import Foundation
 
-// 検索条件を設定するビジネスモデルのプロトコル
+/// 検索条件を設定するビジネスモデルのプロトコル
 private protocol SearchCriteriaModelProtocol {
-    // 設定地点情報
+    /// 設定地点情報
     var settingPoints: [SettingPointEntity] { get }
-    // 設定地点情報を管理
+    /// 設定地点情報を管理
     func manageSettingPoints(row: Int)
-    // 地点の名前を設定する
+    /// 地点の名前を設定する
     func setPointName(name: String, row: Int)
-    // 住所等から地理座標を設定する
+    /// 住所等から地理座標を設定する
     func geocoding(address: String, row: Int, complete: @escaping () -> Void)
-    // 中間地点を計算して返却する
+    /// 中間地点を計算して返却する
     func calculateHalfPoint() -> CLLocationCoordinate2D
 }
 
-// 検索条件を設定するビジネスモデル
+/// 検索条件を設定するビジネスモデル
 public class SearchCriteriaModel: SearchCriteriaModelProtocol {
-    // 設定地点情報
+    /// 設定地点情報
     internal private(set) var settingPoints = [SettingPointEntity]()
 
-    // 設定地点情報を管理
+    /// 設定地点情報を管理
+    /// - Parameter row: テーブルの列番号
     public func manageSettingPoints(row: Int) {
         if settingPoints.count <= row {
             for _ in settingPoints.count...row {
@@ -37,13 +38,18 @@ public class SearchCriteriaModel: SearchCriteriaModelProtocol {
         }
     }
 
-    // 地点の名前を設定する
+    /// 地点の名前を設定する
+    /// - Parameter name: 地点の名前
+    /// - Parameter row: テーブルの列番号
     public func setPointName(name: String, row: Int) {
         manageSettingPoints(row: row)
         settingPoints[row].name = name
     }
 
-    // 住所等から地理座標を設定する
+    /// 住所等から地理座標を設定する
+    /// - Parameter address: 住所情報
+    /// - Parameter row: テーブルの列番号
+    /// - Parameter complete: コールバック
     public func geocoding(address: String, row: Int, complete: @escaping () -> Void) {
         manageSettingPoints(row: row)
         CLGeocoder().geocodeAddressString(address, completionHandler: {placemarks, error -> Void in
@@ -61,7 +67,7 @@ public class SearchCriteriaModel: SearchCriteriaModelProtocol {
         )
     }
 
-    // 中間地点を計算して返却する
+    /// 中間地点を計算して返却する
     public func calculateHalfPoint() -> CLLocationCoordinate2D {
         var halfwayPoint = CLLocationCoordinate2D()
         for settingPoint in settingPoints {
