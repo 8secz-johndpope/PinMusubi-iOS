@@ -13,6 +13,8 @@
 		915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
 		915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
 		915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */; };
+		915A44B1232F3195006A6891 /* SettingPointAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44B0232F3195006A6891 /* SettingPointAccessorTests.swift */; };
+		915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */; };
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
 		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
 		9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6552325396900A5C558 /* PinMusubiTests.swift */; };
@@ -56,6 +58,8 @@
 		915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorProtcol.swift; sourceTree = "<group>"; };
 		915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessor.swift; sourceTree = "<group>"; };
 		915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryAccessor.swift; sourceTree = "<group>"; };
+		915A44B0232F3195006A6891 /* SettingPointAccessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessorTests.swift; sourceTree = "<group>"; };
+		915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryAccessorTests.swift; sourceTree = "<group>"; };
 		9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointEntity.swift; sourceTree = "<group>"; };
 		9197D6452325395B00A5C558 /* PinMusubiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinMusubiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9197D6472325395B00A5C558 /* PinMusubiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiUITests.swift; sourceTree = "<group>"; };
@@ -136,6 +140,15 @@
 			path = DAO;
 			sourceTree = "<group>";
 		};
+		915A44AF232F316A006A6891 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				915A44B0232F3195006A6891 /* SettingPointAccessorTests.swift */,
+				915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 		9197D63E23250D2400A5C558 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +170,7 @@
 		9197D6542325396900A5C558 /* PinMusubiTests */ = {
 			isa = PBXGroup;
 			children = (
+				915A44AF232F316A006A6891 /* DAO */,
 				9197D65D23253A8100A5C558 /* Model */,
 				9197D6552325396900A5C558 /* PinMusubiTests.swift */,
 				9197D6572325396900A5C558 /* Info.plist */,
@@ -628,7 +642,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915A44B1232F3195006A6891 /* SettingPointAccessorTests.swift in Sources */,
 				9197D65F23253ADB00A5C558 /* SearchCriteriaModelTests.swift in Sources */,
+				915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */,
 				9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

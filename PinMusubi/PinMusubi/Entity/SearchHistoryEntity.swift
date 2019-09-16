@@ -22,7 +22,7 @@ public class SearchHistoryEntity: Object {
     /// 検索日時
     public dynamic var dateTime = Date()
     /// 設定地点情報
-    public var searchPointEntityList = List<SearchHistoryEntity>()
+    public var settingPointEntityList = List<SettingPointEntity>()
 
     /// プライマリキーの設定
     override public static func primaryKey() -> String? {
