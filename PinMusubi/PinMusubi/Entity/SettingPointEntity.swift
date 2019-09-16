@@ -8,21 +8,24 @@
 
 import CoreLocation
 import Foundation
+import RealmSwift
 
-struct SettingPointEntity {
-    var id: String
-    var name: String
-    var address: String
-    var latitude: CLLocationDegrees
-    var longitude: CLLocationDegrees
-    var searchId: String
+@objcMembers
+/// 設定地点情報
+public class SettingPointEntity: Object {
+    /// 地点ID
+    public dynamic var id: String = UUID().uuidString
+    /// 地点の名前
+    public dynamic var name: String = ""
+    /// 住所情報
+    public dynamic var address: String = ""
+    /// 緯度
+    public dynamic var latitude = CLLocationDegrees()
+    /// 経度
+    public dynamic var longitude = CLLocationDegrees()
 
-    init() {
-        self.id = UUID().uuidString
-        self.name = ""
-        self.address = ""
-        self.latitude = CLLocationDegrees()
-        self.longitude = CLLocationDegrees()
-        self.searchId = ""
+    /// プライマリキーの設定
+    override public static func primaryKey() -> String? {
+        return "id"
     }
 }

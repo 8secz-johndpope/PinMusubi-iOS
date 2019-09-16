@@ -6,21 +6,24 @@ target 'PinMusubi' do
   use_frameworks!
 
   # Pods for PinMusubi
-  pod 'RealmSwift'
+  pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
+  pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
   pod 'LicensePlist'
   pod 'SwiftLint'
 
   target 'PinMusubiTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'RealmSwift'
+    pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
+    pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'SwiftLint'
   end
 
   target 'PinMusubiUITests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'RealmSwift'
+    pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
+    pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'SwiftLint'
   end
 

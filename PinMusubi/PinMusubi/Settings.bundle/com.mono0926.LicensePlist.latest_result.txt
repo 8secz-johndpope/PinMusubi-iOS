@@ -8,37 +8,37 @@ name: Realm, nameSpecified:
 body: TABLE OF CONTENTS
 
 1…
-version: 3.14.1
+version: 3.18.0
 
 name: Realm, nameSpecified: 
 body: TABLE OF CONTENTS
 
 1…
-version: 3.14.1
+version: 3.18.0
 
 name: Realm, nameSpecified: 
 body: TABLE OF CONTENTS
 
 1…
-version: 3.14.1
+version: 3.18.0
 
 name: RealmSwift, nameSpecified: 
 body: TABLE OF CONTENTS
 
 1…
-version: 3.14.1
+version: 3.18.0
 
 name: RealmSwift, nameSpecified: 
 body: TABLE OF CONTENTS
 
 1…
-version: 3.14.1
+version: 3.18.0
 
 name: RealmSwift, nameSpecified: 
 body: TABLE OF CONTENTS
 
 1…
-version: 3.14.1
+version: 3.18.0
 
 name: SwiftLint, nameSpecified: 
 body: The MIT License (MIT…
