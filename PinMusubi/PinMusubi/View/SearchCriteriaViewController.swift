@@ -12,7 +12,10 @@ import UIKit
 public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet private var searchMapView: MKMapView!
     private let annotation = MKPointAnnotation()
+    private var lines = [MKPolyline]()
     private var colorNumber = 0
+    private var settingPoints = [SettingPointEntity]()
+    private var halfwayPoint = CLLocationCoordinate2D()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,49 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
         setPin(settingPoints: settingPointEntityList, halfwayPoint: halfwayPoint)
     }
 
+    /// アノテーションの設定
+    /// - Parameter mapView: searchCriteriaView
+    /// - Parameter annotation: annotation
+    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pinAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "halfwayPoint")
+        pinAnnotationView.isDraggable = true
+        pinAnnotationView.canShowCallout = true
+        return pinAnnotationView
+    }
+
+    /// ピンをドラッグした時の処理
+    /// - Parameter mapView:searchCriteriaView
+    /// - Parameter view: view
+    /// - Parameter newState: newState
+    /// - Parameter oldState: oldState
+    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+        if newState == .starting {
+            for line in lines {
+                searchMapView.removeOverlay(line)
+            }
+        }
+
+        if newState == .ending {
+            guard let relesePoint = view.annotation?.coordinate else { return }
+            self.halfwayPoint = relesePoint
+            colorNumber -= settingPoints.count
+            for settingPoint in settingPoints {
+                let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+                let line = MKPolyline(coordinates: [halfwayPoint, settingPointLocation], count: 2)
+                lines.append(line)
+                searchMapView.addOverlay(line)
+                if colorNumber < ColorDefinition.settingPointColors.count - 1 {
+                    colorNumber += 1
+                } else {
+                    colorNumber = 0
+                }
+            }
+        }
+    }
+
+    /// overlayを追加するイベント発生時に行うoverlayの設定
+    /// - Parameter mapView: searchCriteriaView
+    /// - Parameter overlay: overlay(MKPolyline or MKCircle)
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer: MKOverlayPathRenderer
 
@@ -58,10 +104,10 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
 
         case is MKCircle:
             renderer = MKCircleRenderer(overlay: overlay)
-            renderer.lineWidth = 5
+            renderer.lineWidth = 3
             renderer.strokeColor = UIColor.white
             renderer.fillColor = ColorDefinition.settingPointColors[colorNumber]
-            renderer.alpha = 0.5
+            renderer.alpha = 0.8
 
         default:
             renderer = MKPolylineRenderer(overlay: overlay)
@@ -69,7 +115,14 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
         return renderer
     }
 
+    /// マップにピンを設定
+    /// - Parameter settingPoints: 設定地点情報
+    /// - Parameter halfwayPoint: 中間地点情報
     public func setPin(settingPoints: [SettingPointEntity], halfwayPoint: CLLocationCoordinate2D) {
+        // クラス変数に代入
+        self.settingPoints = settingPoints
+        self.halfwayPoint = halfwayPoint
+
         // 中間地点にピンを設置
         annotation.coordinate = halfwayPoint
         searchMapView.addAnnotation(annotation)
@@ -92,6 +145,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
             let circle = MKCircle(center: settingPointLocation, radius: delta * 2_000)
             let line = MKPolyline(coordinates: [halfwayPoint, settingPointLocation], count: 2)
+            lines.append(line)
             searchMapView.addOverlay(circle)
             searchMapView.addOverlay(line)
             if colorNumber < ColorDefinition.settingPointColors.count - 1 {

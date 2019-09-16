@@ -15,6 +15,7 @@
 		915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */; };
 		915A44B1232F3195006A6891 /* SettingPointAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44B0232F3195006A6891 /* SettingPointAccessorTests.swift */; };
 		915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */; };
+		917E4094232FCA1E00718EC4 /* halfwayPointPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 917E4093232FCA1E00718EC4 /* halfwayPointPin.png */; };
 		91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91816D9F232F6D5D00C48C78 /* MapKit.framework */; };
 		918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CC477232F91D00047BC88 /* ColorDefinition.swift */; };
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
@@ -62,6 +63,7 @@
 		915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryAccessor.swift; sourceTree = "<group>"; };
 		915A44B0232F3195006A6891 /* SettingPointAccessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessorTests.swift; sourceTree = "<group>"; };
 		915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryAccessorTests.swift; sourceTree = "<group>"; };
+		917E4093232FCA1E00718EC4 /* halfwayPointPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = halfwayPointPin.png; path = ../../../../../../Downloads/halfwayPointPin.png; sourceTree = "<group>"; };
 		91816D9F232F6D5D00C48C78 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		918CC477232F91D00047BC88 /* ColorDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDefinition.swift; sourceTree = "<group>"; };
 		9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointEntity.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 		91B3EB622301332C00430D41 /* Resouce */ = {
 			isa = PBXGroup;
 			children = (
+				917E4093232FCA1E00718EC4 /* halfwayPointPin.png */,
 				91B3EB532301296F00430D41 /* Assets.xcassets */,
 				91B3EB582301296F00430D41 /* Info.plist */,
 			);
@@ -418,6 +421,7 @@
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
 				91B3EB522301296E00430D41 /* SearchCriteria.storyboard in Resources */,
+				917E4094232FCA1E00718EC4 /* halfwayPointPin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
