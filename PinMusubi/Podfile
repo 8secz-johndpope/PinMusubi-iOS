@@ -10,6 +10,7 @@ target 'PinMusubi' do
   pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
   pod 'LicensePlist'
   pod 'SwiftLint'
+  pod 'FloatingPanel'
 
   target 'PinMusubiTests' do
     inherit! :search_paths
@@ -17,6 +18,7 @@ target 'PinMusubi' do
     pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'SwiftLint'
+    pod 'FloatingPanel'
   end
 
   target 'PinMusubiUITests' do
@@ -25,6 +27,7 @@ target 'PinMusubi' do
     pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'SwiftLint'
+    pod 'FloatingPanel'
   end
 
 end
