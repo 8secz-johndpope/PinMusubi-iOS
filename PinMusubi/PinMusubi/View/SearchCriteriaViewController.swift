@@ -155,4 +155,9 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
+
+    /// StatusBarを非表示に設定
+    override public var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
