@@ -21,15 +21,22 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        searchMapView.delegate = self
 
-        // モーダル表示を行う
-        let modalViewController = SearchCriteriaModalViewController()
-        floatingPanelController.set(contentViewController: modalViewController)
-        floatingPanelController.addPanel(toParent: self, belowView: nil, animated: false)
+        searchMapView.delegate = self
+        floatingPanelController.delegate = self
 
         ///TODO テストデータ後で消す
         setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
+    }
+
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // モーダル表示を行う
+        let modalViewController = SearchCriteriaModalViewController()
+        floatingPanelController.surfaceView.cornerRadius = 10
+        floatingPanelController.set(contentViewController: modalViewController)
+        floatingPanelController.addPanel(toParent: self, belowView: nil, animated: false)
     }
 
     /// ビューが非表示になり始める時の設定
@@ -151,5 +158,11 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
     /// StatusBarを非表示に設定
     override public var prefersStatusBarHidden: Bool {
         return true
+    }
+}
+
+extension SearchCriteriaViewController: FloatingPanelControllerDelegate {
+    public func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
+        return CustomFloatingPanelLayout()
     }
 }
