@@ -9,7 +9,9 @@
 import Foundation
 import MapKit
 
-public class TestData {
+/// テストデータを設定するクラス
+public enum TestData {
+    /// ピンを設定するための座標を返却
     public static func setTestPin() -> ([SettingPointEntity], CLLocationCoordinate2D) {
         let settingPointEntity1 = SettingPointEntity()
         settingPointEntity1.name = "東京駅"

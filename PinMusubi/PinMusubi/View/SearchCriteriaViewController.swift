@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import FloatingPanel
 import MapKit
 import UIKit
 
@@ -16,13 +17,28 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
     private var colorNumber = 0
     private var settingPoints = [SettingPointEntity]()
     private var halfwayPoint = CLLocationCoordinate2D()
+    private var floatingPanelController = FloatingPanelController()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
         searchMapView.delegate = self
 
+        // モーダル表示を行う
+        let modalViewController = SearchCriteriaModalViewController()
+        floatingPanelController.set(contentViewController: modalViewController)
+        floatingPanelController.addPanel(toParent: self, belowView: nil, animated: false)
+
         ///TODO テストデータ後で消す
         setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
+    }
+
+    /// ビューが非表示になり始める時の設定
+    /// - Parameter animated: animationを行うか
+    override public func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // セミモーダルビューを非表示に設定
+        floatingPanelController.removePanelFromParent(animated: true)
     }
 
     /// アノテーションの設定
