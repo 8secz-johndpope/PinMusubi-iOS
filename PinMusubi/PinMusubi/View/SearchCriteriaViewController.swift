@@ -17,26 +17,26 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
     private var colorNumber = 0
     private var settingPoints = [SettingPointEntity]()
     private var halfwayPoint = CLLocationCoordinate2D()
-    private var floatingPanelController = FloatingPanelController()
+    private var fpc = FloatingPanelController()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         searchMapView.delegate = self
-        floatingPanelController.delegate = self
+        fpc.delegate = self
+
+        // モーダル表示を行う
+        let modalVC = SearchCriteriaModalViewController()
+        if #available(iOS 11, *) {
+            fpc.surfaceView.cornerRadius = 9.0
+        } else {
+            fpc.surfaceView.cornerRadius = 0.0
+        }
+        fpc.set(contentViewController: modalVC)
+        fpc.addPanel(toParent: self, animated: true)
 
         ///TODO テストデータ後で消す
         setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
-    }
-
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        // モーダル表示を行う
-        let modalViewController = SearchCriteriaModalViewController()
-        floatingPanelController.surfaceView.cornerRadius = 10
-        floatingPanelController.set(contentViewController: modalViewController)
-        floatingPanelController.addPanel(toParent: self, belowView: nil, animated: false)
     }
 
     /// ビューが非表示になり始める時の設定
@@ -45,7 +45,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
         super.viewWillDisappear(animated)
 
         // セミモーダルビューを非表示に設定
-        floatingPanelController.removePanelFromParent(animated: true)
+        fpc.removePanelFromParent(animated: true)
     }
 
     /// アノテーションの設定
@@ -154,15 +154,20 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-
-    /// StatusBarを非表示に設定
-    override public var prefersStatusBarHidden: Bool {
-        return true
-    }
 }
 
 extension SearchCriteriaViewController: FloatingPanelControllerDelegate {
     public func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
-        return CustomFloatingPanelLayout()
+        switch newCollection.verticalSizeClass {
+        case .compact:
+            fpc.surfaceView.borderWidth = 1.0 / traitCollection.displayScale
+            fpc.surfaceView.borderColor = UIColor.black.withAlphaComponent(0.2)
+            return CustomFloatingPanelLayout()
+
+        default:
+            fpc.surfaceView.borderWidth = 0.0
+            fpc.surfaceView.borderColor = nil
+            return nil
+        }
     }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleAspectFit" restorationIdentifier="ModalContentView" id="iN0-l3-epB" customClass="ModalContentView" customModule="PinMusubi">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6r-Yr-ol9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基準となる場所の設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxL-2I-n5f">
+                            <rect key="frame" x="100.66666666666669" y="20" width="174" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="HkR-bz-LeH"/>
+                        <constraint firstItem="FxL-2I-n5f" firstAttribute="centerY" secondItem="s6r-Yr-ol9" secondAttribute="centerY" id="dmq-pq-Lx8"/>
+                        <constraint firstItem="FxL-2I-n5f" firstAttribute="centerX" secondItem="s6r-Yr-ol9" secondAttribute="centerX" id="nzP-K8-s28"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQi-x2-kuB">
+                    <rect key="frame" x="0.0" y="68" width="375" height="676"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbq-2y-fj9">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="676"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </tableView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="sbq-2y-fj9" firstAttribute="leading" secondItem="N9p-3p-2uB" secondAttribute="leading" id="H3d-6R-bL7"/>
+                        <constraint firstAttribute="bottom" secondItem="sbq-2y-fj9" secondAttribute="bottom" id="Kun-H3-rAc"/>
+                        <constraint firstItem="sbq-2y-fj9" firstAttribute="bottom" secondItem="N9p-3p-2uB" secondAttribute="bottom" id="Yz7-pS-hMo"/>
+                        <constraint firstItem="sbq-2y-fj9" firstAttribute="centerX" secondItem="kQi-x2-kuB" secondAttribute="centerX" id="dBR-B1-wPt"/>
+                        <constraint firstItem="sbq-2y-fj9" firstAttribute="top" secondItem="pDG-hF-1Ci" secondAttribute="top" id="ev4-Ks-Io1"/>
+                        <constraint firstAttribute="trailing" secondItem="sbq-2y-fj9" secondAttribute="trailing" id="yU1-X6-O0W"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="pDG-hF-1Ci"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="N9p-3p-2uB"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="s6r-Yr-ol9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DdX-al-NDc"/>
+                <constraint firstItem="s6r-Yr-ol9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="JJs-F3-Ltc"/>
+                <constraint firstItem="kQi-x2-kuB" firstAttribute="leading" secondItem="s6r-Yr-ol9" secondAttribute="leading" id="LQ9-5X-dcc"/>
+                <constraint firstItem="s6r-Yr-ol9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oSO-27-YJL"/>
+                <constraint firstItem="kQi-x2-kuB" firstAttribute="trailing" secondItem="s6r-Yr-ol9" secondAttribute="trailing" id="tfY-en-8TI"/>
+                <constraint firstItem="kQi-x2-kuB" firstAttribute="top" secondItem="s6r-Yr-ol9" secondAttribute="bottom" constant="8" id="vMP-rH-pNT"/>
+                <constraint firstItem="kQi-x2-kuB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ybg-aw-RKJ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="modalTitle" destination="FxL-2I-n5f" id="z1z-hz-GMY"/>
+                <outlet property="scrollView" destination="kQi-x2-kuB" id="8kL-s7-ARm"/>
+            </connections>
+            <point key="canvasLocation" x="106.40000000000001" y="91.625615763546804"/>
+        </view>
+    </objects>
+</document>

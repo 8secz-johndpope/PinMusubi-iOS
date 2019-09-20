@@ -11,5 +11,11 @@ import UIKit
 public class SearchCriteriaModalViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
+
+        guard let modalContentView = UINib(nibName: "ModalContentView", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? UIView else {
+            return
+        }
+        modalContentView.frame = view.frame
+        view.addSubview(modalContentView)
     }
 }

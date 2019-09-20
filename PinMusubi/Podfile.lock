@@ -1,5 +1,5 @@
 PODS:
-  - FloatingPanel (1.5.0)
+  - FloatingPanel (1.6.5)
   - LicensePlist (2.5.0)
   - Realm (3.18.0):
     - Realm/Headers (= 3.18.0)
@@ -9,7 +9,7 @@ PODS:
   - SwiftLint (0.31.0)
 
 DEPENDENCIES:
-  - FloatingPanel
+  - FloatingPanel (~> 1.6.5)
   - LicensePlist
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
@@ -42,12 +42,12 @@ CHECKOUT OPTIONS:
     :submodules: true
 
 SPEC CHECKSUMS:
-  FloatingPanel: ab30960c8f8eb487100834967118fe54b8820ac3
+  FloatingPanel: f4a89a848e21415e2e2697ee8f61847178445aa7
   LicensePlist: e5f8f2e3465620e53ec4c669955a5a7d0692b9cb
   Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
   RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 49a8f4bf44811ae435b7bd4be5aafb1a6477a4f7
+PODFILE CHECKSUM: 7aa9b462499bfa770d3ed988faff025cff707ef8
 
 COCOAPODS: 1.6.0
