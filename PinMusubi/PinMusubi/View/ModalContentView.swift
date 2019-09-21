@@ -9,10 +9,17 @@
 import UIKit
 
 public class ModalContentView: UIView {
-    @IBOutlet private var scrollView: UIScrollView!
-    @IBOutlet private var modalTitle: UILabel!
+    @IBOutlet private var searchCriteriaTableView: UITableView!
 
     override public func awakeFromNib() {
         super.awakeFromNib()
+    }
+
+    public func getTableView() -> UITableView {
+        return searchCriteriaTableView
+    }
+
+    @IBAction private func didTapView(_ sender: Any) {
+        self.endEditing(true)
     }
 }

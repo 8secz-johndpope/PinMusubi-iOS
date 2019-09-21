@@ -73,7 +73,6 @@ opt_in_rules:
 - no_grouping_extension
 - nslocalizedstring_key
 - number_separator
-- object_literal
 - operator_usage_whitespace
 - overridden_super_call
 - override_in_extension

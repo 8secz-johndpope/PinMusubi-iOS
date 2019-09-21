@@ -13,14 +13,21 @@ import UIKit
 public enum ColorDefinition {
     /// 設定地点の円の色
     public static let settingPointColors = [
-        UIColor.systemRed,
-        UIColor.systemGreen,
-        UIColor.systemBlue,
+        UIColor(hex: "FA6400"),
+        UIColor(hex: "26AA52"),
+        UIColor(hex: "4284F4"),
         UIColor.systemOrange,
         UIColor.systemPurple,
         UIColor.systemGray,
         UIColor.systemYellow,
         UIColor.black,
         UIColor.brown
+    ]
+
+    /// モーダル内のピンの背景色
+    public static let underViewColorsOnModal = [
+        UIColor(hex: "FA6400", alpha: 0.16),
+        UIColor(hex: "26AA52", alpha: 0.16),
+        UIColor(hex: "4284F4", alpha: 0.16)
     ]
 }

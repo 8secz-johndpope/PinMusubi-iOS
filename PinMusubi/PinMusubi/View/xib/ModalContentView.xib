@@ -34,11 +34,13 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQi-x2-kuB">
                     <rect key="frame" x="0.0" y="68" width="375" height="676"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbq-2y-fj9">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbq-2y-fj9">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="676"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </tableView>
                     </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="sbq-2y-fj9" firstAttribute="leading" secondItem="N9p-3p-2uB" secondAttribute="leading" id="H3d-6R-bL7"/>
                         <constraint firstAttribute="bottom" secondItem="sbq-2y-fj9" secondAttribute="bottom" id="Kun-H3-rAc"/>
@@ -50,26 +52,43 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="pDG-hF-1Ci"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="N9p-3p-2uB"/>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eoe-XR-4XB">
+                    <rect key="frame" x="0.0" y="60" width="375" height="1"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="cOj-wD-pnj"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="Eoe-XR-4XB" firstAttribute="top" secondItem="s6r-Yr-ol9" secondAttribute="bottom" id="CAv-Nr-OW8"/>
                 <constraint firstItem="s6r-Yr-ol9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DdX-al-NDc"/>
                 <constraint firstItem="s6r-Yr-ol9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="JJs-F3-Ltc"/>
                 <constraint firstItem="kQi-x2-kuB" firstAttribute="leading" secondItem="s6r-Yr-ol9" secondAttribute="leading" id="LQ9-5X-dcc"/>
+                <constraint firstItem="kQi-x2-kuB" firstAttribute="top" secondItem="Eoe-XR-4XB" secondAttribute="bottom" constant="7" id="a8c-ba-1JI"/>
+                <constraint firstItem="Eoe-XR-4XB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jzk-SI-HDS"/>
                 <constraint firstItem="s6r-Yr-ol9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oSO-27-YJL"/>
                 <constraint firstItem="kQi-x2-kuB" firstAttribute="trailing" secondItem="s6r-Yr-ol9" secondAttribute="trailing" id="tfY-en-8TI"/>
                 <constraint firstItem="kQi-x2-kuB" firstAttribute="top" secondItem="s6r-Yr-ol9" secondAttribute="bottom" constant="8" id="vMP-rH-pNT"/>
                 <constraint firstItem="kQi-x2-kuB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ybg-aw-RKJ"/>
+                <constraint firstAttribute="trailing" secondItem="Eoe-XR-4XB" secondAttribute="trailing" id="yfO-Jb-fzv"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="modalTitle" destination="FxL-2I-n5f" id="z1z-hz-GMY"/>
-                <outlet property="scrollView" destination="kQi-x2-kuB" id="8kL-s7-ARm"/>
+                <outlet property="searchCriteriaTableView" destination="sbq-2y-fj9" id="eVn-hX-Hrs"/>
+                <outletCollection property="gestureRecognizers" destination="MFb-N6-v6y" appends="YES" id="AhO-b8-Prx"/>
             </connections>
             <point key="canvasLocation" x="106.40000000000001" y="91.625615763546804"/>
         </view>
+        <tapGestureRecognizer id="MFb-N6-v6y">
+            <connections>
+                <action selector="didTapView:" destination="iN0-l3-epB" id="d0K-8C-id6"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

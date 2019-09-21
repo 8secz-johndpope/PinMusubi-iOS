@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--設定-->
         <scene sceneID="Xgr-mP-kYk">
             <objects>
                 <viewController id="K8A-gx-Fhk" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PWE-HU-E6k"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="3a9-zz-oiO"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="gear" catalog="system" id="3a9-zz-oiO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ek-Fk-Rvg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,7 +34,7 @@
             </objects>
             <point key="canvasLocation" x="-871" y="288"/>
         </scene>
-        <!--View Controller-->
+        <!--マイページ-->
         <scene sceneID="ihV-MI-Fw7">
             <objects>
                 <viewController id="U9U-km-HwF" sceneMemberID="viewController">
@@ -44,7 +44,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NCP-uE-DjA"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="eZy-2w-RTH"/>
+                    <tabBarItem key="tabBarItem" title="マイページ" image="person.circle" catalog="system" id="eZy-2w-RTH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8F4-LI-2Ld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +57,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Am7-kC-VYa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="selectedImageTintColor" red="0.98039215690000003" green="0.3921568627" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="U9U-km-HwF" kind="relationship" relationship="viewControllers" id="yqq-HH-TFf"/>
@@ -70,4 +71,8 @@
             <point key="canvasLocation" x="-871" y="-254"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gear" catalog="system" width="64" height="60"/>
+        <image name="person.circle" catalog="system" width="64" height="62"/>
+    </resources>
 </document>

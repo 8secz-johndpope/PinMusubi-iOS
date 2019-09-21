@@ -39,15 +39,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
         setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
     }
 
-    /// ビューが非表示になり始める時の設定
-    /// - Parameter animated: animationを行うか
-    override public func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        // セミモーダルビューを非表示に設定
-        fpc.removePanelFromParent(animated: true)
-    }
-
     /// アノテーションの設定
     /// - Parameter mapView: searchCriteriaView
     /// - Parameter annotation: annotation
@@ -154,20 +145,14 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
+
+    @IBAction private func didTapView(_ sender: Any) {
+        self.view.endEditing(true)
+    }
 }
 
 extension SearchCriteriaViewController: FloatingPanelControllerDelegate {
     public func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
-        switch newCollection.verticalSizeClass {
-        case .compact:
-            fpc.surfaceView.borderWidth = 1.0 / traitCollection.displayScale
-            fpc.surfaceView.borderColor = UIColor.black.withAlphaComponent(0.2)
-            return CustomFloatingPanelLayout()
-
-        default:
-            fpc.surfaceView.borderWidth = 0.0
-            fpc.surfaceView.borderColor = nil
-            return nil
-        }
+        return CustomFloatingPanelLayout()
     }
 }

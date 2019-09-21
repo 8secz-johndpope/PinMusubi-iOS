@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search Criteria View Controller-->
+        <!--スポット検索-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchCriteriaViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,6 +19,9 @@
                             <mapView clipsSubviews="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gru-dM-RpU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="1mC-tP-gFM" appends="YES" id="Box-dd-nJe"/>
+                                </connections>
                             </mapView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zG1-UP-Xa6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -43,7 +46,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="8Ha-xs-NSh"/>
+                    <tabBarItem key="tabBarItem" title="スポット検索" image="PinOnModal0" id="8Ha-xs-NSh"/>
                     <navigationItem key="navigationItem" id="Egp-xS-vSR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -51,8 +54,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1mC-tP-gFM">
+                    <connections>
+                        <action selector="didTapView:" destination="BYZ-38-t0r" id="KW6-9v-c2I"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="228.98550724637684" y="117.85714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PinOnModal0" width="24" height="24"/>
+    </resources>
 </document>
