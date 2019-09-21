@@ -25,6 +25,17 @@ public class SearchCriteriaActionCell: UITableViewCell {
         removeCellView.layer.borderColor = UIColor.lightGray.cgColor
         doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
         doneSettingView.layer.cornerRadius = 8
+
+        // gestureの設定
+        let tapAddCellViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedAddCellView(_:)))
+        tapAddCellViewGesture.delegate = self
+        addCellView.addGestureRecognizer(tapAddCellViewGesture)
+        let tapRemoveCellViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedRemoveCellView(_:)))
+        tapRemoveCellViewGesture.delegate = self
+        removeCellView.addGestureRecognizer(tapRemoveCellViewGesture)
+        let tapDoneSettingView = UITapGestureRecognizer(target: self, action: #selector(self.tappedDoneSettingView(_:)))
+        tapDoneSettingView.delegate = self
+        doneSettingView.addGestureRecognizer(tapDoneSettingView)
     }
 
     public func hideRemoveButton() {
@@ -33,5 +44,17 @@ public class SearchCriteriaActionCell: UITableViewCell {
 
     public func appearRemoveButton() {
         removeCellView.isHidden = false
+    }
+
+    @IBAction private func tappedAddCellView(_ sender: UITapGestureRecognizer) {
+        print("tappedAddCellView")
+    }
+
+    @IBAction private func tappedRemoveCellView(_ sender: UITapGestureRecognizer) {
+        print("tappedRemoveCellView")
+    }
+
+    @IBAction private func tappedDoneSettingView(_ sender: UITapGestureRecognizer) {
+        print("tappedDoneSettingView")
     }
 }

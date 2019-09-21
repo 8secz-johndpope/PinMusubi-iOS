@@ -10,7 +10,7 @@ import UIKit
 
 public class ModalContentView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private var searchCriteriaTableView: UITableView!
-    private var cellRow: Int = 2
+    private var cellRow: Int = 3
 
     override public func awakeFromNib() {
         super.awakeFromNib()
