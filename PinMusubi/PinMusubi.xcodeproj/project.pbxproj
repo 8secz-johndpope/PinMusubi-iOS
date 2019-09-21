@@ -11,6 +11,8 @@
 		6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
 		784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
 		91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A792336226B00F900C4 /* FloatingPanel.framework */; };
+		91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */; };
+		91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */; };
 		915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
 		915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
 		915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
@@ -88,6 +90,8 @@
 		91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A792336226B00F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A84233622A800F900C4 /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaActionCell.swift; sourceTree = "<group>"; };
+		91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCriteriaActionCell.xib; sourceTree = "<group>"; };
 		915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryEntity.swift; sourceTree = "<group>"; };
 		915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorProtcol.swift; sourceTree = "<group>"; };
 		915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessor.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 			children = (
 				91A4111D2333C16A00AF7897 /* ModalContentView.xib */,
 				91A411222335066700AF7897 /* SearchCriteriaCell.xib */,
+				91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */,
 				91A411162332764300AF7897 /* ModalContentView.swift */,
 				91A411212335066700AF7897 /* SearchCriteriaCell.swift */,
+				91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */,
 				91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */,
 			);
 			path = View;
@@ -478,6 +484,7 @@
 			files = (
 				91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */,
 				91A4111E2333C16A00AF7897 /* ModalContentView.xib in Resources */,
+				91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
@@ -730,6 +737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */,
 				91A4110C2331B66A00AF7897 /* SearchCriteriaModalViewController.swift in Sources */,
 				91A411172332764300AF7897 /* ModalContentView.swift in Sources */,
 				91A411232335066700AF7897 /* SearchCriteriaCell.swift in Sources */,
