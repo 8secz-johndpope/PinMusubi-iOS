@@ -18,7 +18,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PWE-HU-E6k"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="設定" image="gear" catalog="system" id="3a9-zz-oiO"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="Gear" id="3a9-zz-oiO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ek-Fk-Rvg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +44,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NCP-uE-DjA"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="マイページ" image="person.circle" catalog="system" id="eZy-2w-RTH"/>
+                    <tabBarItem key="tabBarItem" title="マイページ" image="Person" id="eZy-2w-RTH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8F4-LI-2Ld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +72,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gear" catalog="system" width="64" height="60"/>
-        <image name="person.circle" catalog="system" width="64" height="62"/>
+        <image name="Gear" width="25" height="25"/>
+        <image name="Person" width="25" height="25"/>
     </resources>
 </document>

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17030E95FFCBDC9186A83BD2 /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */; };
 		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
+		6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
+		784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
+		91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A792336226B00F900C4 /* FloatingPanel.framework */; };
 		915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
 		915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
 		915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
@@ -37,6 +39,7 @@
 		91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SearchCriteriaModel.swift */; };
 		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
+		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		91504A7C2336226B00F900C4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		18C269437F6D9E80752688A3 /* Pods-PinMusubiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		18EBDFE939DBCE16817C3F1D /* Pods-PinMusubiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +81,13 @@
 		658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubi.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubi/Pods-PinMusubi.debug.xcconfig"; sourceTree = "<group>"; };
 		689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A4923361CF500F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A4D23361D3200F900C4 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A5023361D3D00F900C4 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A792336226B00F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A84233622A800F900C4 /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryEntity.swift; sourceTree = "<group>"; };
 		915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorProtcol.swift; sourceTree = "<group>"; };
 		915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessor.swift; sourceTree = "<group>"; };
@@ -107,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */,
+				6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */,
+				784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */,
-				17030E95FFCBDC9186A83BD2 /* Pods_PinMusubi.framework in Frameworks */,
+				91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */,
+				F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +159,13 @@
 		2AF5D57647BF5B5067C02D3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91504A84233622A800F900C4 /* Pods_PinMusubi.framework */,
+				91504A792336226B00F900C4 /* FloatingPanel.framework */,
+				91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */,
+				91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */,
+				91504A5023361D3D00F900C4 /* RealmSwift.framework */,
+				91504A4D23361D3200F900C4 /* Realm.framework */,
+				91504A4923361CF500F900C4 /* FloatingPanel.framework */,
 				91816D9F232F6D5D00C48C78 /* MapKit.framework */,
 				7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */,
 				45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */,
@@ -370,6 +403,7 @@
 				FB9911A95E6F814F4D409BB1 /* [CP] Embed Pods Frameworks */,
 				917E83F6232C836F005F1204 /* LicensePlist */,
 				9101C534232CA18000D5C130 /* SwiftLint */,
+				91504A7C2336226B00F900C4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -899,6 +933,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -954,6 +989,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
