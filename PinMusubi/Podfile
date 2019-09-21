@@ -10,6 +10,17 @@ target 'PinMusubi' do
   pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
   pod 'LicensePlist'
   pod 'SwiftLint'
+  pod 'FloatingPanel'
+
+  post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if ['FloatingPanel'].include? target.name
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '4.2'
+      end
+    end
+  end
+end
 
   target 'PinMusubiTests' do
     inherit! :search_paths
@@ -17,6 +28,7 @@ target 'PinMusubi' do
     pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'SwiftLint'
+    pod 'FloatingPanel'
   end
 
   target 'PinMusubiUITests' do
@@ -25,6 +37,7 @@ target 'PinMusubi' do
     pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'SwiftLint'
+    pod 'FloatingPanel'
   end
 
 end

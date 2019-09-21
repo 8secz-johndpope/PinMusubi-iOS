@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17030E95FFCBDC9186A83BD2 /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */; };
 		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
+		6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
+		784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
+		91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A792336226B00F900C4 /* FloatingPanel.framework */; };
+		91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */; };
+		91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */; };
 		915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
 		915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
 		915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
@@ -21,13 +25,23 @@
 		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
 		9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6552325396900A5C558 /* PinMusubiTests.swift */; };
 		9197D65F23253ADB00A5C558 /* SearchCriteriaModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */; };
+		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
+		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
+		91A4110C2331B66A00AF7897 /* SearchCriteriaModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */; };
+		91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */; };
+		91A411172332764300AF7897 /* ModalContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411162332764300AF7897 /* ModalContentView.swift */; };
+		91A4111E2333C16A00AF7897 /* ModalContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A4111D2333C16A00AF7897 /* ModalContentView.xib */; };
+		91A411232335066700AF7897 /* SearchCriteriaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411212335066700AF7897 /* SearchCriteriaCell.swift */; };
+		91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A411222335066700AF7897 /* SearchCriteriaCell.xib */; };
 		91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4C2301296E00430D41 /* AppDelegate.swift */; };
 		91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */; };
 		91B3EB522301296E00430D41 /* SearchCriteria.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB502301296E00430D41 /* SearchCriteria.storyboard */; };
 		91B3EB542301296F00430D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB532301296F00430D41 /* Assets.xcassets */; };
 		91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB552301296F00430D41 /* LaunchScreen.storyboard */; };
 		91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SearchCriteriaModel.swift */; };
+		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
+		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +61,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		91504A7C2336226B00F900C4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		18C269437F6D9E80752688A3 /* Pods-PinMusubiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		18EBDFE939DBCE16817C3F1D /* Pods-PinMusubiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +83,15 @@
 		658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubi.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubi/Pods-PinMusubi.debug.xcconfig"; sourceTree = "<group>"; };
 		689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A4923361CF500F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A4D23361D3200F900C4 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A5023361D3D00F900C4 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A792336226B00F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A84233622A800F900C4 /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaActionCell.swift; sourceTree = "<group>"; };
+		91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCriteriaActionCell.xib; sourceTree = "<group>"; };
 		915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryEntity.swift; sourceTree = "<group>"; };
 		915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorProtcol.swift; sourceTree = "<group>"; };
 		915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessor.swift; sourceTree = "<group>"; };
@@ -72,6 +108,14 @@
 		9197D6552325396900A5C558 /* PinMusubiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiTests.swift; sourceTree = "<group>"; };
 		9197D6572325396900A5C558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaModelTests.swift; sourceTree = "<group>"; };
+		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
+		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaModalViewController.swift; sourceTree = "<group>"; };
+		91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFloatingPanelLayout.swift; sourceTree = "<group>"; };
+		91A411162332764300AF7897 /* ModalContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalContentView.swift; sourceTree = "<group>"; };
+		91A4111D2333C16A00AF7897 /* ModalContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalContentView.xib; sourceTree = "<group>"; };
+		91A411212335066700AF7897 /* SearchCriteriaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaCell.swift; sourceTree = "<group>"; };
+		91A411222335066700AF7897 /* SearchCriteriaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCriteriaCell.xib; sourceTree = "<group>"; };
 		91AF02FE84A12FDA85793C7B /* Pods-PinMusubiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B3EB492301296E00430D41 /* PinMusubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinMusubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B3EB4C2301296E00430D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +125,7 @@
 		91B3EB562301296F00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91B3EB582301296F00430D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SearchCriteriaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaModel.swift; sourceTree = "<group>"; };
+		91F4EB152336038D005C9EED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */,
+				6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */,
+				784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */,
-				17030E95FFCBDC9186A83BD2 /* Pods_PinMusubi.framework in Frameworks */,
+				91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */,
+				F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +163,13 @@
 		2AF5D57647BF5B5067C02D3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91504A84233622A800F900C4 /* Pods_PinMusubi.framework */,
+				91504A792336226B00F900C4 /* FloatingPanel.framework */,
+				91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */,
+				91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */,
+				91504A5023361D3D00F900C4 /* RealmSwift.framework */,
+				91504A4D23361D3200F900C4 /* Realm.framework */,
+				91504A4923361CF500F900C4 /* FloatingPanel.framework */,
 				91816D9F232F6D5D00C48C78 /* MapKit.framework */,
 				7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */,
 				45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */,
@@ -192,6 +247,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		91A4111A2333C09400AF7897 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				91A4111D2333C16A00AF7897 /* ModalContentView.xib */,
+				91A411222335066700AF7897 /* SearchCriteriaCell.xib */,
+				91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
 		91B3EB402301296E00430D41 = {
 			isa = PBXGroup;
 			children = (
@@ -232,8 +297,13 @@
 			isa = PBXGroup;
 			children = (
 				91BDCB912324AE3200E4B5C4 /* storyboard */,
-				91BDCB952324B2CB00E4B5C4 /* xib */,
+				91A4111A2333C09400AF7897 /* xib */,
 				91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */,
+				91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */,
+				91A411162332764300AF7897 /* ModalContentView.swift */,
+				91A411212335066700AF7897 /* SearchCriteriaCell.swift */,
+				91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */,
+				91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,6 +328,8 @@
 			children = (
 				91B3EB4C2301296E00430D41 /* AppDelegate.swift */,
 				918CC477232F91D00047BC88 /* ColorDefinition.swift */,
+				91A411092331AC7B00AF7897 /* TestData.swift */,
+				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -274,17 +346,11 @@
 		91BDCB912324AE3200E4B5C4 /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */,
 				91B3EB502301296E00430D41 /* SearchCriteria.storyboard */,
 				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
 			);
 			path = storyboard;
-			sourceTree = "<group>";
-		};
-		91BDCB952324B2CB00E4B5C4 /* xib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = xib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +409,7 @@
 				FB9911A95E6F814F4D409BB1 /* [CP] Embed Pods Frameworks */,
 				917E83F6232C836F005F1204 /* LicensePlist */,
 				9101C534232CA18000D5C130 /* SwiftLint */,
+				91504A7C2336226B00F900C4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -415,7 +482,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */,
+				91A4111E2333C16A00AF7897 /* ModalContentView.xib in Resources */,
+				91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
+				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
 				91B3EB522301296E00430D41 /* SearchCriteria.storyboard in Resources */,
 			);
@@ -433,6 +504,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -440,6 +512,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -595,6 +668,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -602,6 +676,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -619,6 +694,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinMusubi/Pods-PinMusubi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -626,6 +702,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -660,15 +737,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */,
+				91A4110C2331B66A00AF7897 /* SearchCriteriaModalViewController.swift in Sources */,
+				91A411172332764300AF7897 /* ModalContentView.swift in Sources */,
+				91A411232335066700AF7897 /* SearchCriteriaCell.swift in Sources */,
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
+				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
+				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
+				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +941,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -912,6 +997,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
