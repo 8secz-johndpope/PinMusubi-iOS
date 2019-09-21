@@ -9,28 +9,29 @@
 import UIKit
 
 public class SearchCriteriaActionCell: UITableViewCell {
-    @IBOutlet private var addCellButtonView: UIView!
-    @IBOutlet private var removeCellButtonView: UIView!
-    @IBOutlet private var doneSettingButtonView: UIView!
+    @IBOutlet private var addCellView: UIView!
+    @IBOutlet private var removeCellView: UIView!
+    @IBOutlet private var doneSettingView: UIView!
+    private var parentVC = SearchCriteriaModalViewController()
 
     override public func awakeFromNib() {
         super.awakeFromNib()
         // ActionButtonの設定
-        addCellButtonView.layer.cornerRadius = 20
-        addCellButtonView.layer.borderWidth = 0.5
-        addCellButtonView.layer.borderColor = UIColor.lightGray.cgColor
-        removeCellButtonView.layer.cornerRadius = 20
-        removeCellButtonView.layer.borderWidth = 0.5
-        removeCellButtonView.layer.borderColor = UIColor.lightGray.cgColor
-        doneSettingButtonView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
-        doneSettingButtonView.layer.cornerRadius = 8
+        addCellView.layer.cornerRadius = 20
+        addCellView.layer.borderWidth = 0.5
+        addCellView.layer.borderColor = UIColor.lightGray.cgColor
+        removeCellView.layer.cornerRadius = 20
+        removeCellView.layer.borderWidth = 0.5
+        removeCellView.layer.borderColor = UIColor.lightGray.cgColor
+        doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
+        doneSettingView.layer.cornerRadius = 8
     }
 
     public func hideRemoveButton() {
-        removeCellButtonView.isHidden = true
+        removeCellView.isHidden = true
     }
 
     public func appearRemoveButton() {
-        removeCellButtonView.isHidden = false
+        removeCellView.isHidden = false
     }
 }

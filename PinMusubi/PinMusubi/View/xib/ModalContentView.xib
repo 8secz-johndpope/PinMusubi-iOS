@@ -38,6 +38,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="676"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <connections>
+                                <outlet property="dataSource" destination="iN0-l3-epB" id="Bsu-Lt-Mm6"/>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="UQf-dp-h0R"/>
+                            </connections>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
