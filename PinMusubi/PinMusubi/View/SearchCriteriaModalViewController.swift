@@ -10,7 +10,7 @@ import UIKit
 
 public class SearchCriteriaModalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private var searchCriteriaTableView = UITableView()
-    private var cellRow: Int = 3
+    private var cellRow: Int = 2
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,11 @@ public class SearchCriteriaModalViewController: UIViewController, UITableViewDel
         } else {
             // アクションセルの設定
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return UITableViewCell() }
+            if cellRow == 2 {
+                cell.hideRemoveButton()
+            } else {
+                cell.appearRemoveButton()
+            }
             return cell
         }
     }
