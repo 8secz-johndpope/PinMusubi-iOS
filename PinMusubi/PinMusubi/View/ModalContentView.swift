@@ -19,8 +19,6 @@ public class ModalContentView: UIView, UITableViewDelegate, UITableViewDataSourc
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell")
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
 
-        //
-
         // actionCellを設定
         guard let tmpActionCell = searchCriteriaTableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return }
         actionCell = tmpActionCell
