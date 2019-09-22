@@ -12,7 +12,6 @@ public class SearchCriteriaActionCell: UITableViewCell {
     @IBOutlet private var addCellView: UIView!
     @IBOutlet private var removeCellView: UIView!
     @IBOutlet private var doneSettingView: UIView!
-    private var parentVC = SearchCriteriaModalViewController()
 
     public weak var delegate: SearchCriteriaActionDelegate?
 
@@ -30,13 +29,10 @@ public class SearchCriteriaActionCell: UITableViewCell {
 
         // gestureの設定
         let tapAddCellViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedAddCellView(_:)))
-        tapAddCellViewGesture.delegate = self
         addCellView.addGestureRecognizer(tapAddCellViewGesture)
         let tapRemoveCellViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedRemoveCellView(_:)))
-        tapRemoveCellViewGesture.delegate = self
         removeCellView.addGestureRecognizer(tapRemoveCellViewGesture)
         let tapDoneSettingView = UITapGestureRecognizer(target: self, action: #selector(self.tappedDoneSettingView(_:)))
-        tapDoneSettingView.delegate = self
         doneSettingView.addGestureRecognizer(tapDoneSettingView)
     }
 

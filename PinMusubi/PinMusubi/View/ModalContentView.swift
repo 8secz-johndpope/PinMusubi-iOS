@@ -8,10 +8,9 @@
 
 import UIKit
 
-public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchCriteriaActionDelegate {
+public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchCriteriaCellDelegate, SearchCriteriaActionDelegate {
     @IBOutlet private var searchCriteriaScrollView: UIScrollView!
     @IBOutlet private var searchCriteriaTableView: UITableView!
-    private var actionCell = SearchCriteriaActionCell()
     private var cellRow: Int = 2
 
     override public func awakeFromNib() {
@@ -19,16 +18,10 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
         // tableViewにcellを登録
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell")
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
-
-        // actionCellを設定
-        guard let tmpActionCell = searchCriteriaTableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return }
-        actionCell = tmpActionCell
-
         // delegateの設定
         searchCriteriaTableView.delegate = self
         searchCriteriaTableView.dataSource = self
         searchCriteriaScrollView.delegate = self
-        actionCell.delegate = self
     }
 
     @IBAction private func didTapView(_ sender: Any) {
@@ -48,16 +41,23 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
             // 検索条件セルの設定
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell") as? SearchCriteriaCell else { return UITableViewCell() }
             cell.setPinOnModal(row: indexPath.row % 10)
+            cell.delegate = self
             return cell
         } else {
-            // actionCellの設定
+            // actionCellを設定
+            guard let cell = searchCriteriaTableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return UITableViewCell() }
             if cellRow == 2 {
-                actionCell.hideRemoveButton()
+                cell.hideRemoveButton()
             } else {
-                actionCell.appearRemoveButton()
+                cell.appearRemoveButton()
             }
-            return actionCell
+            cell.delegate = self
+            return cell
         }
+    }
+
+    public func scrollUpWithKeyboard(textFieldLimit: CGFloat, keyboardFieldLimit: CGFloat) {
+        searchCriteriaScrollView.contentOffset.y = textFieldLimit - keyboardFieldLimit
     }
 
     public func addSearchCriteriaCell() {

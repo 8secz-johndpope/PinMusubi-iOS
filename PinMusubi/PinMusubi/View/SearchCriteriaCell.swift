@@ -18,9 +18,11 @@ public class SearchCriteriaCell: UITableViewCell {
     // textField
     @IBOutlet private var pointNameTextField: UITextField!
     @IBOutlet private var addressTextField: UITextField!
-    private var editingTextField: UITextField?
+    private var editingTextFieldView = UIView()
     // ピン画像
     @IBOutlet private var pinImageOnModal: UIImageView!
+    // 親view
+    public weak var delegate: SearchCriteriaCellDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -56,7 +58,8 @@ public class SearchCriteriaCell: UITableViewCell {
 
 extension SearchCriteriaCell: UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
-        editingTextField = textField
+        guard let superView = textField.superview else { return }
+        editingTextFieldView = superView
     }
 
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -64,18 +67,13 @@ extension SearchCriteriaCell: UITextFieldDelegate {
         addressTextField.resignFirstResponder()
         return false
     }
+}
 
-    private func registerNotification() {
+public extension SearchCriteriaCell {
+    /// 通知登録
+    func registerNotification() {
         // 通知センターの取得
         let notification = NotificationCenter.default
-
-        // キーボードのframeの変化通知の設定
-        notification.addObserver(
-            self,
-            selector: #selector(self.chengedKeyboardFrame(_:)),
-            name: UIResponder.keyboardDidChangeFrameNotification,
-            object: nil
-        )
         // キーボード登場通知の設定
         notification.addObserver(
             self,
@@ -83,7 +81,6 @@ extension SearchCriteriaCell: UITextFieldDelegate {
             name: UIResponder.keyboardWillShowNotification,
             object: nil
         )
-
         // キーボードの退出通知の設定
         notification.addObserver(
             self,
@@ -93,18 +90,17 @@ extension SearchCriteriaCell: UITextFieldDelegate {
         )
     }
 
+    /// キーボード登場時にtextFieldの高さを制御
+    /// - Parameter notification: 通知設定
     @objc
-    private func chengedKeyboardFrame(_ notification: Notification) {
-        print("chengedKeyboardFrame")
+    func willShowKeyboard(_ notification: Notification) {
+//        delegate?.scrollUpWithKeyboard(textFieldLimit: <#T##CGFloat#>, keyboardFieldLimit: <#T##CGFloat#>)
+        print("😄")
     }
 
+    /// キーボード退出時にtextFieldの高さを制御
+    /// - Parameter notification: 通知設定
     @objc
-    private func willShowKeyboard(_ notification: Notification) {
-        print("willShowKeyboard")
-    }
-
-    @objc
-    private func didHideKeyboard(_ notification: Notification) {
-        print("didHideKeyboard")
+    func didHideKeyboard(_ notification: Notification) {
     }
 }

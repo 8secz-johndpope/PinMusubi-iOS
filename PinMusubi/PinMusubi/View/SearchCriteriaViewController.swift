@@ -21,7 +21,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
+        // delegateの設定
         searchMapView.delegate = self
         fpc.delegate = self
 
@@ -34,6 +34,9 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
         }
         fpc.set(contentViewController: modalVC)
         fpc.addPanel(toParent: self, animated: true)
+
+        // textFieldに関する通知を設定
+        registerNotification()
 
         ///TODO テストデータ後で消す
         setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
@@ -162,5 +165,27 @@ extension SearchCriteriaViewController: FloatingPanelControllerDelegate {
 
     public func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
         self.view.endEditing(true)
+    }
+}
+
+public extension SearchCriteriaViewController {
+    /// 通知登録
+    func registerNotification() {
+        // 通知センターの取得
+        let notification = NotificationCenter.default
+        // キーボード登場通知の設定
+        notification.addObserver(
+            self,
+            selector: #selector(self.willShowKeyboard(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+    }
+
+    /// キーボード登場時にtextFieldの高さを制御
+    /// - Parameter notification: 通知設定
+    @objc
+    func willShowKeyboard(_ notification: Notification) {
+        fpc.move(to: .full, animated: true)
     }
 }
