@@ -8,9 +8,12 @@
 
 import UIKit
 
-public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchCriteriaCellDelegate, SearchCriteriaActionDelegate {
+public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchCriteriaActionDelegate {
     @IBOutlet private var searchCriteriaScrollView: UIScrollView!
     @IBOutlet private var searchCriteriaTableView: UITableView!
+    private var editingTextFieldView = UIView()
+    private var pointNameTextField: UITextField?
+    private var addressTextField: UITextField?
     private var cellRow: Int = 2
 
     override public func awakeFromNib() {
@@ -22,6 +25,8 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
         searchCriteriaTableView.delegate = self
         searchCriteriaTableView.dataSource = self
         searchCriteriaScrollView.delegate = self
+        // 通知t設定登録
+        registerNotification()
     }
 
     @IBAction private func didTapView(_ sender: Any) {
@@ -41,7 +46,9 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
             // 検索条件セルの設定
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell") as? SearchCriteriaCell else { return UITableViewCell() }
             cell.setPinOnModal(row: indexPath.row % 10)
-            cell.delegate = self
+            (pointNameTextField, addressTextField) = cell.getTextFields()
+            pointNameTextField?.delegate = self
+            addressTextField?.delegate = self
             return cell
         } else {
             // actionCellを設定
@@ -56,10 +63,6 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
         }
     }
 
-    public func scrollUpWithKeyboard(textFieldLimit: CGFloat, keyboardFieldLimit: CGFloat) {
-        searchCriteriaScrollView.contentOffset.y = textFieldLimit - keyboardFieldLimit
-    }
-
     public func addSearchCriteriaCell() {
         cellRow += 1
         searchCriteriaTableView.reloadData()
@@ -72,5 +75,52 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
 
     public func doneSetting() {
         print("doneSetting")
+    }
+}
+
+extension ModalContentView: UITextFieldDelegate {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let superView = textField.superview else { return }
+        editingTextFieldView = superView
+    }
+
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+}
+
+extension ModalContentView {
+    private func registerNotification() {
+        let center = NotificationCenter.default
+        center.addObserver(
+            self,
+            selector: #selector(self.keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+    }
+
+    //キーボードを表示するとき
+    @objc
+    private func keyboardWillShow(_ notification: Notification) {
+        if let userInfo = notification.userInfo,
+            let tableView = searchCriteriaTableView,
+            let cell = editingTextFieldView.superview?.superview as? SearchCriteriaCell {
+            // 画面サイズ
+            let boundSize: CGSize = UIScreen.main.bounds.size
+            // キーボード上部
+            guard let keyboardScreenEndFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+            let keyboardLimit: CGFloat = boundSize.height - keyboardScreenEndFrame.size.height
+            //セル高さ
+            let cellFrame: CGRect = tableView.convert(cell.frame, to: nil)
+            let cellLimit: CGFloat = cellFrame.origin.y + cellFrame.height + 8.0
+
+            if cellLimit - keyboardLimit > 0 {
+                if let indexPath = tableView.indexPath(for: cell) {
+                    tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.top, animated: true)
+                }
+            }
+        }
     }
 }
