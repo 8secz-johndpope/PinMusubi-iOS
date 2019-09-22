@@ -14,6 +14,8 @@ public class SearchCriteriaActionCell: UITableViewCell {
     @IBOutlet private var doneSettingView: UIView!
     private var parentVC = SearchCriteriaModalViewController()
 
+    public weak var delegate: SearchCriteriaActionDelegate?
+
     override public func awakeFromNib() {
         super.awakeFromNib()
         // ActionButtonの設定
@@ -38,6 +40,11 @@ public class SearchCriteriaActionCell: UITableViewCell {
         doneSettingView.addGestureRecognizer(tapDoneSettingView)
     }
 
+    override public func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        self.selectionStyle = .none
+    }
+
     public func hideRemoveButton() {
         removeCellView.isHidden = true
     }
@@ -47,14 +54,17 @@ public class SearchCriteriaActionCell: UITableViewCell {
     }
 
     @IBAction private func tappedAddCellView(_ sender: UITapGestureRecognizer) {
-        print("tappedAddCellView")
+        guard let delegate = delegate else { return }
+        delegate.addSearchCriteriaCell()
     }
 
     @IBAction private func tappedRemoveCellView(_ sender: UITapGestureRecognizer) {
-        print("tappedRemoveCellView")
+        guard let delegate = delegate else { return }
+        delegate.removeSearchCriteriaCell()
     }
 
     @IBAction private func tappedDoneSettingView(_ sender: UITapGestureRecognizer) {
-        print("tappedDoneSettingView")
+        guard let delegate = delegate else { return }
+        delegate.doneSetting()
     }
 }

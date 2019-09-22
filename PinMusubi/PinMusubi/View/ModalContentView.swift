@@ -8,16 +8,27 @@
 
 import UIKit
 
-public class ModalContentView: UIView, UITableViewDelegate, UITableViewDataSource {
+public class ModalContentView: UIView, UITableViewDelegate, UITableViewDataSource, SearchCriteriaActionDelegate {
     @IBOutlet private var searchCriteriaTableView: UITableView!
-    private var cellRow: Int = 3
+    private var actionCell = SearchCriteriaActionCell()
+    private var cellRow: Int = 2
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-
         // tableViewにcellを登録
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell")
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
+
+        //
+
+        // actionCellを設定
+        guard let tmpActionCell = searchCriteriaTableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return }
+        actionCell = tmpActionCell
+
+        // delegateの設定
+        searchCriteriaTableView.delegate = self
+        searchCriteriaTableView.dataSource = self
+        actionCell.delegate = self
     }
 
     @IBAction private func didTapView(_ sender: Any) {
@@ -35,14 +46,27 @@ public class ModalContentView: UIView, UITableViewDelegate, UITableViewDataSourc
             cell.setPinOnModal(row: indexPath.row % 10)
             return cell
         } else {
-            // アクションセルの設定
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return UITableViewCell() }
+            // actionCellの設定
             if cellRow == 2 {
-                cell.hideRemoveButton()
+                actionCell.hideRemoveButton()
             } else {
-                cell.appearRemoveButton()
+                actionCell.appearRemoveButton()
             }
-            return cell
+            return actionCell
         }
+    }
+
+    public func addSearchCriteriaCell() {
+        cellRow += 1
+        searchCriteriaTableView.reloadData()
+    }
+
+    public func removeSearchCriteriaCell() {
+        cellRow -= 1
+        searchCriteriaTableView.reloadData()
+    }
+
+    public func doneSetting() {
+        print("doneSetting")
     }
 }
