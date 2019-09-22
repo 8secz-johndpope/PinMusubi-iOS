@@ -14,7 +14,9 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
     private var editingTextFieldView = UIView()
     private var pointNameTextField: UITextField?
     private var addressTextField: UITextField?
+    private var cells = [SearchCriteriaCell]()
     private var cellRow: Int = 2
+    private var canDoneSetting: Bool = false
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -49,6 +51,7 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
             (pointNameTextField, addressTextField) = cell.getTextFields()
             pointNameTextField?.delegate = self
             addressTextField?.delegate = self
+            cells.append(cell)
             return cell
         } else {
             // actionCellを設定
@@ -58,6 +61,8 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
             } else {
                 cell.appearRemoveButton()
             }
+            checkInput()
+            cell.changeDoneSettingStatus(canDoneSetting: canDoneSetting)
             cell.delegate = self
             return cell
         }
@@ -65,16 +70,30 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
 
     public func addSearchCriteriaCell() {
         cellRow += 1
+        cells = [SearchCriteriaCell]()
         searchCriteriaTableView.reloadData()
     }
 
     public func removeSearchCriteriaCell() {
         cellRow -= 1
+        cells = [SearchCriteriaCell]()
         searchCriteriaTableView.reloadData()
     }
 
     public func doneSetting() {
         print("doneSetting")
+    }
+
+    private func checkInput() {
+        // 入力チェック
+        for cell in cells {
+            if !cell.checkRequired() {
+                canDoneSetting = false
+                return
+            }
+        }
+        // actionCellの更新
+        canDoneSetting = true
     }
 }
 
@@ -93,17 +112,24 @@ extension ModalContentView: UITextFieldDelegate {
 extension ModalContentView {
     private func registerNotification() {
         let center = NotificationCenter.default
+
         center.addObserver(
             self,
-            selector: #selector(self.keyboardWillShow(_:)),
+            selector: #selector(self.willShowKeyboard(_:)),
             name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        center.addObserver(
+            self,
+            selector: #selector(self.didHideKeboard(_:)),
+            name: UIResponder.keyboardDidHideNotification,
             object: nil
         )
     }
 
-    //キーボードを表示するとき
     @objc
-    private func keyboardWillShow(_ notification: Notification) {
+    private func willShowKeyboard(_ notification: Notification) {
         if let userInfo = notification.userInfo,
             let tableView = searchCriteriaTableView,
             let cell = editingTextFieldView.superview?.superview as? SearchCriteriaCell {
@@ -122,5 +148,10 @@ extension ModalContentView {
                 }
             }
         }
+    }
+
+    @objc
+    private func didHideKeboard(_ notification: Notification) {
+        searchCriteriaTableView.reloadData()
     }
 }

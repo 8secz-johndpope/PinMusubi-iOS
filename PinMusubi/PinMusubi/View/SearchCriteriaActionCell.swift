@@ -12,6 +12,7 @@ public class SearchCriteriaActionCell: UITableViewCell {
     @IBOutlet private var addCellView: UIView!
     @IBOutlet private var removeCellView: UIView!
     @IBOutlet private var doneSettingView: UIView!
+    private var isEnabledDoneSetting = false
 
     public weak var delegate: SearchCriteriaActionDelegate?
 
@@ -49,6 +50,16 @@ public class SearchCriteriaActionCell: UITableViewCell {
         removeCellView.isHidden = false
     }
 
+    public func changeDoneSettingStatus(canDoneSetting: Bool) {
+        if canDoneSetting {
+            doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 1)
+            isEnabledDoneSetting = true
+        } else {
+            doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
+            isEnabledDoneSetting = false
+        }
+    }
+
     @IBAction private func tappedAddCellView(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
         delegate.addSearchCriteriaCell()
@@ -60,7 +71,9 @@ public class SearchCriteriaActionCell: UITableViewCell {
     }
 
     @IBAction private func tappedDoneSettingView(_ sender: UITapGestureRecognizer) {
-        guard let delegate = delegate else { return }
-        delegate.doneSetting()
+        if isEnabledDoneSetting {
+            guard let delegate = delegate else { return }
+            delegate.doneSetting()
+        }
     }
 }

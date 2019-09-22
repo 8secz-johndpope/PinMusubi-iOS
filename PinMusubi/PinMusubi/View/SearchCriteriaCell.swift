@@ -50,4 +50,14 @@ public class SearchCriteriaCell: UITableViewCell {
         guard let setImage = UIImage(named: "PinOnModal" + String(row)) else { return }
         pinImageOnModal.image = setImage
     }
+
+    public func checkRequired() -> Bool {
+        if pointNameTextField.text == "" {
+            return false
+        }
+        if addressTextField.text == "" {
+            return false
+        }
+        return true
+    }
 }
