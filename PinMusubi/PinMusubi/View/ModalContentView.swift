@@ -8,7 +8,8 @@
 
 import UIKit
 
-public class ModalContentView: UIView, UITableViewDelegate, UITableViewDataSource, SearchCriteriaActionDelegate {
+public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchCriteriaActionDelegate {
+    @IBOutlet private var searchCriteriaScrollView: UIScrollView!
     @IBOutlet private var searchCriteriaTableView: UITableView!
     private var actionCell = SearchCriteriaActionCell()
     private var cellRow: Int = 2
@@ -26,10 +27,15 @@ public class ModalContentView: UIView, UITableViewDelegate, UITableViewDataSourc
         // delegateの設定
         searchCriteriaTableView.delegate = self
         searchCriteriaTableView.dataSource = self
+        searchCriteriaScrollView.delegate = self
         actionCell.delegate = self
     }
 
     @IBAction private func didTapView(_ sender: Any) {
+        self.endEditing(true)
+    }
+
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.endEditing(true)
     }
 

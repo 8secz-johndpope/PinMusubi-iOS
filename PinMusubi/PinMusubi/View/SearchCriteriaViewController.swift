@@ -146,6 +146,10 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
         }
     }
 
+    public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        self.view.endEditing(true)
+    }
+
     @IBAction private func didTapView(_ sender: Any) {
         self.view.endEditing(true)
     }
@@ -154,5 +158,9 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
 extension SearchCriteriaViewController: FloatingPanelControllerDelegate {
     public func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
         return CustomFloatingPanelLayout()
+    }
+
+    public func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
+        self.view.endEditing(true)
     }
 }

@@ -80,6 +80,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="searchCriteriaScrollView" destination="kQi-x2-kuB" id="HJr-Gm-Gjr"/>
                 <outlet property="searchCriteriaTableView" destination="sbq-2y-fj9" id="eVn-hX-Hrs"/>
                 <outletCollection property="gestureRecognizers" destination="MFb-N6-v6y" appends="YES" id="AhO-b8-Prx"/>
             </connections>

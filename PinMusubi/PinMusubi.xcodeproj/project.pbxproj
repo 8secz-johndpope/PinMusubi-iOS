@@ -308,11 +308,11 @@
 				91BDCB912324AE3200E4B5C4 /* storyboard */,
 				91A4111A2333C09400AF7897 /* xib */,
 				91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */,
+				91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */,
 				91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */,
 				91A411162332764300AF7897 /* ModalContentView.swift */,
 				91A411212335066700AF7897 /* SearchCriteriaCell.swift */,
 				91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */,
-				91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */,
 				914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */,
 			);
 			path = View;
