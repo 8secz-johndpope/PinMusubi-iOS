@@ -55,6 +55,7 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
             // 検索条件セルの設定
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell") as? SearchCriteriaCell else { return UITableViewCell() }
             cell.setPinOnModal(row: indexPath.row % 10)
+            if cellRow - 1 != indexPath.row { cell.setBrokenLine() }
             (pointNameTextField, addressTextField) = cell.getTextFields()
             cell.setAddressStatus(inputStatus: addressStatus[indexPath.row])
             pointNameTextField?.delegate = self

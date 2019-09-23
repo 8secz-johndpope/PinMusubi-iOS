@@ -21,6 +21,7 @@ public class SearchCriteriaCell: UITableViewCell {
     // 画像
     @IBOutlet private var pinImageOnModal: UIImageView!
     @IBOutlet private var addressStatusImage: UIImageView!
+    @IBOutlet private var brokenLineImage: UIImageView!
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -50,6 +51,11 @@ public class SearchCriteriaCell: UITableViewCell {
         underView.backgroundColor = ColorDefinition.underViewColorsOnModal[row]
         guard let setImage = UIImage(named: "PinOnModal" + String(row)) else { return }
         pinImageOnModal.image = setImage
+    }
+
+    public func setBrokenLine() {
+        guard let setImage = UIImage(named: "BrokenLine") else { return }
+        brokenLineImage.image = setImage
     }
 
     public func checkRequired() -> Bool {
