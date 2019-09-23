@@ -35,7 +35,6 @@ opt_in_rules:
 - discouraged_optional_boolean
 - discouraged_optional_collection
 - empty_count
-- empty_string
 - empty_xctest_method
 - explicit_acl
 - explicit_enum_raw_value

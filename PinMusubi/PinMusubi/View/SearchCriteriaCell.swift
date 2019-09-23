@@ -18,13 +18,13 @@ public class SearchCriteriaCell: UITableViewCell {
     // textField
     @IBOutlet private var pointNameTextField: UITextField!
     @IBOutlet private var addressTextField: UITextField!
-    // ピン画像
+    // 画像
     @IBOutlet private var pinImageOnModal: UIImageView!
+    @IBOutlet private var addressStatusImage: UIImageView!
+    @IBOutlet private var brokenLineImage: UIImageView!
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        pointNameTextField.delegate = self
-        addressTextField.delegate = self
         // textFieldの背景の設定
         pointNameView.layer.cornerRadius = 4
         addressView.layer.cornerRadius = 4
@@ -40,9 +40,11 @@ public class SearchCriteriaCell: UITableViewCell {
 
     override public func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
         self.selectionStyle = .none
+    }
+
+    public func getTextFields() -> (UITextField, UITextField) {
+        return (pointNameTextField, addressTextField)
     }
 
     public func setPinOnModal(row: Int) {
@@ -50,12 +52,42 @@ public class SearchCriteriaCell: UITableViewCell {
         guard let setImage = UIImage(named: "PinOnModal" + String(row)) else { return }
         pinImageOnModal.image = setImage
     }
-}
 
-extension SearchCriteriaCell: UITextFieldDelegate {
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        pointNameTextField.resignFirstResponder()
-        addressTextField.resignFirstResponder()
+    public func setBrokenLine() {
+        guard let setImage = UIImage(named: "BrokenLine") else { return }
+        brokenLineImage.image = setImage
+    }
+
+    public func checkRequired() -> Bool {
+        if pointNameTextField.text == "" {
+            return false
+        }
+        if addressTextField.text == "" {
+            return false
+        }
         return true
+    }
+
+    public func checkAddress() -> Bool {
+        if addressTextField.text == "" {
+            return false
+        }
+        return true
+    }
+
+    public func setAddressStatus(inputStatus: String) {
+        switch inputStatus {
+        case "empty":
+            addressStatusImage.image = nil
+        case "success":
+            guard let image = UIImage(named: "SuccessStatus") else { return }
+            addressStatusImage.image = image
+        case "error":
+            guard let image = UIImage(named: "ErrorStatus") else { return }
+            addressStatusImage.image = image
+
+        default:
+            addressStatusImage.image = nil
+        }
     }
 }

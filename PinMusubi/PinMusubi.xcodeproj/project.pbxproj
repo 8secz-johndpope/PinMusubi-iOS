@@ -10,6 +10,10 @@
 		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
 		6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
 		784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
+		914D4A7C23370A7F00065648 /* SearchCriteriaActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */; };
+		914D4A852337CD8C00065648 /* SearchCriteriaViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */; };
+		914D4A89233853E800065648 /* ModalContentViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* ModalContentViewDelegate.swift */; };
+		914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A8A23388F8500065648 /* Notification+Extension.swift */; };
 		91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A792336226B00F900C4 /* FloatingPanel.framework */; };
 		91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */; };
 		91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */; };
@@ -83,6 +87,10 @@
 		658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubi.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubi/Pods-PinMusubi.debug.xcconfig"; sourceTree = "<group>"; };
 		689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaActionDelegate.swift; sourceTree = "<group>"; };
+		914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaViewPresenter.swift; sourceTree = "<group>"; };
+		914D4A88233853E800065648 /* ModalContentViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalContentViewDelegate.swift; sourceTree = "<group>"; };
+		914D4A8A23388F8500065648 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		91504A4923361CF500F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A4D23361D3200F900C4 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A5023361D3D00F900C4 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +197,13 @@
 				18EBDFE939DBCE16817C3F1D /* Pods-PinMusubiUITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		914D4A7D23372F5800065648 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		915A44A6232E2A7D006A6891 /* DAO */ = {
@@ -299,11 +314,13 @@
 				91BDCB912324AE3200E4B5C4 /* storyboard */,
 				91A4111A2333C09400AF7897 /* xib */,
 				91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */,
+				91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */,
 				91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */,
 				91A411162332764300AF7897 /* ModalContentView.swift */,
+				914D4A88233853E800065648 /* ModalContentViewDelegate.swift */,
 				91A411212335066700AF7897 /* SearchCriteriaCell.swift */,
 				91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */,
-				91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */,
+				914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,6 +328,7 @@
 		91B3EB5F2301323800430D41 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -330,6 +348,7 @@
 				918CC477232F91D00047BC88 /* ColorDefinition.swift */,
 				91A411092331AC7B00AF7897 /* TestData.swift */,
 				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
+				914D4A8A23388F8500065648 /* Notification+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -337,6 +356,7 @@
 		91B3EB622301332C00430D41 /* Resouce */ = {
 			isa = PBXGroup;
 			children = (
+				914D4A7D23372F5800065648 /* New Group */,
 				91B3EB532301296F00430D41 /* Assets.xcassets */,
 				91B3EB582301296F00430D41 /* Info.plist */,
 			);
@@ -744,14 +764,18 @@
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
+				914D4A852337CD8C00065648 /* SearchCriteriaViewPresenter.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
+				914D4A89233853E800065648 /* ModalContentViewDelegate.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
+				914D4A7C23370A7F00065648 /* SearchCriteriaActionDelegate.swift in Sources */,
 				918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
+				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
