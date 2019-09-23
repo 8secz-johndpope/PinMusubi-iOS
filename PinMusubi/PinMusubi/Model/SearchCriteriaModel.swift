@@ -57,6 +57,7 @@ public class SearchCriteriaModel: SearchCriteriaModelProtocol {
     /// - Parameter row: テーブルの列番号
     /// - Parameter complete: コールバック
     public func geocoding(address: String, row: Int, complete: @escaping () -> Void) {
+        settingPoints[row] = SettingPointEntity()
         CLGeocoder().geocodeAddressString(address, completionHandler: {placemarks, error -> Void in
             if (error) == nil {
                 guard let coordinate = placemarks?.first?.location?.coordinate else {

@@ -72,6 +72,7 @@ public class SearchCriteriaActionCell: UITableViewCell {
 
     @IBAction private func tappedDoneSettingView(_ sender: UITapGestureRecognizer) {
         if isEnabledDoneSetting {
+            NotificationCenter.default.post(name: Notification.doneSettingNotification, object: nil)
             guard let delegate = delegate else { return }
             delegate.doneSetting()
         }

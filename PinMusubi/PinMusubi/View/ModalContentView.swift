@@ -70,7 +70,7 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
                 cell.appearRemoveButton()
             }
             checkInput()
-            cell.changeDoneSettingStatus(canDoneSetting: canDoneSetting)
+            cell.changeDoneSettingStatus(canDoneSetting: canDoneSetting && !addressStatus.contains("error"))
             cell.delegate = self
             return cell
         }
@@ -175,13 +175,10 @@ extension ModalContentView {
 
     @objc
     private func didHideKeboard(_ notification: Notification) {
-        guard let editingCell = editingTextFieldView.superview?.superview as? SearchCriteriaCell else { return }
         for index in 0...cellRow - 1 {
-            if cells[index] == editingCell {
-                guard let inputName = editingCell.getTextFields().0.text else { return }
-                guard let inputAddress = editingCell.getTextFields().1.text else { return }
-                presenter?.convertingToCoordinate(name: inputName, address: inputAddress, row: index)
-            }
+            guard let inputName = cells[index].getTextFields().0.text else { return }
+            guard let inputAddress = cells[index].getTextFields().1.text else { return }
+            presenter?.convertingToCoordinate(name: inputName, address: inputAddress, row: index)
         }
         searchCriteriaTableView.reloadData()
     }

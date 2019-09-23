@@ -13,6 +13,7 @@ import UIKit
 public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, ModalContentViewDelegate {
     @IBOutlet private var searchMapView: MKMapView!
     private let annotation = MKPointAnnotation()
+    private var circles = [MKCircle]()
     private var lines = [MKPolyline]()
     private var colorNumber = 0
     private var settingPoints = [SettingPointEntity]()
@@ -40,9 +41,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
 
         guard let modalContentView = modalVC.view.subviews.first as? ModalContentView else { return }
         modalContentView.delegate = self
-
-        ///TODO テストデータ後で消す
-        setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
     }
 
     /// アノテーションの設定
@@ -62,9 +60,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     /// - Parameter oldState: oldState
     public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
         if newState == .starting {
-            for line in lines {
-                searchMapView.removeOverlay(line)
-            }
+            searchMapView.removeOverlays(lines)
         }
 
         if newState == .ending {
@@ -95,14 +91,14 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         case is MKPolyline:
             renderer = MKPolylineRenderer(overlay: overlay)
             renderer.lineWidth = 3
-            renderer.strokeColor = ColorDefinition.settingPointColors[colorNumber]
-            renderer.alpha = 0.7
+            renderer.strokeColor = ColorDefinition.settingPointColors[colorNumber % 10]
+            renderer.alpha = 0.9
 
         case is MKCircle:
             renderer = MKCircleRenderer(overlay: overlay)
             renderer.lineWidth = 3
             renderer.strokeColor = UIColor.white
-            renderer.fillColor = ColorDefinition.settingPointColors[colorNumber]
+            renderer.fillColor = ColorDefinition.settingPointColors[colorNumber % 10]
             renderer.alpha = 0.8
 
         default:
@@ -118,6 +114,11 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         // クラス変数に代入
         self.settingPoints = settingPoints
         self.halfwayPoint = halfwayPoint
+
+        // 初期化
+        searchMapView.removeOverlays(circles)
+        searchMapView.removeOverlays(lines)
+        colorNumber = 0
 
         // 中間地点にピンを設置
         annotation.coordinate = halfwayPoint
@@ -141,6 +142,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
             let circle = MKCircle(center: settingPointLocation, radius: delta * 2_000)
             let line = MKPolyline(coordinates: [halfwayPoint, settingPointLocation], count: 2)
+            circles.append(circle)
             lines.append(line)
             searchMapView.addOverlay(circle)
             searchMapView.addOverlay(line)
@@ -183,12 +185,26 @@ public extension SearchCriteriaViewController {
             name: UIResponder.keyboardWillShowNotification,
             object: nil
         )
+
+        notification.addObserver(
+            self,
+            selector: #selector(self.tappedDoneSettingView(_:)),
+            name: Notification.doneSettingNotification,
+            object: nil
+        )
     }
 
-    /// キーボード登場時にtextFieldの高さを制御
+    /// キーボード登場時にmodalの高さを制御
     /// - Parameter notification: 通知設定
     @objc
     func willShowKeyboard(_ notification: Notification) {
         fpc.move(to: .full, animated: true)
+    }
+
+    /// 完了ボタン押下時にmodalの高さを制御
+    /// - Parameter notification: 通知設定
+    @objc
+    func tappedDoneSettingView(_ notification: Notification) {
+        fpc.move(to: .tip, animated: true)
     }
 }

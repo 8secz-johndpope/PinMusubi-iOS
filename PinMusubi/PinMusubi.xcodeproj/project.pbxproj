@@ -13,6 +13,7 @@
 		914D4A7C23370A7F00065648 /* SearchCriteriaActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SearchCriteriaViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */; };
 		914D4A89233853E800065648 /* ModalContentViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* ModalContentViewDelegate.swift */; };
+		914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A8A23388F8500065648 /* Notification+Extension.swift */; };
 		91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A792336226B00F900C4 /* FloatingPanel.framework */; };
 		91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */; };
 		91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */; };
@@ -89,6 +90,7 @@
 		914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaActionDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaViewPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* ModalContentViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalContentViewDelegate.swift; sourceTree = "<group>"; };
+		914D4A8A23388F8500065648 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		91504A4923361CF500F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A4D23361D3200F900C4 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A5023361D3D00F900C4 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -346,6 +348,7 @@
 				918CC477232F91D00047BC88 /* ColorDefinition.swift */,
 				91A411092331AC7B00AF7897 /* TestData.swift */,
 				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
+				914D4A8A23388F8500065648 /* Notification+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SearchCriteriaModel.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
+				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

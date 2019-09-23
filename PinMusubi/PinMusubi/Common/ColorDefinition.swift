@@ -21,7 +21,8 @@ public enum ColorDefinition {
         UIColor(hex: "4284F4"),
         UIColor(hex: "FA6400"),
         UIColor(hex: "26AA52"),
-        UIColor(hex: "4284F4")
+        UIColor(hex: "4284F4"),
+        UIColor(hex: "FA6400")
     ]
 
     /// モーダル内のピンの背景色
@@ -34,6 +35,7 @@ public enum ColorDefinition {
         UIColor(hex: "4284F4", alpha: 0.16),
         UIColor(hex: "FA6400", alpha: 0.16),
         UIColor(hex: "26AA52", alpha: 0.16),
-        UIColor(hex: "4284F4", alpha: 0.16)
+        UIColor(hex: "4284F4", alpha: 0.16),
+        UIColor(hex: "FA6400", alpha: 0.16)
     ]
 }
