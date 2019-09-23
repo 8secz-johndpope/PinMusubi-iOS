@@ -18,8 +18,9 @@ public class SearchCriteriaCell: UITableViewCell {
     // textField
     @IBOutlet private var pointNameTextField: UITextField!
     @IBOutlet private var addressTextField: UITextField!
-    // ピン画像
+    // 画像
     @IBOutlet private var pinImageOnModal: UIImageView!
+    @IBOutlet private var addressStatusImage: UIImageView!
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -59,5 +60,28 @@ public class SearchCriteriaCell: UITableViewCell {
             return false
         }
         return true
+    }
+
+    public func checkAddress() -> Bool {
+        if addressTextField.text == "" {
+            return false
+        }
+        return true
+    }
+
+    public func setAddressStatus(inputStatus: String) {
+        switch inputStatus {
+        case "empty":
+            addressStatusImage.image = nil
+        case "success":
+            guard let image = UIImage(named: "SuccessStatus") else { return }
+            addressStatusImage.image = image
+        case "error":
+            guard let image = UIImage(named: "ErrorStatus") else { return }
+            addressStatusImage.image = image
+
+        default:
+            addressStatusImage.image = nil
+        }
     }
 }

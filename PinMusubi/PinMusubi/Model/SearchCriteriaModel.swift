@@ -10,7 +10,9 @@ import CoreLocation
 import Foundation
 
 /// 検索条件を設定するビジネスモデルのプロトコル
-private protocol SearchCriteriaModelProtocol {
+public protocol SearchCriteriaModelProtocol {
+    /// init
+    init()
     /// 設定地点情報
     var settingPoints: [SettingPointEntity] { get }
     /// 設定地点情報を管理
@@ -25,8 +27,12 @@ private protocol SearchCriteriaModelProtocol {
 
 /// 検索条件を設定するビジネスモデル
 public class SearchCriteriaModel: SearchCriteriaModelProtocol {
+    /// init
+    public required init() {
+    }
+
     /// 設定地点情報
-    internal private(set) var settingPoints = [SettingPointEntity]()
+    public private(set) var settingPoints = [SettingPointEntity]()
 
     /// 設定地点情報を管理
     /// - Parameter row: テーブルの列番号
@@ -51,7 +57,6 @@ public class SearchCriteriaModel: SearchCriteriaModelProtocol {
     /// - Parameter row: テーブルの列番号
     /// - Parameter complete: コールバック
     public func geocoding(address: String, row: Int, complete: @escaping () -> Void) {
-        manageSettingPoints(row: row)
         CLGeocoder().geocodeAddressString(address, completionHandler: {placemarks, error -> Void in
             if (error) == nil {
                 guard let coordinate = placemarks?.first?.location?.coordinate else {

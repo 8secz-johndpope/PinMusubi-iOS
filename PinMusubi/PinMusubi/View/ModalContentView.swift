@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import MapKit
 import UIKit
 
 public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchCriteriaActionDelegate {
@@ -17,9 +18,15 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
     private var cells = [SearchCriteriaCell]()
     private var cellRow: Int = 2
     private var canDoneSetting: Bool = false
+    private var addressStatus = [String].init(repeating: "empty", count: 2)
+
+    private var presenter: SearchCriteriaViewPresenterProtocol?
+
+    public weak var delegate: ModalContentViewDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
+        self.presenter = SearchCriteriaViewPresenter(view: self, modelType: SearchCriteriaModel.self)
         // tableViewにcellを登録
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell")
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
@@ -27,7 +34,7 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
         searchCriteriaTableView.delegate = self
         searchCriteriaTableView.dataSource = self
         searchCriteriaScrollView.delegate = self
-        // 通知t設定登録
+        // 通知設定登録
         registerNotification()
     }
 
@@ -49,6 +56,7 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell") as? SearchCriteriaCell else { return UITableViewCell() }
             cell.setPinOnModal(row: indexPath.row % 10)
             (pointNameTextField, addressTextField) = cell.getTextFields()
+            cell.setAddressStatus(inputStatus: addressStatus[indexPath.row])
             pointNameTextField?.delegate = self
             addressTextField?.delegate = self
             cells.append(cell)
@@ -71,17 +79,19 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
     public func addSearchCriteriaCell() {
         cellRow += 1
         cells = [SearchCriteriaCell]()
+        addressStatus.append("empty")
         searchCriteriaTableView.reloadData()
     }
 
     public func removeSearchCriteriaCell() {
         cellRow -= 1
         cells = [SearchCriteriaCell]()
+        addressStatus.removeLast()
         searchCriteriaTableView.reloadData()
     }
 
     public func doneSetting() {
-        print("doneSetting")
+        presenter?.setPointsOnMap()
     }
 
     private func checkInput() {
@@ -94,6 +104,19 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
         }
         // actionCellの更新
         canDoneSetting = true
+    }
+
+    public func setMessage(canDone: Bool, row: Int) {
+        if cells[row].checkAddress() {
+            if canDone {
+                addressStatus[row] = "success"
+            } else {
+                addressStatus[row] = "error"
+            }
+        } else {
+            addressStatus[row] = "empty"
+        }
+        searchCriteriaTableView.reloadData()
     }
 }
 
@@ -152,6 +175,14 @@ extension ModalContentView {
 
     @objc
     private func didHideKeboard(_ notification: Notification) {
+        guard let editingCell = editingTextFieldView.superview?.superview as? SearchCriteriaCell else { return }
+        for index in 0...cellRow - 1 {
+            if cells[index] == editingCell {
+                guard let inputName = editingCell.getTextFields().0.text else { return }
+                guard let inputAddress = editingCell.getTextFields().1.text else { return }
+                presenter?.convertingToCoordinate(name: inputName, address: inputAddress, row: index)
+            }
+        }
         searchCriteriaTableView.reloadData()
     }
 }

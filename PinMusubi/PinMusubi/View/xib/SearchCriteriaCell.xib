@@ -106,10 +106,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nCS-JJ-4qP">
+                        <rect key="frame" x="231" y="76" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="29A-Wb-fYN"/>
+                            <constraint firstAttribute="height" constant="20" id="XFC-o7-aHs"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 <constraints>
                     <constraint firstItem="DH1-Ku-ij0" firstAttribute="top" secondItem="nbv-TY-Iww" secondAttribute="bottom" constant="12" id="59h-wK-vY5"/>
+                    <constraint firstItem="Kce-Ew-MUq" firstAttribute="top" secondItem="nCS-JJ-4qP" secondAttribute="bottom" constant="5" id="F04-ei-R0F"/>
                     <constraint firstItem="DH1-Ku-ij0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mah-Zx-EX2"/>
                     <constraint firstItem="nbv-TY-Iww" firstAttribute="top" secondItem="5xR-lL-Jad" secondAttribute="bottom" constant="8" id="Rxg-BM-CKj"/>
                     <constraint firstItem="bb6-Y8-VBd" firstAttribute="top" secondItem="4Sj-Zp-5Go" secondAttribute="bottom" constant="118" id="ZPO-hd-hcK"/>
@@ -121,6 +129,7 @@
                     <constraint firstItem="nbv-TY-Iww" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="28" id="mRl-S6-ASj"/>
                     <constraint firstItem="nbv-TY-Iww" firstAttribute="leading" secondItem="4Sj-Zp-5Go" secondAttribute="trailing" constant="16" id="u2v-NL-Wdw"/>
                     <constraint firstItem="4Sj-Zp-5Go" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="u72-z4-xN7"/>
+                    <constraint firstItem="nCS-JJ-4qP" firstAttribute="leading" secondItem="DH1-Ku-ij0" secondAttribute="trailing" constant="7.5" id="zoA-uw-m6a"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -139,6 +148,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addressStatusImage" destination="nCS-JJ-4qP" id="5ZW-8y-szp"/>
                 <outlet property="addressTextField" destination="Yzd-q9-QBl" id="hVo-in-RXd"/>
                 <outlet property="addressView" destination="Kce-Ew-MUq" id="w67-dz-SEs"/>
                 <outlet property="pinImageOnModal" destination="7cq-v8-fFb" id="0oT-CZ-qej"/>

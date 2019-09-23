@@ -10,7 +10,7 @@ import FloatingPanel
 import MapKit
 import UIKit
 
-public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
+public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, ModalContentViewDelegate {
     @IBOutlet private var searchMapView: MKMapView!
     private let annotation = MKPointAnnotation()
     private var lines = [MKPolyline]()
@@ -37,6 +37,9 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate {
 
         // textFieldに関する通知を設定
         registerNotification()
+
+        guard let modalContentView = modalVC.view.subviews.first as? ModalContentView else { return }
+        modalContentView.delegate = self
 
         ///TODO テストデータ後で消す
         setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
