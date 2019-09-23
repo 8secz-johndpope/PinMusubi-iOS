@@ -47,9 +47,12 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     /// - Parameter mapView: searchCriteriaView
     /// - Parameter annotation: annotation
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let pinAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "halfwayPoint")
+        let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "halfwayPoint")
+        pinAnnotationView.image = UIImage(named: "Pin")
         pinAnnotationView.isDraggable = true
         pinAnnotationView.canShowCallout = true
+        guard let pointInfoView = UINib(nibName: "PointInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? UIView else { return pinAnnotationView }
+        pinAnnotationView.detailCalloutAccessoryView = pointInfoView
         return pinAnnotationView
     }
 
@@ -59,11 +62,8 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     /// - Parameter newState: newState
     /// - Parameter oldState: oldState
     public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
-        if newState == .starting {
-            searchMapView.removeOverlays(lines)
-        }
-
         if newState == .ending {
+            searchMapView.removeOverlays(lines)
             guard let relesePoint = view.annotation?.coordinate else { return }
             self.halfwayPoint = relesePoint
             colorNumber -= settingPoints.count
