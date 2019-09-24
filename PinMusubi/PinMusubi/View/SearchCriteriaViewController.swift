@@ -19,6 +19,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     private var settingPoints = [SettingPointEntity]()
     private var halfwayPoint = CLLocationCoordinate2D()
     private var fpc = FloatingPanelController()
+    private var transferTimes = [Int]()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,8 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
 
         guard let modalContentView = modalVC.view.subviews.first as? ModalContentView else { return }
         modalContentView.delegate = self
+
+        setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
     }
 
     /// アノテーションの設定
@@ -51,7 +54,8 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         pinAnnotationView.image = UIImage(named: "Pin")
         pinAnnotationView.isDraggable = true
         pinAnnotationView.canShowCallout = true
-        guard let pointInfoView = UINib(nibName: "PointInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? UIView else { return pinAnnotationView }
+        guard let pointInfoView = UINib(nibName: "PointInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointInfoView else { return pinAnnotationView }
+        pointInfoView.setPointInfo(settingPoints: settingPoints, transferTimes: transferTimes)
         pinAnnotationView.detailCalloutAccessoryView = pointInfoView
         return pinAnnotationView
     }
@@ -120,9 +124,13 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         searchMapView.removeOverlays(lines)
         colorNumber = 0
 
-        // 中間地点にピンを設置
-        annotation.coordinate = halfwayPoint
-        searchMapView.addAnnotation(annotation)
+        // 移動距離の計算
+        calculateTransferTime(complete: {
+            // 中間地点にピンを設置
+            self.annotation.coordinate = halfwayPoint
+            self.searchMapView.addAnnotation(self.annotation)
+        }
+        )
 
         // 地図の表示領域の設定
         guard let settingPointFirstLatitude = settingPoints.first?.latitude,
@@ -160,6 +168,56 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
 
     @IBAction private func didTapView(_ sender: Any) {
         self.view.endEditing(true)
+    }
+
+    private func calculateTransferTime(complete: @escaping () -> Void) {
+        var count = 1
+        for settingPoint in settingPoints {
+            // PlaceMarkを生成して出発点、目的地の座標をセット.
+            let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+            let fromPlace = MKPlacemark(coordinate: fromCoordinate, addressDictionary: nil)
+            let toPlace = MKPlacemark(coordinate: halfwayPoint, addressDictionary: nil)
+
+            // Itemを生成してPlaceMarkをセット.
+            let fromItem = MKMapItem(placemark: fromPlace)
+            let toItem = MKMapItem(placemark: toPlace)
+
+            // MKDirectionsRequestを生成.
+            let myRequest: MKDirections.Request = MKDirections.Request()
+
+            // 出発地のItemをセット.
+            myRequest.source = fromItem
+
+            // 目的地のItemをセット.
+            myRequest.destination = toItem
+
+            // 複数経路の検索を有効.
+            myRequest.requestsAlternateRoutes = true
+
+            // 移動手段を車に設定.
+            myRequest.transportType = MKDirectionsTransportType.automobile
+
+            // MKDirectionsを生成してRequestをセット.
+            let myDirections = MKDirections(request: myRequest)
+
+            // 経路探索.
+            myDirections.calculate(completionHandler: { response, error -> Void in
+                // NSErrorを受け取ったか、ルートがない場合.
+                guard let routes = response?.routes else { return }
+                if error != nil || routes.isEmpty {
+                    return
+                }
+                let route: MKRoute = routes[0]
+                self.transferTimes.append(Int(route.expectedTravelTime))
+
+                if count == self.settingPoints.count {
+                    complete()
+                } else {
+                    count += 1
+                }
+            }
+            )
+        }
     }
 }
 

@@ -11,6 +11,9 @@ import UIKit
 public class PointInfoView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private var pointInfoTableView: UITableView!
     @IBOutlet private var showSpotListView: UIView!
+    private var cellRow = 0
+    private var pointNames = [String]()
+    private var transferTimes = [Int]()
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -24,12 +27,21 @@ public class PointInfoView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return cellRow
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PointInfoCell") as? PointInfoCell else { return UITableViewCell() }
-        cell.setPointInfo(pointName: "わいの家", transferTime: 10)
+        cell.setPointInfo(pointName: pointNames[indexPath.row], transferTime: transferTimes[indexPath.row])
         return cell
+    }
+
+    public func setPointInfo(settingPoints: [SettingPointEntity], transferTimes: [Int]) {
+        for count in 0...settingPoints.count - 1 {
+            pointNames.append(settingPoints[count].name)
+            self.transferTimes.append(transferTimes[count])
+            cellRow += 1
+        }
+        pointInfoTableView.reloadData()
     }
 }
