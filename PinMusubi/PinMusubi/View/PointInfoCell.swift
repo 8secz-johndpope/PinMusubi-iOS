@@ -24,6 +24,11 @@ public class PointInfoCell: UITableViewCell {
 
     public func setPointInfo(pointName: String, transferTime: Int) {
         pointNameLabel.text = pointName
-        transferTimeLabel.text = String(transferTime) + "分"
+        let hour = transferTime / 60
+        if hour == 0 {
+            transferTimeLabel.text = String(transferTime) + "分"
+        } else {
+            transferTimeLabel.text = String(hour) + "時間" + String(transferTime % 60) + "分"
+        }
     }
 }

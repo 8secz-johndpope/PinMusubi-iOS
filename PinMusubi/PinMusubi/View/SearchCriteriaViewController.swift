@@ -20,6 +20,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     private var halfwayPoint = CLLocationCoordinate2D()
     private var fpc = FloatingPanelController()
     private var transferTimes = [Int]()
+    private var pointInfoView: PointInfoView?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,8 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         guard let modalContentView = modalVC.view.subviews.first as? ModalContentView else { return }
         modalContentView.delegate = self
 
-        setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
+        guard let pointInfoView = UINib(nibName: "PointInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointInfoView else { return }
+        self.pointInfoView = pointInfoView
     }
 
     /// アノテーションの設定
@@ -51,11 +53,9 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     /// - Parameter annotation: annotation
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "halfwayPoint")
-        pinAnnotationView.image = UIImage(named: "Pin")
         pinAnnotationView.isDraggable = true
         pinAnnotationView.canShowCallout = true
-        guard let pointInfoView = UINib(nibName: "PointInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointInfoView else { return pinAnnotationView }
-        pointInfoView.setPointInfo(settingPoints: settingPoints, transferTimes: transferTimes)
+        pointInfoView?.setPointInfo(settingPoints: settingPoints, transferTimes: transferTimes)
         pinAnnotationView.detailCalloutAccessoryView = pointInfoView
         return pinAnnotationView
     }
@@ -70,18 +70,22 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
             searchMapView.removeOverlays(lines)
             guard let relesePoint = view.annotation?.coordinate else { return }
             self.halfwayPoint = relesePoint
-            colorNumber -= settingPoints.count
-            for settingPoint in settingPoints {
-                let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-                let line = MKPolyline(coordinates: [halfwayPoint, settingPointLocation], count: 2)
-                lines.append(line)
-                searchMapView.addOverlay(line)
-                if colorNumber < ColorDefinition.settingPointColors.count - 1 {
-                    colorNumber += 1
-                } else {
-                    colorNumber = 0
+            calculateTransferTime(complete: {
+                self.colorNumber -= self.settingPoints.count
+                for settingPoint in self.settingPoints {
+                    let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+                    let line = MKPolyline(coordinates: [self.halfwayPoint, settingPointLocation], count: 2)
+                    self.lines.append(line)
+                    self.searchMapView.addOverlay(line)
+                    if self.colorNumber < ColorDefinition.settingPointColors.count - 1 {
+                        self.colorNumber += 1
+                    } else {
+                        self.colorNumber = 0
+                    }
                 }
+                self.pointInfoView?.setPointInfo(settingPoints: self.settingPoints, transferTimes: self.transferTimes)
             }
+            )
         }
     }
 
@@ -172,6 +176,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
 
     private func calculateTransferTime(complete: @escaping () -> Void) {
         var count = 1
+        transferTimes = [Int].init(repeating: Int(), count: settingPoints.count)
         for settingPoint in settingPoints {
             // PlaceMarkを生成して出発点、目的地の座標をセット.
             let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
@@ -200,7 +205,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
             // MKDirectionsを生成してRequestをセット.
             let myDirections = MKDirections(request: myRequest)
 
-            // 経路探索.
+            // 移動時間計算
             myDirections.calculate(completionHandler: { response, error -> Void in
                 // NSErrorを受け取ったか、ルートがない場合.
                 guard let routes = response?.routes else { return }
@@ -208,7 +213,9 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
                     return
                 }
                 let route: MKRoute = routes[0]
-                self.transferTimes.append(Int(route.expectedTravelTime))
+                //                self.transferTimes.append(Int(route.expectedTravelTime / 60))
+                guard let index = self.settingPoints.firstIndex(of: settingPoint) else { return }
+                self.transferTimes[index] = Int(route.expectedTravelTime / 60)
 
                 if count == self.settingPoints.count {
                     complete()

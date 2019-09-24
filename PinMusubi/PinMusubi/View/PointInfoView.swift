@@ -37,6 +37,11 @@ public class PointInfoView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
     public func setPointInfo(settingPoints: [SettingPointEntity], transferTimes: [Int]) {
+        // 初期化
+        pointNames.removeAll()
+        self.transferTimes.removeAll()
+        cellRow = 0
+
         for count in 0...settingPoints.count - 1 {
             pointNames.append(settingPoints[count].name)
             self.transferTimes.append(transferTimes[count])
