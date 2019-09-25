@@ -13,7 +13,7 @@ import MapKit
 public protocol PointsInfomationPresenterProrocol: AnyObject {
     /// コンストラクタ
     init(view: PointsInfomationAnnotationView, modelType model: PointsInfomationModelProtocol.Type)
-    
+
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
@@ -24,13 +24,13 @@ public protocol PointsInfomationPresenterProrocol: AnyObject {
 public class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
     private weak var view: PointsInfomationAnnotationView?
     private let model: PointsInfomationModelProtocol?
-    
+
     /// コンストラクタ
     public required init(view: PointsInfomationAnnotationView, modelType model: PointsInfomationModelProtocol.Type) {
         self.view = view
         self.model = model.init()
     }
-    
+
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
@@ -39,6 +39,7 @@ public class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
         guard let view = view else { return }
         model.calculateTransferTime(settingPoints: settingPoints, pinPoint: pinPoint, complete: { pointNameList, transferTimeList in
             view.reloadPointsInfoTableView(pointNameList: pointNameList, transferTimeList: transferTimeList)
-        })
+        }
+        )
     }
 }

@@ -6,8 +6,8 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import UIKit
 import MapKit
+import UIKit
 
 /// マップ上の地点間の情報を表示するビュー
 public class PointsInfomationAnnotationView: UIView, UITableViewDelegate, UITableViewDataSource {
@@ -21,7 +21,7 @@ public class PointsInfomationAnnotationView: UIView, UITableViewDelegate, UITabl
     private var transferTimeList = [Int]()
     /// マップ上の地点間の情報を渡すプレゼンター
     private var presenter: PointsInfomationPresenterProrocol?
-    
+
     override public func awakeFromNib() {
         super.awakeFromNib()
         // プレゼンターの初期化
@@ -45,14 +45,14 @@ public class PointsInfomationAnnotationView: UIView, UITableViewDelegate, UITabl
         cell.setPointInfo(pointName: pointNameList[indexPath.row], transferTime: transferTimeList[indexPath.row])
         return cell
     }
-    
+
     /// 地点情報の設定処理
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
     public func setPointInfo(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D) {
         presenter?.getPointsInfomation(settingPoints: settingPoints, pinPoint: pinPoint)
     }
-    
+
     /// 地点間の移動時間を表示するTableViewの再読み込み処理
     /// - Parameter pointNameList: 地点名の一覧
     /// - Parameter transferTimeList: 移動時間一覧

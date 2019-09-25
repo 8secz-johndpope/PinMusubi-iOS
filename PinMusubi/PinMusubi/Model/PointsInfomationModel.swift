@@ -12,7 +12,7 @@ import MapKit
 public protocol PointsInfomationModelProtocol {
     /// コンストラクタ
     init()
-    
+
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
@@ -23,7 +23,7 @@ public protocol PointsInfomationModelProtocol {
 public class PointsInfomationModel: PointsInfomationModelProtocol {
     /// コンストラクタ
     public required init() {}
-    
+
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標

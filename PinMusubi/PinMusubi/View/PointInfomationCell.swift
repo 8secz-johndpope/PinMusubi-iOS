@@ -14,7 +14,7 @@ public class PointInfomationCell: UITableViewCell {
     @IBOutlet private var pointNameLabel: UILabel!
     /// 移動時間を表示するラベル
     @IBOutlet private var transferTimeLabel: UILabel!
-    
+
     /// セルが選択された時の処理
     /// - Parameter selected: 選択されたかどうか
     /// - Parameter animated: アニメーションの有無
@@ -22,7 +22,7 @@ public class PointInfomationCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .none
     }
-    
+
     /// ラベルの設定処理
     /// - Parameter pointName: 地点名
     /// - Parameter transferTime: 移動時間

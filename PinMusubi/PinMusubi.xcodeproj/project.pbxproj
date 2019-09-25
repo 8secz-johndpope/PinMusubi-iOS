@@ -28,7 +28,7 @@
 		91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91816D9F232F6D5D00C48C78 /* MapKit.framework */; };
 		918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CC477232F91D00047BC88 /* ColorDefinition.swift */; };
 		918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */; };
-		918CF9882338FBA8003DC7C8 /* PointInfomationAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918CF9872338FBA8003DC7C8 /* PointInfomationAnnotationView.xib */; };
+		918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918CF9872338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib */; };
 		918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */; };
 		918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */; };
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
@@ -117,7 +117,7 @@
 		91816D9F232F6D5D00C48C78 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		918CC477232F91D00047BC88 /* ColorDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDefinition.swift; sourceTree = "<group>"; };
 		918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationAnnotationView.swift; sourceTree = "<group>"; };
-		918CF9872338FBA8003DC7C8 /* PointInfomationAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointInfomationAnnotationView.xib; sourceTree = "<group>"; };
+		918CF9872338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsInfomationAnnotationView.xib; sourceTree = "<group>"; };
 		918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationCell.swift; sourceTree = "<group>"; };
 		918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointInfomationCell.xib; sourceTree = "<group>"; };
 		9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointEntity.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 				91A4111D2333C16A00AF7897 /* ModalContentView.xib */,
 				91A411222335066700AF7897 /* SearchCriteriaCell.xib */,
 				91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */,
-				918CF9872338FBA8003DC7C8 /* PointInfomationAnnotationView.xib */,
+				918CF9872338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib */,
 				918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */,
 			);
 			path = xib;
@@ -522,7 +522,7 @@
 			files = (
 				91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */,
 				91A4111E2333C16A00AF7897 /* ModalContentView.xib in Resources */,
-				918CF9882338FBA8003DC7C8 /* PointInfomationAnnotationView.xib in Resources */,
+				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
