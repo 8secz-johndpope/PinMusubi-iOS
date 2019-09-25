@@ -14,6 +14,8 @@
 		914D4A852337CD8C00065648 /* SearchCriteriaViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */; };
 		914D4A89233853E800065648 /* ModalContentViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* ModalContentViewDelegate.swift */; };
 		914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A8A23388F8500065648 /* Notification+Extension.swift */; };
+		914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */; };
+		914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F49EE233B89C90005C316 /* PointsInfomationModel.swift */; };
 		91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A792336226B00F900C4 /* FloatingPanel.framework */; };
 		91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */; };
 		91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */; };
@@ -25,10 +27,10 @@
 		915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */; };
 		91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91816D9F232F6D5D00C48C78 /* MapKit.framework */; };
 		918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CC477232F91D00047BC88 /* ColorDefinition.swift */; };
-		918CF9862338FB6A003DC7C8 /* PointInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF9852338FB6A003DC7C8 /* PointInfoView.swift */; };
-		918CF9882338FBA8003DC7C8 /* PointInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918CF9872338FBA8003DC7C8 /* PointInfoView.xib */; };
-		918CF98B23390ABA003DC7C8 /* PointInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF98923390ABA003DC7C8 /* PointInfoCell.swift */; };
-		918CF98C23390ABA003DC7C8 /* PointInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918CF98A23390ABA003DC7C8 /* PointInfoCell.xib */; };
+		918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */; };
+		918CF9882338FBA8003DC7C8 /* PointInfomationAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918CF9872338FBA8003DC7C8 /* PointInfomationAnnotationView.xib */; };
+		918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */; };
+		918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */; };
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
 		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
 		9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6552325396900A5C558 /* PinMusubiTests.swift */; };
@@ -95,6 +97,8 @@
 		914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaViewPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* ModalContentViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalContentViewDelegate.swift; sourceTree = "<group>"; };
 		914D4A8A23388F8500065648 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationPresenter.swift; sourceTree = "<group>"; };
+		914F49EE233B89C90005C316 /* PointsInfomationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationModel.swift; sourceTree = "<group>"; };
 		91504A4923361CF500F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A4D23361D3200F900C4 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A5023361D3D00F900C4 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,10 +116,10 @@
 		915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryAccessorTests.swift; sourceTree = "<group>"; };
 		91816D9F232F6D5D00C48C78 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		918CC477232F91D00047BC88 /* ColorDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDefinition.swift; sourceTree = "<group>"; };
-		918CF9852338FB6A003DC7C8 /* PointInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoView.swift; sourceTree = "<group>"; };
-		918CF9872338FBA8003DC7C8 /* PointInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointInfoView.xib; sourceTree = "<group>"; };
-		918CF98923390ABA003DC7C8 /* PointInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoCell.swift; sourceTree = "<group>"; };
-		918CF98A23390ABA003DC7C8 /* PointInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointInfoCell.xib; sourceTree = "<group>"; };
+		918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationAnnotationView.swift; sourceTree = "<group>"; };
+		918CF9872338FBA8003DC7C8 /* PointInfomationAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointInfomationAnnotationView.xib; sourceTree = "<group>"; };
+		918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationCell.swift; sourceTree = "<group>"; };
+		918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointInfomationCell.xib; sourceTree = "<group>"; };
 		9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointEntity.swift; sourceTree = "<group>"; };
 		9197D6452325395B00A5C558 /* PinMusubiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinMusubiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9197D6472325395B00A5C558 /* PinMusubiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiUITests.swift; sourceTree = "<group>"; };
@@ -276,8 +280,8 @@
 				91A4111D2333C16A00AF7897 /* ModalContentView.xib */,
 				91A411222335066700AF7897 /* SearchCriteriaCell.xib */,
 				91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */,
-				918CF9872338FBA8003DC7C8 /* PointInfoView.xib */,
-				918CF98A23390ABA003DC7C8 /* PointInfoCell.xib */,
+				918CF9872338FBA8003DC7C8 /* PointInfomationAnnotationView.xib */,
+				918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -331,8 +335,8 @@
 				91A411212335066700AF7897 /* SearchCriteriaCell.swift */,
 				91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */,
 				914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */,
-				918CF9852338FB6A003DC7C8 /* PointInfoView.swift */,
-				918CF98923390ABA003DC7C8 /* PointInfoCell.swift */,
+				918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */,
+				918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */,
+				914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				91BDCB932324B25600E4B5C4 /* SearchCriteriaModel.swift */,
+				914F49EE233B89C90005C316 /* PointsInfomationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -516,9 +522,9 @@
 			files = (
 				91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */,
 				91A4111E2333C16A00AF7897 /* ModalContentView.xib in Resources */,
-				918CF9882338FBA8003DC7C8 /* PointInfoView.xib in Resources */,
+				918CF9882338FBA8003DC7C8 /* PointInfomationAnnotationView.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */,
-				918CF98C23390ABA003DC7C8 /* PointInfoCell.xib in Resources */,
+				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
@@ -775,11 +781,13 @@
 				91A4110C2331B66A00AF7897 /* SearchCriteriaModalViewController.swift in Sources */,
 				91A411172332764300AF7897 /* ModalContentView.swift in Sources */,
 				91A411232335066700AF7897 /* SearchCriteriaCell.swift in Sources */,
+				914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */,
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
-				918CF9862338FB6A003DC7C8 /* PointInfoView.swift in Sources */,
+				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */,
+				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
-				918CF98B23390ABA003DC7C8 /* PointInfoCell.swift in Sources */,
+				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
 				914D4A852337CD8C00065648 /* SearchCriteriaViewPresenter.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
