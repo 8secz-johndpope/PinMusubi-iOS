@@ -19,6 +19,8 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     private var settingPoints = [SettingPointEntity]()
     private var halfwayPoint = CLLocationCoordinate2D()
     private var fpc = FloatingPanelController()
+    private var transferTimes = [Int]()
+    private var pointInfoView: PointInfoView?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +43,20 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
 
         guard let modalContentView = modalVC.view.subviews.first as? ModalContentView else { return }
         modalContentView.delegate = self
+
+        guard let pointInfoView = UINib(nibName: "PointInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointInfoView else { return }
+        self.pointInfoView = pointInfoView
     }
 
     /// アノテーションの設定
     /// - Parameter mapView: searchCriteriaView
     /// - Parameter annotation: annotation
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let pinAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "halfwayPoint")
+        let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "halfwayPoint")
         pinAnnotationView.isDraggable = true
         pinAnnotationView.canShowCallout = true
+        pointInfoView?.setPointInfo(settingPoints: settingPoints, transferTimes: transferTimes)
+        pinAnnotationView.detailCalloutAccessoryView = pointInfoView
         return pinAnnotationView
     }
 
@@ -59,25 +66,26 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     /// - Parameter newState: newState
     /// - Parameter oldState: oldState
     public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
-        if newState == .starting {
-            searchMapView.removeOverlays(lines)
-        }
-
         if newState == .ending {
+            searchMapView.removeOverlays(lines)
             guard let relesePoint = view.annotation?.coordinate else { return }
             self.halfwayPoint = relesePoint
-            colorNumber -= settingPoints.count
-            for settingPoint in settingPoints {
-                let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-                let line = MKPolyline(coordinates: [halfwayPoint, settingPointLocation], count: 2)
-                lines.append(line)
-                searchMapView.addOverlay(line)
-                if colorNumber < ColorDefinition.settingPointColors.count - 1 {
-                    colorNumber += 1
-                } else {
-                    colorNumber = 0
+            calculateTransferTime(complete: {
+                self.colorNumber -= self.settingPoints.count
+                for settingPoint in self.settingPoints {
+                    let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+                    let line = MKPolyline(coordinates: [self.halfwayPoint, settingPointLocation], count: 2)
+                    self.lines.append(line)
+                    self.searchMapView.addOverlay(line)
+                    if self.colorNumber < ColorDefinition.settingPointColors.count - 1 {
+                        self.colorNumber += 1
+                    } else {
+                        self.colorNumber = 0
+                    }
                 }
+                self.pointInfoView?.setPointInfo(settingPoints: self.settingPoints, transferTimes: self.transferTimes)
             }
+            )
         }
     }
 
@@ -120,9 +128,13 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         searchMapView.removeOverlays(lines)
         colorNumber = 0
 
-        // 中間地点にピンを設置
-        annotation.coordinate = halfwayPoint
-        searchMapView.addAnnotation(annotation)
+        // 移動距離の計算
+        calculateTransferTime(complete: {
+            // 中間地点にピンを設置
+            self.annotation.coordinate = halfwayPoint
+            self.searchMapView.addAnnotation(self.annotation)
+        }
+        )
 
         // 地図の表示領域の設定
         guard let settingPointFirstLatitude = settingPoints.first?.latitude,
@@ -160,6 +172,59 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
 
     @IBAction private func didTapView(_ sender: Any) {
         self.view.endEditing(true)
+    }
+
+    private func calculateTransferTime(complete: @escaping () -> Void) {
+        var count = 1
+        transferTimes = [Int].init(repeating: Int(), count: settingPoints.count)
+        for settingPoint in settingPoints {
+            // PlaceMarkを生成して出発点、目的地の座標をセット.
+            let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+            let fromPlace = MKPlacemark(coordinate: fromCoordinate, addressDictionary: nil)
+            let toPlace = MKPlacemark(coordinate: halfwayPoint, addressDictionary: nil)
+
+            // Itemを生成してPlaceMarkをセット.
+            let fromItem = MKMapItem(placemark: fromPlace)
+            let toItem = MKMapItem(placemark: toPlace)
+
+            // MKDirectionsRequestを生成.
+            let myRequest: MKDirections.Request = MKDirections.Request()
+
+            // 出発地のItemをセット.
+            myRequest.source = fromItem
+
+            // 目的地のItemをセット.
+            myRequest.destination = toItem
+
+            // 複数経路の検索を有効.
+            myRequest.requestsAlternateRoutes = true
+
+            // 移動手段を車に設定.
+            myRequest.transportType = MKDirectionsTransportType.automobile
+
+            // MKDirectionsを生成してRequestをセット.
+            let myDirections = MKDirections(request: myRequest)
+
+            // 移動時間計算
+            myDirections.calculate(completionHandler: { response, error -> Void in
+                // NSErrorを受け取ったか、ルートがない場合.
+                guard let routes = response?.routes else { return }
+                if error != nil || routes.isEmpty {
+                    return
+                }
+                let route: MKRoute = routes[0]
+                //                self.transferTimes.append(Int(route.expectedTravelTime / 60))
+                guard let index = self.settingPoints.firstIndex(of: settingPoint) else { return }
+                self.transferTimes[index] = Int(route.expectedTravelTime / 60)
+
+                if count == self.settingPoints.count {
+                    complete()
+                } else {
+                    count += 1
+                }
+            }
+            )
+        }
     }
 }
 
