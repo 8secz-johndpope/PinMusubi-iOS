@@ -46,6 +46,8 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         guard let pointsInfomationAnnotationView =
             UINib(nibName: "PointsInfomationAnnotationView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointsInfomationAnnotationView else { return }
         self.pointsInfomationAnnotationView = pointsInfomationAnnotationView
+
+        setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
     }
 
     /// アノテーションの設定
@@ -67,22 +69,22 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     /// - Parameter oldState: oldState
     public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
         if newState == .ending {
-            searchMapView.removeOverlays(lines)
             guard let relesePoint = view.annotation?.coordinate else { return }
+            setMark(settingPoints: settingPoints, centerPoint: relesePoint)
             self.halfwayPoint = relesePoint
             pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: relesePoint)
-            self.colorNumber -= self.settingPoints.count
-            for settingPoint in self.settingPoints {
-                let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-                let line = MKPolyline(coordinates: [self.halfwayPoint, settingPointLocation], count: 2)
-                self.lines.append(line)
-                self.searchMapView.addOverlay(line)
-                if self.colorNumber < ColorDefinition.settingPointColors.count - 1 {
-                    self.colorNumber += 1
-                } else {
-                    self.colorNumber = 0
-                }
-            }
+            //            self.colorNumber -= self.settingPoints.count
+            //            for settingPoint in self.settingPoints {
+            //                let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+            //                let line = MKPolyline(coordinates: [self.halfwayPoint, settingPointLocation], count: 2)
+            //                self.lines.append(line)
+            //                self.searchMapView.addOverlay(line)
+            //                if self.colorNumber < ColorDefinition.settingPointColors.count - 1 {
+            //                    self.colorNumber += 1
+            //                } else {
+            //                    self.colorNumber = 0
+            //                }
+            //            }
         }
     }
 
@@ -123,30 +125,55 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         // 初期化
         searchMapView.removeOverlays(circles)
         searchMapView.removeOverlays(lines)
-        colorNumber = 0
 
         // 中間地点にピンを設置
         self.annotation.coordinate = halfwayPoint
         self.searchMapView.addAnnotation(self.annotation)
 
-        // 地図の表示領域の設定
-        guard let settingPointFirstLatitude = settingPoints.first?.latitude,
-            let settingPointFirstLongitude = settingPoints.first?.longitude else {
-                return
-        }
-        let settingPointFirst = CLLocation(latitude: settingPointFirstLatitude, longitude: settingPointFirstLongitude)
-        let halfPointLocation = CLLocation(latitude: halfwayPoint.latitude, longitude: halfwayPoint.longitude)
-        let distance = halfPointLocation.distance(from: settingPointFirst)
-        let delta = (distance * 2) / 80_000
-        let span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
-        let region = MKCoordinateRegion(center: halfwayPoint, span: span)
-        searchMapView.setRegion(region, animated: true)
+        // 地図上に線や円のマークを設定
+        setMark(settingPoints: settingPoints, centerPoint: halfwayPoint)
+    }
 
+    public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        self.view.endEditing(true)
+    }
+
+    /// 縮尺を取得
+    /// - Parameter settingPoints: 設定地点
+    /// - Parameter centerPoint: 中心となる地点
+    public func getScale(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) -> CLLocationDegrees {
+        var maxDistance = 0.0
+        let centerPointLocation = CLLocation(latitude: centerPoint.latitude, longitude: centerPoint.longitude)
+        for settingPoint in settingPoints {
+            let settingLocation = CLLocation(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+            let distance: Double = centerPointLocation.distance(from: settingLocation)
+            if maxDistance < distance {
+                maxDistance = distance
+            }
+        }
+        let scale = (maxDistance * 2) / 80_000
+        return scale
+    }
+
+    /// 地図上に線や円のマークを設定
+    /// - Parameter settingPoints: 設定地点
+    /// - Parameter centerPoint: 中心となる地点
+    public func setMark(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
+        // overlayの初期化
+        searchMapView.removeOverlays(lines)
+        searchMapView.removeOverlays(circles)
+        // 縮尺の取得
+        let scale = getScale(settingPoints: settingPoints, centerPoint: centerPoint)
+        // 地図の表示領域の設定
+        let span = MKCoordinateSpan(latitudeDelta: scale, longitudeDelta: scale)
+        let region = MKCoordinateRegion(center: centerPoint, span: span)
+        searchMapView.setRegion(region, animated: true)
         // 円形と線を描写
+        colorNumber = 0
         for settingPoint in settingPoints {
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-            let circle = MKCircle(center: settingPointLocation, radius: delta * 2_000)
-            let line = MKPolyline(coordinates: [halfwayPoint, settingPointLocation], count: 2)
+            let circle = MKCircle(center: settingPointLocation, radius: scale * 2_000)
+            let line = MKPolyline(coordinates: [centerPoint, settingPointLocation], count: 2)
             circles.append(circle)
             lines.append(line)
             searchMapView.addOverlay(circle)
@@ -157,10 +184,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
                 colorNumber = 0
             }
         }
-    }
-
-    public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        self.view.endEditing(true)
     }
 
     @IBAction private func didTapView(_ sender: Any) {

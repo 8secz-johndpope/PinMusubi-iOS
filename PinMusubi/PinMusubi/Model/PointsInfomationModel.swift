@@ -50,11 +50,14 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
             directions.calculate(completionHandler: { response, error -> Void in
                 // 地点名と移動時間の設定
                 pointNameList.append(settingPoint.name)
-                guard let routes = response?.routes else { return }
-                if error != nil || routes.isEmpty {
-                    transferTimeList.append(-1)
+                if let routes = response?.routes {
+                    if error != nil || routes.isEmpty {
+                        transferTimeList.append(-1)
+                    } else {
+                        transferTimeList.append(Int( routes[0].expectedTravelTime / 60))
+                    }
                 } else {
-                    transferTimeList.append(Int( routes[0].expectedTravelTime / 60))
+                    transferTimeList.append(-1)
                 }
                 // 計算完了後、完了ハンドラに返却値を設定
                 if completionCount == settingPoints.count {
