@@ -27,6 +27,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="1ve-bA-s38" firstAttribute="centerX" secondItem="9vd-4D-8Ox" secondAttribute="centerX" id="MRj-rl-UOc"/>
+                        <constraint firstAttribute="width" constant="197" id="eIl-8C-WiL"/>
                         <constraint firstItem="1ve-bA-s38" firstAttribute="centerY" secondItem="9vd-4D-8Ox" secondAttribute="centerY" id="jDo-Dc-ayb"/>
                         <constraint firstAttribute="height" constant="38" id="wgZ-jK-ndX"/>
                     </constraints>
@@ -52,11 +53,14 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="smW-Vv-LFH"/>
                 </scrollView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="各地点からの移動時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGD-ZQ-iIM">
-                    <rect key="frame" x="0.0" y="5" width="133" height="16"/>
+                    <rect key="frame" x="0.0" y="5" width="132.66666666666666" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Car" translatesAutoresizingMaskIntoConstraints="NO" id="Jcl-ZO-Biu">
+                    <rect key="frame" x="140" y="0.0" width="25" height="26"/>
+                </imageView>
             </subviews>
             <constraints>
                 <constraint firstItem="gGD-ZQ-iIM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0rN-ma-OMm"/>
@@ -65,9 +69,11 @@
                 <constraint firstItem="xCC-TX-amt" firstAttribute="leading" secondItem="gGD-ZQ-iIM" secondAttribute="leading" id="KYf-2a-zL4"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="trailing" secondItem="9vd-4D-8Ox" secondAttribute="trailing" id="S33-d1-LWL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9vd-4D-8Ox" secondAttribute="bottom" id="WaH-BV-2To"/>
+                <constraint firstItem="xCC-TX-amt" firstAttribute="top" secondItem="Jcl-ZO-Biu" secondAttribute="bottom" constant="8" id="WxS-mo-zry"/>
+                <constraint firstAttribute="trailing" secondItem="Jcl-ZO-Biu" secondAttribute="trailing" constant="32" id="XdZ-FV-NpQ"/>
                 <constraint firstItem="9vd-4D-8Ox" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YR4-gG-LhA"/>
+                <constraint firstItem="Jcl-ZO-Biu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="evN-yY-4vF"/>
                 <constraint firstItem="9vd-4D-8Ox" firstAttribute="top" secondItem="xCC-TX-amt" secondAttribute="bottom" constant="14" id="g5t-x2-fxc"/>
-                <constraint firstAttribute="trailing" secondItem="gGD-ZQ-iIM" secondAttribute="trailing" constant="64" id="p4m-1a-wIf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9vd-4D-8Ox" secondAttribute="trailing" id="pRR-aj-QXh"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -81,4 +87,7 @@
             <point key="canvasLocation" x="84.782608695652186" y="105.46875"/>
         </view>
     </objects>
+    <resources>
+        <image name="Car" width="25" height="25"/>
+    </resources>
 </document>
