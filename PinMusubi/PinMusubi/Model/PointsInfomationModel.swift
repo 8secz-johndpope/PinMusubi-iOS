@@ -29,9 +29,16 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
     /// - Parameter pinPoint: ピンの地点の座標
     /// - Parameter complete: 完了ハンドラ
     public func calculateTransferTime(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D, complete: @escaping ([String], [Int]) -> Void) {
+        let dispatchGroup = DispatchGroup()
         var pointNameList = [String]()
-        var transferTimeList = [Int]()
-        var completionCount = 1
+        var transferTimeList = [Int].init(repeating: Int(), count: settingPoints.count)
+
+        // 地点名の設定
+        for settingPoint in settingPoints {
+            pointNameList.append(settingPoint.name)
+        }
+
+        // 移動時間の設定
         for settingPoint in settingPoints {
             // PlaceMarkに出発地と目的地の座標を設定
             let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
@@ -47,26 +54,26 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
             request.transportType = .automobile
             // MKDirectionsにrequestを設定し、移動時間を計算
             let directions = MKDirections(request: request)
+            dispatchGroup.enter()
             directions.calculate(completionHandler: { response, error -> Void in
-                // 地点名と移動時間の設定
-                pointNameList.append(settingPoint.name)
+                // 地点名と対応する移動時間を設定
+                guard let index = pointNameList.firstIndex(of: settingPoint.name) else { return }
                 if let routes = response?.routes {
                     if error != nil || routes.isEmpty {
-                        transferTimeList.append(-1)
+                        transferTimeList[index] = -1
                     } else {
-                        transferTimeList.append(Int( routes[0].expectedTravelTime / 60))
+                        transferTimeList[index] = Int( routes[0].expectedTravelTime / 60)
                     }
                 } else {
-                    transferTimeList.append(-1)
+                    transferTimeList[index] = -1
                 }
-                // 計算完了後、完了ハンドラに返却値を設定
-                if completionCount == settingPoints.count {
-                    complete(pointNameList, transferTimeList)
-                } else {
-                    completionCount += 1
-                }
+                dispatchGroup.leave()
             }
             )
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            complete(pointNameList, transferTimeList)
         }
     }
 }
