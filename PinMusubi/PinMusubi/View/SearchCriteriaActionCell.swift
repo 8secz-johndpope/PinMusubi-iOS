@@ -42,12 +42,12 @@ public class SearchCriteriaActionCell: UITableViewCell {
         self.selectionStyle = .none
     }
 
-    public func hideRemoveButton() {
-        removeCellView.isHidden = true
+    public func showRemoveButton(isHidden: Bool) {
+        removeCellView.isHidden = isHidden
     }
 
-    public func appearRemoveButton() {
-        removeCellView.isHidden = false
+    public func showAddButton(isHidden: Bool) {
+        addCellView.isHidden = isHidden
     }
 
     public func changeDoneSettingStatus(canDoneSetting: Bool) {

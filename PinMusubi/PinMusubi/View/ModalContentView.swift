@@ -66,9 +66,14 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
             // actionCellを設定
             guard let cell = searchCriteriaTableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return UITableViewCell() }
             if cellRow == 2 {
-                cell.hideRemoveButton()
+                cell.showRemoveButton(isHidden: true)
+                cell.showAddButton(isHidden: false)
+            } else if cellRow == 10 {
+                cell.showRemoveButton(isHidden: false)
+                cell.showAddButton(isHidden: true)
             } else {
-                cell.appearRemoveButton()
+                cell.showRemoveButton(isHidden: false)
+                cell.showAddButton(isHidden: false)
             }
             checkInput()
             cell.changeDoneSettingStatus(canDoneSetting: canDoneSetting && !addressStatus.contains("error"))
