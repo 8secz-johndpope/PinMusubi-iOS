@@ -14,6 +14,18 @@ public class PointInfomationCell: UITableViewCell {
     @IBOutlet private var pointNameLabel: UILabel!
     /// 移動時間を表示するラベル
     @IBOutlet private var transferTimeLabel: UILabel!
+    /// ピン画像の背景
+    @IBOutlet private var whiteView: UIView!
+    @IBOutlet private var imageBackgroundView: UIView!
+    /// ピン画像
+    @IBOutlet private var pinImage: UIImageView!
+
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        // 画像の背景の設定
+        whiteView.layer.cornerRadius = 17
+        imageBackgroundView.layer.cornerRadius = 17
+    }
 
     /// セルが選択された時の処理
     /// - Parameter selected: 選択されたかどうか
@@ -21,6 +33,14 @@ public class PointInfomationCell: UITableViewCell {
     override public func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .none
+    }
+
+    /// ピン画像を設定
+    /// - Parameter row: 行番号
+    public func setPinImage(row: Int) {
+        imageBackgroundView.backgroundColor = ColorDefinition.underViewColorsOnModal[row]
+        guard let settingPinImage = UIImage(named: "PinOnModal" + String(row)) else { return }
+        pinImage.image = settingPinImage
     }
 
     /// ラベルの設定処理

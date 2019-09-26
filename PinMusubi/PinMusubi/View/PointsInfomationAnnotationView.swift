@@ -43,6 +43,7 @@ public class PointsInfomationAnnotationView: UIView, UITableViewDelegate, UITabl
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PointInfomationCell") as? PointInfomationCell else { return UITableViewCell() }
         cell.setPointInfo(pointName: pointNameList[indexPath.row], transferTime: transferTimeList[indexPath.row])
+        cell.setPinImage(row: indexPath.row)
         return cell
     }
 
