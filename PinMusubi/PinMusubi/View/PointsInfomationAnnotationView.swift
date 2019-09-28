@@ -10,7 +10,7 @@ import MapKit
 import UIKit
 
 /// マップ上の地点間の情報を表示するビュー
-public class PointsInfomationAnnotationView: UIView, UITableViewDelegate, UITableViewDataSource {
+public class PointsInfomationAnnotationView: UIView {
     /// 地点間の移動時間を表示するTableView
     @IBOutlet private var pointsInfoTableView: UITableView!
     /// 「詳細を見る」のボタンとなるView
@@ -36,17 +36,6 @@ public class PointsInfomationAnnotationView: UIView, UITableViewDelegate, UITabl
         pointsInfoTableView.dataSource = self
     }
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pointNameList.count
-    }
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PointInfomationCell") as? PointInfomationCell else { return UITableViewCell() }
-        cell.setPointInfo(pointName: pointNameList[indexPath.row], transferTime: transferTimeList[indexPath.row])
-        cell.setPinImage(row: indexPath.row)
-        return cell
-    }
-
     /// 地点情報の設定処理
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
@@ -61,5 +50,19 @@ public class PointsInfomationAnnotationView: UIView, UITableViewDelegate, UITabl
         self.pointNameList = pointNameList
         self.transferTimeList = transferTimeList
         pointsInfoTableView.reloadData()
+    }
+}
+
+/// TableViewに関するDelegateメソッド
+extension PointsInfomationAnnotationView: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pointNameList.count
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PointInfomationCell") as? PointInfomationCell else { return UITableViewCell() }
+        cell.setPointInfo(pointName: pointNameList[indexPath.row], transferTime: transferTimeList[indexPath.row])
+        cell.setPinImage(row: indexPath.row)
+        return cell
     }
 }

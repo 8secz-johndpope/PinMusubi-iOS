@@ -1,5 +1,5 @@
 //
-//  SearchCriteriaViewPresenter.swift
+//  SearchCriteriaModalViewPresenter.swift
 //  PinMusubi
 //
 //  Created by rMac on 2019/09/23.
@@ -9,17 +9,17 @@
 import Foundation
 
 public protocol SearchCriteriaViewPresenterProtocol: AnyObject {
-    init(view: ModalContentView, modelType model: SearchCriteriaModelProtocol.Type)
+    init(view: SearchCriteriaView, modelType model: SearchCriteriaModelProtocol.Type)
 
     func convertingToCoordinate(name: String, address: String, row: Int)
     func setPointsOnMap()
 }
 
 public class SearchCriteriaViewPresenter: SearchCriteriaViewPresenterProtocol {
-    private weak var view: ModalContentView?
+    private weak var view: SearchCriteriaView?
     private let model: SearchCriteriaModelProtocol?
 
-    public required init(view: ModalContentView, modelType model: SearchCriteriaModelProtocol.Type) {
+    public required init(view: SearchCriteriaView, modelType model: SearchCriteriaModelProtocol.Type) {
         self.view = view
         self.model = model.init()
     }

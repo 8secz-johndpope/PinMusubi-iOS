@@ -14,9 +14,9 @@ public class SearchCriteriaModalViewController: UIViewController {
 
         // モーダルの中身を設定
         guard let modalContentView =
-            UINib(nibName: "ModalContentView", bundle: Bundle.main)
+            UINib(nibName: "SearchCriteriaView", bundle: Bundle.main)
                 .instantiate(withOwner: self, options: nil)
-                .first as? ModalContentView else { return }
+                .first as? SearchCriteriaView else { return }
         modalContentView.frame = view.frame
         view.addSubview(modalContentView)
     }

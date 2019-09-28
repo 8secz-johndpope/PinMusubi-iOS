@@ -10,7 +10,7 @@ import FloatingPanel
 import MapKit
 import UIKit
 
-public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, ModalContentViewDelegate {
+public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, SearchCriteriaViewDelegate {
     @IBOutlet private var searchMapView: MKMapView!
     private let annotation = MKPointAnnotation()
     private var circles = [MKCircle]()
@@ -40,7 +40,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         // delegateの設定
         searchMapView.delegate = self
         fpc.delegate = self
-        guard let modalContentView = modalVC.view.subviews.first as? ModalContentView else { return }
+        guard let modalContentView = modalVC.view.subviews.first as? SearchCriteriaView else { return }
         modalContentView.delegate = self
 
         guard let pointsInfomationAnnotationView =

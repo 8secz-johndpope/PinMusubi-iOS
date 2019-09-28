@@ -1,5 +1,5 @@
 //
-//  ModalContentView.swift
+//  SearchCriteriaView.swift
 //  PinMusubi
 //
 //  Created by rMac on 2019/09/18.
@@ -9,7 +9,7 @@
 import MapKit
 import UIKit
 
-public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchCriteriaActionDelegate {
+public class SearchCriteriaView: UIView, SearchCriteriaActionDelegate {
     @IBOutlet private var searchCriteriaScrollView: UIScrollView!
     @IBOutlet private var searchCriteriaTableView: UITableView!
     private var editingTextFieldView = UIView()
@@ -22,7 +22,7 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
 
     private var presenter: SearchCriteriaViewPresenterProtocol?
 
-    public weak var delegate: ModalContentViewDelegate?
+    public weak var delegate: SearchCriteriaViewDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -31,55 +31,15 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell")
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
         // delegateの設定
+        searchCriteriaScrollView.delegate = self
         searchCriteriaTableView.delegate = self
         searchCriteriaTableView.dataSource = self
-        searchCriteriaScrollView.delegate = self
         // 通知設定登録
         registerNotification()
     }
 
     @IBAction private func didTapView(_ sender: Any) {
         self.endEditing(true)
-    }
-
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        self.endEditing(true)
-    }
-
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellRow + 1
-    }
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if cellRow != indexPath.row {
-            // 検索条件セルの設定
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell") as? SearchCriteriaCell else { return UITableViewCell() }
-            cell.setPinOnModal(row: indexPath.row % 10)
-            if cellRow - 1 != indexPath.row { cell.setBrokenLine() }
-            (pointNameTextField, addressTextField) = cell.getTextFields()
-            cell.setAddressStatus(inputStatus: addressStatus[indexPath.row])
-            pointNameTextField?.delegate = self
-            addressTextField?.delegate = self
-            cells.append(cell)
-            return cell
-        } else {
-            // actionCellを設定
-            guard let cell = searchCriteriaTableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return UITableViewCell() }
-            if cellRow == 2 {
-                cell.showRemoveButton(isHidden: true)
-                cell.showAddButton(isHidden: false)
-            } else if cellRow == 10 {
-                cell.showRemoveButton(isHidden: false)
-                cell.showAddButton(isHidden: true)
-            } else {
-                cell.showRemoveButton(isHidden: false)
-                cell.showAddButton(isHidden: false)
-            }
-            checkInput()
-            cell.changeDoneSettingStatus(canDoneSetting: canDoneSetting && !addressStatus.contains("error"))
-            cell.delegate = self
-            return cell
-        }
     }
 
     public func addSearchCriteriaCell() {
@@ -126,7 +86,54 @@ public class ModalContentView: UIView, UIScrollViewDelegate, UITableViewDelegate
     }
 }
 
-extension ModalContentView: UITextFieldDelegate {
+/// ScrollViewに関するDelegateメソッド
+extension SearchCriteriaView: UIScrollViewDelegate {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.endEditing(true)
+    }
+}
+
+/// TableViewに関するDelegateメソッド
+extension SearchCriteriaView: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellRow + 1
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if cellRow != indexPath.row {
+            // 検索条件セルの設定
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell") as? SearchCriteriaCell else { return UITableViewCell() }
+            cell.setPinOnModal(row: indexPath.row % 10)
+            if cellRow - 1 != indexPath.row { cell.setBrokenLine() }
+            (pointNameTextField, addressTextField) = cell.getTextFields()
+            cell.setAddressStatus(inputStatus: addressStatus[indexPath.row])
+            pointNameTextField?.delegate = self
+            addressTextField?.delegate = self
+            cells.append(cell)
+            return cell
+        } else {
+            // actionCellを設定
+            guard let cell = searchCriteriaTableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return UITableViewCell() }
+            if cellRow == 2 {
+                cell.showRemoveButton(isHidden: true)
+                cell.showAddButton(isHidden: false)
+            } else if cellRow == 10 {
+                cell.showRemoveButton(isHidden: false)
+                cell.showAddButton(isHidden: true)
+            } else {
+                cell.showRemoveButton(isHidden: false)
+                cell.showAddButton(isHidden: false)
+            }
+            checkInput()
+            cell.changeDoneSettingStatus(canDoneSetting: canDoneSetting && !addressStatus.contains("error"))
+            cell.delegate = self
+            return cell
+        }
+    }
+}
+
+/// TextFieldViewに関するDelegateメソッド
+extension SearchCriteriaView: UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let superView = textField.superview else { return }
         editingTextFieldView = superView
@@ -138,7 +145,8 @@ extension ModalContentView: UITextFieldDelegate {
     }
 }
 
-extension ModalContentView {
+/// NotificationCenterに関するメソッド
+extension SearchCriteriaView {
     private func registerNotification() {
         let center = NotificationCenter.default
 

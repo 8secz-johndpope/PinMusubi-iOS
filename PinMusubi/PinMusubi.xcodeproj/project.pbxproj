@@ -12,7 +12,7 @@
 		784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
 		914D4A7C23370A7F00065648 /* SearchCriteriaActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SearchCriteriaViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */; };
-		914D4A89233853E800065648 /* ModalContentViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* ModalContentViewDelegate.swift */; };
+		914D4A89233853E800065648 /* SearchCriteriaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SearchCriteriaViewDelegate.swift */; };
 		914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A8A23388F8500065648 /* Notification+Extension.swift */; };
 		914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */; };
 		914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F49EE233B89C90005C316 /* PointsInfomationModel.swift */; };
@@ -39,8 +39,8 @@
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SearchCriteriaModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */; };
 		91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */; };
-		91A411172332764300AF7897 /* ModalContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411162332764300AF7897 /* ModalContentView.swift */; };
-		91A4111E2333C16A00AF7897 /* ModalContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A4111D2333C16A00AF7897 /* ModalContentView.xib */; };
+		91A411172332764300AF7897 /* SearchCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411162332764300AF7897 /* SearchCriteriaView.swift */; };
+		91A4111E2333C16A00AF7897 /* SearchCriteriaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A4111D2333C16A00AF7897 /* SearchCriteriaView.xib */; };
 		91A411232335066700AF7897 /* SearchCriteriaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411212335066700AF7897 /* SearchCriteriaCell.swift */; };
 		91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A411222335066700AF7897 /* SearchCriteriaCell.xib */; };
 		91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4C2301296E00430D41 /* AppDelegate.swift */; };
@@ -95,7 +95,7 @@
 		7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaActionDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SearchCriteriaViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaViewPresenter.swift; sourceTree = "<group>"; };
-		914D4A88233853E800065648 /* ModalContentViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalContentViewDelegate.swift; sourceTree = "<group>"; };
+		914D4A88233853E800065648 /* SearchCriteriaViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaViewDelegate.swift; sourceTree = "<group>"; };
 		914D4A8A23388F8500065648 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationPresenter.swift; sourceTree = "<group>"; };
 		914F49EE233B89C90005C316 /* PointsInfomationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationModel.swift; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaModalViewController.swift; sourceTree = "<group>"; };
 		91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFloatingPanelLayout.swift; sourceTree = "<group>"; };
-		91A411162332764300AF7897 /* ModalContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalContentView.swift; sourceTree = "<group>"; };
-		91A4111D2333C16A00AF7897 /* ModalContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalContentView.xib; sourceTree = "<group>"; };
+		91A411162332764300AF7897 /* SearchCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaView.swift; sourceTree = "<group>"; };
+		91A4111D2333C16A00AF7897 /* SearchCriteriaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCriteriaView.xib; sourceTree = "<group>"; };
 		91A411212335066700AF7897 /* SearchCriteriaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaCell.swift; sourceTree = "<group>"; };
 		91A411222335066700AF7897 /* SearchCriteriaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCriteriaCell.xib; sourceTree = "<group>"; };
 		91AF02FE84A12FDA85793C7B /* Pods-PinMusubiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		91A4111A2333C09400AF7897 /* xib */ = {
 			isa = PBXGroup;
 			children = (
-				91A4111D2333C16A00AF7897 /* ModalContentView.xib */,
+				91A4111D2333C16A00AF7897 /* SearchCriteriaView.xib */,
 				91A411222335066700AF7897 /* SearchCriteriaCell.xib */,
 				91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */,
 				918CF9872338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib */,
@@ -330,8 +330,8 @@
 				91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */,
 				91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */,
 				91A4110B2331B66A00AF7897 /* SearchCriteriaModalViewController.swift */,
-				91A411162332764300AF7897 /* ModalContentView.swift */,
-				914D4A88233853E800065648 /* ModalContentViewDelegate.swift */,
+				91A411162332764300AF7897 /* SearchCriteriaView.swift */,
+				914D4A88233853E800065648 /* SearchCriteriaViewDelegate.swift */,
 				91A411212335066700AF7897 /* SearchCriteriaCell.swift */,
 				91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */,
 				914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */,
@@ -521,7 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */,
-				91A4111E2333C16A00AF7897 /* ModalContentView.xib in Resources */,
+				91A4111E2333C16A00AF7897 /* SearchCriteriaView.xib in Resources */,
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
@@ -779,7 +779,7 @@
 			files = (
 				91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */,
 				91A4110C2331B66A00AF7897 /* SearchCriteriaModalViewController.swift in Sources */,
-				91A411172332764300AF7897 /* ModalContentView.swift in Sources */,
+				91A411172332764300AF7897 /* SearchCriteriaView.swift in Sources */,
 				91A411232335066700AF7897 /* SearchCriteriaCell.swift in Sources */,
 				914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */,
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
@@ -791,7 +791,7 @@
 				914D4A852337CD8C00065648 /* SearchCriteriaViewPresenter.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
-				914D4A89233853E800065648 /* ModalContentViewDelegate.swift in Sources */,
+				914D4A89233853E800065648 /* SearchCriteriaViewDelegate.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				914D4A7C23370A7F00065648 /* SearchCriteriaActionDelegate.swift in Sources */,
