@@ -24,6 +24,9 @@ public class PointsInfomationAnnotationView: UIView {
 
     override public func awakeFromNib() {
         super.awakeFromNib()
+        // delegateの設定
+        pointsInfoTableView.delegate = self
+        pointsInfoTableView.dataSource = self
         // プレゼンターの初期化
         self.presenter = PointsInfomationPresenter(view: self, modelType: PointsInfomationModel.self)
         // 詳細を見るボタンの設定
@@ -31,9 +34,6 @@ public class PointsInfomationAnnotationView: UIView {
         showSpotListButton.layer.cornerRadius = 8
         // pointsInfoTabelViewにカスタムセルを設定
         pointsInfoTableView.register(UINib(nibName: "PointInfomationCell", bundle: nil), forCellReuseIdentifier: "PointInfomationCell")
-        // delegateの設定
-        pointsInfoTableView.delegate = self
-        pointsInfoTableView.dataSource = self
     }
 
     /// 地点情報の設定処理

@@ -520,15 +520,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */,
-				91A4111E2333C16A00AF7897 /* SearchCriteriaView.xib in Resources */,
-				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
-				91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */,
-				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
-				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
-				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
+				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
+				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				91B3EB522301296E00430D41 /* SearchCriteria.storyboard in Resources */,
+				91A4111E2333C16A00AF7897 /* SearchCriteriaView.xib in Resources */,
+				91A411242335066700AF7897 /* SearchCriteriaCell.xib in Resources */,
+				91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */,
+				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
+				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

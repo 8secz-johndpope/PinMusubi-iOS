@@ -26,14 +26,15 @@ public class SearchCriteriaView: UIView, SearchCriteriaActionDelegate {
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        self.presenter = SearchCriteriaViewPresenter(view: self, modelType: SearchCriteriaModel.self)
-        // tableViewにcellを登録
-        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell")
-        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
         // delegateの設定
         searchCriteriaScrollView.delegate = self
         searchCriteriaTableView.delegate = self
         searchCriteriaTableView.dataSource = self
+        // presenterの設定
+        self.presenter = SearchCriteriaViewPresenter(view: self, modelType: SearchCriteriaModel.self)
+        // tableViewにcellを登録
+        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell")
+        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
         // 通知設定登録
         registerNotification()
     }

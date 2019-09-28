@@ -24,6 +24,10 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        // delegateの設定
+        searchMapView.delegate = self
+        fpc.delegate = self
+
         // モーダル表示を行う
         let modalVC = SearchCriteriaModalViewController()
         if #available(iOS 11, *) {
@@ -37,9 +41,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         // textFieldに関する通知を設定
         registerNotification()
 
-        // delegateの設定
-        searchMapView.delegate = self
-        fpc.delegate = self
         guard let modalContentView = modalVC.view.subviews.first as? SearchCriteriaView else { return }
         modalContentView.delegate = self
 
