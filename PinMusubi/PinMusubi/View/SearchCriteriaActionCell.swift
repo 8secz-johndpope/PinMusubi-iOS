@@ -22,9 +22,11 @@ public class SearchCriteriaActionCell: UITableViewCell {
         addCellView.layer.cornerRadius = 20
         addCellView.layer.borderWidth = 0.5
         addCellView.layer.borderColor = UIColor.lightGray.cgColor
+        addCellView.isHidden = false
         removeCellView.layer.cornerRadius = 20
         removeCellView.layer.borderWidth = 0.5
         removeCellView.layer.borderColor = UIColor.lightGray.cgColor
+        removeCellView.isHidden = true
         doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
         doneSettingView.layer.cornerRadius = 8
 
@@ -42,12 +44,19 @@ public class SearchCriteriaActionCell: UITableViewCell {
         self.selectionStyle = .none
     }
 
-    public func showRemoveButton(isHidden: Bool) {
-        removeCellView.isHidden = isHidden
-    }
-
-    public func showAddButton(isHidden: Bool) {
-        addCellView.isHidden = isHidden
+    /// 追加ボタンの設定
+    /// - Parameter maxRow: 現在の最大行数
+    public func setButtonStatus(maxRow: Int) {
+        if maxRow == 2 {
+            addCellView.isHidden = false
+            removeCellView.isHidden = true
+        } else if maxRow == 10 {
+            addCellView.isHidden = true
+            removeCellView.isHidden = false
+        } else {
+            addCellView.isHidden = false
+            removeCellView.isHidden = false
+        }
     }
 
     public func changeDoneSettingStatus(canDoneSetting: Bool) {

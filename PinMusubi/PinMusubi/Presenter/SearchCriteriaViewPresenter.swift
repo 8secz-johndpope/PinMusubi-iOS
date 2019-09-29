@@ -11,6 +11,7 @@ import Foundation
 public protocol SearchCriteriaViewPresenterProtocol: AnyObject {
     init(view: SearchCriteriaView, modelType model: SearchCriteriaModelProtocol.Type)
 
+    func validateAddress(address: String, complete: @escaping (AddressValidationStatus) -> Void)
     func convertingToCoordinate(name: String, address: String, row: Int)
     func setPointsOnMap()
 }
@@ -24,14 +25,18 @@ public class SearchCriteriaViewPresenter: SearchCriteriaViewPresenterProtocol {
         self.model = model.init()
     }
 
+    public func validateAddress(address: String, complete: @escaping (AddressValidationStatus) -> Void) {
+        model?.geocode(address: address, complete: { status in
+            complete(status)
+        }
+        )
+    }
+
     public func convertingToCoordinate(name: String, address: String, row: Int) {
         guard let model = model else {
             return }
-        guard let view = view else {
-            return }
         model.setPointName(name: name, row: row)
         model.geocoding(address: address, row: row, complete: {
-            view.setMessage(canDone: model.settingPoints[row].address != "", row: row)
         }
         )
     }

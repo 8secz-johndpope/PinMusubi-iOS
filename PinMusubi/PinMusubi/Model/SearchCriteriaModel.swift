@@ -21,6 +21,10 @@ public protocol SearchCriteriaModelProtocol {
     func setPointName(name: String, row: Int)
     /// 住所等から地理座標を設定する
     func geocoding(address: String, row: Int, complete: @escaping () -> Void)
+    /// 住所等から地理座標を設定
+    /// - Parameter address: 住所等情報
+    /// - Parameter complete: 完了ハンドラ
+    func geocode(address: String, complete: @escaping (AddressValidationStatus) -> Void)
     /// 中間地点を計算して返却する
     func calculateHalfPoint() -> CLLocationCoordinate2D
 }
@@ -69,6 +73,20 @@ public class SearchCriteriaModel: SearchCriteriaModelProtocol {
                 self.settingPoints[row].longitude = coordinate.longitude
             }
             complete()
+        }
+        )
+    }
+
+    /// 住所等から地理座標を設定
+    /// - Parameter address: 住所等情報
+    /// - Parameter complete: 完了ハンドラ
+    public func geocode(address: String, complete: @escaping (AddressValidationStatus) -> Void) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: {_, error -> Void in
+            if (error) == nil {
+                complete(.success)
+            } else {
+                complete(.error)
+            }
         }
         )
     }

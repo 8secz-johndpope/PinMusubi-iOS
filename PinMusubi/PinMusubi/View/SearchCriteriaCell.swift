@@ -23,6 +23,9 @@ public class SearchCriteriaCell: UITableViewCell {
     @IBOutlet private var addressStatusImage: UIImageView!
     @IBOutlet private var brokenLineImage: UIImageView!
 
+    // 住所の入力チェックの状態
+    private var addressValidateStatus: AddressValidationStatus = .empty
+
     public weak var delegate: SearchCriteriaCellDelegate?
 
     override public func awakeFromNib() {
@@ -48,6 +51,12 @@ public class SearchCriteriaCell: UITableViewCell {
         self.selectionStyle = .none
     }
 
+    public func clearTextField() {
+        pointNameTextField.text = ""
+        addressTextField.text = ""
+        addressStatusImage.image = nil
+    }
+
     public func getTextFields() -> (UITextField, UITextField) {
         return (pointNameTextField, addressTextField)
     }
@@ -63,36 +72,31 @@ public class SearchCriteriaCell: UITableViewCell {
         brokenLineImage.image = setImage
     }
 
-    public func checkRequired() -> Bool {
+    public func validateAll() -> Bool {
         if pointNameTextField.text == "" {
             return false
         }
-        if addressTextField.text == "" {
+        if addressValidateStatus != .success {
             return false
         }
         return true
     }
 
-    public func checkAddress() -> Bool {
-        if addressTextField.text == "" {
-            return false
-        }
-        return true
-    }
-
-    public func setAddressStatus(inputStatus: String) {
-        switch inputStatus {
-        case "empty":
+    public func setAddressStatus(addressValidationStatus: AddressValidationStatus) {
+        switch addressValidationStatus {
+        case .empty:
             addressStatusImage.image = nil
-        case "success":
+            addressValidateStatus = addressValidationStatus
+
+        case .success:
             guard let image = UIImage(named: "SuccessStatus") else { return }
             addressStatusImage.image = image
-        case "error":
+            addressValidateStatus = addressValidationStatus
+
+        case .error:
             guard let image = UIImage(named: "ErrorStatus") else { return }
             addressStatusImage.image = image
-
-        default:
-            addressStatusImage.image = nil
+            addressValidateStatus = addressValidationStatus
         }
     }
 }
@@ -114,8 +118,9 @@ extension SearchCriteriaCell: UITextFieldDelegate {
     /// - Parameter reason: 編集終了結果
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         if textField == addressTextField {
+            guard let address = textField.text else { return }
             guard let delegate = delegate else { return }
-            delegate.validateAddress()
+            delegate.validateAddress(address: address)
         }
     }
 
@@ -125,4 +130,14 @@ extension SearchCriteriaCell: UITextFieldDelegate {
         textField.resignFirstResponder()
         return false
     }
+}
+
+/// 住所の入力チェック結果
+public enum AddressValidationStatus {
+    /// テキストが空
+    case empty
+    /// 成功
+    case success
+    /// 失敗
+    case error
 }

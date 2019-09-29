@@ -12,11 +12,10 @@ import UIKit
 public class SearchCriteriaView: UIView {
     @IBOutlet private var searchCriteriaScrollView: UIScrollView!
     @IBOutlet private var searchCriteriaTableView: UITableView!
-    private var cells = [SearchCriteriaCell]()
     private var cellRow: Int = 2
-    private var canDoneSetting: Bool = false
-    private var addressStatus = [String].init(repeating: "empty", count: 2)
-    private var editingCell: UITableViewCell?
+    private var editingCell: SearchCriteriaCell?
+    private var actionCell: SearchCriteriaActionCell?
+    private var canDoneSettingList = [AddressValidationStatus].init(repeating: .empty, count: 2)
 
     private var presenter: SearchCriteriaViewPresenterProtocol?
 
@@ -31,7 +30,8 @@ public class SearchCriteriaView: UIView {
         // presenterの設定
         self.presenter = SearchCriteriaViewPresenter(view: self, modelType: SearchCriteriaModel.self)
         // tableViewにcellを登録
-        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell")
+        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell0")
+        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell1")
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
         // 通知設定登録
         registerNotification()
@@ -41,29 +41,12 @@ public class SearchCriteriaView: UIView {
         self.endEditing(true)
     }
 
-    private func checkInput() {
-        // 入力チェック
-        for cell in cells {
-            if !cell.checkRequired() {
-                canDoneSetting = false
-                return
-            }
-        }
-        // actionCellの更新
-        canDoneSetting = true
-    }
-
-    public func setMessage(canDone: Bool, row: Int) {
-        if cells[row].checkAddress() {
-            if canDone {
-                addressStatus[row] = "success"
-            } else {
-                addressStatus[row] = "error"
-            }
-        } else {
-            addressStatus[row] = "empty"
-        }
-        searchCriteriaTableView.reloadData()
+    /// 全ての入力値に対する入力チェック
+    private func setActionButton() {
+        guard let actionCell = actionCell else { return }
+        let canDoneSetting = canDoneSettingList.contains(.error) || canDoneSettingList.contains(.empty)
+        actionCell.setButtonStatus(maxRow: cellRow)
+        actionCell.changeDoneSettingStatus(canDoneSetting: !canDoneSetting)
     }
 }
 
@@ -83,29 +66,16 @@ extension SearchCriteriaView: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if cellRow != indexPath.row {
             // 検索条件セルの設定
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell") as? SearchCriteriaCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell" + String(indexPath.row)) as? SearchCriteriaCell else { return UITableViewCell() }
             cell.delegate = self
             if cellRow - 1 != indexPath.row { cell.setBrokenLine() }
             cell.setPinOnModal(row: indexPath.row % 10)
-            cell.setAddressStatus(inputStatus: addressStatus[indexPath.row])
-            cells.append(cell)
             return cell
         } else {
             // actionCellを設定
             guard let cell = searchCriteriaTableView.dequeueReusableCell(withIdentifier: "SearchCriteriaActionCell") as? SearchCriteriaActionCell else { return UITableViewCell() }
-            if cellRow == 2 {
-                cell.showRemoveButton(isHidden: true)
-                cell.showAddButton(isHidden: false)
-            } else if cellRow == 10 {
-                cell.showRemoveButton(isHidden: false)
-                cell.showAddButton(isHidden: true)
-            } else {
-                cell.showRemoveButton(isHidden: false)
-                cell.showAddButton(isHidden: false)
-            }
-            checkInput()
-            cell.changeDoneSettingStatus(canDoneSetting: canDoneSetting && !addressStatus.contains("error"))
             cell.delegate = self
+            actionCell = cell
             return cell
         }
     }
@@ -115,7 +85,7 @@ extension SearchCriteriaView: UITableViewDelegate, UITableViewDataSource {
 extension SearchCriteriaView: SearchCriteriaCellDelegate {
     /// 編集中のセルを設定
     /// - Parameter editingCell: 編集中のtextFieldがあるセル
-    public func setEditingCell(editingCell: UITableViewCell) {
+    public func setEditingCell(editingCell: SearchCriteriaCell) {
         self.editingCell = editingCell
     }
 
@@ -125,25 +95,50 @@ extension SearchCriteriaView: SearchCriteriaCellDelegate {
         guard let actionCell = searchCriteriaTableView.cellForRow(at: indexPath) as? SearchCriteriaActionCell else { return }
         actionCell.hideActionButton()
     }
+
+    /// 住所の入力チェック
+    /// - Parameter address: 住所の入力情報
+    public func validateAddress(address: String) {
+        guard let targetCell = editingCell else { return }
+        guard let indexPath = searchCriteriaTableView.indexPath(for: targetCell) else { return }
+        if address == "" {
+            targetCell.setAddressStatus(addressValidationStatus: .empty)
+        } else {
+            presenter?.validateAddress(address: address, complete: { status in
+                targetCell.setAddressStatus(addressValidationStatus: status)
+                self.canDoneSettingList[indexPath.row] = status
+            }
+            )
+        }
+    }
 }
 
 extension SearchCriteriaView: SearchCriteriaActionDelegate {
     public func addSearchCriteriaCell() {
         cellRow += 1
-        cells = [SearchCriteriaCell]()
-        addressStatus.append("empty")
-        searchCriteriaTableView.reloadData()
+        canDoneSettingList.append(.empty)
+        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell" + String(cellRow - 1))
+        searchCriteriaTableView.beginUpdates()
+        let indexPath = IndexPath(row: cellRow - 1, section: 0)
+        searchCriteriaTableView.insertRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        searchCriteriaTableView.endUpdates()
+        setActionButton()
     }
 
     public func removeSearchCriteriaCell() {
         cellRow -= 1
-        cells = [SearchCriteriaCell]()
-        addressStatus.removeLast()
-        searchCriteriaTableView.reloadData()
+        canDoneSettingList.removeLast()
+        let indexPath = IndexPath(row: cellRow, section: 0)
+        guard let searchCriteriaCell = searchCriteriaTableView.cellForRow(at: indexPath) as? SearchCriteriaCell else { return }
+        searchCriteriaCell.clearTextField()
+        searchCriteriaTableView.beginUpdates()
+        searchCriteriaTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        searchCriteriaTableView.endUpdates()
+        setActionButton()
     }
 
     public func doneSetting() {
-        presenter?.setPointsOnMap()
+        //        presenter?.setPointsOnMap()
     }
 }
 
@@ -189,11 +184,6 @@ extension SearchCriteriaView {
 
     @objc
     private func didHideKeboard(_ notification: Notification) {
-        for index in 0...cellRow - 1 {
-            guard let inputName = cells[index].getTextFields().0.text else { return }
-            guard let inputAddress = cells[index].getTextFields().1.text else { return }
-            presenter?.convertingToCoordinate(name: inputName, address: inputAddress, row: index)
-        }
-        searchCriteriaTableView.reloadData()
+        setActionButton()
     }
 }
