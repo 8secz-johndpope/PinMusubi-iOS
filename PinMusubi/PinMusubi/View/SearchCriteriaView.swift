@@ -9,16 +9,14 @@
 import MapKit
 import UIKit
 
-public class SearchCriteriaView: UIView, SearchCriteriaActionDelegate {
+public class SearchCriteriaView: UIView {
     @IBOutlet private var searchCriteriaScrollView: UIScrollView!
     @IBOutlet private var searchCriteriaTableView: UITableView!
-    private var editingTextFieldView = UIView()
-    private var pointNameTextField: UITextField?
-    private var addressTextField: UITextField?
     private var cells = [SearchCriteriaCell]()
     private var cellRow: Int = 2
     private var canDoneSetting: Bool = false
     private var addressStatus = [String].init(repeating: "empty", count: 2)
+    private var editingCell: UITableViewCell?
 
     private var presenter: SearchCriteriaViewPresenterProtocol?
 
@@ -41,24 +39,6 @@ public class SearchCriteriaView: UIView, SearchCriteriaActionDelegate {
 
     @IBAction private func didTapView(_ sender: Any) {
         self.endEditing(true)
-    }
-
-    public func addSearchCriteriaCell() {
-        cellRow += 1
-        cells = [SearchCriteriaCell]()
-        addressStatus.append("empty")
-        searchCriteriaTableView.reloadData()
-    }
-
-    public func removeSearchCriteriaCell() {
-        cellRow -= 1
-        cells = [SearchCriteriaCell]()
-        addressStatus.removeLast()
-        searchCriteriaTableView.reloadData()
-    }
-
-    public func doneSetting() {
-        presenter?.setPointsOnMap()
     }
 
     private func checkInput() {
@@ -104,12 +84,10 @@ extension SearchCriteriaView: UITableViewDelegate, UITableViewDataSource {
         if cellRow != indexPath.row {
             // 検索条件セルの設定
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCriteriaCell") as? SearchCriteriaCell else { return UITableViewCell() }
-            cell.setPinOnModal(row: indexPath.row % 10)
+            cell.delegate = self
             if cellRow - 1 != indexPath.row { cell.setBrokenLine() }
-            (pointNameTextField, addressTextField) = cell.getTextFields()
+            cell.setPinOnModal(row: indexPath.row % 10)
             cell.setAddressStatus(inputStatus: addressStatus[indexPath.row])
-            pointNameTextField?.delegate = self
-            addressTextField?.delegate = self
             cells.append(cell)
             return cell
         } else {
@@ -133,16 +111,39 @@ extension SearchCriteriaView: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-/// TextFieldViewに関するDelegateメソッド
-extension SearchCriteriaView: UITextFieldDelegate {
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard let superView = textField.superview else { return }
-        editingTextFieldView = superView
+/// 検索条件セルのDelegateメソッド
+extension SearchCriteriaView: SearchCriteriaCellDelegate {
+    /// 編集中のセルを設定
+    /// - Parameter editingCell: 編集中のtextFieldがあるセル
+    public func setEditingCell(editingCell: UITableViewCell) {
+        self.editingCell = editingCell
     }
 
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
+    /// アクションボタンを隠蔽
+    public func hideActionButton() {
+        let indexPath = IndexPath(row: cellRow, section: 0)
+        guard let actionCell = searchCriteriaTableView.cellForRow(at: indexPath) as? SearchCriteriaActionCell else { return }
+        actionCell.hideActionButton()
+    }
+}
+
+extension SearchCriteriaView: SearchCriteriaActionDelegate {
+    public func addSearchCriteriaCell() {
+        cellRow += 1
+        cells = [SearchCriteriaCell]()
+        addressStatus.append("empty")
+        searchCriteriaTableView.reloadData()
+    }
+
+    public func removeSearchCriteriaCell() {
+        cellRow -= 1
+        cells = [SearchCriteriaCell]()
+        addressStatus.removeLast()
+        searchCriteriaTableView.reloadData()
+    }
+
+    public func doneSetting() {
+        presenter?.setPointsOnMap()
     }
 }
 
@@ -168,22 +169,20 @@ extension SearchCriteriaView {
 
     @objc
     private func willShowKeyboard(_ notification: Notification) {
-        if let userInfo = notification.userInfo,
-            let tableView = searchCriteriaTableView,
-            let cell = editingTextFieldView.superview?.superview as? SearchCriteriaCell {
-            // 画面サイズ
-            let boundSize: CGSize = UIScreen.main.bounds.size
-            // キーボード上部
-            guard let keyboardScreenEndFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-            let keyboardLimit: CGFloat = boundSize.height - keyboardScreenEndFrame.size.height
-            //セル高さ
-            let cellFrame: CGRect = tableView.convert(cell.frame, to: nil)
-            let cellLimit: CGFloat = cellFrame.origin.y + cellFrame.height + 8.0
+        guard let userInfo = notification.userInfo else { return }
+        guard let editingCell = editingCell else { return }
+        // 画面サイズ
+        let boundSize: CGSize = UIScreen.main.bounds.size
+        // キーボード上部
+        guard let keyboardScreenEndFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        let keyboardLimit: CGFloat = boundSize.height - keyboardScreenEndFrame.size.height
+        //セル高さ
+        let cellFrame: CGRect = searchCriteriaTableView.convert(editingCell.frame, to: nil)
+        let cellLimit: CGFloat = cellFrame.origin.y + cellFrame.height + 8.0
 
-            if cellLimit - keyboardLimit > 0 {
-                if let indexPath = tableView.indexPath(for: cell) {
-                    tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.top, animated: true)
-                }
+        if cellLimit - keyboardLimit > 0 {
+            if let indexPath = searchCriteriaTableView.indexPath(for: editingCell) {
+                searchCriteriaTableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.top, animated: true)
             }
         }
     }

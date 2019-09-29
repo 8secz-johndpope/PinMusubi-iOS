@@ -23,8 +23,13 @@ public class SearchCriteriaCell: UITableViewCell {
     @IBOutlet private var addressStatusImage: UIImageView!
     @IBOutlet private var brokenLineImage: UIImageView!
 
+    public weak var delegate: SearchCriteriaCellDelegate?
+
     override public func awakeFromNib() {
         super.awakeFromNib()
+        // delegateの設定
+        pointNameTextField.delegate = self
+        addressTextField.delegate = self
         // textFieldの背景の設定
         pointNameView.layer.cornerRadius = 4
         addressView.layer.cornerRadius = 4
@@ -89,5 +94,35 @@ public class SearchCriteriaCell: UITableViewCell {
         default:
             addressStatusImage.image = nil
         }
+    }
+}
+
+/// textFieldに関するDelegateメソッド
+extension SearchCriteriaCell: UITextFieldDelegate {
+    /// 編集開始した後
+    /// - Parameter textField: 対象のtextField
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let delegate = delegate else { return }
+        // セルを編集中セルに設定
+        delegate.setEditingCell(editingCell: self)
+        // アクションボタンを隠蔽
+        delegate.hideActionButton()
+    }
+
+    /// フォーカスが外れた後
+    /// - Parameter textField: 対象のtextField
+    /// - Parameter reason: 編集終了結果
+    public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        if textField == addressTextField {
+            guard let delegate = delegate else { return }
+            delegate.validateAddress()
+        }
+    }
+
+    /// 改行される前
+    /// - Parameter textField: 対象のtextField
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
 }

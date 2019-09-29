@@ -74,18 +74,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
             setMark(settingPoints: settingPoints, centerPoint: relesePoint)
             self.halfwayPoint = relesePoint
             pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: relesePoint)
-            //            self.colorNumber -= self.settingPoints.count
-            //            for settingPoint in self.settingPoints {
-            //                let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-            //                let line = MKPolyline(coordinates: [self.halfwayPoint, settingPointLocation], count: 2)
-            //                self.lines.append(line)
-            //                self.searchMapView.addOverlay(line)
-            //                if self.colorNumber < ColorDefinition.settingPointColors.count - 1 {
-            //                    self.colorNumber += 1
-            //                } else {
-            //                    self.colorNumber = 0
-            //                }
-            //            }
         }
     }
 

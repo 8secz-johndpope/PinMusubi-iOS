@@ -19,6 +19,7 @@
 		91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A792336226B00F900C4 /* FloatingPanel.framework */; };
 		91504A8E23366F7B00F900C4 /* SearchCriteriaActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */; };
 		91504A8F23366F7B00F900C4 /* SearchCriteriaActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */; };
+		915511CE2340D678004F820D /* SearchCriteriaCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511CD2340D678004F820D /* SearchCriteriaCellDelegate.swift */; };
 		915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
 		915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
 		915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
@@ -108,6 +109,7 @@
 		91504A84233622A800F900C4 /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaActionCell.swift; sourceTree = "<group>"; };
 		91504A8D23366F7B00F900C4 /* SearchCriteriaActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCriteriaActionCell.xib; sourceTree = "<group>"; };
+		915511CD2340D678004F820D /* SearchCriteriaCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaCellDelegate.swift; sourceTree = "<group>"; };
 		915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryEntity.swift; sourceTree = "<group>"; };
 		915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorProtcol.swift; sourceTree = "<group>"; };
 		915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessor.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				91A411162332764300AF7897 /* SearchCriteriaView.swift */,
 				914D4A88233853E800065648 /* SearchCriteriaViewDelegate.swift */,
 				91A411212335066700AF7897 /* SearchCriteriaCell.swift */,
+				915511CD2340D678004F820D /* SearchCriteriaCellDelegate.swift */,
 				91504A8C23366F7B00F900C4 /* SearchCriteriaActionCell.swift */,
 				914D4A7B23370A7F00065648 /* SearchCriteriaActionDelegate.swift */,
 				918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */,
@@ -788,6 +791,7 @@
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
+				915511CE2340D678004F820D /* SearchCriteriaCellDelegate.swift in Sources */,
 				914D4A852337CD8C00065648 /* SearchCriteriaViewPresenter.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,

@@ -77,4 +77,12 @@ public class SearchCriteriaActionCell: UITableViewCell {
             delegate.doneSetting()
         }
     }
+
+    /// アクションボタンを隠蔽
+    public func hideActionButton() {
+        doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
+        addCellView.isHidden = true
+        removeCellView.isHidden = true
+        isEnabledDoneSetting = false
+    }
 }
