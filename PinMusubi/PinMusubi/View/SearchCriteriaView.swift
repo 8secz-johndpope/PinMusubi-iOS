@@ -110,7 +110,9 @@ extension SearchCriteriaView: SearchCriteriaCellDelegate {
             presenter?.validateAddress(address: address, complete: {settingPoint, status in
                 targetCell.setAddressStatus(addressValidationStatus: status)
                 self.canDoneSettingList[indexPath.row] = status
-                self.settingPoints[indexPath.row] = settingPoint
+                self.settingPoints[indexPath.row].address = settingPoint.address
+                self.settingPoints[indexPath.row].latitude = settingPoint.latitude
+                self.settingPoints[indexPath.row].longitude = settingPoint.longitude
             }
             )
         }
