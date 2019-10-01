@@ -12,10 +12,12 @@ import UIKit
 public class SearchCriteriaView: UIView {
     @IBOutlet private var searchCriteriaScrollView: UIScrollView!
     @IBOutlet private var searchCriteriaTableView: UITableView!
+
     private var cellRow: Int = 2
     private var editingCell: SearchCriteriaCell?
     private var actionCell: SearchCriteriaActionCell?
     private var canDoneSettingList = [AddressValidationStatus].init(repeating: .empty, count: 2)
+    private var settingPoints = [SettingPointEntity].init(repeating: SettingPointEntity(), count: 2)
 
     private var presenter: SearchCriteriaViewPresenterProtocol?
 
@@ -43,8 +45,8 @@ public class SearchCriteriaView: UIView {
 
     /// 全ての入力値に対する入力チェック
     private func setActionButton() {
+        let canDoneSetting = canDoneSettingList.contains(.empty) || canDoneSettingList.contains(.error)
         guard let actionCell = actionCell else { return }
-        let canDoneSetting = canDoneSettingList.contains(.error) || canDoneSettingList.contains(.empty)
         actionCell.setButtonStatus(maxRow: cellRow)
         actionCell.changeDoneSettingStatus(canDoneSetting: !canDoneSetting)
     }
@@ -103,13 +105,23 @@ extension SearchCriteriaView: SearchCriteriaCellDelegate {
         guard let indexPath = searchCriteriaTableView.indexPath(for: targetCell) else { return }
         if address == "" {
             targetCell.setAddressStatus(addressValidationStatus: .empty)
+            self.canDoneSettingList[indexPath.row] = .empty
         } else {
-            presenter?.validateAddress(address: address, complete: { status in
+            presenter?.validateAddress(address: address, complete: {settingPoint, status in
                 targetCell.setAddressStatus(addressValidationStatus: status)
                 self.canDoneSettingList[indexPath.row] = status
+                self.settingPoints[indexPath.row] = settingPoint
             }
             )
         }
+    }
+
+    /// 設定地点の名前をセット
+    /// - Parameter name: 設定地点の名前
+    public func setPointName(name: String) {
+        guard let targetCell = editingCell else { return }
+        guard let indexPath = searchCriteriaTableView.indexPath(for: targetCell) else { return }
+        settingPoints[indexPath.row].name = name
     }
 }
 
@@ -117,6 +129,7 @@ extension SearchCriteriaView: SearchCriteriaActionDelegate {
     public func addSearchCriteriaCell() {
         cellRow += 1
         canDoneSettingList.append(.empty)
+        settingPoints.append(SettingPointEntity())
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell" + String(cellRow - 1))
         searchCriteriaTableView.beginUpdates()
         let indexPath = IndexPath(row: cellRow - 1, section: 0)
@@ -128,6 +141,7 @@ extension SearchCriteriaView: SearchCriteriaActionDelegate {
     public func removeSearchCriteriaCell() {
         cellRow -= 1
         canDoneSettingList.removeLast()
+        settingPoints.removeLast()
         let indexPath = IndexPath(row: cellRow, section: 0)
         guard let searchCriteriaCell = searchCriteriaTableView.cellForRow(at: indexPath) as? SearchCriteriaCell else { return }
         searchCriteriaCell.clearTextField()
@@ -138,7 +152,7 @@ extension SearchCriteriaView: SearchCriteriaActionDelegate {
     }
 
     public func doneSetting() {
-        //        presenter?.setPointsOnMap()
+        presenter?.setPointsOnMapView(settingPoints: settingPoints)
     }
 }
 

@@ -14,6 +14,8 @@ public protocol SearchCriteriaCellDelegate: AnyObject {
     func setEditingCell(editingCell: SearchCriteriaCell)
     /// 追加・削除・設定完了ボタンを隠蔽
     func hideActionButton()
-    /// TableView更新
+    /// 住所のチェック
     func validateAddress(address: String)
+    /// 名前のセット
+    func setPointName(name: String)
 }

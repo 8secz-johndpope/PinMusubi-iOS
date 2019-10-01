@@ -81,6 +81,7 @@ public class SearchCriteriaActionCell: UITableViewCell {
 
     @IBAction private func tappedDoneSettingView(_ sender: UITapGestureRecognizer) {
         if isEnabledDoneSetting {
+            // 設定完了ボタン押下をMap画面に通知してモーダルを下げる
             NotificationCenter.default.post(name: Notification.doneSettingNotification, object: nil)
             guard let delegate = delegate else { return }
             delegate.doneSetting()

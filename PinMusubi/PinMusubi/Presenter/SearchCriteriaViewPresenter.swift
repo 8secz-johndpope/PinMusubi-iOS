@@ -11,9 +11,9 @@ import Foundation
 public protocol SearchCriteriaViewPresenterProtocol: AnyObject {
     init(view: SearchCriteriaView, modelType model: SearchCriteriaModelProtocol.Type)
 
-    func validateAddress(address: String, complete: @escaping (AddressValidationStatus) -> Void)
+    func validateAddress(address: String, complete: @escaping (SettingPointEntity, AddressValidationStatus) -> Void)
     func convertingToCoordinate(name: String, address: String, row: Int)
-    func setPointsOnMap()
+    func setPointsOnMapView(settingPoints: [SettingPointEntity])
 }
 
 public class SearchCriteriaViewPresenter: SearchCriteriaViewPresenterProtocol {
@@ -25,9 +25,9 @@ public class SearchCriteriaViewPresenter: SearchCriteriaViewPresenterProtocol {
         self.model = model.init()
     }
 
-    public func validateAddress(address: String, complete: @escaping (AddressValidationStatus) -> Void) {
-        model?.geocode(address: address, complete: { status in
-            complete(status)
+    public func validateAddress(address: String, complete: @escaping (SettingPointEntity, AddressValidationStatus) -> Void) {
+        model?.geocode(address: address, complete: { settingPoint, status in
+            complete(settingPoint, status)
         }
         )
     }
@@ -41,10 +41,10 @@ public class SearchCriteriaViewPresenter: SearchCriteriaViewPresenterProtocol {
         )
     }
 
-    public func setPointsOnMap() {
+    public func setPointsOnMapView(settingPoints: [SettingPointEntity]) {
         guard let model = model else { return }
         guard let view = view else { return }
         guard let delegate = view.delegate else { return }
-        delegate.setPin(settingPoints: model.settingPoints, halfwayPoint: model.calculateHalfPoint())
+        delegate.setPin(settingPoints: settingPoints, halfwayPoint: model.calculateHalfPoint(settingPoints: settingPoints))
     }
 }

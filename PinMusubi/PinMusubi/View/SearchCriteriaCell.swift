@@ -73,13 +73,7 @@ public class SearchCriteriaCell: UITableViewCell {
     }
 
     public func validateAll() -> Bool {
-        if pointNameTextField.text == "" {
-            return false
-        }
-        if addressValidateStatus != .success {
-            return false
-        }
-        return true
+        return pointNameTextField.text != "" || addressValidateStatus == .success
     }
 
     public func setAddressStatus(addressValidationStatus: AddressValidationStatus) {
@@ -117,7 +111,11 @@ extension SearchCriteriaCell: UITextFieldDelegate {
     /// - Parameter textField: 対象のtextField
     /// - Parameter reason: 編集終了結果
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        if textField == addressTextField {
+        if textField == pointNameTextField {
+            guard let pointName = textField.text else { return }
+            guard let delegate = delegate else { return }
+            delegate.setPointName(name: pointName)
+        } else {
             guard let address = textField.text else { return }
             guard let delegate = delegate else { return }
             delegate.validateAddress(address: address)

@@ -24,9 +24,9 @@ public protocol SearchCriteriaModelProtocol {
     /// 住所等から地理座標を設定
     /// - Parameter address: 住所等情報
     /// - Parameter complete: 完了ハンドラ
-    func geocode(address: String, complete: @escaping (AddressValidationStatus) -> Void)
+    func geocode(address: String, complete: @escaping (SettingPointEntity, AddressValidationStatus) -> Void)
     /// 中間地点を計算して返却する
-    func calculateHalfPoint() -> CLLocationCoordinate2D
+    func calculateHalfPoint(settingPoints: [SettingPointEntity]) -> CLLocationCoordinate2D
 }
 
 /// 検索条件を設定するビジネスモデル
@@ -80,19 +80,24 @@ public class SearchCriteriaModel: SearchCriteriaModelProtocol {
     /// 住所等から地理座標を設定
     /// - Parameter address: 住所等情報
     /// - Parameter complete: 完了ハンドラ
-    public func geocode(address: String, complete: @escaping (AddressValidationStatus) -> Void) {
-        CLGeocoder().geocodeAddressString(address, completionHandler: {_, error -> Void in
+    public func geocode(address: String, complete: @escaping (SettingPointEntity, AddressValidationStatus) -> Void) {
+        let settingPoint = SettingPointEntity()
+        CLGeocoder().geocodeAddressString(address, completionHandler: {placemark, error -> Void in
             if (error) == nil {
-                complete(.success)
+                guard let coordinate = placemark?.first?.location?.coordinate else { return }
+                settingPoint.address = address
+                settingPoint.latitude = coordinate.latitude
+                settingPoint.longitude = coordinate.longitude
+                complete(settingPoint, .success)
             } else {
-                complete(.error)
+                complete(settingPoint, .error)
             }
         }
         )
     }
 
     /// 中間地点を計算して返却する
-    public func calculateHalfPoint() -> CLLocationCoordinate2D {
+    public func calculateHalfPoint(settingPoints: [SettingPointEntity]) -> CLLocationCoordinate2D {
         var halfwayPoint = CLLocationCoordinate2D()
         for settingPoint in settingPoints {
             halfwayPoint.latitude += settingPoint.latitude

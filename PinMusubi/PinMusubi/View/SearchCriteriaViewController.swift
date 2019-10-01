@@ -48,7 +48,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
             UINib(nibName: "PointsInfomationAnnotationView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointsInfomationAnnotationView else { return }
         self.pointsInfomationAnnotationView = pointsInfomationAnnotationView
 
-        setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
+        //        setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
     }
 
     /// アノテーションの設定
