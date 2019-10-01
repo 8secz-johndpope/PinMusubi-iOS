@@ -17,7 +17,7 @@ public class SearchCriteriaView: UIView {
     private var editingCell: SearchCriteriaCell?
     private var actionCell: SearchCriteriaActionCell?
     private var canDoneSettingList = [AddressValidationStatus].init(repeating: .empty, count: 2)
-    private var settingPoints = [SettingPointEntity].init(repeating: SettingPointEntity(), count: 2)
+    private var settingPoints = [SettingPointEntity]()
 
     private var presenter: SearchCriteriaViewPresenterProtocol?
 
@@ -32,8 +32,10 @@ public class SearchCriteriaView: UIView {
         // presenterの設定
         self.presenter = SearchCriteriaViewPresenter(view: self, modelType: SearchCriteriaModel.self)
         // tableViewにcellを登録
-        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell0")
-        searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell1")
+        for index in 0...cellRow - 1 {
+            searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaCell" + String(index))
+            settingPoints.append(SettingPointEntity())
+        }
         searchCriteriaTableView.register(UINib(nibName: "SearchCriteriaActionCell", bundle: nil), forCellReuseIdentifier: "SearchCriteriaActionCell")
         // 通知設定登録
         registerNotification()

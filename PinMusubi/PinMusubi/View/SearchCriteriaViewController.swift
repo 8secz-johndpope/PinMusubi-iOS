@@ -121,6 +121,13 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
 
         // 地図上に線や円のマークを設定
         setMark(settingPoints: settingPoints, centerPoint: halfwayPoint)
+        // 縮尺の取得
+        let scale = getScale(settingPoints: settingPoints, centerPoint: halfwayPoint)
+        // 地図の表示領域の設定
+        let span = MKCoordinateSpan(latitudeDelta: scale, longitudeDelta: scale)
+        let region = MKCoordinateRegion(center: halfwayPoint, span: span)
+        searchMapView.setRegion(region, animated: true)
+        pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
     }
 
     public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
@@ -153,10 +160,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         searchMapView.removeOverlays(circles)
         // 縮尺の取得
         let scale = getScale(settingPoints: settingPoints, centerPoint: centerPoint)
-        // 地図の表示領域の設定
-        let span = MKCoordinateSpan(latitudeDelta: scale, longitudeDelta: scale)
-        let region = MKCoordinateRegion(center: centerPoint, span: span)
-        searchMapView.setRegion(region, animated: true)
         // 円形と線を描写
         colorNumber = 0
         for settingPoint in settingPoints {
