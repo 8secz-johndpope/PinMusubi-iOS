@@ -47,8 +47,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         guard let pointsInfomationAnnotationView =
             UINib(nibName: "PointsInfomationAnnotationView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointsInfomationAnnotationView else { return }
         self.pointsInfomationAnnotationView = pointsInfomationAnnotationView
-
-        //        setPin(settingPoints: TestData.setTestPin().0, halfwayPoint: TestData.setTestPin().1)
     }
 
     /// アノテーションの設定
@@ -103,6 +101,24 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         return renderer
     }
 
+    public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        searchMapView.removeOverlays(circles)
+        let scale = mapView.region.span.latitudeDelta
+        // 円形を描写
+        colorNumber = 0
+        for settingPoint in settingPoints {
+            let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+            let circle = MKCircle(center: settingPointLocation, radius: scale * 2_000)
+            circles.append(circle)
+            searchMapView.addOverlay(circle)
+            if colorNumber < ColorDefinition.settingPointColors.count - 1 {
+                colorNumber += 1
+            } else {
+                colorNumber = 0
+            }
+        }
+    }
+
     /// マップにピンを設定
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter halfwayPoint: 中間地点情報
@@ -119,7 +135,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         self.annotation.coordinate = halfwayPoint
         self.searchMapView.addAnnotation(self.annotation)
 
-        // 地図上に線や円のマークを設定
+        // 地図上に線のマークを設定
         setMark(settingPoints: settingPoints, centerPoint: halfwayPoint)
         // 縮尺の取得
         let scale = getScale(settingPoints: settingPoints, centerPoint: halfwayPoint)
@@ -151,24 +167,18 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         return scale
     }
 
-    /// 地図上に線や円のマークを設定
+    /// 地図上に線のマークを設定
     /// - Parameter settingPoints: 設定地点
     /// - Parameter centerPoint: 中心となる地点
     public func setMark(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
         // overlayの初期化
         searchMapView.removeOverlays(lines)
-        searchMapView.removeOverlays(circles)
-        // 縮尺の取得
-        let scale = getScale(settingPoints: settingPoints, centerPoint: centerPoint)
         // 円形と線を描写
         colorNumber = 0
         for settingPoint in settingPoints {
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-            let circle = MKCircle(center: settingPointLocation, radius: scale * 2_000)
             let line = MKPolyline(coordinates: [centerPoint, settingPointLocation], count: 2)
-            circles.append(circle)
             lines.append(line)
-            searchMapView.addOverlay(circle)
             searchMapView.addOverlay(line)
             if colorNumber < ColorDefinition.settingPointColors.count - 1 {
                 colorNumber += 1
