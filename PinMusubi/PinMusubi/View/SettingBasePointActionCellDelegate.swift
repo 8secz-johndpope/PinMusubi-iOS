@@ -6,10 +6,12 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import Foundation
-
+/// 処理を地点設定Viewに委譲するdelegate
 public protocol SettingBasePointActionCellDelegate: AnyObject {
-    func addSearchCriteriaCell()
-    func removeSearchCriteriaCell()
+    /// 追加ボタン押下時
+    func addSettingBasePointCell()
+    /// 削除ボタン押下時
+    func removeSettingBasePointCell()
+    /// 設定完了ボタン押下時
     func doneSetting()
 }

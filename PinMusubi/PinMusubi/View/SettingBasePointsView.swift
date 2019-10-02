@@ -9,19 +9,27 @@
 import MapKit
 import UIKit
 
-/// 検索条件を
+/// 基準となる地点を設定するView
 public class SettingBasePointsView: UIView {
+    // 入力フィールドを表示するためのScrollViewとTableView
     @IBOutlet private var settingBasePointsScrollView: UIScrollView!
     @IBOutlet private var settingBasePointsTableView: UITableView!
 
+    /// セルの数（初期値2）
     private var cellRow: Int = 2
+    /// 編集中のセル
     private var editingCell: SettingBasePointCell?
+    /// 設定に関するアクションを行うセル
     private var actionCell: SettingBasePointActionCell?
+    /// 設定地点のチェックリスト（success、error、empty）
     private var canDoneSettingList = [AddressValidationStatus].init(repeating: .empty, count: 2)
+    /// 設定地点のリスト
     private var settingPoints = [SettingPointEntity]()
 
+    /// 設定地点に関する処理をModelに渡すPresenter
     private var presenter: SettingBasePointsPresenterProtocol?
 
+    /// MapViewに処理を委譲するdelegate
     public weak var delegate: SettingBasePointsViewDelegate?
 
     override public func awakeFromNib() {
@@ -42,21 +50,27 @@ public class SettingBasePointsView: UIView {
         registerNotification()
     }
 
+    /// Viewタップ時キーボードを閉じる
+    /// - Parameter sender: Any
     @IBAction private func didTapView(_ sender: Any) {
         self.endEditing(true)
     }
 
-    /// 全ての入力値に対する入力チェック
+    /// 全ての入力値に対する入力チェックを行い、すべて正常であれば設定完了ボタンを活性に切り替え
     private func setActionButton() {
         let canDoneSetting = canDoneSettingList.contains(.empty) || canDoneSettingList.contains(.error)
         guard let actionCell = actionCell else { return }
+        // ボタンの状態を戻す
         actionCell.setButtonStatus(maxRow: cellRow)
+        // 設定完了ボタンの切り替え
         actionCell.changeDoneSettingStatus(canDoneSetting: !canDoneSetting)
     }
 }
 
 /// ScrollViewに関するDelegateメソッド
 extension SettingBasePointsView: UIScrollViewDelegate {
+    /// スクロールが始まったらキーボードを閉じる
+    /// - Parameter scrollView: settingBasePointsScrollView
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.endEditing(true)
     }
@@ -70,14 +84,16 @@ extension SettingBasePointsView: UITableViewDelegate, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if cellRow != indexPath.row {
-            // 検索条件セルの設定
+            // 設定セルの設定
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingBasePointCell" + String(indexPath.row)) as? SettingBasePointCell else { return UITableViewCell() }
             cell.delegate = self
-            if cellRow - 1 != indexPath.row { cell.setBrokenLine() }
-            cell.setPinOnModal(row: indexPath.row % 10)
+            cell.setPinImage(row: indexPath.row % 10)
+            if cellRow - 1 != indexPath.row {
+                cell.setBrokenLine()
+            }
             return cell
         } else {
-            // actionCellを設定
+            // アクションセルの設定
             guard let cell = settingBasePointsTableView.dequeueReusableCell(withIdentifier: "SettingBasePointActionCell") as? SettingBasePointActionCell else { return UITableViewCell() }
             cell.delegate = self
             actionCell = cell
@@ -86,7 +102,7 @@ extension SettingBasePointsView: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-/// 検索条件セルのDelegateメソッド
+/// 地点設定セルのDelegateメソッド
 extension SettingBasePointsView: SettingBasePointCellDelegate {
     /// 編集中のセルを設定
     /// - Parameter editingCell: 編集中のtextFieldがあるセル
@@ -130,8 +146,10 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
     }
 }
 
+/// アクションセルのDelegate
 extension SettingBasePointsView: SettingBasePointActionCellDelegate {
-    public func addSearchCriteriaCell() {
+    /// 追加ボタン押下
+    public func addSettingBasePointCell() {
         cellRow += 1
         canDoneSettingList.append(.empty)
         settingPoints.append(SettingPointEntity())
@@ -143,7 +161,8 @@ extension SettingBasePointsView: SettingBasePointActionCellDelegate {
         setActionButton()
     }
 
-    public func removeSearchCriteriaCell() {
+    /// 削除ボタン押下
+    public func removeSettingBasePointCell() {
         cellRow -= 1
         canDoneSettingList.removeLast()
         settingPoints.removeLast()
@@ -156,6 +175,7 @@ extension SettingBasePointsView: SettingBasePointActionCellDelegate {
         setActionButton()
     }
 
+    /// 設定完了ボタン押下
     public func doneSetting() {
         presenter?.setPointsOnMapView(settingPoints: settingPoints)
     }
@@ -181,6 +201,8 @@ extension SettingBasePointsView {
         )
     }
 
+    /// キーボード表示時、モーダルをスクロール
+    /// - Parameter notification: キーボード表示時の通知
     @objc
     private func willShowKeyboard(_ notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
@@ -201,6 +223,8 @@ extension SettingBasePointsView {
         }
     }
 
+    /// キーボードが閉じたとき、入力チェックを行う
+    /// - Parameter notification: キーボードが閉じた通知
     @objc
     private func didHideKeboard(_ notification: Notification) {
         setActionButton()

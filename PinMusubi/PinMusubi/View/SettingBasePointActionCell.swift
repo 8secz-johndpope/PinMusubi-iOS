@@ -8,17 +8,22 @@
 
 import UIKit
 
+/// 地点設定に関するアクションを行うCell
 public class SettingBasePointActionCell: UITableViewCell {
+    // アクションを発生させるViews
     @IBOutlet private var addCellView: UIView!
     @IBOutlet private var removeCellView: UIView!
     @IBOutlet private var doneSettingView: UIView!
+
+    /// 設定可否
     private var isEnabledDoneSetting = false
 
+    /// 地点設定Viewに処理を委譲するためのdelegate
     public weak var delegate: SettingBasePointActionCellDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        // ActionButtonの設定
+        // ActionViewの設定
         addCellView.layer.cornerRadius = 20
         addCellView.layer.borderWidth = 0.5
         addCellView.layer.borderColor = UIColor.lightGray.cgColor
@@ -39,12 +44,23 @@ public class SettingBasePointActionCell: UITableViewCell {
         doneSettingView.addGestureRecognizer(tapDoneSettingView)
     }
 
+    /// セル選択時の状態を変化させない
+    /// - Parameter selected: 選択状態
+    /// - Parameter animated: 選択時のアニメーション
     override public func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .none
     }
 
-    /// 追加ボタンの設定
+    /// アクションボタンを隠蔽
+    public func hideActionButton() {
+        doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
+        addCellView.isHidden = true
+        removeCellView.isHidden = true
+        isEnabledDoneSetting = false
+    }
+
+    /// アクションボタンの状態の設定
     /// - Parameter maxRow: 現在の最大行数
     public func setButtonStatus(maxRow: Int) {
         if maxRow == 2 {
@@ -59,6 +75,8 @@ public class SettingBasePointActionCell: UITableViewCell {
         }
     }
 
+    /// 設定完了可否を変更
+    /// - Parameter canDoneSetting: 全てのセルのチェック結果
     public func changeDoneSettingStatus(canDoneSetting: Bool) {
         if canDoneSetting {
             doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 1)
@@ -69,16 +87,22 @@ public class SettingBasePointActionCell: UITableViewCell {
         }
     }
 
+    /// 追加ボタン押下時
+    /// - Parameter sender: UITapGestureRecognizer
     @IBAction private func tappedAddCellView(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
-        delegate.addSearchCriteriaCell()
+        delegate.addSettingBasePointCell()
     }
 
+    /// 削除ボタン押下時
+    /// - Parameter sender: UITapGestureRecognizer
     @IBAction private func tappedRemoveCellView(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
-        delegate.removeSearchCriteriaCell()
+        delegate.removeSettingBasePointCell()
     }
 
+    /// 設定完了ボタン押下時
+    /// - Parameter sender: UITapGestureRecognizer
     @IBAction private func tappedDoneSettingView(_ sender: UITapGestureRecognizer) {
         if isEnabledDoneSetting {
             // 設定完了ボタン押下をMap画面に通知してモーダルを下げる
@@ -86,13 +110,5 @@ public class SettingBasePointActionCell: UITableViewCell {
             guard let delegate = delegate else { return }
             delegate.doneSetting()
         }
-    }
-
-    /// アクションボタンを隠蔽
-    public func hideActionButton() {
-        doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
-        addCellView.isHidden = true
-        removeCellView.isHidden = true
-        isEnabledDoneSetting = false
     }
 }
