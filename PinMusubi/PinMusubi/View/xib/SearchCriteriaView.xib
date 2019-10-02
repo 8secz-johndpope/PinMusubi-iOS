@@ -82,12 +82,13 @@
             <connections>
                 <outlet property="searchCriteriaScrollView" destination="kQi-x2-kuB" id="03z-dr-7F3"/>
                 <outlet property="searchCriteriaTableView" destination="sbq-2y-fj9" id="YRC-7k-PNY"/>
+                <outletCollection property="gestureRecognizers" destination="rht-nz-JbE" appends="YES" id="4qy-B8-mQz"/>
             </connections>
             <point key="canvasLocation" x="-89" y="129"/>
         </view>
-        <tapGestureRecognizer id="MFb-N6-v6y">
+        <tapGestureRecognizer id="rht-nz-JbE">
             <connections>
-                <action selector="didTapView:" destination="iN0-l3-epB" id="ihv-UE-7La"/>
+                <action selector="didTapView:" destination="iN0-l3-epB" id="23L-Qe-Tvb"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
