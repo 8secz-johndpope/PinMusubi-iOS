@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SearchCriteriaActionDelegate: AnyObject {
+public protocol SettingBasePointActionCellDelegate: AnyObject {
     func addSearchCriteriaCell()
     func removeSearchCriteriaCell()
     func doneSetting()

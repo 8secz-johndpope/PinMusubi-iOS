@@ -8,15 +8,15 @@
 
 import UIKit
 
-public class SearchCriteriaModalViewController: UIViewController {
+public class SettingBasePointsModalViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         // モーダルの中身を設定
         guard let modalContentView =
-            UINib(nibName: "SearchCriteriaView", bundle: Bundle.main)
+            UINib(nibName: "SettingBasePointsView", bundle: Bundle.main)
                 .instantiate(withOwner: self, options: nil)
-                .first as? SearchCriteriaView else { return }
+                .first as? SettingBasePointsView else { return }
         modalContentView.frame = view.frame
         view.addSubview(modalContentView)
     }

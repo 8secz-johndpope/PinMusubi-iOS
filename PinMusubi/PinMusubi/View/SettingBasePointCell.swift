@@ -1,5 +1,5 @@
 //
-//  SearchCriteriaCell.swift
+//  SettingBasePointCell.swift
 //  PinMusubi
 //
 //  Created by rMac on 2019/09/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SearchCriteriaCell: UITableViewCell {
+public class SettingBasePointCell: UITableViewCell {
     // textFieldの背景
     @IBOutlet private var pointNameView: UIView!
     @IBOutlet private var addressView: UIView!
@@ -26,7 +26,7 @@ public class SearchCriteriaCell: UITableViewCell {
     // 住所の入力チェックの状態
     private var addressValidateStatus: AddressValidationStatus = .empty
 
-    public weak var delegate: SearchCriteriaCellDelegate?
+    public weak var delegate: SettingBasePointCellDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -96,7 +96,7 @@ public class SearchCriteriaCell: UITableViewCell {
 }
 
 /// textFieldに関するDelegateメソッド
-extension SearchCriteriaCell: UITextFieldDelegate {
+extension SettingBasePointCell: UITextFieldDelegate {
     /// 編集開始した後
     /// - Parameter textField: 対象のtextField
     public func textFieldDidBeginEditing(_ textField: UITextField) {

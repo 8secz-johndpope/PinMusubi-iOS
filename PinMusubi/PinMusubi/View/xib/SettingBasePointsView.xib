@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchCriteriaModalViewController" customModule="PinMusubi" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleAspectFit" restorationIdentifier="SearchCriteriaView" id="iN0-l3-epB" customClass="SearchCriteriaView" customModule="PinMusubi" customModuleProvider="target">
+        <view contentMode="scaleAspectFit" restorationIdentifier="SettingBasePointsView" id="iN0-l3-epB" customClass="SettingBasePointsView" customModule="PinMusubi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -80,8 +80,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="searchCriteriaScrollView" destination="kQi-x2-kuB" id="03z-dr-7F3"/>
-                <outlet property="searchCriteriaTableView" destination="sbq-2y-fj9" id="YRC-7k-PNY"/>
+                <outlet property="settingBasePointsScrollView" destination="kQi-x2-kuB" id="03z-dr-7F3"/>
+                <outlet property="settingBasePointsTableView" destination="sbq-2y-fj9" id="YRC-7k-PNY"/>
                 <outletCollection property="gestureRecognizers" destination="rht-nz-JbE" appends="YES" id="4qy-B8-mQz"/>
             </connections>
             <point key="canvasLocation" x="-89" y="129"/>

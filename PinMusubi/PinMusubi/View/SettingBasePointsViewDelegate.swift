@@ -1,5 +1,5 @@
 //
-//  SearchCriteriaViewDelegate.swift
+//  SettingBasePointsViewDelegate.swift
 //  PinMusubi
 //
 //  Created by rMac on 2019/09/23.
@@ -9,6 +9,6 @@
 import Foundation
 import MapKit
 
-public protocol SearchCriteriaViewDelegate: AnyObject {
+public protocol SettingBasePointsViewDelegate: AnyObject {
     func setPin(settingPoints: [SettingPointEntity], halfwayPoint: CLLocationCoordinate2D)
 }

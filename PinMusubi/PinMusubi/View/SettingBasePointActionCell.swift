@@ -8,13 +8,13 @@
 
 import UIKit
 
-public class SearchCriteriaActionCell: UITableViewCell {
+public class SettingBasePointActionCell: UITableViewCell {
     @IBOutlet private var addCellView: UIView!
     @IBOutlet private var removeCellView: UIView!
     @IBOutlet private var doneSettingView: UIView!
     private var isEnabledDoneSetting = false
 
-    public weak var delegate: SearchCriteriaActionDelegate?
+    public weak var delegate: SettingBasePointActionCellDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()

@@ -1,5 +1,5 @@
 //
-//  SearchCriteriaCellDelegate.swift
+//  SettingBasePointCellDelegate.swift
 //  PinMusubi
 //
 //  Created by rMac on 2019/09/29.
@@ -9,9 +9,9 @@
 import UIKit
 
 /// 検索条件セルのDelegate
-public protocol SearchCriteriaCellDelegate: AnyObject {
+public protocol SettingBasePointCellDelegate: AnyObject {
     /// 検索条件セルを編集中セルに設定
-    func setEditingCell(editingCell: SearchCriteriaCell)
+    func setEditingCell(editingCell: SettingBasePointCell)
     /// 追加・削除・設定完了ボタンを隠蔽
     func hideActionButton()
     /// 住所のチェック

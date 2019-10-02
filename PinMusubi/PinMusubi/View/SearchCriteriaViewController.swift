@@ -10,7 +10,7 @@ import FloatingPanel
 import MapKit
 import UIKit
 
-public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, SearchCriteriaViewDelegate {
+public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, SettingBasePointsViewDelegate {
     @IBOutlet private var searchMapView: MKMapView!
     private let annotation = MKPointAnnotation()
     private var circles = [MKCircle]()
@@ -29,7 +29,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         fpc.delegate = self
 
         // モーダル表示を行う
-        let modalVC = SearchCriteriaModalViewController()
+        let modalVC = SettingBasePointsModalViewController()
         if #available(iOS 11, *) {
             fpc.surfaceView.cornerRadius = 9.0
         } else {
@@ -41,7 +41,7 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         // textFieldに関する通知を設定
         registerNotification()
 
-        guard let modalContentView = modalVC.view.subviews.first as? SearchCriteriaView else { return }
+        guard let modalContentView = modalVC.view.subviews.first as? SettingBasePointsView else { return }
         modalContentView.delegate = self
 
         guard let pointsInfomationAnnotationView =
