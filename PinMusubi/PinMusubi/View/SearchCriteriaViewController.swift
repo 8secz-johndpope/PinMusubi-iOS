@@ -156,7 +156,11 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         // 地図上に線のマークを設定
         setMark(settingPoints: settingPoints, centerPoint: halfwayPoint)
         // 縮尺の取得
-        let scale = getScale(settingPoints: settingPoints, centerPoint: halfwayPoint)
+        var scale = getScale(settingPoints: settingPoints, centerPoint: halfwayPoint)
+        let maxScale = 80.0
+        if scale > maxScale {
+            scale = maxScale
+        }
         // 地図の表示領域の設定
         let span = MKCoordinateSpan(latitudeDelta: scale, longitudeDelta: scale)
         let region = MKCoordinateRegion(center: halfwayPoint, span: span)
