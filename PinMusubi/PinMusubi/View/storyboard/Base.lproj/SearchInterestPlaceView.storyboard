@@ -11,17 +11,14 @@
         <!--スポット検索-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchCriteriaViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchInterestPlaceViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gru-dM-RpU">
+                            <mapView clipsSubviews="YES" contentMode="scaleToFill" mapType="standard" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gru-dM-RpU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="1mC-tP-gFM" appends="YES" id="Box-dd-nJe"/>
-                                </connections>
                             </mapView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zG1-UP-Xa6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -54,11 +51,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="1mC-tP-gFM">
-                    <connections>
-                        <action selector="didTapView:" destination="BYZ-38-t0r" id="KW6-9v-c2I"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="228.98550724637684" y="117.85714285714285"/>
         </scene>

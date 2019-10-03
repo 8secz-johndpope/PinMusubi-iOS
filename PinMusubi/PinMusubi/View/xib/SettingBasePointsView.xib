@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchCriteriaModalViewController" customModule="PinMusubi" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleAspectFit" restorationIdentifier="ModalContentView" id="iN0-l3-epB" customClass="ModalContentView" customModule="PinMusubi">
+        <view contentMode="scaleAspectFit" restorationIdentifier="SettingBasePointsView" id="iN0-l3-epB" customClass="SettingBasePointsView" customModule="PinMusubi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -80,15 +80,15 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="searchCriteriaScrollView" destination="kQi-x2-kuB" id="HJr-Gm-Gjr"/>
-                <outlet property="searchCriteriaTableView" destination="sbq-2y-fj9" id="eVn-hX-Hrs"/>
-                <outletCollection property="gestureRecognizers" destination="MFb-N6-v6y" appends="YES" id="AhO-b8-Prx"/>
+                <outlet property="settingBasePointsScrollView" destination="kQi-x2-kuB" id="03z-dr-7F3"/>
+                <outlet property="settingBasePointsTableView" destination="sbq-2y-fj9" id="YRC-7k-PNY"/>
+                <outletCollection property="gestureRecognizers" destination="rht-nz-JbE" appends="YES" id="4qy-B8-mQz"/>
             </connections>
-            <point key="canvasLocation" x="106.40000000000001" y="91.625615763546804"/>
+            <point key="canvasLocation" x="-89" y="129"/>
         </view>
-        <tapGestureRecognizer id="MFb-N6-v6y">
+        <tapGestureRecognizer id="rht-nz-JbE">
             <connections>
-                <action selector="didTapView:" destination="iN0-l3-epB" id="d0K-8C-id6"/>
+                <action selector="didTapView:" destination="iN0-l3-epB" id="23L-Qe-Tvb"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
