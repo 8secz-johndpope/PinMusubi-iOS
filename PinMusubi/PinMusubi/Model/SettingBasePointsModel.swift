@@ -1,5 +1,5 @@
 //
-//  SearchConditonsModel.swift
+//  SettingBasePointsModel.swift
 //  PinMusubi
 //
 //  Created by rMac on 2019/09/08.
@@ -10,7 +10,7 @@ import CoreLocation
 import Foundation
 
 /// 検索条件を設定するビジネスモデルのプロトコル
-public protocol SearchCriteriaModelProtocol {
+public protocol SettingBasePointsModelProtocol {
     /// コンストラクタ
     init()
 
@@ -24,7 +24,7 @@ public protocol SearchCriteriaModelProtocol {
 }
 
 /// 検索条件を設定するビジネスモデル
-public class SearchCriteriaModel: SearchCriteriaModelProtocol {
+public class SettingBasePointsModel: SettingBasePointsModelProtocol {
     /// コンストラクタ
     public required init() {}
 

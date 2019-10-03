@@ -7,15 +7,15 @@
 //
 
 import FloatingPanel
-import UIKit
 
+/// モーダルの設定クラス
 public class CustomFloatingPanelLayout: FloatingPanelLayout {
-    // 初期位置
+    /// 初期位置の設定
     public var initialPosition: FloatingPanelPosition {
         return .half
     }
 
-    // positionごとのサイズ設定
+    /// positionごとのサイズ設定
     public func insetFor(position: FloatingPanelPosition) -> CGFloat? {
         switch position {
         case .full: return 16.0 // A top inset from safe area

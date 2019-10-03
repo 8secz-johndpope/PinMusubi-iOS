@@ -119,6 +119,27 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         }
     }
 
+    /// 地図上に線のマークを設定
+    /// - Parameter settingPoints: 設定地点
+    /// - Parameter centerPoint: 中心となる地点
+    public func setMark(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
+        // overlayの初期化
+        searchMapView.removeOverlays(lines)
+        // 円形と線を描写
+        colorNumber = 0
+        for settingPoint in settingPoints {
+            let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+            let line = MKPolyline(coordinates: [centerPoint, settingPointLocation], count: 2)
+            lines.append(line)
+            searchMapView.addOverlay(line)
+            if colorNumber < ColorDefinition.settingPointColors.count - 1 {
+                colorNumber += 1
+            } else {
+                colorNumber = 0
+            }
+        }
+    }
+
     /// マップにピンを設定
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter halfwayPoint: 中間地点情報
@@ -126,10 +147,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         // クラス変数に代入
         self.settingPoints = settingPoints
         self.halfwayPoint = halfwayPoint
-
-        // 初期化
-        searchMapView.removeOverlays(circles)
-        searchMapView.removeOverlays(lines)
 
         // 中間地点にピンを設置
         self.annotation.coordinate = halfwayPoint
@@ -165,27 +182,6 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         }
         let scale = (maxDistance * 2) / 80_000
         return scale
-    }
-
-    /// 地図上に線のマークを設定
-    /// - Parameter settingPoints: 設定地点
-    /// - Parameter centerPoint: 中心となる地点
-    public func setMark(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
-        // overlayの初期化
-        searchMapView.removeOverlays(lines)
-        // 円形と線を描写
-        colorNumber = 0
-        for settingPoint in settingPoints {
-            let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-            let line = MKPolyline(coordinates: [centerPoint, settingPointLocation], count: 2)
-            lines.append(line)
-            searchMapView.addOverlay(line)
-            if colorNumber < ColorDefinition.settingPointColors.count - 1 {
-                colorNumber += 1
-            } else {
-                colorNumber = 0
-            }
-        }
     }
 
     @IBAction private func didTapView(_ sender: Any) {

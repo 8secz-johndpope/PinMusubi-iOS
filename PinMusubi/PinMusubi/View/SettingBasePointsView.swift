@@ -39,7 +39,7 @@ public class SettingBasePointsView: UIView {
         settingBasePointsTableView.delegate = self
         settingBasePointsTableView.dataSource = self
         // presenterの設定
-        self.presenter = SettingBasePointsPresenter(view: self, modelType: SearchCriteriaModel.self)
+        self.presenter = SettingBasePointsPresenter(view: self, modelType: SettingBasePointsModel.self)
         // tableViewにcellを登録
         for index in 0...cellRow - 1 {
             settingBasePointsTableView.register(UINib(nibName: "SettingBasePointCell", bundle: nil), forCellReuseIdentifier: "SettingBasePointCell" + String(index))
@@ -125,6 +125,7 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
         if address == "" {
             targetCell.setAddressStatus(addressValidationStatus: .empty)
             self.canDoneSettingList[indexPath.row] = .empty
+            setActionButton()
         } else {
             presenter?.validateAddress(address: address, complete: {settingPoint, status in
                 targetCell.setAddressStatus(addressValidationStatus: status)
@@ -132,6 +133,7 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
                 self.settingPoints[indexPath.row].address = settingPoint.address
                 self.settingPoints[indexPath.row].latitude = settingPoint.latitude
                 self.settingPoints[indexPath.row].longitude = settingPoint.longitude
+                self.setActionButton()
             }
             )
         }
@@ -143,6 +145,7 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
         guard let targetCell = editingCell else { return }
         guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
         settingPoints[indexPath.row].name = name
+        setActionButton()
     }
 }
 
@@ -192,13 +195,6 @@ extension SettingBasePointsView {
             name: UIResponder.keyboardWillShowNotification,
             object: nil
         )
-
-        center.addObserver(
-            self,
-            selector: #selector(self.didHideKeboard(_:)),
-            name: UIResponder.keyboardDidHideNotification,
-            object: nil
-        )
     }
 
     /// キーボード表示時、モーダルをスクロール
@@ -221,12 +217,5 @@ extension SettingBasePointsView {
                 settingBasePointsTableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.top, animated: true)
             }
         }
-    }
-
-    /// キーボードが閉じたとき、入力チェックを行う
-    /// - Parameter notification: キーボードが閉じた通知
-    @objc
-    private func didHideKeboard(_ notification: Notification) {
-        setActionButton()
     }
 }

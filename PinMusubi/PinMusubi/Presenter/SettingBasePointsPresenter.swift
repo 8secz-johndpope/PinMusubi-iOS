@@ -13,7 +13,7 @@ public protocol SettingBasePointsPresenterProtocol: AnyObject {
     /// コンストラクタ
     /// - Parameter view: SettingBasePointsView
     /// - Parameter model: SearchCriteriaModelProtocol
-    init(view: SettingBasePointsView, modelType model: SearchCriteriaModelProtocol.Type)
+    init(view: SettingBasePointsView, modelType model: SettingBasePointsModelProtocol.Type)
 
     /// 入力された住所をもとに入力チェックを行う
     /// - Parameter address: 入力された住所
@@ -28,12 +28,12 @@ public protocol SettingBasePointsPresenterProtocol: AnyObject {
 /// 地点設定処理に関するPresenter
 public class SettingBasePointsPresenter: SettingBasePointsPresenterProtocol {
     private weak var view: SettingBasePointsView?
-    private let model: SearchCriteriaModelProtocol?
+    private let model: SettingBasePointsModelProtocol?
 
     /// コンストラクタ
     /// - Parameter view: SettingBasePointsView
     /// - Parameter model: SearchCriteriaModelProtocol
-    public required init(view: SettingBasePointsView, modelType model: SearchCriteriaModelProtocol.Type) {
+    public required init(view: SettingBasePointsView, modelType model: SettingBasePointsModelProtocol.Type) {
         self.view = view
         self.model = model.init()
     }
