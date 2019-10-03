@@ -10,6 +10,7 @@ import FloatingPanel
 import MapKit
 import UIKit
 
+/// 興味のある場所を探すView
 public class SearchInterestPlaceViewController: UIViewController {
     // MapView
     @IBOutlet private var searchMapView: MKMapView!
