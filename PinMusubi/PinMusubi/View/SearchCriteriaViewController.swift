@@ -15,7 +15,8 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     private let annotation = MKPointAnnotation()
     private var circles = [MKCircle]()
     private var lines = [MKPolyline]()
-    private var colorNumber = 0
+    private var circleColorNumber = 0
+    private var lineColorNumber = 0
     private var settingPoints = [SettingPointEntity]()
     private var halfwayPoint = CLLocationCoordinate2D()
     private var fpc = FloatingPanelController()
@@ -85,15 +86,17 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         case is MKPolyline:
             renderer = MKPolylineRenderer(overlay: overlay)
             renderer.lineWidth = 3
-            renderer.strokeColor = ColorDefinition.settingPointColors[colorNumber % 10]
+            renderer.strokeColor = ColorDefinition.settingPointColors[lineColorNumber % 10]
             renderer.alpha = 0.9
+            lineColorNumber += 1
 
         case is MKCircle:
             renderer = MKCircleRenderer(overlay: overlay)
             renderer.lineWidth = 3
             renderer.strokeColor = UIColor.white
-            renderer.fillColor = ColorDefinition.settingPointColors[colorNumber % 10]
+            renderer.fillColor = ColorDefinition.settingPointColors[circleColorNumber % 10]
             renderer.alpha = 0.8
+            circleColorNumber += 1
 
         default:
             renderer = MKPolylineRenderer(overlay: overlay)
@@ -102,20 +105,17 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     }
 
     public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        // 初期化
         searchMapView.removeOverlays(circles)
-        let scale = mapView.region.span.latitudeDelta
+        circles = [MKCircle]()
         // 円形を描写
-        colorNumber = 0
+        circleColorNumber = 0
+        let scale = mapView.region.span.latitudeDelta
         for settingPoint in settingPoints {
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
             let circle = MKCircle(center: settingPointLocation, radius: scale * 2_000)
             circles.append(circle)
             searchMapView.addOverlay(circle)
-            if colorNumber < ColorDefinition.settingPointColors.count - 1 {
-                colorNumber += 1
-            } else {
-                colorNumber = 0
-            }
         }
     }
 
@@ -125,18 +125,14 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
     public func setMark(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
         // overlayの初期化
         searchMapView.removeOverlays(lines)
-        // 円形と線を描写
-        colorNumber = 0
+        lines = [MKPolyline]()
+        // 線を描写
+        lineColorNumber = 0
         for settingPoint in settingPoints {
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
             let line = MKPolyline(coordinates: [centerPoint, settingPointLocation], count: 2)
             lines.append(line)
             searchMapView.addOverlay(line)
-            if colorNumber < ColorDefinition.settingPointColors.count - 1 {
-                colorNumber += 1
-            } else {
-                colorNumber = 0
-            }
         }
     }
 
@@ -151,6 +147,11 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         // 中間地点にピンを設置
         self.annotation.coordinate = halfwayPoint
         self.searchMapView.addAnnotation(self.annotation)
+
+        searchMapView.removeOverlays(circles)
+        circles = [MKCircle]()
+        searchMapView.removeOverlays(lines)
+        lines = [MKPolyline]()
 
         // 地図上に線のマークを設定
         setMark(settingPoints: settingPoints, centerPoint: halfwayPoint)
