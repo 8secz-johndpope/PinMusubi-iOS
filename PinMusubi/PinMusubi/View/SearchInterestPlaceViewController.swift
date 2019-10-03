@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchInterestPlaceViewController.swift
 //  PinMusubi
 //
 //  Created by rMac on 2019/08/12.
@@ -10,48 +10,71 @@ import FloatingPanel
 import MapKit
 import UIKit
 
-public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, SettingBasePointsViewDelegate {
+public class SearchInterestPlaceViewController: UIViewController {
+    // MapView
     @IBOutlet private var searchMapView: MKMapView!
+
+    /// ピンのAnnotation
     private let annotation = MKPointAnnotation()
-    private var circles = [MKCircle]()
-    private var lines = [MKPolyline]()
-    private var circleColorNumber = 0
-    private var lineColorNumber = 0
-    private var settingPoints = [SettingPointEntity]()
-    private var halfwayPoint = CLLocationCoordinate2D()
-    private var fpc = FloatingPanelController()
-    private var transferTimes = [Int]()
+    /// カスタムAnnotationView
     private var pointsInfomationAnnotationView: PointsInfomationAnnotationView?
+    /// 円のリスト
+    private var circles = [MKCircle]()
+    /// 線のリスト
+    private var lines = [MKPolyline]()
+    /// 円の色の番号
+    private var circleColorIndex = 0
+    /// 線の色の番号
+    private var lineColorIndex = 0
+    /// 設定地点のリスト
+    private var settingPoints = [SettingPointEntity]()
+    /// 中間地点
+    private var halfwayPoint = CLLocationCoordinate2D()
+    /// モーダル
+    private var floatingPanelController = FloatingPanelController()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
         // delegateの設定
         searchMapView.delegate = self
-        fpc.delegate = self
+        floatingPanelController.delegate = self
 
-        // モーダル表示を行う
+        // モーダル表示
         let modalVC = SettingBasePointsModalViewController()
-        if #available(iOS 11, *) {
-            fpc.surfaceView.cornerRadius = 9.0
-        } else {
-            fpc.surfaceView.cornerRadius = 0.0
-        }
-        fpc.set(contentViewController: modalVC)
-        fpc.addPanel(toParent: self, animated: true)
-
-        // textFieldに関する通知を設定
-        registerNotification()
-
+        floatingPanelController.surfaceView.cornerRadius = 9.0
+        floatingPanelController.set(contentViewController: modalVC)
+        floatingPanelController.addPanel(toParent: self, animated: true)
         guard let modalContentView = modalVC.view.subviews.first as? SettingBasePointsView else { return }
         modalContentView.delegate = self
 
+        // カスタムAnnotationViewの設定
         guard let pointsInfomationAnnotationView =
             UINib(nibName: "PointsInfomationAnnotationView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointsInfomationAnnotationView else { return }
         self.pointsInfomationAnnotationView = pointsInfomationAnnotationView
+        
+        // textFieldに関する通知を設定
+        registerNotification()
     }
+}
 
+/// MapViewに関するDelegate
+extension SearchInterestPlaceViewController: MKMapViewDelegate {
+    /// ピンをドラッグした時の処理
+    /// - Parameter mapView:searchMapView
+    /// - Parameter view: view
+    /// - Parameter newState: newState
+    /// - Parameter oldState: oldState
+    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+        if newState == .ending {
+            guard let relesePoint = view.annotation?.coordinate else { return }
+            self.halfwayPoint = relesePoint
+            setLine(settingPoints: settingPoints, centerPoint: relesePoint)
+            pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: relesePoint)
+        }
+    }
+    
     /// アノテーションの設定
-    /// - Parameter mapView: searchCriteriaView
+    /// - Parameter mapView: searchMapView
     /// - Parameter annotation: annotation
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "halfwayPoint")
@@ -62,54 +85,39 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         return pinAnnotationView
     }
 
-    /// ピンをドラッグした時の処理
-    /// - Parameter mapView:searchCriteriaView
-    /// - Parameter view: view
-    /// - Parameter newState: newState
-    /// - Parameter oldState: oldState
-    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
-        if newState == .ending {
-            guard let relesePoint = view.annotation?.coordinate else { return }
-            setMark(settingPoints: settingPoints, centerPoint: relesePoint)
-            self.halfwayPoint = relesePoint
-            pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: relesePoint)
-        }
-    }
-
     /// overlayを追加するイベント発生時に行うoverlayの設定
-    /// - Parameter mapView: searchCriteriaView
+    /// - Parameter mapView: searchMapView
     /// - Parameter overlay: overlay(MKPolyline or MKCircle)
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer: MKOverlayPathRenderer
-
         switch overlay {
         case is MKPolyline:
             renderer = MKPolylineRenderer(overlay: overlay)
             renderer.lineWidth = 3
-            renderer.strokeColor = ColorDefinition.settingPointColors[lineColorNumber % 10]
+            renderer.strokeColor = ColorDefinition.settingPointColors[lineColorIndex % 10]
             renderer.alpha = 0.9
-            lineColorNumber += 1
-
+            lineColorIndex += 1
         case is MKCircle:
             renderer = MKCircleRenderer(overlay: overlay)
             renderer.lineWidth = 3
             renderer.strokeColor = UIColor.white
-            renderer.fillColor = ColorDefinition.settingPointColors[circleColorNumber % 10]
+            renderer.fillColor = ColorDefinition.settingPointColors[circleColorIndex % 10]
             renderer.alpha = 0.8
-            circleColorNumber += 1
-
+            circleColorIndex += 1
         default:
             renderer = MKPolylineRenderer(overlay: overlay)
         }
         return renderer
     }
-
+    
+    /// 縮尺変更時、円の大きさを変更
+    /// - Parameter mapView: searchMapView
     public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         // 初期化
         searchMapView.removeOverlays(circles)
         circles = [MKCircle]()
         // 円形を描写
-        circleColorNumber = 0
+        circleColorIndex = 0
         let scale = mapView.region.span.latitudeDelta
         for settingPoint in settingPoints {
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
@@ -119,57 +127,21 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
         }
     }
 
-    /// 地図上に線のマークを設定
+    /// 地点間に線を描写
     /// - Parameter settingPoints: 設定地点
     /// - Parameter centerPoint: 中心となる地点
-    public func setMark(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
+    public func setLine(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
         // overlayの初期化
         searchMapView.removeOverlays(lines)
         lines = [MKPolyline]()
         // 線を描写
-        lineColorNumber = 0
+        lineColorIndex = 0
         for settingPoint in settingPoints {
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
             let line = MKPolyline(coordinates: [centerPoint, settingPointLocation], count: 2)
             lines.append(line)
             searchMapView.addOverlay(line)
         }
-    }
-
-    /// マップにピンを設定
-    /// - Parameter settingPoints: 設定地点情報
-    /// - Parameter halfwayPoint: 中間地点情報
-    public func setPin(settingPoints: [SettingPointEntity], halfwayPoint: CLLocationCoordinate2D) {
-        // クラス変数に代入
-        self.settingPoints = settingPoints
-        self.halfwayPoint = halfwayPoint
-
-        // 中間地点にピンを設置
-        self.annotation.coordinate = halfwayPoint
-        self.searchMapView.addAnnotation(self.annotation)
-
-        searchMapView.removeOverlays(circles)
-        circles = [MKCircle]()
-        searchMapView.removeOverlays(lines)
-        lines = [MKPolyline]()
-
-        // 地図上に線のマークを設定
-        setMark(settingPoints: settingPoints, centerPoint: halfwayPoint)
-        // 縮尺の取得
-        var scale = getScale(settingPoints: settingPoints, centerPoint: halfwayPoint)
-        let maxScale = 80.0
-        if scale > maxScale {
-            scale = maxScale
-        }
-        // 地図の表示領域の設定
-        let span = MKCoordinateSpan(latitudeDelta: scale, longitudeDelta: scale)
-        let region = MKCoordinateRegion(center: halfwayPoint, span: span)
-        searchMapView.setRegion(region, animated: true)
-        pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
-    }
-
-    public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        self.view.endEditing(true)
     }
 
     /// 縮尺を取得
@@ -185,26 +157,65 @@ public class SearchCriteriaViewController: UIViewController, MKMapViewDelegate, 
                 maxDistance = distance
             }
         }
-        let scale = (maxDistance * 2) / 80_000
+        var scale = (maxDistance * 2) / 80_000
+        let maxScale = 80.0
+        if scale > maxScale {
+            scale = maxScale
+        }
         return scale
-    }
-
-    @IBAction private func didTapView(_ sender: Any) {
-        self.view.endEditing(true)
     }
 }
 
-extension SearchCriteriaViewController: FloatingPanelControllerDelegate {
+/// モーダルに関するDelegateメソッド
+extension SearchInterestPlaceViewController: FloatingPanelControllerDelegate {
+    /// モーダルの設定
+    /// - Parameter vc: FloatingPanelController
+    /// - Parameter newCollection: UITraitCollection
     public func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
         return CustomFloatingPanelLayout()
     }
-
+    
+    /// モーダルをドラッグ時、キーボードを下げる
+    /// - Parameter vc: FloatingPanelController
     public func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
         self.view.endEditing(true)
     }
 }
 
-public extension SearchCriteriaViewController {
+/// 地点設定のDelegate
+extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
+    /// マップにピンを設定
+    /// - Parameter settingPoints: 設定地点情報
+    /// - Parameter halfwayPoint: 中間地点情報
+    public func setPin(settingPoints: [SettingPointEntity], halfwayPoint: CLLocationCoordinate2D) {
+        // クラス変数に代入
+        self.settingPoints = settingPoints
+        self.halfwayPoint = halfwayPoint
+
+        // 中間地点にピンを設置
+        self.annotation.coordinate = halfwayPoint
+        self.searchMapView.addAnnotation(self.annotation)
+
+        // Overlayの初期化
+        searchMapView.removeOverlays(circles)
+        searchMapView.removeOverlays(lines)
+        circles = [MKCircle]()
+        lines = [MKPolyline]()
+
+        // 地図上に線のマークを設定
+        setLine(settingPoints: settingPoints, centerPoint: halfwayPoint)
+        // 縮尺の取得
+        let scale = getScale(settingPoints: settingPoints, centerPoint: halfwayPoint)
+        // 地図の表示領域の設定
+        let span = MKCoordinateSpan(latitudeDelta: scale, longitudeDelta: scale)
+        let region = MKCoordinateRegion(center: halfwayPoint, span: span)
+        searchMapView.setRegion(region, animated: true)
+        pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
+    }
+}
+
+/// 通知設定
+extension SearchInterestPlaceViewController {
     /// 通知登録
     func registerNotification() {
         // 通知センターの取得
@@ -229,13 +240,13 @@ public extension SearchCriteriaViewController {
     /// - Parameter notification: 通知設定
     @objc
     func willShowKeyboard(_ notification: Notification) {
-        fpc.move(to: .full, animated: true)
+        floatingPanelController.move(to: .full, animated: true)
     }
 
     /// 完了ボタン押下時にmodalの高さを制御
     /// - Parameter notification: 通知設定
     @objc
     func tappedDoneSettingView(_ notification: Notification) {
-        fpc.move(to: .tip, animated: true)
+        floatingPanelController.move(to: .tip, animated: true)
     }
 }

@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="296" y="-663"/>
         </scene>
-        <!--SearchCriteria-->
+        <!--SearchInterestPlaceView-->
         <scene sceneID="pET-I8-iOc">
             <objects>
-                <viewControllerPlaceholder storyboardName="SearchCriteria" id="jhw-2t-lBp" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="SearchInterestPlaceView" id="jhw-2t-lBp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="pAs-01-ZFk"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MN9-te-EUt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

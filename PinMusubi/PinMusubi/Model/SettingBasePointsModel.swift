@@ -7,7 +7,6 @@
 //
 
 import CoreLocation
-import Foundation
 
 /// 検索条件を設定するビジネスモデルのプロトコル
 public protocol SettingBasePointsModelProtocol {

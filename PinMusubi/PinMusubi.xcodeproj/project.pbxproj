@@ -45,8 +45,8 @@
 		91A411232335066700AF7897 /* SettingBasePointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411212335066700AF7897 /* SettingBasePointCell.swift */; };
 		91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A411222335066700AF7897 /* SettingBasePointCell.xib */; };
 		91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4C2301296E00430D41 /* AppDelegate.swift */; };
-		91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */; };
-		91B3EB522301296E00430D41 /* SearchCriteria.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB502301296E00430D41 /* SearchCriteria.storyboard */; };
+		91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4E2301296E00430D41 /* SearchInterestPlaceViewController.swift */; };
+		91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */; };
 		91B3EB542301296F00430D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB532301296F00430D41 /* Assets.xcassets */; };
 		91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB552301296F00430D41 /* LaunchScreen.storyboard */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
@@ -141,8 +141,8 @@
 		91AF02FE84A12FDA85793C7B /* Pods-PinMusubiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B3EB492301296E00430D41 /* PinMusubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinMusubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B3EB4C2301296E00430D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaViewController.swift; sourceTree = "<group>"; };
-		91B3EB512301296E00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchCriteria.storyboard; sourceTree = "<group>"; };
+		91B3EB4E2301296E00430D41 /* SearchInterestPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterestPlaceViewController.swift; sourceTree = "<group>"; };
+		91B3EB512301296E00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchInterestPlaceView.storyboard; sourceTree = "<group>"; };
 		91B3EB532301296F00430D41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91B3EB562301296F00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91B3EB582301296F00430D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 			children = (
 				91BDCB912324AE3200E4B5C4 /* storyboard */,
 				91A4111A2333C09400AF7897 /* xib */,
-				91B3EB4E2301296E00430D41 /* SearchCriteriaViewController.swift */,
+				91B3EB4E2301296E00430D41 /* SearchInterestPlaceViewController.swift */,
 				91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */,
 				91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */,
 				91A411162332764300AF7897 /* SettingBasePointsView.swift */,
@@ -388,7 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */,
-				91B3EB502301296E00430D41 /* SearchCriteria.storyboard */,
+				91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */,
 				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
 			);
 			path = storyboard;
@@ -526,7 +526,7 @@
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
 				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
-				91B3EB522301296E00430D41 /* SearchCriteria.storyboard in Resources */,
+				91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */,
 				91A4111E2333C16A00AF7897 /* SettingBasePointsView.xib in Resources */,
 				91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
@@ -787,7 +787,7 @@
 				914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */,
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
-				91B3EB4F2301296E00430D41 /* SearchCriteriaViewController.swift in Sources */,
+				91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
@@ -824,12 +824,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		91B3EB502301296E00430D41 /* SearchCriteria.storyboard */ = {
+		91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				91B3EB512301296E00430D41 /* Base */,
 			);
-			name = SearchCriteria.storyboard;
+			name = SearchInterestPlaceView.storyboard;
 			sourceTree = "<group>";
 		};
 		91B3EB552301296F00430D41 /* LaunchScreen.storyboard */ = {

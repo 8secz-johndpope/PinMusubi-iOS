@@ -6,7 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 /// マップ上の地点間の情報を渡すプレゼンターのプロトコル
