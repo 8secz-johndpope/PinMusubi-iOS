@@ -51,7 +51,7 @@ public class SearchInterestPlaceViewController: UIViewController {
         guard let pointsInfomationAnnotationView =
             UINib(nibName: "PointsInfomationAnnotationView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointsInfomationAnnotationView else { return }
         self.pointsInfomationAnnotationView = pointsInfomationAnnotationView
-        
+
         // textFieldに関する通知を設定
         registerNotification()
     }
@@ -72,7 +72,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: relesePoint)
         }
     }
-    
+
     /// アノテーションの設定
     /// - Parameter mapView: searchMapView
     /// - Parameter annotation: annotation
@@ -97,6 +97,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             renderer.strokeColor = ColorDefinition.settingPointColors[lineColorIndex % 10]
             renderer.alpha = 0.9
             lineColorIndex += 1
+
         case is MKCircle:
             renderer = MKCircleRenderer(overlay: overlay)
             renderer.lineWidth = 3
@@ -104,12 +105,13 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             renderer.fillColor = ColorDefinition.settingPointColors[circleColorIndex % 10]
             renderer.alpha = 0.8
             circleColorIndex += 1
+
         default:
             renderer = MKPolylineRenderer(overlay: overlay)
         }
         return renderer
     }
-    
+
     /// 縮尺変更時、円の大きさを変更
     /// - Parameter mapView: searchMapView
     public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
@@ -174,7 +176,7 @@ extension SearchInterestPlaceViewController: FloatingPanelControllerDelegate {
     public func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
         return CustomFloatingPanelLayout()
     }
-    
+
     /// モーダルをドラッグ時、キーボードを下げる
     /// - Parameter vc: FloatingPanelController
     public func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
@@ -215,7 +217,7 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
 }
 
 /// 通知設定
-extension SearchInterestPlaceViewController {
+public extension SearchInterestPlaceViewController {
     /// 通知登録
     func registerNotification() {
         // 通知センターの取得
