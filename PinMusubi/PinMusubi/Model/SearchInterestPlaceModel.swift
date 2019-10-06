@@ -27,7 +27,12 @@ public class SearchInterestPlaceModel: SearchInterestPlaceModelProtocol {
         let searchHistory = SearchHistoryEntity()
         let settingPointsList = List<SettingPointEntity>()
         for settingPoint in settingPoints {
-            settingPointsList.append(settingPoint)
+            let setSettingPoint = SettingPointEntity()
+            setSettingPoint.name = settingPoint.name
+            setSettingPoint.address = settingPoint.address
+            setSettingPoint.latitude = settingPoint.latitude
+            setSettingPoint.longitude = settingPoint.longitude
+            settingPointsList.append(setSettingPoint)
         }
         searchHistory.settingPointEntityList = settingPointsList
         searchHistory.halfwayPointLatitude = interestPoint.latitude
