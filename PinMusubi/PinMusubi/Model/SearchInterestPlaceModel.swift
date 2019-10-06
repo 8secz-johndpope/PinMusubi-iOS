@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import RealmSwift
 
 /// 場所検索のModelのプロトコル
 public protocol SearchInterestPlaceModelProtocol {
@@ -24,6 +25,11 @@ public class SearchInterestPlaceModel: SearchInterestPlaceModelProtocol {
 
     public func setSearchHistory(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) -> Bool {
         let searchHistory = SearchHistoryEntity()
+        let settingPointsList = List<SettingPointEntity>()
+        for settingPoint in settingPoints {
+            settingPointsList.append(settingPoint)
+        }
+        searchHistory.settingPointEntityList = settingPointsList
         searchHistory.halfwayPointLatitude = interestPoint.latitude
         searchHistory.halfwayPointLongitude = interestPoint.longitude
         return SearchHistoryAccessor().set(data: searchHistory)

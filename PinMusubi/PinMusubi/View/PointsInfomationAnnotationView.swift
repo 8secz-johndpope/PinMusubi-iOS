@@ -22,7 +22,7 @@ public class PointsInfomationAnnotationView: UIView {
     /// マップ上の地点間の情報を渡すプレゼンター
     private var presenter: PointsInfomationPresenterProrocol?
 
-    private weak var delegate: PointInfomationAnnotationViewDelegate?
+    public weak var delegate: PointInfomationAnnotationViewDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()

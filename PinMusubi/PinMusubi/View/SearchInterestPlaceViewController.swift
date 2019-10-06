@@ -87,6 +87,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
         pinAnnotationView.canShowCallout = true
         pinAnnotationView.detailCalloutAccessoryView = pointsInfomationAnnotationView
         pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
+        pointsInfomationAnnotationView?.delegate = self
         return pinAnnotationView
     }
 
