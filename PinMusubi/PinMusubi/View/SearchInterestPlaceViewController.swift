@@ -34,6 +34,8 @@ public class SearchInterestPlaceViewController: UIViewController {
     /// モーダル
     private var floatingPanelController = FloatingPanelController()
 
+    public var presenter: SearchInterestPlacePresenterProtocol?
+
     override public func viewDidLoad() {
         super.viewDidLoad()
         // delegateの設定
@@ -52,6 +54,8 @@ public class SearchInterestPlaceViewController: UIViewController {
         guard let pointsInfomationAnnotationView =
             UINib(nibName: "PointsInfomationAnnotationView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointsInfomationAnnotationView else { return }
         self.pointsInfomationAnnotationView = pointsInfomationAnnotationView
+
+        self.presenter = SearchInterestPlacePresenter(vc: self, modelType: SearchInterestPlaceModel.self)
 
         // textFieldに関する通知を設定
         registerNotification()
@@ -83,6 +87,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
         pinAnnotationView.canShowCallout = true
         pinAnnotationView.detailCalloutAccessoryView = pointsInfomationAnnotationView
         pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
+        pointsInfomationAnnotationView?.delegate = self
         return pinAnnotationView
     }
 
@@ -214,6 +219,19 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
         let region = MKCoordinateRegion(center: halfwayPoint, span: span)
         searchMapView.setRegion(region, animated: true)
         pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
+    }
+}
+
+extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelegate {
+    public func searchSpotList() {
+        guard let presenter = presenter else { return }
+        if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
+            // TODO: 次の画面への処理を実装
+            print("次の画面へ")
+        } else {
+            // TODO: エラーのポップアップ表示実装
+            print("エラーのポップアップ")
+        }
     }
 }
 

@@ -20,6 +20,8 @@
 		91504A8E23366F7B00F900C4 /* SettingBasePointActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91504A8C23366F7B00F900C4 /* SettingBasePointActionCell.swift */; };
 		91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91504A8D23366F7B00F900C4 /* SettingBasePointActionCell.xib */; };
 		915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */; };
+		915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511D223463458004F820D /* SearchInterestPlaceModel.swift */; };
+		915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */; };
 		915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
 		915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
 		915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
@@ -50,6 +52,7 @@
 		91B3EB542301296F00430D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB532301296F00430D41 /* Assets.xcassets */; };
 		91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB552301296F00430D41 /* LaunchScreen.storyboard */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
+		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
 		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
@@ -110,6 +113,8 @@
 		91504A8C23366F7B00F900C4 /* SettingBasePointActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointActionCell.swift; sourceTree = "<group>"; };
 		91504A8D23366F7B00F900C4 /* SettingBasePointActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingBasePointActionCell.xib; sourceTree = "<group>"; };
 		915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointCellDelegate.swift; sourceTree = "<group>"; };
+		915511D223463458004F820D /* SearchInterestPlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterestPlaceModel.swift; sourceTree = "<group>"; };
+		915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterestPlacePresenter.swift; sourceTree = "<group>"; };
 		915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryEntity.swift; sourceTree = "<group>"; };
 		915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorProtcol.swift; sourceTree = "<group>"; };
 		915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessor.swift; sourceTree = "<group>"; };
@@ -147,6 +152,7 @@
 		91B3EB562301296F00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91B3EB582301296F00430D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
+		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91F4EB152336038D005C9EED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -339,6 +345,7 @@
 				91504A8C23366F7B00F900C4 /* SettingBasePointActionCell.swift */,
 				914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */,
 				918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */,
+				91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */,
 				918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */,
 			);
 			path = View;
@@ -347,6 +354,7 @@
 		91B3EB5F2301323800430D41 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */,
 				914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */,
 				914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */,
 			);
@@ -356,6 +364,7 @@
 		91B3EB602301325100430D41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				915511D223463458004F820D /* SearchInterestPlaceModel.swift */,
 				91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */,
 				914F49EE233B89C90005C316 /* PointsInfomationModel.swift */,
 			);
@@ -793,6 +802,7 @@
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
 				915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */,
 				914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */,
+				91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
 				914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */,
@@ -801,8 +811,10 @@
 				914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */,
 				918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
+				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
+				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
 			);

@@ -22,6 +22,8 @@ public class PointsInfomationAnnotationView: UIView {
     /// マップ上の地点間の情報を渡すプレゼンター
     private var presenter: PointsInfomationPresenterProrocol?
 
+    public weak var delegate: PointInfomationAnnotationViewDelegate?
+
     override public func awakeFromNib() {
         super.awakeFromNib()
         // delegateの設定
@@ -34,6 +36,8 @@ public class PointsInfomationAnnotationView: UIView {
         showSpotListButton.layer.cornerRadius = 8
         // pointsInfoTabelViewにカスタムセルを設定
         pointsInfoTableView.register(UINib(nibName: "PointInfomationCell", bundle: nil), forCellReuseIdentifier: "PointInfomationCell")
+
+        setGesture()
     }
 
     /// 地点情報の設定処理
@@ -50,6 +54,16 @@ public class PointsInfomationAnnotationView: UIView {
         self.pointNameList = pointNameList
         self.transferTimeList = transferTimeList
         pointsInfoTableView.reloadData()
+    }
+
+    @IBAction private func tappedShowSpotListButton(_ sender: UITapGestureRecognizer) {
+        guard let delegate = delegate else { return }
+        delegate.searchSpotList()
+    }
+
+    private func setGesture() {
+        let tapShowSpotListButton = UITapGestureRecognizer(target: self, action: #selector(self.tappedShowSpotListButton(_:)))
+        showSpotListButton.addGestureRecognizer(tapShowSpotListButton)
     }
 }
 
