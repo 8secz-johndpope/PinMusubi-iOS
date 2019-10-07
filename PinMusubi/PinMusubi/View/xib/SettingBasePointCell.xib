@@ -67,18 +67,12 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7cq-v8-fFb">
                                         <rect key="frame" x="8.5" y="8.5" width="17" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="17" id="CVW-ar-lu2"/>
-                                            <constraint firstAttribute="height" constant="17" id="VVc-VA-RKr"/>
-                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7cq-v8-fFb" firstAttribute="top" secondItem="b6B-2d-L0Z" secondAttribute="top" constant="8.5" id="0FM-6W-VHT"/>
-                                    <constraint firstAttribute="height" constant="34" id="7aU-7f-C7N"/>
                                     <constraint firstAttribute="bottom" secondItem="7cq-v8-fFb" secondAttribute="bottom" constant="8.5" id="czh-EZ-sna"/>
                                     <constraint firstAttribute="trailing" secondItem="7cq-v8-fFb" secondAttribute="trailing" constant="8.5" id="iX2-Gc-BGu"/>
-                                    <constraint firstAttribute="width" constant="34" id="jFd-kN-KHU"/>
                                     <constraint firstItem="7cq-v8-fFb" firstAttribute="leading" secondItem="b6B-2d-L0Z" secondAttribute="leading" constant="8.5" id="nzZ-tm-DhD"/>
                                 </constraints>
                             </view>
@@ -87,18 +81,13 @@
                         <constraints>
                             <constraint firstItem="b6B-2d-L0Z" firstAttribute="leading" secondItem="4Sj-Zp-5Go" secondAttribute="leading" id="Tb6-Ky-SKM"/>
                             <constraint firstAttribute="bottom" secondItem="b6B-2d-L0Z" secondAttribute="bottom" id="XEU-D9-sFY"/>
-                            <constraint firstAttribute="width" constant="34" id="iiS-dP-99q"/>
                             <constraint firstItem="b6B-2d-L0Z" firstAttribute="top" secondItem="4Sj-Zp-5Go" secondAttribute="top" id="pod-LP-aq2"/>
-                            <constraint firstAttribute="height" constant="34" id="tN0-ma-IYz"/>
                             <constraint firstAttribute="trailing" secondItem="b6B-2d-L0Z" secondAttribute="trailing" id="vPe-N3-HD4"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bb6-Y8-VBd">
-                        <rect key="frame" x="47" y="152" width="311" height="1"/>
+                        <rect key="frame" x="47" y="152" width="311" height="2"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="XZJ-5V-e5T"/>
-                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="住所 / 郵便番号 / 駅名など" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH1-Ku-ij0">
                         <rect key="frame" x="68" y="78" width="192" height="16"/>
@@ -133,7 +122,7 @@
                     <constraint firstAttribute="bottom" secondItem="dnw-Fb-2lf" secondAttribute="bottom" constant="6.5" id="ifg-aP-LlI"/>
                     <constraint firstItem="4Sj-Zp-5Go" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="l84-9A-VrD"/>
                     <constraint firstItem="dnw-Fb-2lf" firstAttribute="centerX" secondItem="4Sj-Zp-5Go" secondAttribute="centerX" id="m3x-Hx-YqV"/>
-                    <constraint firstAttribute="bottom" secondItem="bb6-Y8-VBd" secondAttribute="bottom" constant="18.5" id="m9M-qz-P45"/>
+                    <constraint firstAttribute="bottom" secondItem="bb6-Y8-VBd" secondAttribute="bottom" constant="17.5" id="m9M-qz-P45"/>
                     <constraint firstItem="nbv-TY-Iww" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="28" id="mRl-S6-ASj"/>
                     <constraint firstItem="nCS-JJ-4qP" firstAttribute="leading" secondItem="DH1-Ku-ij0" secondAttribute="trailing" constant="8" id="nlG-XV-vSm"/>
                     <constraint firstItem="nbv-TY-Iww" firstAttribute="leading" secondItem="4Sj-Zp-5Go" secondAttribute="trailing" constant="16" id="u2v-NL-Wdw"/>
