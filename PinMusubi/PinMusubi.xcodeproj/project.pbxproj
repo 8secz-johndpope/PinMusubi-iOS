@@ -53,6 +53,7 @@
 		91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB552301296F00430D41 /* LaunchScreen.storyboard */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
+		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
 		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
 		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
@@ -153,6 +154,7 @@
 		91B3EB582301296F00430D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
+		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
 		91F4EB152336038D005C9EED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,6 +252,7 @@
 			children = (
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
 				915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */,
+				91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */,
 				918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */,
+				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
