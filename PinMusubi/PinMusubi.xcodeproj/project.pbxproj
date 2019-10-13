@@ -37,7 +37,7 @@
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
 		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
 		9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6552325396900A5C558 /* PinMusubiTests.swift */; };
-		9197D65F23253ADB00A5C558 /* SearchCriteriaModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */; };
+		9197D65F23253ADB00A5C558 /* SettingBasePointsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D65E23253ADB00A5C558 /* SettingBasePointsModelTests.swift */; };
 		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
@@ -134,7 +134,7 @@
 		9197D6532325396900A5C558 /* PinMusubiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinMusubiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9197D6552325396900A5C558 /* PinMusubiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiTests.swift; sourceTree = "<group>"; };
 		9197D6572325396900A5C558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCriteriaModelTests.swift; sourceTree = "<group>"; };
+		9197D65E23253ADB00A5C558 /* SettingBasePointsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModelTests.swift; sourceTree = "<group>"; };
 		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		9197D65D23253A8100A5C558 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9197D65E23253ADB00A5C558 /* SearchCriteriaModelTests.swift */,
+				9197D65E23253ADB00A5C558 /* SettingBasePointsModelTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				915A44B1232F3195006A6891 /* SettingPointAccessorTests.swift in Sources */,
-				9197D65F23253ADB00A5C558 /* SearchCriteriaModelTests.swift in Sources */,
+				9197D65F23253ADB00A5C558 /* SettingBasePointsModelTests.swift in Sources */,
 				915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */,
 				9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */,
 			);
