@@ -8,10 +8,14 @@
 
 import CoreLocation
 
-/// グルメサーチAPIのレスポンスオブジェクト
 public struct RestaurantSpotEntity: Codable {
-    public var results_available: Int
+    public var resultsAvailable: Int
     public var shops: [Shop]
+
+    private enum CodingKeys: String, CodingKey {
+        case resultsAvailable = "results_available"
+        case shops
+    }
 }
 
 public struct Shop: Codable {
@@ -36,8 +40,8 @@ public struct Shop: Codable {
     public var open: String
     public var close: String
     public var partyCapacity: Int
-    
-    enum CodingKeys: String, CodingKey {
+
+    private enum CodingKeys: String, CodingKey {
         case id
         case name
         case logoImage = "logo_image"
@@ -66,8 +70,8 @@ public struct Genre: Codable {
     public var code: String
     public var name: String
     public var genreCatch: String
-    
-    enum CodingKeys: String, CodingKey {
+
+    private enum CodingKeys: String, CodingKey {
         case code
         case name
         case genreCatch = "catch"
@@ -86,20 +90,29 @@ public struct Budget: Codable {
 }
 
 public struct Url: Codable {
-    public var pc: String
+    public var pcUrl: String
+
+    private enum CodingKeys: String, CodingKey {
+        case pcUrl = "pc"
+    }
 }
 
 public struct Photo: Codable {
-    public var pc: Pc
-    public var mobile: Mobile
+    public var pcPhoto: PcSize
+    public var mobilePhoto: Mobile
+
+    private enum CodingKeys: String, CodingKey {
+        case pcPhoto = "pc"
+        case mobilePhoto = "mobile"
+    }
 }
 
-public struct Pc: Codable {
+public struct PcSize: Codable {
     public var large: String
     public var middle: String
     public var small: String
-    
-    enum CodingKeys: String, CodingKey {
+
+    private enum CodingKeys: String, CodingKey {
         case large = "l"
         case middle = "m"
         case small = "s"
@@ -109,8 +122,8 @@ public struct Pc: Codable {
 public struct Mobile: Codable {
     public var large: String
     public var small: String
-    
-    enum CodingKeys: String, CodingKey {
+
+    private enum CodingKeys: String, CodingKey {
         case large = "l"
         case small = "s"
     }
