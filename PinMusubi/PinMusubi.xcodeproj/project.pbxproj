@@ -1083,7 +1083,8 @@
 			baseConfigurationReference = 658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
@@ -1094,6 +1095,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = PinMusubi;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1104,7 +1106,8 @@
 			baseConfigurationReference = 3E08172F3AAD4FD73D4643F1 /* Pods-PinMusubi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
@@ -1115,6 +1118,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = PinMusubi;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
