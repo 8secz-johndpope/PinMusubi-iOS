@@ -26,7 +26,7 @@ class SettingBasePointsModelTests: XCTestCase {
             print(settingPoint.longitude)
             geocodingExpectation?.fulfill()
         })
-        self.waitForExpectations(timeout: 1, handler: nil)
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
     
     func testGeocoding_ng_invalidAddress() {
