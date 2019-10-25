@@ -51,6 +51,7 @@
 		91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */; };
 		91B3EB542301296F00430D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB532301296F00430D41 /* Assets.xcassets */; };
 		91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB552301296F00430D41 /* LaunchScreen.storyboard */; };
+		91B5A9712363260E0030909D /* SearchInterestPlaceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9702363260E0030909D /* SearchInterestPlaceModelTests.swift */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
@@ -155,6 +156,7 @@
 		91B3EB532301296F00430D41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91B3EB562301296F00430D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91B3EB582301296F00430D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91B5A9702363260E0030909D /* SearchInterestPlaceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterestPlaceModelTests.swift; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		9197D65D23253A8100A5C558 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91B5A9702363260E0030909D /* SearchInterestPlaceModelTests.swift */,
 				9197D65E23253ADB00A5C558 /* SettingBasePointsModelTests.swift */,
 			);
 			path = Model;
@@ -792,6 +795,7 @@
 			files = (
 				915A44B1232F3195006A6891 /* SettingPointAccessorTests.swift in Sources */,
 				9197D65F23253ADB00A5C558 /* SettingBasePointsModelTests.swift in Sources */,
+				91B5A9712363260E0030909D /* SearchInterestPlaceModelTests.swift in Sources */,
 				915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */,
 				9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */,
 			);
