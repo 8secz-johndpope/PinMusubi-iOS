@@ -9,12 +9,16 @@
 import CoreLocation
 
 public struct RestaurantSpotEntity: Codable {
+    public var results: FetchRestaurantSpotResult
+}
+
+public struct FetchRestaurantSpotResult: Codable {
     public var resultsAvailable: Int
-    public var shops: [Shop]
+    public var shop: [Shop]
 
     private enum CodingKeys: String, CodingKey {
         case resultsAvailable = "results_available"
-        case shops
+        case shop
     }
 }
 
@@ -25,21 +29,20 @@ public struct Shop: Codable {
     public var nameKana: String
     public var address: String
     public var stationName: String
-    public var lat: CLLocationDegrees
-    public var lng: CLLocationDegrees
+    public var lat: String
+    public var lng: String
     public var genre: Genre
-    public var subGenre: SubGenre
     public var budget: Budget
     public var budgetMemo: String
     public var shopCatch: String
-    public var capacity: Int
+    public var capacity: String
     public var access: String
     public var mobileAccess: String
     public var urls: Url
     public var photo: Photo
     public var open: String
     public var close: String
-    public var partyCapacity: Int
+    public var partyCapacity: String
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -51,7 +54,6 @@ public struct Shop: Codable {
         case lat
         case lng
         case genre
-        case subGenre = "sub_genre"
         case budget
         case budgetMemo = "budget_memo"
         case shopCatch = "catch"
@@ -76,11 +78,6 @@ public struct Genre: Codable {
         case name
         case genreCatch = "catch"
     }
-}
-
-public struct SubGenre: Codable {
-    public var code: String
-    public var name: String
 }
 
 public struct Budget: Codable {

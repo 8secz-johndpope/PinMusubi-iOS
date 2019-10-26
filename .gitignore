@@ -76,3 +76,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Key
+
+PinMusubi/PinMusubi/Resouce/apiKey.plist
