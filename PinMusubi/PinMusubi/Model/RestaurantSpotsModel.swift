@@ -32,7 +32,7 @@ public protocol RestaurantSpotsModelProtocol {
     /// レストランのスポットを取得
     /// - Parameter pinPoint: ピンの位置情報
     /// - Parameter completion: 完了ハンドラ
-    func fetchRestaurantSpotList(pinPoint: CLLocationCoordinate2D, order: OrderType, completion: @escaping ([RestaurantSpotEntity], ResponseStatus) -> Void)
+    func fetchRestaurantSpotList(pinPoint: CLLocationCoordinate2D, order: OrderType, completion: @escaping ([Shop], ResponseStatus) -> Void)
 }
 
 /// レストランのスポット情報を取得するModel
@@ -43,14 +43,15 @@ public class RestaurantSpotsModel: RestaurantSpotsModelProtocol {
     /// レストランのスポットを取得
     /// - Parameter pinPoint: ピンの位置情報
     /// - Parameter completion: 完了ハンドラ
-    public func fetchRestaurantSpotList(pinPoint: CLLocationCoordinate2D, order: OrderType, completion: @escaping ([RestaurantSpotEntity], ResponseStatus) -> Void) {
+    public func fetchRestaurantSpotList(pinPoint: CLLocationCoordinate2D, order: OrderType, completion: @escaping ([Shop], ResponseStatus) -> Void) {
         let url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1"
         guard var urlComponents = URLComponents(string: url) else { return }
         urlComponents.queryItems = [
             URLQueryItem(name: "key", value: "4dc4229ac76d55f0"),
             URLQueryItem(name: "lat", value: "\(pinPoint.latitude)"),
             URLQueryItem(name: "lng", value: "\(pinPoint.longitude)"),
-            URLQueryItem(name: "range", value: order.rawValue),
+            URLQueryItem(name: "range", value: "5"),
+            URLQueryItem(name: "order", value: order.rawValue),
             URLQueryItem(name: "format", value: "json")
         ]
         guard let urlRequest = urlComponents.url else { return }
@@ -58,9 +59,10 @@ public class RestaurantSpotsModel: RestaurantSpotsModelProtocol {
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard let jsonData = data else { return }
             do {
-                let restaurantSpotList = try JSONDecoder().decode([RestaurantSpotEntity].self, from: jsonData)
-                completion(restaurantSpotList, .success)
+                let restaurantSpot = try JSONDecoder().decode(RestaurantSpotEntity.self, from: jsonData)
+                completion(restaurantSpot.results.shop, .success)
             } catch {
+                print(error)
                 completion([], .error)
             }
         }
