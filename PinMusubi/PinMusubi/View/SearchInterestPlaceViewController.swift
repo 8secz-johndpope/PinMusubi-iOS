@@ -226,8 +226,10 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
     public func searchSpotList() {
         guard let presenter = presenter else { return }
         if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
-            // TODO: 次の画面への処理を実装
-            print("次の画面へ")
+            let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
+            guard let spotListVC = spotListSV.instantiateInitialViewController() as? SpotListViewController else { return }
+            spotListVC.modalPresentationStyle = .fullScreen
+            self.present(spotListVC, animated: true, completion: nil)
         } else {
             // TODO: エラーのポップアップ表示実装
             print("エラーのポップアップ")

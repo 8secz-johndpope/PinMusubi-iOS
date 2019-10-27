@@ -60,6 +60,8 @@
 		91B5A97D2365846D0030909D /* StationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A97C2365846D0030909D /* StationModelTests.swift */; };
 		91B5A97F23658BCD0030909D /* BusStopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A97E23658BCD0030909D /* BusStopModel.swift */; };
 		91B5A98123658D130030909D /* BusStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98023658D130030909D /* BusStopTests.swift */; };
+		91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */; };
+		91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98C2365C2000030909D /* SpotListViewController.swift */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
@@ -173,6 +175,8 @@
 		91B5A97C2365846D0030909D /* StationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModelTests.swift; sourceTree = "<group>"; };
 		91B5A97E23658BCD0030909D /* BusStopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopModel.swift; sourceTree = "<group>"; };
 		91B5A98023658D130030909D /* BusStopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopTests.swift; sourceTree = "<group>"; };
+		91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpotListViewController.storyboard; sourceTree = "<group>"; };
+		91B5A98C2365C2000030909D /* SpotListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewController.swift; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
@@ -374,6 +378,7 @@
 				918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */,
 				91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */,
 				918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */,
+				91B5A98C2365C2000030909D /* SpotListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,9 +432,10 @@
 		91BDCB912324AE3200E4B5C4 /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
 				91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */,
 				91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */,
-				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
+				91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -573,6 +579,7 @@
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
+				91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,6 +853,7 @@
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
 				914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */,
+				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				91B5A97F23658BCD0030909D /* BusStopModel.swift in Sources */,
@@ -1115,8 +1123,8 @@
 			baseConfigurationReference = 658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
@@ -1127,7 +1135,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = PinMusubi;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
