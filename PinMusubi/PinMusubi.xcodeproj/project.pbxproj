@@ -237,13 +237,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		914D4A7D23372F5800065648 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		915A44A6232E2A7D006A6891 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,8 +262,8 @@
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
 				915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */,
 				91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */,
-				91E439232355FB9700A3B936 /* BusStopEntity.swift */,
 				91E439252355FE3C00A3B936 /* StationEntity.swift */,
+				91E439232355FB9700A3B936 /* BusStopEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -412,7 +405,6 @@
 		91B3EB622301332C00430D41 /* Resouce */ = {
 			isa = PBXGroup;
 			children = (
-				914D4A7D23372F5800065648 /* New Group */,
 				91B3EB532301296F00430D41 /* Assets.xcassets */,
 				91B3EB582301296F00430D41 /* Info.plist */,
 				91B5A9762363EF090030909D /* apiKey.plist */,
