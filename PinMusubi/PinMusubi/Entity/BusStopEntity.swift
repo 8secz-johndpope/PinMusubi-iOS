@@ -9,10 +9,6 @@
 import CoreLocation
 
 public struct BusStopEntity: Codable {
-    public var busStop: [BusStop]
-}
-
-public struct BusStop: Codable {
     public var busLineName: String
     public var busOperationCompany: String
     public var busStopName: String

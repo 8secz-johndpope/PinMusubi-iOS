@@ -20,8 +20,8 @@ public struct Station: Codable {
     public var name: String
     public var prefecture: String
     public var line: String
-    public var lat: Double
-    public var lng: Double
+    public var lat: CLLocationDegrees
+    public var lng: CLLocationDegrees
     public var postal: String
     public var distance: String
     public var prev: String
