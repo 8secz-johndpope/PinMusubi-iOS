@@ -8,7 +8,8 @@
 
 import CoreLocation
 
-public protocol StationModelProtcol{
+/// 駅情報を取得するModelのProtocol
+public protocol StationModelProtcol {
     /// コンストラクタ
     init()
 
@@ -18,10 +19,11 @@ public protocol StationModelProtcol{
     func fetchStationList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([Station], ResponseStatus) -> Void)
 }
 
+/// 駅情報を取得するModel
 public class StationModel: StationModelProtcol {
     /// コンストラクタ
     public required init() {}
-    
+
     //// 駅情報を取得
     /// - Parameter pinPoint: ピンの位置情報
     /// - Parameter completion: 完了ハンドラ
@@ -30,8 +32,8 @@ public class StationModel: StationModelProtcol {
         guard var urlComponents = URLComponents(string: url) else { return }
         urlComponents.queryItems = [
             URLQueryItem(name: "method", value: "getStations"),
-            URLQueryItem(name: "x", value: "\(pinPoint.latitude)"),
-            URLQueryItem(name: "y", value: "\(pinPoint.longitude)")
+            URLQueryItem(name: "y", value: "\(pinPoint.latitude)"),
+            URLQueryItem(name: "x", value: "\(pinPoint.longitude)")
         ]
         guard let urlRequest = urlComponents.url else { return }
 
