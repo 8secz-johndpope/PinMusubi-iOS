@@ -56,6 +56,7 @@
 		91B5A97523633B440030909D /* RestaurantSpotsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A97423633B440030909D /* RestaurantSpotsModelTests.swift */; };
 		91B5A9772363EF090030909D /* apiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91B5A9762363EF090030909D /* apiKey.plist */; };
 		91B5A9792363F1AE0030909D /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9782363F1AE0030909D /* KeyManager.swift */; };
+		91B5A97B23657EE10030909D /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A97A23657EE10030909D /* StationModel.swift */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
@@ -165,6 +166,7 @@
 		91B5A97423633B440030909D /* RestaurantSpotsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotsModelTests.swift; sourceTree = "<group>"; };
 		91B5A9762363EF090030909D /* apiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apiKey.plist; sourceTree = "<group>"; };
 		91B5A9782363F1AE0030909D /* KeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
+		91B5A97A23657EE10030909D /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */,
 				914F49EE233B89C90005C316 /* PointsInfomationModel.swift */,
 				91E439292361DFE500A3B936 /* RestaurantSpotsModel.swift */,
+				91B5A97A23657EE10030909D /* StationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
+				91B5A97B23657EE10030909D /* StationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
 				915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */,
