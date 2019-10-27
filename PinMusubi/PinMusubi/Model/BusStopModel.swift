@@ -16,7 +16,7 @@ public protocol BusStopModelProtcol {
     /// 駅情報を取得
     /// - Parameter pinPoint: ピンの位置情報
     /// - Parameter completion: 完了ハンドラ
-    func fetchBusStopList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([BusStop], ResponseStatus) -> Void)
+    func fetchBusStopList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([BusStopEntity], ResponseStatus) -> Void)
 }
 
 /// 駅情報を取得するModel
@@ -27,7 +27,7 @@ public class BusStopModel: BusStopModelProtcol {
     //// 駅情報を取得
     /// - Parameter pinPoint: ピンの位置情報
     /// - Parameter completion: 完了ハンドラ
-    public func fetchBusStopList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([BusStop], ResponseStatus) -> Void) {
+    public func fetchBusStopList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([BusStopEntity], ResponseStatus) -> Void) {
         let url = "https://livlog.xyz/busstop/getBusStop"
         guard var urlComponents = URLComponents(string: url) else { return }
         urlComponents.queryItems = [
@@ -39,8 +39,8 @@ public class BusStopModel: BusStopModelProtcol {
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard let jsonData = data else { return }
             do {
-                let busStop = try JSONDecoder().decode(BusStopEntity.self, from: jsonData)
-                completion(busStop.busStop, .success)
+                let busStops = try JSONDecoder().decode([BusStopEntity].self, from: jsonData)
+                completion(busStops, .success)
             } catch {
                 print(error)
                 completion([], .error)
