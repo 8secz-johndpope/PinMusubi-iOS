@@ -41,13 +41,17 @@ extension SpotListViewController: UICollectionViewDelegate {}
 
 extension SpotListViewController: UICollectionViewDataSource {
     public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 2
+        return segmentedControl.numberOfSegments
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SpotListCollectionViewCell", for: indexPath)
             as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
-        cell.setSize(collectionViewSize: collectionView.bounds.size)
+        if indexPath.row == 0 {
+            cell.configre(spotType: .transportation, collectionViewSize: collectionView.bounds.size)
+        } else if indexPath.row == 1 {
+            cell.configre(spotType: .restaurant, collectionViewSize: collectionView.bounds.size)
+        }
         return cell
     }
 }
