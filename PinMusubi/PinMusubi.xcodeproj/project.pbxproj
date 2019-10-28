@@ -62,6 +62,10 @@
 		91B5A98123658D130030909D /* BusStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98023658D130030909D /* BusStopTests.swift */; };
 		91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */; };
 		91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98C2365C2000030909D /* SpotListViewController.swift */; };
+		91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9902365DA740030909D /* SpotListNavigationController.swift */; };
+		91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A994236714640030909D /* SpotListCollectionView.swift */; };
+		91B5A997236715C00030909D /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A996236715C00030909D /* FlowLayout.swift */; };
+		91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
@@ -177,6 +181,10 @@
 		91B5A98023658D130030909D /* BusStopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopTests.swift; sourceTree = "<group>"; };
 		91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpotListViewController.storyboard; sourceTree = "<group>"; };
 		91B5A98C2365C2000030909D /* SpotListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewController.swift; sourceTree = "<group>"; };
+		91B5A9902365DA740030909D /* SpotListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListNavigationController.swift; sourceTree = "<group>"; };
+		91B5A994236714640030909D /* SpotListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionView.swift; sourceTree = "<group>"; };
+		91B5A996236715C00030909D /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionViewCell.swift; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
@@ -378,7 +386,10 @@
 				918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */,
 				91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */,
 				918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */,
+				91B5A9902365DA740030909D /* SpotListNavigationController.swift */,
 				91B5A98C2365C2000030909D /* SpotListViewController.swift */,
+				91B5A994236714640030909D /* SpotListCollectionView.swift */,
+				91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,6 +426,7 @@
 				91B5A9782363F1AE0030909D /* KeyManager.swift */,
 				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
 				914D4A8A23388F8500065648 /* Notification+Extension.swift */,
+				91B5A996236715C00030909D /* FlowLayout.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -855,16 +867,20 @@
 				914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */,
 				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
+				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
+				91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */,
 				91B5A97F23658BCD0030909D /* BusStopModel.swift in Sources */,
 				914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */,
 				918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */,
 				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
+				91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */,
 				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
+				91B5A997236715C00030909D /* FlowLayout.swift in Sources */,
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,

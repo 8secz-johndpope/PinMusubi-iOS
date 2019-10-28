@@ -172,6 +172,15 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
         }
         return scale
     }
+
+    /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
+    /// - Parameter mapView: mapView
+    public func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
+        guard let spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController else { return }
+        spotListNC.modalPresentationStyle = .fullScreen
+        self.present(spotListNC, animated: true, completion: nil)
+    }
 }
 
 /// モーダルに関するDelegateメソッド
@@ -227,9 +236,9 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
         guard let presenter = presenter else { return }
         if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
             let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
-            guard let spotListVC = spotListSV.instantiateInitialViewController() as? SpotListViewController else { return }
-            spotListVC.modalPresentationStyle = .fullScreen
-            self.present(spotListVC, animated: true, completion: nil)
+            guard let spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController else { return }
+            spotListNC.modalPresentationStyle = .fullScreen
+            self.present(spotListNC, animated: true, completion: nil)
         } else {
             // TODO: エラーのポップアップ表示実装
             print("エラーのポップアップ")

@@ -8,23 +8,57 @@
 
 import UIKit
 
-public class SpotListViewController: UINavigationController {
+public class SpotListViewController: UIViewController {
+    @IBOutlet private var segmentedControl: UISegmentedControl!
+    @IBOutlet private var favoriteButtonView: UIView!
+    @IBOutlet private var collectionView: SpotListCollectionView!
+
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        collectionView.delegate = self
+        collectionView.dataSource = self
+
+        segmentedControl.setTitle("駅・バス停", forSegmentAt: 0)
+        segmentedControl.setTitle("飲食店", forSegmentAt: 1)
+        segmentedControl.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            segmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
+        } else {
+            segmentedControl.tintColor = UIColor(hex: "FA6400")
+        }
+        segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+
+        favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
+        favoriteButtonView.layer.cornerRadius = 8
+
+        self.navigationItem.title = "東京都目黒区下目黒5-4-1下目..."
+    }
+}
+
+extension SpotListViewController: UICollectionViewDelegate {}
+
+extension SpotListViewController: UICollectionViewDataSource {
+    public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+        return 2
     }
 
-    public func test() {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SpotListCollectionViewCell", for: indexPath)
+            as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
+        cell.setSize(collectionViewSize: collectionView.bounds.size)
+        return cell
+    }
+}
+
+extension SpotListViewController: UICollectionViewDelegateFlowLayout {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard let collectionView = scrollView as? UICollectionView else { return }
+        (collectionView.collectionViewLayout as? FlowLayout)?.prepareForPaging()
     }
 
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+    }
 }
