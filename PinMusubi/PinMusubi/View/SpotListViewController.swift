@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import MapKit
 import UIKit
 
 public class SpotListViewController: UIViewController {
@@ -15,6 +16,8 @@ public class SpotListViewController: UIViewController {
     @IBOutlet private var closeViewButton: UIBarButtonItem!
     private var flowLayout: FlowLayout?
     private var isChangeSegmentedControl: Bool = true
+    private var settingPoints: [SettingPointEntity]?
+    private var interestPoint: CLLocationCoordinate2D?
 
     public weak var delegate: SpotListViewDelegate?
 
@@ -47,6 +50,11 @@ public class SpotListViewController: UIViewController {
         closeViewButton.image = UIImage(named: "CloseButton")
     }
 
+    public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
+        self.settingPoints = settingPoints
+        self.interestPoint = interestPoint
+    }
+
     @IBAction private func segmentChanged(sender: AnyObject) {
         isChangeSegmentedControl = false
         let selectedIndex = segmentedControl.selectedSegmentIndex
@@ -69,10 +77,13 @@ extension SpotListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SpotListCollectionViewCell", for: indexPath)
             as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
         if indexPath.row == 0 {
-            cell.configre(spotType: .transportation, collectionViewSize: collectionView.bounds.size)
+            cell.configre(spotType: .transportation)
         } else if indexPath.row == 1 {
-            cell.configre(spotType: .restaurant, collectionViewSize: collectionView.bounds.size)
+            cell.configre(spotType: .restaurant)
         }
+        guard let settingPoints = settingPoints else { return cell }
+        guard let interestPoint = interestPoint else { return cell }
+        cell.setSpotList(settingPoints: settingPoints, interestPoint: interestPoint)
         return cell
     }
 }
@@ -91,6 +102,6 @@ extension SpotListViewController: UICollectionViewDelegateFlowLayout {
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height - 30)
     }
 }

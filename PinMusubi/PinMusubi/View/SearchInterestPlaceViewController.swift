@@ -177,7 +177,9 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
     /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
     /// - Parameter mapView: mapView
     public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        showSpotListView()
+        let testSettingPoints = TestData.setTestParameter().0
+        let testInterestPoint = TestData.setTestParameter().1
+        showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
     }
 }
 
@@ -233,10 +235,7 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
     public func searchSpotList() {
         guard let presenter = presenter else { return }
         if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
-            let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
-            guard let spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController else { return }
-            spotListNC.modalPresentationStyle = .fullScreen
-            self.present(spotListNC, animated: true, completion: nil)
+            showSpotListView(settingPoints: settingPoints, interestPoint: halfwayPoint)
         } else {
             // TODO: エラーのポップアップ表示実装
             print("エラーのポップアップ")
@@ -245,12 +244,13 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
 }
 
 extension SearchInterestPlaceViewController: SpotListViewDelegate {
-    private func showSpotListView() {
+    private func showSpotListView(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
         let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
         spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController
         guard let spotListNC = spotListNC else { return }
         guard let spotListVC = spotListNC.topViewController as? SpotListViewController else { return }
         spotListVC.delegate = self
+        spotListVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint)
         spotListNC.modalPresentationStyle = .fullScreen
         self.present(spotListNC, animated: true, completion: nil)
     }

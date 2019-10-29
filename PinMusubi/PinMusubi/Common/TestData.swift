@@ -39,4 +39,28 @@ public enum TestData {
 
         return (settingPointEntityList, halfwayPoint)
     }
+
+    /// スポット検索のためのテストデータ
+    public static func setTestParameter() -> ([SettingPointEntity], CLLocationCoordinate2D) {
+        let settingPointEntity1 = SettingPointEntity()
+        settingPointEntity1.name = "東京駅"
+        settingPointEntity1.address = "東京都千代田区丸の内１丁目"
+        settingPointEntity1.latitude = 35.681_236
+        settingPointEntity1.longitude = 139.767_125
+
+        let settingPointEntity2 = SettingPointEntity()
+        settingPointEntity2.name = "渋谷駅"
+        settingPointEntity2.address = "東京都渋谷区道玄坂一丁目"
+        settingPointEntity2.latitude = 35.658_034
+        settingPointEntity2.longitude = 139.701_636
+
+        var settingPointEntityList = [SettingPointEntity]()
+        settingPointEntityList.append(settingPointEntity1)
+        settingPointEntityList.append(settingPointEntity2)
+
+        // 新宿駅
+        let interestedPoint = CLLocationCoordinate2D(latitude: 35.689_738, longitude: 139.700_391)
+
+        return (settingPointEntityList, interestedPoint)
+    }
 }
