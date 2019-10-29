@@ -32,10 +32,26 @@ public class SpotCell: UITableViewCell {
             subTitle.text = restaurant.genre.name
             guard let imageUrl = URL(string: restaurant.photo.pcPhoto.large) else { return }
             catchImage.loadImageAsynchronously(url: imageUrl)
-        } else if spot is StationEntity {
-            guard let station = spot as? StationEntity else { return }
+        } else if spot is Station {
+            guard let station = spot as? Station else { return }
+            title.text = station.name
+            subTitle.text = station.line
+            if #available(iOS 13.0, *) {
+                imageBackView.backgroundColor = UIColor.systemBackground
+            } else {
+                imageBackView.backgroundColor = UIColor.white
+            }
+            catchImage.image = UIImage(named: "Train")
         } else if spot is BusStopEntity {
             guard let busStop = spot as? BusStopEntity else { return }
+            title.text = busStop.busStopName
+            subTitle.text = busStop.busLineName
+            if #available(iOS 13.0, *) {
+                imageBackView.backgroundColor = UIColor.systemBackground
+            } else {
+                imageBackView.backgroundColor = UIColor.white
+            }
+            catchImage.image = UIImage(named: "Bus")
         }
     }
 }

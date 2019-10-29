@@ -27,9 +27,9 @@ public class RestaurantSpotPresenter: RestaurantSpotPresenterProrocol {
         self.model = model.init()
     }
 
-    /// 設定地点とピンの地点との間の移動時間の計算
-    /// - Parameter settingPoints: 設定地点情報
-    /// - Parameter pinPoint: ピンの地点の座標
+    /// 飲食店情報を取得
+    /// - Parameter interestPoint: 興味のある地点
+    /// - Parameter order: 並び順
     public func fetchRestaurantSpotList(interestPoint: CLLocationCoordinate2D, order: OrderType) {
         guard let model = model else { return }
         guard let view = view else { return }

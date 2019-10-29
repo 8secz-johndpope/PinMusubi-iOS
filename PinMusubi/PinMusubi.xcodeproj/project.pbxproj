@@ -74,6 +74,8 @@
 		91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */; };
 		91D190812368331900B0329A /* SpotEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190802368331900B0329A /* SpotEntityProtocol.swift */; };
 		91D190832368485A00B0329A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190822368485A00B0329A /* UIImageView+Extension.swift */; };
+		91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190862368A09700B0329A /* StationSpotPresenter.swift */; };
+		91D190892368A49D00B0329A /* BusStopSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
 		91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439232355FB9700A3B936 /* BusStopEntity.swift */; };
 		91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439252355FE3C00A3B936 /* StationEntity.swift */; };
@@ -199,6 +201,8 @@
 		91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotPresenter.swift; sourceTree = "<group>"; };
 		91D190802368331900B0329A /* SpotEntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotEntityProtocol.swift; sourceTree = "<group>"; };
 		91D190822368485A00B0329A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		91D190862368A09700B0329A /* StationSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSpotPresenter.swift; sourceTree = "<group>"; };
+		91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSpotPresenter.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
 		91E439232355FB9700A3B936 /* BusStopEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEntity.swift; sourceTree = "<group>"; };
 		91E439252355FE3C00A3B936 /* StationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationEntity.swift; sourceTree = "<group>"; };
@@ -417,6 +421,8 @@
 				914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */,
 				914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */,
 				91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */,
+				91D190862368A09700B0329A /* StationSpotPresenter.swift */,
+				91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -875,6 +881,7 @@
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
+				91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */,
 				91B5A97B23657EE10030909D /* StationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
@@ -888,6 +895,7 @@
 				914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */,
 				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
+				91D190892368A49D00B0329A /* BusStopSpotPresenter.swift in Sources */,
 				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */,

@@ -24,6 +24,8 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     private var spotList = [SpotEntityProtocol]()
 
     public var restaurantPresenter: RestaurantSpotPresenterProrocol?
+    public var stationPresenter: StationSpotPresenterProrocol?
+    public var busPresenter: BusStopSpotPresenterProrocol?
 
     public func configre(spotType: SpotType) {
         self.spotType = spotType
@@ -44,12 +46,18 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
         spotListTableView.dataSource = self
 
         restaurantPresenter = RestaurantSpotPresenter(view: self, modelType: RestaurantSpotsModel.self)
+        stationPresenter = StationSpotPresenter(view: self, modelType: StationModel.self)
+        busPresenter = BusStopSpotPresenter(view: self, modelType: BusStopModel.self)
 
         spotListTableView.register(UINib(nibName: "SpotCell", bundle: nil), forCellReuseIdentifier: "SpotCell")
     }
 
     public func setSpotList(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
         if spotType == .transportation {
+            stationPresenter?.fetchStationList(interestPoint: interestPoint, completion: { stations in
+                self.busPresenter?.fetchBusStopList(interestPoint: interestPoint, stations: stations)
+            }
+            )
         } else if spotType == .restaurant {
             let orderType = OrderType.byDistance
             restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType)
