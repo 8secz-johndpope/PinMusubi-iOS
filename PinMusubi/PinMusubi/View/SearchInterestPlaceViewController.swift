@@ -33,6 +33,8 @@ public class SearchInterestPlaceViewController: UIViewController {
     private var halfwayPoint = CLLocationCoordinate2D()
     /// モーダル
     private var floatingPanelController = FloatingPanelController()
+    /// スポットリスト
+    private var spotListNC: SpotListNavigationController?
 
     public var presenter: SearchInterestPlacePresenterProtocol?
 
@@ -41,7 +43,6 @@ public class SearchInterestPlaceViewController: UIViewController {
         // delegateの設定
         searchMapView.delegate = self
         floatingPanelController.delegate = self
-
         // モーダル表示
         let modalVC = SettingBasePointsModalViewController()
         floatingPanelController.surfaceView.cornerRadius = 9.0
@@ -175,11 +176,8 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
 
     /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
     /// - Parameter mapView: mapView
-    public func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
-        guard let spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController else { return }
-        spotListNC.modalPresentationStyle = .fullScreen
-        self.present(spotListNC, animated: true, completion: nil)
+    public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        showSpotListView()
     }
 }
 
@@ -243,6 +241,22 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
             // TODO: エラーのポップアップ表示実装
             print("エラーのポップアップ")
         }
+    }
+}
+
+extension SearchInterestPlaceViewController: SpotListViewDelegate {
+    private func showSpotListView() {
+        let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
+        spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController
+        guard let spotListNC = spotListNC else { return }
+        guard let spotListVC = spotListNC.topViewController as? SpotListViewController else { return }
+        spotListVC.delegate = self
+        spotListNC.modalPresentationStyle = .fullScreen
+        self.present(spotListNC, animated: true, completion: nil)
+    }
+
+    public func closeSpotListView() {
+        spotListNC?.dismiss(animated: true, completion: nil)
     }
 }
 

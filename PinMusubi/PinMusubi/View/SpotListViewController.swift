@@ -12,8 +12,11 @@ public class SpotListViewController: UIViewController {
     @IBOutlet private var segmentedControl: UISegmentedControl!
     @IBOutlet private var favoriteButtonView: UIView!
     @IBOutlet private var collectionView: SpotListCollectionView!
+    @IBOutlet private var closeViewButton: UIBarButtonItem!
     private var flowLayout: FlowLayout?
     private var isChangeSegmentedControl: Bool = true
+
+    public weak var delegate: SpotListViewDelegate?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +41,18 @@ public class SpotListViewController: UIViewController {
         flowLayout = collectionView.collectionViewLayout as? FlowLayout
         flowLayout?.prepareForPaging()
 
-        self.navigationItem.title = "東京都目黒区下目黒5-4-1下目..."
+        navigationItem.title = "東京都目黒区下目黒5-4-1下目..."
+        closeViewButton.image = UIImage(named: "CloseButton")
     }
 
     @IBAction private func segmentChanged(sender: AnyObject) {
         isChangeSegmentedControl = false
         let selectedIndex = segmentedControl.selectedSegmentIndex
         flowLayout?.slideView(selectedSegmentIndex: selectedIndex)
+    }
+
+    @IBAction private func closeSpotListView(_ sender: Any) {
+        delegate?.closeSpotListView()
     }
 }
 

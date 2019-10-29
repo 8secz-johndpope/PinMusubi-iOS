@@ -93,8 +93,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fwx-RT-ScN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7fe-1U-5u6"/>
+                    <navigationItem key="navigationItem" id="7fe-1U-5u6">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="srF-RT-YGD">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="closeSpotListView:" destination="Iu6-TR-OKb" id="Vpf-yn-DCu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="closeViewButton" destination="srF-RT-YGD" id="rt4-K0-ppP"/>
                         <outlet property="collectionView" destination="8fr-mu-wov" id="XBQ-tN-17A"/>
                         <outlet property="favoriteButtonView" destination="Sgp-YQ-278" id="29g-is-C5k"/>
                         <outlet property="segmentedControl" destination="ZNo-iv-7YD" id="kUw-6D-QNO"/>
