@@ -34,12 +34,13 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
         spotListTableView.delegate = self
         spotListTableView.dataSource = self
 
-        spotListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        spotListTableView.register(UINib(nibName: "SpotCell", bundle: nil), forCellReuseIdentifier: "SpotCell")
     }
 }
 
 extension SpotListCollectionViewCell: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO: タップしたら詳細画面へ
     }
 }
 
@@ -49,11 +50,11 @@ extension SpotListCollectionViewCell: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SpotCell", for: indexPath) as? SpotCell else { return SpotCell() }
         if spotType == .transportation {
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell.transportationConfigure()
         } else if spotType == .restaurant {
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell.restaurantConfigure()
         }
         cell.selectionStyle = .none
         return cell

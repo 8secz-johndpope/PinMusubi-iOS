@@ -49,6 +49,7 @@
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZNo-iv-7YD">
                                 <rect key="frame" x="92" y="65" width="191" height="32"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <segments>
                                     <segment title="First" width="96"/>
                                     <segment title="Second" width="96"/>
@@ -78,7 +79,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Fwx-RT-ScN" firstAttribute="trailing" secondItem="ZNo-iv-7YD" secondAttribute="trailing" constant="92" id="5Ic-Fm-J4e"/>
                             <constraint firstItem="8Pf-xi-VXr" firstAttribute="bottom" secondItem="Fwx-RT-ScN" secondAttribute="bottom" id="CaB-2m-ADE"/>
@@ -119,6 +120,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Crk-59-45o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Iu6-TR-OKb" kind="relationship" relationship="rootViewController" id="5Je-1u-Vll"/>

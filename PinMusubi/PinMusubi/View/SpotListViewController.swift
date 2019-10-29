@@ -26,14 +26,15 @@ public class SpotListViewController: UIViewController {
 
         segmentedControl.setTitle("駅・バス停", forSegmentAt: 0)
         segmentedControl.setTitle("飲食店", forSegmentAt: 1)
-        segmentedControl.backgroundColor = UIColor.white
         if #available(iOS 13.0, *) {
             segmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
         } else {
             segmentedControl.tintColor = UIColor(hex: "FA6400")
         }
         segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
-        segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+        segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor(hex: "FA6400")], for: .normal)
+        segmentedControl.layer.borderColor = UIColor(hex: "FA6400").cgColor
+        segmentedControl.layer.borderWidth = 1.0
 
         favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
         favoriteButtonView.layer.cornerRadius = 8
@@ -41,6 +42,7 @@ public class SpotListViewController: UIViewController {
         flowLayout = collectionView.collectionViewLayout as? FlowLayout
         flowLayout?.prepareForPaging()
 
+        collectionView.showsHorizontalScrollIndicator = false
         navigationItem.title = "東京都目黒区下目黒5-4-1下目..."
         closeViewButton.image = UIImage(named: "CloseButton")
     }
