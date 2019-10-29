@@ -12,6 +12,8 @@ public class SpotListViewController: UIViewController {
     @IBOutlet private var segmentedControl: UISegmentedControl!
     @IBOutlet private var favoriteButtonView: UIView!
     @IBOutlet private var collectionView: SpotListCollectionView!
+    private var flowLayout: FlowLayout?
+    private var isChangeSegmentedControl: Bool = true
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,16 @@ public class SpotListViewController: UIViewController {
         favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
         favoriteButtonView.layer.cornerRadius = 8
 
+        flowLayout = collectionView.collectionViewLayout as? FlowLayout
+        flowLayout?.prepareForPaging()
+
         self.navigationItem.title = "東京都目黒区下目黒5-4-1下目..."
+    }
+
+    @IBAction private func segmentChanged(sender: AnyObject) {
+        isChangeSegmentedControl = false
+        let selectedIndex = segmentedControl.selectedSegmentIndex
+        flowLayout?.slideView(selectedSegmentIndex: selectedIndex)
     }
 }
 
@@ -58,8 +69,15 @@ extension SpotListViewController: UICollectionViewDataSource {
 
 extension SpotListViewController: UICollectionViewDelegateFlowLayout {
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        guard let collectionView = scrollView as? UICollectionView else { return }
-        (collectionView.collectionViewLayout as? FlowLayout)?.prepareForPaging()
+        isChangeSegmentedControl = true
+    }
+
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if isChangeSegmentedControl {
+            let offSet = scrollView.contentOffset.x
+            let collectionWidth = scrollView.bounds.width / 2
+            segmentedControl.selectedSegmentIndex = Int(offSet / collectionWidth)
+        }
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

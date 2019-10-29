@@ -53,6 +53,9 @@
                                     <segment title="First" width="96"/>
                                     <segment title="Second" width="96"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentChangedWithSender:" destination="Iu6-TR-OKb" eventType="valueChanged" id="JIT-lH-NW1"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8fr-mu-wov" customClass="SpotListCollectionView" customModule="PinMusubi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="112" width="375" height="475"/>

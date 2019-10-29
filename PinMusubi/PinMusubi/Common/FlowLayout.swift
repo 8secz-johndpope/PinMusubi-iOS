@@ -61,4 +61,9 @@ public class FlowLayout: UICollectionViewFlowLayout {
         )
         layoutAttributesForPaging = layoutAttributesForElements(in: expandedVisibleRect)?.sorted { $0.frame.minX < $1.frame.minX }
     }
+
+    public func slideView(selectedSegmentIndex: Int) {
+        guard let collectionView = collectionView else { return }
+        collectionView.scrollToItem(at: IndexPath(row: selectedSegmentIndex, section: 0), at: .centeredHorizontally, animated: true)
+    }
 }
