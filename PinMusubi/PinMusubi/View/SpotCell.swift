@@ -21,6 +21,10 @@ public class SpotCell: UITableViewCell {
         catchImage.layer.cornerRadius = 10
     }
 
+    public func initialize() {
+        catchImage.image = nil
+    }
+
     public func configure(spot: SpotEntityProtocol) {
         if spot is Shop {
             guard let restaurant = spot as? Shop else { return }

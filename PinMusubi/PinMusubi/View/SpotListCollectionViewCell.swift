@@ -81,6 +81,7 @@ extension SpotListCollectionViewCell: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SpotCell", for: indexPath) as? SpotCell else { return SpotCell() }
+        cell.initialize()
         cell.configure(spot: spotList[indexPath.row])
         cell.selectionStyle = .none
         return cell
