@@ -13,7 +13,7 @@ public protocol RestaurantSpotPresenterProrocol: AnyObject {
     /// コンストラクタ
     init(view: SpotListCollectionViewCell, modelType model: RestaurantSpotsModelProtocol.Type)
 
-    func fetchRestaurantSpotList(interestPoint: CLLocationCoordinate2D, order: OrderType, complete: @escaping () -> Void)
+    func fetchRestaurantSpotList(interestPoint: CLLocationCoordinate2D, order: OrderType)
 }
 
 /// 飲食店の一覧を表示するプレゼンター
@@ -30,7 +30,7 @@ public class RestaurantSpotPresenter: RestaurantSpotPresenterProrocol {
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    public func fetchRestaurantSpotList(interestPoint: CLLocationCoordinate2D, order: OrderType, complete: @escaping () -> Void) {
+    public func fetchRestaurantSpotList(interestPoint: CLLocationCoordinate2D, order: OrderType) {
         guard let model = model else { return }
         guard let view = view else { return }
         model.fetchRestaurantSpotList(pinPoint: interestPoint, order: order, completion: { shops, status in
@@ -39,7 +39,6 @@ public class RestaurantSpotPresenter: RestaurantSpotPresenterProrocol {
             } else {
                 view.setSpotList(spotList: [SpotEntityProtocol]())
             }
-            complete()
         }
         )
     }

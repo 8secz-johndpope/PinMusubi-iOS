@@ -50,11 +50,10 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
 
     public func setSpotList(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
         if spotType == .transportation {
+            
         } else if spotType == .restaurant {
             let orderType = OrderType.byDistance
-            restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType, complete: {
-            }
-            )
+            restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType)
         }
     }
 
