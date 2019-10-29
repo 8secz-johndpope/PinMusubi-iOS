@@ -57,6 +57,7 @@ public class RestaurantSpotsModel: RestaurantSpotsModelProtocol {
             URLQueryItem(name: "lng", value: "\(pinPoint.longitude)"),
             URLQueryItem(name: "range", value: "5"),
             URLQueryItem(name: "order", value: order.rawValue),
+            URLQueryItem(name: "count", value: "100"),
             URLQueryItem(name: "format", value: "json")
         ]
         guard let urlRequest = urlComponents.url else { return }
