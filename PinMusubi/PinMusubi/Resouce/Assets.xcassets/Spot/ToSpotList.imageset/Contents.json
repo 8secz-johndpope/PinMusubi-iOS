@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ToSpotList.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ToSpotList@2x.png",
+      "filename" : "ToSpotList.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ToSpotList@3x.png",
       "scale" : "3x"
     }
   ],

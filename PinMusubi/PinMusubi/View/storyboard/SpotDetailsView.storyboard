@@ -18,16 +18,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zo9-WN-6ba"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="QBX-Ht-mEs">
-                        <barButtonItem key="leftBarButtonItem" image="ToSpotList" style="plain" id="zSm-R9-s2P">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MeZ-50-PDh">
-                                <rect key="frame" x="20" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="backNavigationView:" destination="R7f-A4-ZpL" eventType="touchUpInside" id="Dhl-ca-518"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" title="Title" id="66x-63-jmU">
+                        <barButtonItem key="leftBarButtonItem" image="ToSpotList" id="rGU-mK-iny">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="backNavigationView:" destination="R7f-A4-ZpL" id="Xej-tq-aVx"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -40,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ToSpotList" width="5" height="7.5"/>
+        <image name="ToSpotList" width="25" height="25"/>
     </resources>
 </document>

@@ -27,8 +27,8 @@ public class SpotListViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
 
-        segmentedControl.setTitle("駅・バス停", forSegmentAt: 0)
-        segmentedControl.setTitle("飲食店", forSegmentAt: 1)
+        segmentedControl.setTitle("飲食店", forSegmentAt: 0)
+        segmentedControl.setTitle("駅・バス停", forSegmentAt: 1)
         if #available(iOS 13.0, *) {
             segmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
         } else {
@@ -78,9 +78,9 @@ extension SpotListViewController: UICollectionViewDataSource {
             as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
         cell.delegate = self
         if indexPath.row == 0 {
-            cell.configre(spotType: .transportation)
-        } else if indexPath.row == 1 {
             cell.configre(spotType: .restaurant)
+        } else if indexPath.row == 1 {
+            cell.configre(spotType: .transportation)
         }
         guard let settingPoints = settingPoints else { return cell }
         guard let interestPoint = interestPoint else { return cell }

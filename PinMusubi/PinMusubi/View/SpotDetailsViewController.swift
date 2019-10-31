@@ -19,7 +19,7 @@ public class SpotDetailsViewController: UIViewController {
             title = restaurant.name
         } else if spot is Station {
             guard let station = spot as? Station else { return }
-            title = station.name
+            title = station.name + "駅"
         } else if spot is BusStopEntity {
             guard let busStop = spot as? BusStopEntity else { return }
             title = busStop.busStopName

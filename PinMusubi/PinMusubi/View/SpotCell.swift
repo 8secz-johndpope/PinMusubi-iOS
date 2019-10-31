@@ -34,7 +34,7 @@ public class SpotCell: UITableViewCell {
             catchImage.loadImageAsynchronously(url: imageUrl)
         } else if spot is Station {
             guard let station = spot as? Station else { return }
-            title.text = station.name
+            title.text = station.name + "駅"
             subTitle.text = station.line
             if #available(iOS 13.0, *) {
                 imageBackView.backgroundColor = UIColor.systemBackground
