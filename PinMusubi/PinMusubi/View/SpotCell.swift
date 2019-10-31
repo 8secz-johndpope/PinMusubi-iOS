@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import SDWebImage
 import UIKit
 
 public class SpotCell: UITableViewCell {
@@ -31,7 +32,7 @@ public class SpotCell: UITableViewCell {
             title.text = restaurant.name
             subTitle.text = restaurant.genre.name
             guard let imageUrl = URL(string: restaurant.photo.pcPhoto.large) else { return }
-            catchImage.loadImageAsynchronously(url: imageUrl)
+            catchImage.sd_setImage(with: imageUrl)
         } else if spot is Station {
             guard let station = spot as? Station else { return }
             title.text = station.name + "駅"
