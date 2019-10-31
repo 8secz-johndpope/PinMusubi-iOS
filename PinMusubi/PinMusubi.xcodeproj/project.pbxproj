@@ -22,6 +22,8 @@
 		915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */; };
 		915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511D223463458004F820D /* SearchInterestPlaceModel.swift */; };
 		915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */; };
+		915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915556F223699E9200097D73 /* SpotDetailsView.storyboard */; };
+		915556F7236AEEE300097D73 /* SpotDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */; };
 		915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
 		915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
 		915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
@@ -46,6 +48,7 @@
 		91A4111E2333C16A00AF7897 /* SettingBasePointsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A4111D2333C16A00AF7897 /* SettingBasePointsView.xib */; };
 		91A411232335066700AF7897 /* SettingBasePointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411212335066700AF7897 /* SettingBasePointCell.swift */; };
 		91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A411222335066700AF7897 /* SettingBasePointCell.xib */; };
+		91A8A1A3236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */; };
 		91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4C2301296E00430D41 /* AppDelegate.swift */; };
 		91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4E2301296E00430D41 /* SearchInterestPlaceViewController.swift */; };
 		91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */; };
@@ -142,6 +145,8 @@
 		915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointCellDelegate.swift; sourceTree = "<group>"; };
 		915511D223463458004F820D /* SearchInterestPlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterestPlaceModel.swift; sourceTree = "<group>"; };
 		915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterestPlacePresenter.swift; sourceTree = "<group>"; };
+		915556F223699E9200097D73 /* SpotDetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpotDetailsView.storyboard; sourceTree = "<group>"; };
+		915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailsViewController.swift; sourceTree = "<group>"; };
 		915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryEntity.swift; sourceTree = "<group>"; };
 		915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorProtcol.swift; sourceTree = "<group>"; };
 		915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessor.swift; sourceTree = "<group>"; };
@@ -170,6 +175,7 @@
 		91A4111D2333C16A00AF7897 /* SettingBasePointsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingBasePointsView.xib; sourceTree = "<group>"; };
 		91A411212335066700AF7897 /* SettingBasePointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointCell.swift; sourceTree = "<group>"; };
 		91A411222335066700AF7897 /* SettingBasePointCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingBasePointCell.xib; sourceTree = "<group>"; };
+		91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		91AF02FE84A12FDA85793C7B /* Pods-PinMusubiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B3EB492301296E00430D41 /* PinMusubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinMusubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B3EB4C2301296E00430D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -409,7 +415,9 @@
 				91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */,
 				91B5A994236714640030909D /* SpotListCollectionView.swift */,
 				91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */,
+				91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */,
 				91D1907C2368073700B0329A /* SpotCell.swift */,
+				915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,6 +480,7 @@
 				91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */,
 				91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */,
 				91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */,
+				915556F223699E9200097D73 /* SpotDetailsView.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -614,6 +623,7 @@
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
+				915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
 				91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */,
 				91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */,
@@ -874,6 +884,7 @@
 				91D190812368331900B0329A /* SpotEntityProtocol.swift in Sources */,
 				91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */,
 				91A411172332764300AF7897 /* SettingBasePointsView.swift in Sources */,
+				915556F7236AEEE300097D73 /* SpotDetailsViewController.swift in Sources */,
 				91A411232335066700AF7897 /* SettingBasePointCell.swift in Sources */,
 				914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */,
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
@@ -885,6 +896,7 @@
 				91B5A97B23657EE10030909D /* StationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
+				91A8A1A3236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift in Sources */,
 				915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */,
 				914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */,
 				91B5A9792363F1AE0030909D /* KeyManager.swift in Sources */,

@@ -22,10 +22,13 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     private var spotListTableView: UITableView?
     private var spotType: SpotType?
     private var spotList = [SpotEntityProtocol]()
+    private var settingPoints = [SettingPointEntity]()
 
     public var restaurantPresenter: RestaurantSpotPresenterProrocol?
     public var stationPresenter: StationSpotPresenterProrocol?
     public var busPresenter: BusStopSpotPresenterProrocol?
+
+    public weak var delegate: SpotListCollectionViewCellDelegate?
 
     public func configre(spotType: SpotType) {
         self.spotType = spotType
@@ -62,6 +65,7 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
             let orderType = OrderType.byDistance
             restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType)
         }
+        self.settingPoints = settingPoints
     }
 
     public func setSpotList(spotList: [SpotEntityProtocol]) {
@@ -74,7 +78,7 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
 
 extension SpotListCollectionViewCell: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: タップしたら詳細画面へ
+        delegate?.showSpotDetailsView(settingPoints: settingPoints, spot: spotList[indexPath.row])
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

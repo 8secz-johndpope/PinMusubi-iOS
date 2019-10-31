@@ -76,6 +76,7 @@ extension SpotListViewController: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SpotListCollectionViewCell", for: indexPath)
             as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
+        cell.delegate = self
         if indexPath.row == 0 {
             cell.configre(spotType: .transportation)
         } else if indexPath.row == 1 {
@@ -103,5 +104,14 @@ extension SpotListViewController: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height - 30)
+    }
+}
+
+extension SpotListViewController: SpotListCollectionViewCellDelegate {
+    public func showSpotDetailsView(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol) {
+        let spotDetailsView = UIStoryboard(name: "SpotDetailsView", bundle: nil)
+        guard let spotDetailsVC = spotDetailsView.instantiateInitialViewController() as? SpotDetailsViewController else { return }
+        spotDetailsVC.configure(settingPoints: settingPoints, spot: spot)
+        navigationController?.show(spotDetailsVC, sender: nil)
     }
 }
