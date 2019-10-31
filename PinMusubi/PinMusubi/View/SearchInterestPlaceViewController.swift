@@ -236,23 +236,23 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
         guard let presenter = presenter else { return }
         if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
             showSpotListView(settingPoints: settingPoints, interestPoint: halfwayPoint)
-        } else {
-            // TODO: エラーのポップアップ表示実装
-            print("エラーのポップアップ")
         }
     }
 }
 
 extension SearchInterestPlaceViewController: SpotListViewDelegate {
     private func showSpotListView(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
-        let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
-        spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController
-        guard let spotListNC = spotListNC else { return }
-        guard let spotListVC = spotListNC.topViewController as? SpotListViewController else { return }
-        spotListVC.delegate = self
-        spotListVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint)
-        spotListNC.modalPresentationStyle = .fullScreen
-        self.present(spotListNC, animated: true, completion: nil)
+        presenter?.getAddress(interestPoint: interestPoint, complete: { address in
+            let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
+            self.spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController
+            guard let spotListNC = self.spotListNC else { return }
+            guard let spotListVC = spotListNC.topViewController as? SpotListViewController else { return }
+            spotListVC.delegate = self
+            spotListVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint, address: address)
+            spotListNC.modalPresentationStyle = .fullScreen
+            self.present(spotListNC, animated: true, completion: nil)
+        }
+        )
     }
 
     public func closeSpotListView() {

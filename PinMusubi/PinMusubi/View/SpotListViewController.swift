@@ -46,13 +46,13 @@ public class SpotListViewController: UIViewController {
         flowLayout?.prepareForPaging()
 
         collectionView.showsHorizontalScrollIndicator = false
-        navigationItem.title = "東京都目黒区下目黒5-4-1下目..."
         closeViewButton.image = UIImage(named: "CloseButton")
     }
 
-    public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
+    public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D, address: String) {
         self.settingPoints = settingPoints
         self.interestPoint = interestPoint
+        navigationItem.title = address
     }
 
     @IBAction private func segmentChanged(sender: AnyObject) {
