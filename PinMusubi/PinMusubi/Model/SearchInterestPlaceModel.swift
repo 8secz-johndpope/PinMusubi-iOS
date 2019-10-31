@@ -18,6 +18,10 @@ public protocol SearchInterestPlaceModelProtocol {
     /// - Parameter settingPoints: 設定地点のリスト
     /// - Parameter interestPoint: 興味のある地点
     func setSearchHistory(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) -> Bool
+
+    /// 住所を取得
+    /// - Parameter point: 地点情報
+    func getAddress(point: CLLocationCoordinate2D, complete: @escaping (String, AddressValidationStatus) -> Void)
 }
 
 public class SearchInterestPlaceModel: SearchInterestPlaceModelProtocol {
@@ -38,5 +42,18 @@ public class SearchInterestPlaceModel: SearchInterestPlaceModelProtocol {
         searchHistory.halfwayPointLatitude = interestPoint.latitude
         searchHistory.halfwayPointLongitude = interestPoint.longitude
         return SearchHistoryAccessor().set(data: searchHistory)
+    }
+
+    public func getAddress(point: CLLocationCoordinate2D, complete: @escaping (String, AddressValidationStatus) -> Void) {
+        let location = CLLocation(latitude: point.latitude, longitude: point.longitude)
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: { placemark, error -> Void in
+            if (error) == nil {
+                guard let address = placemark?.first?.name else { return }
+                complete(address, .success)
+            } else {
+                complete("？", .error)
+            }
+        }
+        )
     }
 }

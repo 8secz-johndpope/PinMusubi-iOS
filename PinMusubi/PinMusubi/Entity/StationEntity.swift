@@ -16,7 +16,7 @@ public struct Response: Codable {
     public var station: [Station]
 }
 
-public struct Station: Codable {
+public struct Station: Codable, SpotEntityProtocol {
     public var name: String
     public var prefecture: String
     public var line: String
@@ -24,8 +24,8 @@ public struct Station: Codable {
     public var lng: CLLocationDegrees
     public var postal: String
     public var distance: String
-    public var prev: String
-    public var next: String
+    public var prev: String?
+    public var next: String?
 
     private enum CodingKeys: String, CodingKey {
         case name

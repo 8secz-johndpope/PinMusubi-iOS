@@ -22,7 +22,7 @@ public struct FetchRestaurantSpotResult: Codable {
     }
 }
 
-public struct Shop: Codable {
+public struct Shop: Codable, SpotEntityProtocol {
     public var id: String
     public var name: String
     public var logoImage: String

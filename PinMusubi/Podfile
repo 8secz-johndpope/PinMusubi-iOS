@@ -11,6 +11,7 @@ target 'PinMusubi' do
   pod 'LicensePlist'
   pod 'SwiftLint'
   pod 'FloatingPanel'
+  pod ‘SDWebImage’
 
   post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -29,6 +30,7 @@ end
     pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'SwiftLint'
     pod 'FloatingPanel'
+    pod ‘SDWebImage’
   end
 
   target 'PinMusubiUITests' do
@@ -38,6 +40,7 @@ end
     pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
     pod 'SwiftLint'
     pod 'FloatingPanel'
+    pod ‘SDWebImage’
   end
 
 end

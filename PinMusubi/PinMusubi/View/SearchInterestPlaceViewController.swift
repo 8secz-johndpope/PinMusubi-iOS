@@ -33,6 +33,8 @@ public class SearchInterestPlaceViewController: UIViewController {
     private var halfwayPoint = CLLocationCoordinate2D()
     /// モーダル
     private var floatingPanelController = FloatingPanelController()
+    /// スポットリスト
+    private var spotListNC: SpotListNavigationController?
 
     public var presenter: SearchInterestPlacePresenterProtocol?
 
@@ -41,7 +43,6 @@ public class SearchInterestPlaceViewController: UIViewController {
         // delegateの設定
         searchMapView.delegate = self
         floatingPanelController.delegate = self
-
         // モーダル表示
         let modalVC = SettingBasePointsModalViewController()
         floatingPanelController.surfaceView.cornerRadius = 9.0
@@ -172,6 +173,14 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
         }
         return scale
     }
+
+    /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
+    /// - Parameter mapView: mapView
+    public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        let testSettingPoints = TestData.setTestParameter().0
+        let testInterestPoint = TestData.setTestParameter().1
+        showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
+    }
 }
 
 /// モーダルに関するDelegateメソッド
@@ -226,12 +235,28 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
     public func searchSpotList() {
         guard let presenter = presenter else { return }
         if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
-            // TODO: 次の画面への処理を実装
-            print("次の画面へ")
-        } else {
-            // TODO: エラーのポップアップ表示実装
-            print("エラーのポップアップ")
+            showSpotListView(settingPoints: settingPoints, interestPoint: halfwayPoint)
         }
+    }
+}
+
+extension SearchInterestPlaceViewController: SpotListViewDelegate {
+    private func showSpotListView(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
+        presenter?.getAddress(interestPoint: interestPoint, complete: { address in
+            let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
+            self.spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController
+            guard let spotListNC = self.spotListNC else { return }
+            guard let spotListVC = spotListNC.topViewController as? SpotListViewController else { return }
+            spotListVC.delegate = self
+            spotListVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint, address: address)
+            spotListNC.modalPresentationStyle = .fullScreen
+            self.present(spotListNC, animated: true, completion: nil)
+        }
+        )
+    }
+
+    public func closeSpotListView() {
+        spotListNC?.dismiss(animated: true, completion: nil)
     }
 }
 

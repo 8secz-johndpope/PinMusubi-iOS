@@ -12,6 +12,8 @@ public protocol SearchInterestPlacePresenterProtocol: AnyObject {
     init(vc: SearchInterestPlaceViewController, modelType model: SearchInterestPlaceModelProtocol.Type)
 
     func setSearchHistrory(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) -> Bool
+
+    func getAddress(interestPoint: CLLocationCoordinate2D, complete: @escaping (String) -> Void)
 }
 
 public class SearchInterestPlacePresenter: SearchInterestPlacePresenterProtocol {
@@ -26,5 +28,13 @@ public class SearchInterestPlacePresenter: SearchInterestPlacePresenterProtocol 
     public func setSearchHistrory(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) -> Bool {
         guard let model = model else { return false }
         return  model.setSearchHistory(settingPoints: settingPoints, interestPoint: interestPoint)
+    }
+
+    public func getAddress(interestPoint: CLLocationCoordinate2D, complete: @escaping (String) -> Void) {
+        guard let model = model else { return }
+        model.getAddress(point: interestPoint, complete: { address, _ in
+            complete(address)
+        }
+        )
     }
 }
