@@ -26,7 +26,11 @@ public class SpotDetailsViewController: UIViewController {
         }
     }
 
-    @IBAction private func backNavigationView(_ sender: Any) {
+    @IBAction private func didTapBackButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction private func didSwaipScreen(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 }

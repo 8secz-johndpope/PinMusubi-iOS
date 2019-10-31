@@ -16,13 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="zo9-WN-6ba"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Irj-p5-pi4" appends="YES" id="Ph3-dI-jvT"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="66x-63-jmU">
                         <barButtonItem key="leftBarButtonItem" image="ToSpotList" id="rGU-mK-iny">
                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
-                                <action selector="backNavigationView:" destination="R7f-A4-ZpL" id="Xej-tq-aVx"/>
+                                <action selector="didTapBackButton:" destination="R7f-A4-ZpL" id="yd7-rp-8m8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -31,6 +35,11 @@
                     <size key="freeformSize" width="414" height="896"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgy-wm-9Mm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Irj-p5-pi4">
+                    <connections>
+                        <action selector="didSwaipScreen:" destination="R7f-A4-ZpL" id="rev-Ru-2wJ"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="209" y="102"/>
         </scene>
