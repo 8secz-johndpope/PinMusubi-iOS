@@ -67,7 +67,7 @@
 		91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98C2365C2000030909D /* SpotListViewController.swift */; };
 		91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9902365DA740030909D /* SpotListNavigationController.swift */; };
 		91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A994236714640030909D /* SpotListCollectionView.swift */; };
-		91B5A997236715C00030909D /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A996236715C00030909D /* FlowLayout.swift */; };
+		91B5A997236715C00030909D /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A996236715C00030909D /* CustomFlowLayout.swift */; };
 		91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */; };
 		91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
@@ -197,7 +197,7 @@
 		91B5A98C2365C2000030909D /* SpotListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewController.swift; sourceTree = "<group>"; };
 		91B5A9902365DA740030909D /* SpotListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListNavigationController.swift; sourceTree = "<group>"; };
 		91B5A994236714640030909D /* SpotListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionView.swift; sourceTree = "<group>"; };
-		91B5A996236715C00030909D /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		91B5A996236715C00030909D /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 		91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionViewCell.swift; sourceTree = "<group>"; };
 		91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewDelegate.swift; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
@@ -458,7 +458,7 @@
 				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
 				914D4A8A23388F8500065648 /* Notification+Extension.swift */,
 				91D190822368485A00B0329A /* UIImageView+Extension.swift */,
-				91B5A996236715C00030909D /* FlowLayout.swift */,
+				91B5A996236715C00030909D /* CustomFlowLayout.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -929,7 +929,7 @@
 				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
-				91B5A997236715C00030909D /* FlowLayout.swift in Sources */,
+				91B5A997236715C00030909D /* CustomFlowLayout.swift in Sources */,
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91D1907D2368073700B0329A /* SpotCell.swift in Sources */,
