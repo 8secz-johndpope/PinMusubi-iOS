@@ -7,22 +7,21 @@
 //
 
 import CoreLocation
+import MapKit
 import SDWebImage
 import UIKit
 
 public class SpotDetailsViewController: UIViewController {
     @IBOutlet private var mainImage: UIImageView!
-    @IBOutlet private var shopNameLabel: UILabel!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var valueImageView: UIImageView!
     @IBOutlet private var valueLabel: UILabel!
     @IBOutlet private var categoryLabel: UILabel!
     @IBOutlet private var directionLabel: UILabel!
     @IBOutlet private var showWebPageView: UIView!
     @IBOutlet private var showWebPageLabel: UILabel!
-    @IBOutlet private var addressLabel: UILabel!
-    @IBOutlet private var fromTrainLabel: UILabel!
-    @IBOutlet private var businessTimeLabel: UILabel!
-    @IBOutlet private var regularHolidayLabel: UILabel!
-    @IBOutlet private var seatCountLabel: UILabel!
+    @IBOutlet private var baseInfoView: UIView!
+    @IBOutlet private var baseInfoMapView: MKMapView!
     @IBOutlet private var travelTimePanelTableView: UITableView!
 
     private var settingPoints: [SettingPointEntity]?
@@ -33,6 +32,7 @@ public class SpotDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         configureContents()
+        configureMap()
 
         travelTimePanelTableView.delegate = self
         travelTimePanelTableView.dataSource = self
@@ -68,27 +68,72 @@ public class SpotDetailsViewController: UIViewController {
         showWebPageView.layer.borderColor = UIColor(hex: "FA6400").cgColor
         showWebPageView.layer.borderWidth = 1.5
 
-        if spot is Shop {
-            guard let restaurant = spot as? Shop else { return }
-            title = restaurant.name
-            guard let imageUrl = URL(string: restaurant.photo.pcPhoto.middle) else { return }
+        if let shop = spot as? Shop {
+            title = shop.name
+            guard let imageUrl = URL(string: shop.photo.pcPhoto.middle) else { return }
             mainImage.sd_setImage(with: imageUrl)
-            shopNameLabel.text = restaurant.name
-            valueLabel.text = restaurant.budget.average
-            categoryLabel.text = restaurant.genre.name
-            directionLabel.text = restaurant.access
-            addressLabel.text = restaurant.address
-            fromTrainLabel.text = restaurant.access
-            businessTimeLabel.text = restaurant.open
-            regularHolidayLabel.text = restaurant.close
-            seatCountLabel.text = restaurant.capacity
-        } else if spot is Station {
-            guard let station = spot as? Station else { return }
+            nameLabel.text = shop.name
+            valueLabel.text = shop.budget.average
+            categoryLabel.text = shop.genre.name
+            directionLabel.text = shop.access
+            baseInfoMapView.removeFromSuperview()
+            guard let spotBaseInfoView = UINib(nibName: "SpotBaseInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? SpotBaseInfoView else { return }
+            spotBaseInfoView.configureLabel(shop: shop)
+            baseInfoView.addSubview(spotBaseInfoView)
+        } else if let station = spot as? Station {
             title = station.name + "駅"
-        } else if spot is BusStopEntity {
-            guard let busStop = spot as? BusStopEntity else { return }
+            mainImage.image = UIImage(named: "Train")
+            nameLabel.text = station.name + "駅"
+            var prevStation = "なし"
+            var nextStation = "なし"
+            if station.prev != nil {
+                guard let prev = station.prev else { return }
+                prevStation = prev
+            }
+            if station.next != nil {
+                guard let next = station.next else { return }
+                nextStation = next
+            }
+            valueImageView.image = UIImage(named: "Station")
+            valueLabel.text = "前の駅：" + prevStation + "駅" + " / " + "次の駅：" + nextStation + "駅"
+            categoryLabel.text = station.prefecture + "県"
+            directionLabel.text = station.line
+            showWebPageView.isHidden = true
+        } else if let busStop = spot as? BusStopEntity {
             title = busStop.busStopName
+            mainImage.image = UIImage(named: "Bus")
+            nameLabel.text = busStop.busStopName + "バス停"
+            valueImageView.isHidden = true
+            valueLabel.text = ""
+            categoryLabel.text = busStop.busLineName
+            directionLabel.text = busStop.busOperationCompany
+            showWebPageView.isHidden = true
         }
+    }
+
+    private func configureMap() {
+        // region
+        var region: MKCoordinateRegion = baseInfoMapView.region
+        region.span.latitudeDelta = 0.001
+        region.span.longitudeDelta = 0.001
+
+        // annotation
+        let spotPointAnnotation = MKPointAnnotation()
+        if let station = spot as? Station {
+            let stationCoordinate = CLLocationCoordinate2D(latitude: station.lat, longitude: station.lng)
+            spotPointAnnotation.coordinate = stationCoordinate
+            spotPointAnnotation.title = station.name
+            spotPointAnnotation.subtitle = station.line
+            region.center = stationCoordinate
+        } else if let busStation = spot as? BusStopEntity {
+            let busStationCoodinate = CLLocationCoordinate2D(latitude: busStation.location[1], longitude: busStation.location[0])
+            spotPointAnnotation.coordinate = busStationCoodinate
+            spotPointAnnotation.title = busStation.busStopName
+            spotPointAnnotation.subtitle = busStation.busLineName
+            region.center = busStationCoodinate
+        }
+        baseInfoMapView.setRegion(region, animated: false)
+        baseInfoMapView.addAnnotation(spotPointAnnotation)
     }
 
     @IBAction private func didTapBackButton(_ sender: Any) {

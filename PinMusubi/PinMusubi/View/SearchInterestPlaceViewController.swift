@@ -176,11 +176,11 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
 
     /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
     /// - Parameter mapView: mapView
-    public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        let testSettingPoints = TestData.setTestParameter().0
-        let testInterestPoint = TestData.setTestParameter().1
-        showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
-    }
+        public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+            let testSettingPoints = TestData.setTestParameter().0
+            let testInterestPoint = TestData.setTestParameter().1
+            showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
+        }
 }
 
 /// モーダルに関するDelegateメソッド

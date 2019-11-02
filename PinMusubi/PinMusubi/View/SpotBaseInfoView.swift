@@ -8,14 +8,22 @@
 
 import UIKit
 
-class SpotBaseInfoView: UIView {
+public class SpotBaseInfoView: UIView {
+    @IBOutlet private var addressLabel: UILabel!
+    @IBOutlet private var fromTrainLabel: UILabel!
+    @IBOutlet private var businessTimeLabel: UILabel!
+    @IBOutlet private var regularHolidayLabel: UILabel!
+    @IBOutlet private var seatCountLabel: UILabel!
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override public func awakeFromNib() {
+        super.awakeFromNib()
     }
-    */
 
+    public func configureLabel(shop: Shop) {
+        addressLabel.text = shop.address
+        fromTrainLabel.text = shop.access
+        businessTimeLabel.text = shop.open
+        regularHolidayLabel.text = shop.close
+        seatCountLabel.text = shop.capacity
+    }
 }

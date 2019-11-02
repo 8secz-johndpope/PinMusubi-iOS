@@ -77,6 +77,8 @@
 		91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
+		91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */; };
+		91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */; };
 		91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D1907A2367F33B00B0329A /* SpotCell.xib */; };
 		91D1907D2368073700B0329A /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1907C2368073700B0329A /* SpotCell.swift */; };
 		91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */; };
@@ -215,6 +217,8 @@
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91D08A69236D65B0005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		91D08A6A236D65B1005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchInterestPlaceView.strings; sourceTree = "<group>"; };
+		91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotBaseInfoView.xib; sourceTree = "<group>"; };
+		91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotBaseInfoView.swift; sourceTree = "<group>"; };
 		91D1907A2367F33B00B0329A /* SpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotCell.xib; sourceTree = "<group>"; };
 		91D1907C2368073700B0329A /* SpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
 		91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotPresenter.swift; sourceTree = "<group>"; };
@@ -367,6 +371,7 @@
 				918CF9872338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib */,
 				918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */,
 				91D1907A2367F33B00B0329A /* SpotCell.xib */,
+				91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */,
 				91A8A1A4236C825500903354 /* TravelTimePanelCell.xib */,
 			);
 			path = xib;
@@ -433,6 +438,7 @@
 				91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */,
 				91D1907C2368073700B0329A /* SpotCell.swift */,
 				915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */,
+				91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */,
 				9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */,
 				91EF7531236D24F80051ACCB /* WebViewController.swift */,
 			);
@@ -648,6 +654,7 @@
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
 				915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
+				91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */,
 				91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */,
 				91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */,
 			);
@@ -936,6 +943,7 @@
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
+				91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */,
 				914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */,
 				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,

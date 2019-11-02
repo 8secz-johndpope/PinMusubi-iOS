@@ -16,6 +16,7 @@ public class TravelTimePanelCell: UITableViewCell {
     @IBOutlet private var walkingTimeLabel: UILabel!
     @IBOutlet private var drivingTimeLabel: UILabel!
     @IBOutlet private var transitTimeLabel: UILabel!
+    @IBOutlet private var transitImageView: UIImageView!
 
     private var presenter: TravelTimePanelPresenterProtcol?
 
@@ -62,16 +63,17 @@ public class TravelTimePanelCell: UITableViewCell {
         }
         )
         // 交通機関
-        presenter?.getPointsInfomation(settingPoint: settingPoint, pinPoint: spotPoint, transportType: .transit, complete: { travelTime in
-            let label = "交通機関："
-            if travelTime == -1 {
-                self.transitTimeLabel.text = label + "？"
-            } else if travelTime == -2 {
-                self.walkingTimeLabel.text = label + "経路なし"
-            } else {
-                self.transitTimeLabel.text = label + String(travelTime) + "分"
-            }
-        }
-        )
+        transitTimeLabel.text = "Comming Soon..."
+        //        presenter?.getPointsInfomation(settingPoint: settingPoint, pinPoint: spotPoint, transportType: .transit, complete: { travelTime in
+        //            let label = "交通機関："
+        //            if travelTime == -1 {
+        //                self.transitTimeLabel.text = label + "？"
+        //            } else if travelTime == -2 {
+        //                self.walkingTimeLabel.text = label + "経路なし"
+        //            } else {
+        //                self.transitTimeLabel.text = label + String(travelTime) + "分"
+        //            }
+        //        }
+        //        )
     }
 }
