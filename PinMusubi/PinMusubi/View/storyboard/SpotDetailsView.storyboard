@@ -90,6 +90,7 @@
                                                             </label>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="42" id="2yF-UV-QZ4"/>
                                                             <constraint firstAttribute="trailing" secondItem="Auy-0T-Cs7" secondAttribute="trailing" constant="8" id="58I-hY-8sG"/>
@@ -397,6 +398,7 @@
                         <outlet property="regularHolidayLabel" destination="msJ-Em-sWV" id="XZU-UE-4wr"/>
                         <outlet property="seatCountLabel" destination="dtk-j5-d7R" id="uvo-I4-APz"/>
                         <outlet property="shopNameLabel" destination="8OX-pX-MEx" id="Wzh-oj-Z4a"/>
+                        <outlet property="showWebPageLabel" destination="Auy-0T-Cs7" id="WBk-nv-ldw"/>
                         <outlet property="showWebPageView" destination="v0i-Rc-Ihb" id="YK7-QP-Jhv"/>
                         <outlet property="travelTimePanelTableView" destination="Vwl-eZ-PWm" id="F5D-T0-lAP"/>
                         <outlet property="valueLabel" destination="7OK-1V-txt" id="Cju-BL-SRD"/>

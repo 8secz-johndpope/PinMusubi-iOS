@@ -17,6 +17,7 @@ public class SpotDetailsViewController: UIViewController {
     @IBOutlet private var categoryLabel: UILabel!
     @IBOutlet private var directionLabel: UILabel!
     @IBOutlet private var showWebPageView: UIView!
+    @IBOutlet private var showWebPageLabel: UILabel!
     @IBOutlet private var addressLabel: UILabel!
     @IBOutlet private var fromTrainLabel: UILabel!
     @IBOutlet private var businessTimeLabel: UILabel!
@@ -36,6 +37,10 @@ public class SpotDetailsViewController: UIViewController {
         travelTimePanelTableView.delegate = self
         travelTimePanelTableView.dataSource = self
         travelTimePanelTableView.register(UINib(nibName: "TravelTimePanelCell", bundle: nil), forCellReuseIdentifier: "TravelTimePanelCell")
+
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didTapShowWebView(recognizer:)))
+        longPressGesture.minimumPressDuration = 0
+        showWebPageView.addGestureRecognizer(longPressGesture)
     }
 
     public func setParameter(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol) {
@@ -92,6 +97,39 @@ public class SpotDetailsViewController: UIViewController {
 
     @IBAction private func didSwaipScreen(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+
+    @objc
+    private func didTapShowWebView(recognizer: UILongPressGestureRecognizer) {
+        guard let shop = spot as? Shop else { return }
+
+        switch recognizer.state {
+        case .possible: break
+
+        case .began:
+            showWebPageView.backgroundColor = UIColor(hex: "FA6400")
+            showWebPageLabel.textColor = UIColor.white
+
+        case .changed: break
+
+        case .ended:
+            if #available(iOS 13.0, *) {
+                showWebPageView.backgroundColor = UIColor.systemBackground
+            } else {
+                showWebPageView.backgroundColor = UIColor.white
+            }
+            showWebPageLabel.textColor = UIColor(hex: "FA6400")
+            let webView = UIStoryboard(name: "WebView", bundle: nil)
+            guard let webVC = webView.instantiateInitialViewController() as? WebViewController else { return }
+            webVC.setParameter(shop: shop)
+            navigationController?.show(webVC, sender: nil)
+
+        case .cancelled: break
+
+        case .failed: break
+
+        @unknown default: break
+        }
     }
 }
 
