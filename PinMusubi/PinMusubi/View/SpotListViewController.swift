@@ -110,7 +110,7 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
     public func showSpotDetailsView(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol) {
         let spotDetailsView = UIStoryboard(name: "SpotDetailsView", bundle: nil)
         guard let spotDetailsVC = spotDetailsView.instantiateInitialViewController() as? SpotDetailsViewController else { return }
-        spotDetailsVC.configure(settingPoints: settingPoints, spot: spot)
+        spotDetailsVC.setParameter(settingPoints: settingPoints, spot: spot)
         navigationController?.show(spotDetailsVC, sender: nil)
     }
 }
