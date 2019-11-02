@@ -13,8 +13,8 @@ public class SpotListCollectionView: UICollectionView {
         super.awakeFromNib()
         self.decelerationRate = .fast
 
-        guard let flowLayout = collectionViewLayout as? FlowLayout else { return }
+        guard let flowLayout = collectionViewLayout as? CustomFlowLayout else { return }
         flowLayout.scrollDirection = .horizontal
-        flowLayout.sectionInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 40)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 1_000)
     }
 }

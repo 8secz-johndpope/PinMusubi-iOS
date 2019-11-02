@@ -14,7 +14,7 @@ public class SpotListViewController: UIViewController {
     @IBOutlet private var favoriteButtonView: UIView!
     @IBOutlet private var collectionView: SpotListCollectionView!
     @IBOutlet private var closeViewButton: UIBarButtonItem!
-    private var flowLayout: FlowLayout?
+    private var flowLayout: CustomFlowLayout?
     private var isChangeSegmentedControl: Bool = true
     private var settingPoints: [SettingPointEntity]?
     private var interestPoint: CLLocationCoordinate2D?
@@ -41,9 +41,6 @@ public class SpotListViewController: UIViewController {
 
         favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
         favoriteButtonView.layer.cornerRadius = 8
-
-        flowLayout = collectionView.collectionViewLayout as? FlowLayout
-        flowLayout?.prepareForPaging()
 
         collectionView.showsHorizontalScrollIndicator = false
         closeViewButton.image = UIImage(named: "CloseButton")
@@ -74,6 +71,8 @@ extension SpotListViewController: UICollectionViewDataSource {
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        flowLayout = collectionView.collectionViewLayout as? CustomFlowLayout
+        flowLayout?.prepareForPaging()
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SpotListCollectionViewCell", for: indexPath)
             as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
         cell.delegate = self
@@ -103,7 +102,7 @@ extension SpotListViewController: UICollectionViewDelegateFlowLayout {
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height - 30)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
 }
 
@@ -111,7 +110,7 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
     public func showSpotDetailsView(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol) {
         let spotDetailsView = UIStoryboard(name: "SpotDetailsView", bundle: nil)
         guard let spotDetailsVC = spotDetailsView.instantiateInitialViewController() as? SpotDetailsViewController else { return }
-        spotDetailsVC.configure(settingPoints: settingPoints, spot: spot)
+        spotDetailsVC.setParameter(settingPoints: settingPoints, spot: spot)
         navigationController?.show(spotDetailsVC, sender: nil)
     }
 }

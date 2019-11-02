@@ -30,6 +30,10 @@
 		915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */; };
 		915A44B1232F3195006A6891 /* SettingPointAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44B0232F3195006A6891 /* SettingPointAccessorTests.swift */; };
 		915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */; };
+		91622887236CEE9800F009DB /* TravelTimePanelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622886236CEE9800F009DB /* TravelTimePanelPresenter.swift */; };
+		9162288B236CF6CE00F009DB /* TravelTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162288A236CF6CE00F009DB /* TravelTimeModel.swift */; };
+		9162288D236D21F600F009DB /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9162288C236D21F600F009DB /* WebView.storyboard */; };
+		9163A5DA236C860200612E06 /* TravelTimePanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */; };
 		91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91816D9F232F6D5D00C48C78 /* MapKit.framework */; };
 		918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CC477232F91D00047BC88 /* ColorDefinition.swift */; };
 		918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */; };
@@ -49,6 +53,7 @@
 		91A411232335066700AF7897 /* SettingBasePointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411212335066700AF7897 /* SettingBasePointCell.swift */; };
 		91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A411222335066700AF7897 /* SettingBasePointCell.xib */; };
 		91A8A1A3236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */; };
+		91A8A1A5236C825500903354 /* TravelTimePanelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A8A1A4236C825500903354 /* TravelTimePanelCell.xib */; };
 		91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4C2301296E00430D41 /* AppDelegate.swift */; };
 		91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4E2301296E00430D41 /* SearchInterestPlaceViewController.swift */; };
 		91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */; };
@@ -67,11 +72,13 @@
 		91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98C2365C2000030909D /* SpotListViewController.swift */; };
 		91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9902365DA740030909D /* SpotListNavigationController.swift */; };
 		91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A994236714640030909D /* SpotListCollectionView.swift */; };
-		91B5A997236715C00030909D /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A996236715C00030909D /* FlowLayout.swift */; };
+		91B5A997236715C00030909D /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A996236715C00030909D /* CustomFlowLayout.swift */; };
 		91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */; };
 		91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
+		91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */; };
+		91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */; };
 		91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D1907A2367F33B00B0329A /* SpotCell.xib */; };
 		91D1907D2368073700B0329A /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1907C2368073700B0329A /* SpotCell.swift */; };
 		91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */; };
@@ -83,6 +90,7 @@
 		91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439232355FB9700A3B936 /* BusStopEntity.swift */; };
 		91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439252355FE3C00A3B936 /* StationEntity.swift */; };
 		91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439292361DFE500A3B936 /* RestaurantSpotsModel.swift */; };
+		91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF7531236D24F80051ACCB /* WebViewController.swift */; };
 		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
 		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
@@ -153,6 +161,10 @@
 		915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryAccessor.swift; sourceTree = "<group>"; };
 		915A44B0232F3195006A6891 /* SettingPointAccessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessorTests.swift; sourceTree = "<group>"; };
 		915A44B2232F5532006A6891 /* SearchHistoryAccessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryAccessorTests.swift; sourceTree = "<group>"; };
+		91622886236CEE9800F009DB /* TravelTimePanelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePanelPresenter.swift; sourceTree = "<group>"; };
+		9162288A236CF6CE00F009DB /* TravelTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeModel.swift; sourceTree = "<group>"; };
+		9162288C236D21F600F009DB /* WebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
+		9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePanelCell.swift; sourceTree = "<group>"; };
 		91816D9F232F6D5D00C48C78 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		918CC477232F91D00047BC88 /* ColorDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDefinition.swift; sourceTree = "<group>"; };
 		918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationAnnotationView.swift; sourceTree = "<group>"; };
@@ -176,6 +188,7 @@
 		91A411212335066700AF7897 /* SettingBasePointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointCell.swift; sourceTree = "<group>"; };
 		91A411222335066700AF7897 /* SettingBasePointCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingBasePointCell.xib; sourceTree = "<group>"; };
 		91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
+		91A8A1A4236C825500903354 /* TravelTimePanelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelTimePanelCell.xib; sourceTree = "<group>"; };
 		91AF02FE84A12FDA85793C7B /* Pods-PinMusubiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B3EB492301296E00430D41 /* PinMusubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinMusubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B3EB4C2301296E00430D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,11 +210,15 @@
 		91B5A98C2365C2000030909D /* SpotListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewController.swift; sourceTree = "<group>"; };
 		91B5A9902365DA740030909D /* SpotListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListNavigationController.swift; sourceTree = "<group>"; };
 		91B5A994236714640030909D /* SpotListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionView.swift; sourceTree = "<group>"; };
-		91B5A996236715C00030909D /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		91B5A996236715C00030909D /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 		91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionViewCell.swift; sourceTree = "<group>"; };
 		91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewDelegate.swift; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
+		91D08A69236D65B0005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		91D08A6A236D65B1005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchInterestPlaceView.strings; sourceTree = "<group>"; };
+		91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotBaseInfoView.xib; sourceTree = "<group>"; };
+		91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotBaseInfoView.swift; sourceTree = "<group>"; };
 		91D1907A2367F33B00B0329A /* SpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotCell.xib; sourceTree = "<group>"; };
 		91D1907C2368073700B0329A /* SpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
 		91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotPresenter.swift; sourceTree = "<group>"; };
@@ -213,6 +230,7 @@
 		91E439232355FB9700A3B936 /* BusStopEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEntity.swift; sourceTree = "<group>"; };
 		91E439252355FE3C00A3B936 /* StationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationEntity.swift; sourceTree = "<group>"; };
 		91E439292361DFE500A3B936 /* RestaurantSpotsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotsModel.swift; sourceTree = "<group>"; };
+		91EF7531236D24F80051ACCB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		91F4EB152336038D005C9EED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -353,6 +371,8 @@
 				918CF9872338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib */,
 				918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */,
 				91D1907A2367F33B00B0329A /* SpotCell.xib */,
+				91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */,
+				91A8A1A4236C825500903354 /* TravelTimePanelCell.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -418,6 +438,9 @@
 				91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */,
 				91D1907C2368073700B0329A /* SpotCell.swift */,
 				915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */,
+				91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */,
+				9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */,
+				91EF7531236D24F80051ACCB /* WebViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,6 +454,7 @@
 				91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */,
 				91D190862368A09700B0329A /* StationSpotPresenter.swift */,
 				91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */,
+				91622886236CEE9800F009DB /* TravelTimePanelPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -444,6 +468,7 @@
 				91E439292361DFE500A3B936 /* RestaurantSpotsModel.swift */,
 				91B5A97A23657EE10030909D /* StationModel.swift */,
 				91B5A97E23658BCD0030909D /* BusStopModel.swift */,
+				9162288A236CF6CE00F009DB /* TravelTimeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,7 +483,7 @@
 				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
 				914D4A8A23388F8500065648 /* Notification+Extension.swift */,
 				91D190822368485A00B0329A /* UIImageView+Extension.swift */,
-				91B5A996236715C00030909D /* FlowLayout.swift */,
+				91B5A996236715C00030909D /* CustomFlowLayout.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -481,6 +506,7 @@
 				91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */,
 				91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */,
 				915556F223699E9200097D73 /* SpotDetailsView.storyboard */,
+				9162288C236D21F600F009DB /* WebView.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -582,6 +608,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 91B3EB402301296E00430D41;
 			productRefGroup = 91B3EB4A2301296E00430D41 /* Products */;
@@ -621,10 +648,13 @@
 				91A4111E2333C16A00AF7897 /* SettingBasePointsView.xib in Resources */,
 				91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
+				91A8A1A5236C825500903354 /* TravelTimePanelCell.xib in Resources */,
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
+				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
 				915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
+				91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */,
 				91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */,
 				91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */,
 			);
@@ -892,11 +922,13 @@
 				91A411172332764300AF7897 /* SettingBasePointsView.swift in Sources */,
 				915556F7236AEEE300097D73 /* SpotDetailsViewController.swift in Sources */,
 				91A411232335066700AF7897 /* SettingBasePointCell.swift in Sources */,
+				9162288B236CF6CE00F009DB /* TravelTimeModel.swift in Sources */,
 				914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */,
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
 				91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */,
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */,
+				91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */,
 				91B5A97B23657EE10030909D /* StationModel.swift in Sources */,
@@ -907,9 +939,11 @@
 				914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */,
 				91B5A9792363F1AE0030909D /* KeyManager.swift in Sources */,
 				91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */,
+				9163A5DA236C860200612E06 /* TravelTimePanelCell.swift in Sources */,
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
+				91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */,
 				914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */,
 				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
@@ -929,11 +963,12 @@
 				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
-				91B5A997236715C00030909D /* FlowLayout.swift in Sources */,
+				91B5A997236715C00030909D /* CustomFlowLayout.swift in Sources */,
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91D1907D2368073700B0329A /* SpotCell.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
+				91622887236CEE9800F009DB /* TravelTimePanelPresenter.swift in Sources */,
 				91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -958,6 +993,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				91B3EB512301296E00430D41 /* Base */,
+				91D08A6A236D65B1005AD5DD /* ja */,
 			);
 			name = SearchInterestPlaceView.storyboard;
 			sourceTree = "<group>";
@@ -966,6 +1002,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				91B3EB562301296F00430D41 /* Base */,
+				91D08A69236D65B0005AD5DD /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1069,6 +1106,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1131,6 +1169,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

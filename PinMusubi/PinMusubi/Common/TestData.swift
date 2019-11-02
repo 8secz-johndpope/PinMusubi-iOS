@@ -54,12 +54,19 @@ public enum TestData {
         settingPointEntity2.latitude = 35.658_034
         settingPointEntity2.longitude = 139.701_636
 
+        let settingPointEntity3 = SettingPointEntity()
+        settingPointEntity3.name = "新宿駅"
+        settingPointEntity3.address = "東京都新宿区新宿３丁目"
+        settingPointEntity3.latitude = 35.689_738
+        settingPointEntity3.longitude = 139.700_391
+
         var settingPointEntityList = [SettingPointEntity]()
         settingPointEntityList.append(settingPointEntity1)
         settingPointEntityList.append(settingPointEntity2)
+        settingPointEntityList.append(settingPointEntity3)
 
-        // 新宿駅
-        let interestedPoint = CLLocationCoordinate2D(latitude: 35.689_738, longitude: 139.700_391)
+        // 青山一丁目駅
+        let interestedPoint = CLLocationCoordinate2D(latitude: 35.672_857, longitude: 139.723_844)
 
         return (settingPointEntityList, interestedPoint)
     }
