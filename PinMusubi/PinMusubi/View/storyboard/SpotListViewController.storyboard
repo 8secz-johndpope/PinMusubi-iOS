@@ -38,6 +38,9 @@
                                             <constraint firstItem="Cj4-sK-vTy" firstAttribute="top" secondItem="Sgp-YQ-278" secondAttribute="top" constant="14" id="mM2-Fd-91h"/>
                                             <constraint firstAttribute="trailing" secondItem="Cj4-sK-vTy" secondAttribute="trailing" constant="54" id="wFg-eb-pAW"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="UUN-T1-a0I" appends="YES" id="xWa-c1-KLk"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -116,6 +119,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLP-k2-Oos" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UUN-T1-a0I">
+                    <connections>
+                        <action selector="didTapFavoriteRegisterView:" destination="Iu6-TR-OKb" id="Xab-el-8A9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="591.20000000000005" y="154.27286356821591"/>
         </scene>

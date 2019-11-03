@@ -44,9 +44,7 @@ public class SpotListViewController: UIViewController {
         favoriteButtonView.layer.borderColor = UIColor(hex: "FA6400").cgColor
         favoriteButtonView.layer.borderWidth = 1.0
         favoriteButtonView.layer.cornerRadius = 8
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didTapFavoriteButton(recognizer:)))
-        longPressGesture.minimumPressDuration = 0
-        favoriteButtonView.addGestureRecognizer(longPressGesture)
+        favoriteRegisterLabel.adjustsFontSizeToFitWidth = true
 
         collectionView.showsHorizontalScrollIndicator = false
         closeViewButton.image = UIImage(named: "CloseButton")
@@ -68,31 +66,12 @@ public class SpotListViewController: UIViewController {
         delegate?.closeSpotListView()
     }
 
-    @objc
-    private func didTapFavoriteButton(recognizer: UILongPressGestureRecognizer) {
-        switch recognizer.state {
-        case .possible: break
-
-        case .began:
-            if #available(iOS 13.0, *) {
-                favoriteButtonView.backgroundColor = UIColor.systemBackground
-            } else {
-                favoriteButtonView.backgroundColor = UIColor.white
-            }
-            favoriteRegisterLabel.textColor = UIColor(hex: "FA6400")
-
-        case .changed: break
-
-        case .ended:
-            favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
-            favoriteRegisterLabel.textColor = UIColor.white
-
-        case .cancelled: break
-
-        case .failed: break
-
-        @unknown default: break
-        }
+    @IBAction private func didTapFavoriteRegisterView(_ sender: Any) {
+        let favoriteRegisterSV = UIStoryboard(name: "FavoriteRegisterModalViewController", bundle: nil)
+        guard let favoriteRegisterVC = favoriteRegisterSV.instantiateViewController(withIdentifier: "FavoriteRegisterModalViewController") as? FavoriteRegisterModalViewController else { return }
+        favoriteRegisterVC.modalPresentationStyle = .custom
+        favoriteRegisterVC.transitioningDelegate = self
+        present(favoriteRegisterVC, animated: true, completion: nil)
     }
 }
 
@@ -145,5 +124,11 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
         guard let spotDetailsVC = spotDetailsView.instantiateInitialViewController() as? SpotDetailsViewController else { return }
         spotDetailsVC.setParameter(settingPoints: settingPoints, spot: spot)
         navigationController?.show(spotDetailsVC, sender: nil)
+    }
+}
+
+extension SpotListViewController: UIViewControllerTransitioningDelegate {
+    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return FavoriteRegisterPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
