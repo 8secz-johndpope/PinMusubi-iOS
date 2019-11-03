@@ -76,6 +76,7 @@
 		91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */; };
 		91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */; };
 		91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
+		91C05BC6236EFA9D006F8A5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C05BC5236EFA9D006F8A5A /* WebKit.framework */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */; };
 		91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */; };
@@ -214,6 +215,7 @@
 		91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListCollectionViewCell.swift; sourceTree = "<group>"; };
 		91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewDelegate.swift; sourceTree = "<group>"; };
 		91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModel.swift; sourceTree = "<group>"; };
+		91C05BC5236EFA9D006F8A5A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91D08A69236D65B0005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		91D08A6A236D65B1005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchInterestPlaceView.strings; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			files = (
 				91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */,
 				91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */,
+				91C05BC6236EFA9D006F8A5A /* WebKit.framework in Frameworks */,
 				F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +272,7 @@
 		2AF5D57647BF5B5067C02D3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91C05BC5236EFA9D006F8A5A /* WebKit.framework */,
 				91504A84233622A800F900C4 /* Pods_PinMusubi.framework */,
 				91504A792336226B00F900C4 /* FloatingPanel.framework */,
 				91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */,
