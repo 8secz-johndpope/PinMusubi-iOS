@@ -12,6 +12,7 @@ import UIKit
 public class SpotListViewController: UIViewController {
     @IBOutlet private var segmentedControl: UISegmentedControl!
     @IBOutlet private var favoriteButtonView: UIView!
+    @IBOutlet private var favoriteRegisterLabel: UILabel!
     @IBOutlet private var collectionView: SpotListCollectionView!
     @IBOutlet private var closeViewButton: UIBarButtonItem!
     private var flowLayout: CustomFlowLayout?
@@ -40,7 +41,12 @@ public class SpotListViewController: UIViewController {
         segmentedControl.layer.borderWidth = 1.0
 
         favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
+        favoriteButtonView.layer.borderColor = UIColor(hex: "FA6400").cgColor
+        favoriteButtonView.layer.borderWidth = 1.0
         favoriteButtonView.layer.cornerRadius = 8
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didTapFavoriteButton(recognizer:)))
+        longPressGesture.minimumPressDuration = 0
+        favoriteButtonView.addGestureRecognizer(longPressGesture)
 
         collectionView.showsHorizontalScrollIndicator = false
         closeViewButton.image = UIImage(named: "CloseButton")
@@ -60,6 +66,33 @@ public class SpotListViewController: UIViewController {
 
     @IBAction private func closeSpotListView(_ sender: Any) {
         delegate?.closeSpotListView()
+    }
+
+    @objc
+    private func didTapFavoriteButton(recognizer: UILongPressGestureRecognizer) {
+        switch recognizer.state {
+        case .possible: break
+
+        case .began:
+            if #available(iOS 13.0, *) {
+                favoriteButtonView.backgroundColor = UIColor.systemBackground
+            } else {
+                favoriteButtonView.backgroundColor = UIColor.white
+            }
+            favoriteRegisterLabel.textColor = UIColor(hex: "FA6400")
+
+        case .changed: break
+
+        case .ended:
+            favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
+            favoriteRegisterLabel.textColor = UIColor.white
+
+        case .cancelled: break
+
+        case .failed: break
+
+        @unknown default: break
+        }
     }
 }
 
