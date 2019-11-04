@@ -23,6 +23,9 @@ public class FavoriteRegisterPresentationController: UIPresentationController {
             self?.overlayView.alpha = 0.7
             }, completion: nil
         )
+
+        guard let favoriteRegisterModalVC = presentedViewController as? FavoriteRegisterModalViewController else { return }
+        favoriteRegisterModalVC.delegate = self
     }
 
     override public func dismissalTransitionWillBegin() {
@@ -48,7 +51,7 @@ public class FavoriteRegisterPresentationController: UIPresentationController {
         let childContentSize = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds.size)
         presentedViewFrame.size = childContentSize
         presentedViewFrame.origin.x = 0.0
-        presentedViewFrame.origin.y = childContentSize.height - 517
+        presentedViewFrame.origin.y = childContentSize.height / 10
 
         return presentedViewFrame
     }
@@ -63,6 +66,12 @@ public class FavoriteRegisterPresentationController: UIPresentationController {
 
     @objc
     private func overlayViewDidTouch(_ sender: UITapGestureRecognizer) {
+        presentedViewController.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension FavoriteRegisterPresentationController: FavoriteRegisterModalViewDelegate {
+    public func closePresentedView() {
         presentedViewController.dismiss(animated: true, completion: nil)
     }
 }

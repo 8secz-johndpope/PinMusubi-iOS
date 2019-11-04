@@ -25,14 +25,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CloseButton" translatesAutoresizingMaskIntoConstraints="NO" id="H9o-Tn-8bo">
-                                <rect key="frame" x="15.5" y="16" width="20" height="20"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="MvR-kB-ezi"/>
-                                    <constraint firstAttribute="width" constant="20" id="gM6-aw-QSy"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WuD-dz-YpP">
                                 <rect key="frame" x="0.0" y="52" width="375" height="1"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,11 +50,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KX5-N4-jHK">
                                                 <rect key="frame" x="16" y="48.5" width="343" height="38"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="例）同期と集まるのに良さそうな場所" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3So-N2-tNh">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="例）友達と集まるのに良さそうな場所" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3So-N2-tNh">
                                                         <rect key="frame" x="8" y="2" width="327" height="34"/>
                                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -163,6 +155,7 @@
                                             <constraint firstItem="oCC-cn-DqA" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="DwZ-I1-xlB"/>
                                             <constraint firstItem="ZkD-qU-qmJ" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="17" id="Fin-TA-1eh"/>
                                             <constraint firstItem="7Zg-39-36e" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="HAI-wV-iAu"/>
+                                            <constraint firstItem="7jU-Ny-NyM" firstAttribute="top" secondItem="SBZ-as-hMB" secondAttribute="top" constant="217.5" id="O0w-aF-dHu"/>
                                             <constraint firstItem="Ydg-vn-fQP" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="17" id="SFt-TU-wby"/>
                                             <constraint firstItem="sMC-AA-wUx" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="17" id="VYB-hm-xcM"/>
                                             <constraint firstItem="7jU-Ny-NyM" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="XWQ-De-Bn6"/>
@@ -193,28 +186,56 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="xYU-oe-sqs"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="l1V-5H-Cqq"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i12-xg-X4S">
+                                <rect key="frame" x="16" y="16" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="dDc-e8-dPJ"/>
+                                    <constraint firstAttribute="width" constant="20" id="gIw-LE-Jah"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="CloseButton"/>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="4ub-n3-Udo" eventType="touchUpInside" id="gWq-Tk-Ft6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="H9o-Tn-8bo" firstAttribute="leading" secondItem="Y0s-vb-pq9" secondAttribute="leading" constant="15.5" id="2gW-yw-KTv"/>
+                            <constraint firstItem="i12-xg-X4S" firstAttribute="leading" secondItem="w72-Ex-tbp" secondAttribute="leading" constant="16" id="1e9-m5-M7x"/>
                             <constraint firstItem="WuD-dz-YpP" firstAttribute="top" secondItem="C96-pe-az2" secondAttribute="bottom" constant="15.5" id="9Lh-4F-aiV"/>
                             <constraint firstItem="aFb-dk-1Lf" firstAttribute="bottom" secondItem="w72-Ex-tbp" secondAttribute="bottom" id="Bmy-gQ-4ah"/>
                             <constraint firstItem="aFb-dk-1Lf" firstAttribute="trailing" secondItem="WuD-dz-YpP" secondAttribute="trailing" id="FIX-pv-eeG"/>
+                            <constraint firstItem="C96-pe-az2" firstAttribute="leading" secondItem="i12-xg-X4S" secondAttribute="trailing" constant="8" id="Hq3-f5-P6q"/>
                             <constraint firstItem="w72-Ex-tbp" firstAttribute="trailing" secondItem="C96-pe-az2" secondAttribute="trailing" constant="45" id="Hwk-vs-ght"/>
                             <constraint firstItem="aFb-dk-1Lf" firstAttribute="top" secondItem="WuD-dz-YpP" secondAttribute="bottom" id="NmN-PH-rUl"/>
                             <constraint firstItem="WuD-dz-YpP" firstAttribute="leading" secondItem="Y0s-vb-pq9" secondAttribute="leading" id="Rbu-17-GXD"/>
-                            <constraint firstItem="H9o-Tn-8bo" firstAttribute="top" secondItem="Y0s-vb-pq9" secondAttribute="top" constant="16" id="T41-EK-Lu5"/>
-                            <constraint firstItem="C96-pe-az2" firstAttribute="leading" secondItem="H9o-Tn-8bo" secondAttribute="trailing" constant="8.5" id="dsW-tn-dOP"/>
+                            <constraint firstItem="WuD-dz-YpP" firstAttribute="top" secondItem="i12-xg-X4S" secondAttribute="bottom" constant="16" id="SWB-f1-oBF"/>
                             <constraint firstItem="C96-pe-az2" firstAttribute="top" secondItem="w72-Ex-tbp" secondAttribute="top" constant="15.5" id="gDQ-iX-HvR"/>
                             <constraint firstAttribute="trailing" secondItem="WuD-dz-YpP" secondAttribute="trailing" id="iPp-1N-fdM"/>
                             <constraint firstItem="aFb-dk-1Lf" firstAttribute="leading" secondItem="WuD-dz-YpP" secondAttribute="leading" id="qO6-Ta-ABG"/>
+                            <constraint firstItem="i12-xg-X4S" firstAttribute="top" secondItem="w72-Ex-tbp" secondAttribute="top" constant="16" id="x1f-sT-2xT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w72-Ex-tbp"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="NGp-rd-D3F" appends="YES" id="Lha-2I-vu4"/>
+                        </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="favoriteMemoTextView" destination="r0Z-e9-1EN" id="vYb-VL-mn7"/>
+                        <outlet property="favoriteMemoView" destination="7jU-Ny-NyM" id="4Ks-B7-m7q"/>
+                        <outlet property="favoriteTitleTextField" destination="3So-N2-tNh" id="gx4-CG-LWr"/>
+                        <outlet property="ratingView" destination="oCC-cn-DqA" id="Wab-6K-azi"/>
+                        <outlet property="scrollView" destination="aFb-dk-1Lf" id="M43-pk-uE5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuM-74-N2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NGp-rd-D3F">
+                    <connections>
+                        <action selector="didTapView:" destination="4ub-n3-Udo" id="zhS-rf-6Ik"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="199.19999999999999" y="-188.45577211394306"/>
         </scene>

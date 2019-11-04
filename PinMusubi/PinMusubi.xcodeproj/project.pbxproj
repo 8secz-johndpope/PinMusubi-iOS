@@ -10,6 +10,8 @@
 		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
 		6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
 		784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
+		91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */; };
+		91071C12236FEA37002E8835 /* FavoriteRegisterModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */; };
 		914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */; };
 		914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */; };
@@ -139,6 +141,7 @@
 		658A997F3B3618C798D7BE94 /* Pods-PinMusubi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubi.debug.xcconfig"; path = "Target Support Files/Pods-PinMusubi/Pods-PinMusubi.debug.xcconfig"; sourceTree = "<group>"; };
 		689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRegisterModalViewDelegate.swift; sourceTree = "<group>"; };
 		914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointActionCellDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewDelegate.swift; sourceTree = "<group>"; };
@@ -453,6 +456,7 @@
 				91EF7531236D24F80051ACCB /* WebViewController.swift */,
 				91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */,
 				91C05BD5236F2675006F8A5A /* FavoriteRegisterPresentationController.swift */,
+				91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -927,6 +931,7 @@
 				91B5A9712363260E0030909D /* SearchInterestPlaceModelTests.swift in Sources */,
 				915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */,
 				91B5A97523633B440030909D /* RestaurantSpotsModelTests.swift in Sources */,
+				91071C12236FEA37002E8835 /* FavoriteRegisterModalViewController.swift in Sources */,
 				91B5A9732363277C0030909D /* PointsInfomationModelTests.swift in Sources */,
 				9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */,
 			);
@@ -980,6 +985,7 @@
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */,
+				91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */,
 				91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */,
 				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
