@@ -226,7 +226,9 @@
                         <outlet property="favoriteMemoTextView" destination="r0Z-e9-1EN" id="vYb-VL-mn7"/>
                         <outlet property="favoriteMemoView" destination="7jU-Ny-NyM" id="4Ks-B7-m7q"/>
                         <outlet property="favoriteTitleTextField" destination="3So-N2-tNh" id="gx4-CG-LWr"/>
+                        <outlet property="favoriteTitleView" destination="KX5-N4-jHK" id="bxZ-D0-tEY"/>
                         <outlet property="ratingView" destination="oCC-cn-DqA" id="Wab-6K-azi"/>
+                        <outlet property="registerButtonView" destination="7Zg-39-36e" id="whb-Pf-1PN"/>
                         <outlet property="scrollView" destination="aFb-dk-1Lf" id="M43-pk-uE5"/>
                     </connections>
                 </viewController>

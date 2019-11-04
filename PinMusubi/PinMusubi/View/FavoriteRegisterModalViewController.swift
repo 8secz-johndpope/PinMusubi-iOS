@@ -11,10 +11,12 @@ import UIKit
 
 public class FavoriteRegisterModalViewController: UIViewController {
     @IBOutlet private var scrollView: UIScrollView!
+    @IBOutlet private var favoriteTitleView: UIView!
     @IBOutlet private var favoriteTitleTextField: UITextField!
     @IBOutlet private var ratingView: CosmosView!
     @IBOutlet private var favoriteMemoView: UIView!
     @IBOutlet private var favoriteMemoTextView: UITextView!
+    @IBOutlet private var registerButtonView: UIView!
     private var rating = 0.0
     private var activeTextField: AnyObject?
     private let toolBarHeight: CGFloat = 40
@@ -29,12 +31,20 @@ public class FavoriteRegisterModalViewController: UIViewController {
         favoriteMemoTextView.delegate = self
         scrollView.delegate = self
 
+        configureUI()
         configureKeyboard()
         configureNotification()
 
         ratingView.didFinishTouchingCosmos = { rating in
             self.rating = rating
         }
+    }
+
+    private func configureUI() {
+        favoriteTitleView.layer.cornerRadius = 5
+        favoriteMemoView.layer.cornerRadius = 5
+        registerButtonView.layer.cornerRadius = 5
+        registerButtonView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.3)
     }
 
     private func configureKeyboard() {
