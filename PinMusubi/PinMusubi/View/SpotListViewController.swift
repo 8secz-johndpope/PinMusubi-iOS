@@ -71,6 +71,9 @@ public class SpotListViewController: UIViewController {
         guard let favoriteRegisterVC = favoriteRegisterSV.instantiateViewController(withIdentifier: "FavoriteRegisterModalViewController") as? FavoriteRegisterModalViewController else { return }
         favoriteRegisterVC.modalPresentationStyle = .custom
         favoriteRegisterVC.transitioningDelegate = self
+        guard let settingPoints = settingPoints else { return }
+        guard let interestPoint = interestPoint else { return }
+        favoriteRegisterVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint)
         present(favoriteRegisterVC, animated: true, completion: nil)
     }
 }

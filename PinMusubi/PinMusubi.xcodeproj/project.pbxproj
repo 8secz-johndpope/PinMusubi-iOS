@@ -92,6 +92,10 @@
 		91D190832368485A00B0329A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190822368485A00B0329A /* UIImageView+Extension.swift */; };
 		91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190862368A09700B0329A /* StationSpotPresenter.swift */; };
 		91D190892368A49D00B0329A /* BusStopSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */; };
+		91D7FED12370348500520CAD /* FavoriteSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED02370348500520CAD /* FavoriteSpotEntity.swift */; };
+		91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */; };
+		91D7FED52370404000520CAD /* FavoriteSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED42370404000520CAD /* FavoriteSpotModel.swift */; };
+		91D7FED72370421200520CAD /* FavoriteSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED62370421200520CAD /* FavoriteSpotPresenter.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
 		91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439232355FB9700A3B936 /* BusStopEntity.swift */; };
 		91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439252355FE3C00A3B936 /* StationEntity.swift */; };
@@ -237,6 +241,10 @@
 		91D190822368485A00B0329A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		91D190862368A09700B0329A /* StationSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSpotPresenter.swift; sourceTree = "<group>"; };
 		91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSpotPresenter.swift; sourceTree = "<group>"; };
+		91D7FED02370348500520CAD /* FavoriteSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotEntity.swift; sourceTree = "<group>"; };
+		91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotAccessor.swift; sourceTree = "<group>"; };
+		91D7FED42370404000520CAD /* FavoriteSpotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotModel.swift; sourceTree = "<group>"; };
+		91D7FED62370421200520CAD /* FavoriteSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotPresenter.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
 		91E439232355FB9700A3B936 /* BusStopEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEntity.swift; sourceTree = "<group>"; };
 		91E439252355FE3C00A3B936 /* StationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationEntity.swift; sourceTree = "<group>"; };
@@ -314,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */,
+				91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */,
 				915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */,
 				915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */,
 			);
@@ -332,6 +341,7 @@
 		9197D63E23250D2400A5C558 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				91D7FED02370348500520CAD /* FavoriteSpotEntity.swift */,
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
 				915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */,
 				91D190802368331900B0329A /* SpotEntityProtocol.swift */,
@@ -464,6 +474,7 @@
 		91B3EB5F2301323800430D41 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				91D7FED62370421200520CAD /* FavoriteSpotPresenter.swift */,
 				915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */,
 				914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */,
 				914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */,
@@ -478,6 +489,7 @@
 		91B3EB602301325100430D41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91D7FED42370404000520CAD /* FavoriteSpotModel.swift */,
 				915511D223463458004F820D /* SearchInterestPlaceModel.swift */,
 				91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */,
 				914F49EE233B89C90005C316 /* PointsInfomationModel.swift */,
@@ -956,7 +968,10 @@
 				91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */,
 				91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
+				91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */,
 				91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */,
+				91D7FED52370404000520CAD /* FavoriteSpotModel.swift in Sources */,
+				91D7FED12370348500520CAD /* FavoriteSpotEntity.swift in Sources */,
 				91B5A97B23657EE10030909D /* StationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
@@ -967,6 +982,7 @@
 				91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */,
 				9163A5DA236C860200612E06 /* TravelTimePanelCell.swift in Sources */,
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
+				91D7FED72370421200520CAD /* FavoriteSpotPresenter.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
 				91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */,

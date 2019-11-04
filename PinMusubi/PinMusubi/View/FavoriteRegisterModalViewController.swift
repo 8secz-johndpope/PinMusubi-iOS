@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import CoreLocation
 import Cosmos
 import UIKit
 
@@ -17,11 +18,15 @@ public class FavoriteRegisterModalViewController: UIViewController {
     @IBOutlet private var favoriteMemoView: UIView!
     @IBOutlet private var favoriteMemoTextView: UITextView!
     @IBOutlet private var registerButton: UIButton!
+
     private var rating = 0.0
     private var activeTextField: AnyObject?
     private let toolBarHeight: CGFloat = 40
     private let headerHeight: CGFloat = 53
+    private var settingPoints: [SettingPointEntity]?
+    private var interestPoint: CLLocationCoordinate2D?
 
+    public var presenter: FavoriteSpotPresenterProtocol?
     public weak var delegate: FavoriteRegisterModalViewDelegate?
 
     override public func viewDidLoad() {
@@ -30,6 +35,7 @@ public class FavoriteRegisterModalViewController: UIViewController {
         favoriteTitleTextField.delegate = self
         favoriteMemoTextView.delegate = self
         scrollView.delegate = self
+        presenter = FavoriteSpotPresenter(vc: self, modelType: FavoriteSpotModel.self)
 
         configureUI()
         configureKeyboard()
@@ -37,14 +43,20 @@ public class FavoriteRegisterModalViewController: UIViewController {
 
         ratingView.didFinishTouchingCosmos = { rating in
             self.rating = rating
+            self.configureRegisterButton()
         }
+    }
+
+    public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
+        self.settingPoints = settingPoints
+        self.interestPoint = interestPoint
     }
 
     private func configureUI() {
         favoriteTitleView.layer.cornerRadius = 5
         favoriteMemoView.layer.cornerRadius = 5
         registerButton.layer.cornerRadius = 5
-        registerButton.backgroundColor = UIColor(hex: "FA6400", alpha: 0.3)
+        configureRegisterButton()
     }
 
     private func configureKeyboard() {
@@ -69,7 +81,22 @@ public class FavoriteRegisterModalViewController: UIViewController {
     }
 
     @IBAction private func didTapRegisterButton(_ sender: Any) {
+        guard let favoriteTitle = favoriteTitleTextField.text else { return }
+        guard let favoriteMemo = favoriteMemoTextView.text else { return }
+        guard let interestPoint = interestPoint else { return }
+        guard let settingPoints = settingPoints else { return }
+
+        let favoriteSpot = FavoriteSpotEntity()
+        favoriteSpot.title = favoriteTitle
+        favoriteSpot.rating = rating
+        favoriteSpot.memo = favoriteMemo
+        favoriteSpot.latitude = interestPoint.latitude
+        favoriteSpot.longitude = interestPoint.longitude
         
+        guard let presenter = presenter else { return }
+        if presenter.registerFavoriteSpot(settingPoints: settingPoints, favoriteSpot: favoriteSpot) {
+            
+        }
     }
 
     private func validateCheck() -> Bool {
@@ -77,6 +104,16 @@ public class FavoriteRegisterModalViewController: UIViewController {
             return true
         }
         return false
+    }
+
+    private func configureRegisterButton() {
+        if validateCheck() {
+            registerButton.backgroundColor = UIColor(hex: "FA6400")
+            registerButton.isEnabled = true
+        } else {
+            registerButton.backgroundColor = UIColor(hex: "FA6400", alpha: 0.3)
+            registerButton.isEnabled = false
+        }
     }
 }
 
@@ -126,12 +163,6 @@ extension FavoriteRegisterModalViewController {
     @objc
     private func handleKeyboardWillHideNotification(_ notification: Notification) {
         scrollView.contentOffset.y = 0
-        if validateCheck() {
-            registerButton.backgroundColor = UIColor(hex: "FA6400")
-            registerButton.isEnabled = true
-        } else {
-            registerButton.backgroundColor = UIColor(hex: "FA6400", alpha: 0.3)
-            registerButton.isEnabled = false
-        }
+        configureRegisterButton()
     }
 }

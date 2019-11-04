@@ -26,6 +26,7 @@ public extension AccessorProtcol {
     func set(data: Object) -> Bool {
         do {
             let realm = try Realm()
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
             try realm.write {
                 realm.add(data, update: .all)
             }
