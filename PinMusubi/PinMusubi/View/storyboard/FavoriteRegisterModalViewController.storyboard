@@ -123,47 +123,42 @@
                                                         <color key="value" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" red="0.98039215690000003" green="0.3921568627" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zg-39-36e">
-                                                <rect key="frame" x="16" y="390.5" width="343" height="44"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登録する" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhp-91-eA2">
-                                                        <rect key="frame" x="8" y="11" width="327" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzx-md-P8G">
+                                                <rect key="frame" x="16" y="391" width="343" height="44"/>
                                                 <color key="backgroundColor" red="0.98039215690000003" green="0.3921568627" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="hhp-91-eA2" firstAttribute="top" secondItem="7Zg-39-36e" secondAttribute="top" constant="11" id="2p3-5q-SHZ"/>
-                                                    <constraint firstItem="hhp-91-eA2" firstAttribute="leading" secondItem="7Zg-39-36e" secondAttribute="leading" constant="8" id="Npu-Hm-Zez"/>
-                                                    <constraint firstAttribute="height" constant="44" id="eGX-4g-v73"/>
-                                                    <constraint firstAttribute="bottom" secondItem="hhp-91-eA2" secondAttribute="bottom" constant="12" id="qeg-HM-0JJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hhp-91-eA2" secondAttribute="trailing" constant="8" id="sO5-Vf-eeZ"/>
+                                                    <constraint firstAttribute="height" constant="44" id="3Le-ad-39c"/>
                                                 </constraints>
-                                            </view>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="登録する">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapRegisterButton:" destination="4ub-n3-Udo" eventType="touchUpInside" id="fsL-zd-chj"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="7jU-Ny-NyM" secondAttribute="trailing" constant="16" id="2Pn-tc-Lh0"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jzx-md-P8G" secondAttribute="trailing" constant="16" id="2df-x4-y2i"/>
                                             <constraint firstItem="sMC-AA-wUx" firstAttribute="top" secondItem="oCC-cn-DqA" secondAttribute="bottom" constant="25" id="8gF-sG-rtb"/>
                                             <constraint firstAttribute="trailing" secondItem="Ydg-vn-fQP" secondAttribute="trailing" constant="17" id="ACX-uD-1DQ"/>
                                             <constraint firstItem="oCC-cn-DqA" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="DwZ-I1-xlB"/>
                                             <constraint firstItem="ZkD-qU-qmJ" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="17" id="Fin-TA-1eh"/>
-                                            <constraint firstItem="7Zg-39-36e" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="HAI-wV-iAu"/>
                                             <constraint firstItem="7jU-Ny-NyM" firstAttribute="top" secondItem="SBZ-as-hMB" secondAttribute="top" constant="217.5" id="O0w-aF-dHu"/>
                                             <constraint firstItem="Ydg-vn-fQP" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="17" id="SFt-TU-wby"/>
                                             <constraint firstItem="sMC-AA-wUx" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="17" id="VYB-hm-xcM"/>
                                             <constraint firstItem="7jU-Ny-NyM" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="XWQ-De-Bn6"/>
                                             <constraint firstItem="Ydg-vn-fQP" firstAttribute="top" secondItem="KX5-N4-jHK" secondAttribute="bottom" constant="24" id="YES-kd-u7n"/>
-                                            <constraint firstAttribute="trailing" secondItem="7Zg-39-36e" secondAttribute="trailing" constant="16" id="bwJ-gQ-T43"/>
+                                            <constraint firstItem="Jzx-md-P8G" firstAttribute="top" secondItem="7jU-Ny-NyM" secondAttribute="bottom" constant="50.5" id="eA4-lo-Cbb"/>
                                             <constraint firstAttribute="trailing" secondItem="oCC-cn-DqA" secondAttribute="trailing" constant="16" id="fe7-Ku-Lg0"/>
+                                            <constraint firstItem="Jzx-md-P8G" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="htW-Lf-SEU"/>
                                             <constraint firstItem="ZkD-qU-qmJ" firstAttribute="top" secondItem="SBZ-as-hMB" secondAttribute="top" constant="24.5" id="jlZ-NX-vHH"/>
-                                            <constraint firstItem="7Zg-39-36e" firstAttribute="top" secondItem="7jU-Ny-NyM" secondAttribute="bottom" constant="50" id="p1v-tD-bZH"/>
                                             <constraint firstAttribute="trailing" secondItem="KX5-N4-jHK" secondAttribute="trailing" constant="16" id="qfL-eO-brc"/>
                                             <constraint firstAttribute="height" constant="614" id="r1G-6i-Qyv"/>
                                             <constraint firstItem="oCC-cn-DqA" firstAttribute="top" secondItem="Ydg-vn-fQP" secondAttribute="bottom" constant="10" id="r3N-af-Kos"/>
@@ -228,7 +223,7 @@
                         <outlet property="favoriteTitleTextField" destination="3So-N2-tNh" id="gx4-CG-LWr"/>
                         <outlet property="favoriteTitleView" destination="KX5-N4-jHK" id="bxZ-D0-tEY"/>
                         <outlet property="ratingView" destination="oCC-cn-DqA" id="Wab-6K-azi"/>
-                        <outlet property="registerButtonView" destination="7Zg-39-36e" id="whb-Pf-1PN"/>
+                        <outlet property="registerButton" destination="Jzx-md-P8G" id="4b6-Fv-Hgv"/>
                         <outlet property="scrollView" destination="aFb-dk-1Lf" id="M43-pk-uE5"/>
                     </connections>
                 </viewController>

@@ -16,7 +16,7 @@ public class FavoriteRegisterModalViewController: UIViewController {
     @IBOutlet private var ratingView: CosmosView!
     @IBOutlet private var favoriteMemoView: UIView!
     @IBOutlet private var favoriteMemoTextView: UITextView!
-    @IBOutlet private var registerButtonView: UIView!
+    @IBOutlet private var registerButton: UIButton!
     private var rating = 0.0
     private var activeTextField: AnyObject?
     private let toolBarHeight: CGFloat = 40
@@ -43,15 +43,15 @@ public class FavoriteRegisterModalViewController: UIViewController {
     private func configureUI() {
         favoriteTitleView.layer.cornerRadius = 5
         favoriteMemoView.layer.cornerRadius = 5
-        registerButtonView.layer.cornerRadius = 5
-        registerButtonView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.3)
+        registerButton.layer.cornerRadius = 5
+        registerButton.backgroundColor = UIColor(hex: "FA6400", alpha: 0.3)
     }
 
     private func configureKeyboard() {
         let tools = UIToolbar()
         tools.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: toolBarHeight)
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(closeButtonTapped))
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
         tools.items = [spacer, closeButton]
         favoriteMemoTextView.inputAccessoryView = tools
     }
@@ -64,8 +64,19 @@ public class FavoriteRegisterModalViewController: UIViewController {
     }
 
     @objc
-    private func closeButtonTapped() {
+    private func doneButtonTapped() {
         view.endEditing(true)
+    }
+
+    @IBAction private func didTapRegisterButton(_ sender: Any) {
+        
+    }
+
+    private func validateCheck() -> Bool {
+        if favoriteTitleTextField.text != "", rating != 0.0 {
+            return true
+        }
+        return false
     }
 }
 
@@ -115,5 +126,12 @@ extension FavoriteRegisterModalViewController {
     @objc
     private func handleKeyboardWillHideNotification(_ notification: Notification) {
         scrollView.contentOffset.y = 0
+        if validateCheck() {
+            registerButton.backgroundColor = UIColor(hex: "FA6400")
+            registerButton.isEnabled = true
+        } else {
+            registerButton.backgroundColor = UIColor(hex: "FA6400", alpha: 0.3)
+            registerButton.isEnabled = false
+        }
     }
 }
