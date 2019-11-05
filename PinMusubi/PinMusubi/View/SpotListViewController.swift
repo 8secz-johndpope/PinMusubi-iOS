@@ -71,6 +71,7 @@ public class SpotListViewController: UIViewController {
         guard let favoriteRegisterVC = favoriteRegisterSV.instantiateViewController(withIdentifier: "FavoriteRegisterModalViewController") as? FavoriteRegisterModalViewController else { return }
         favoriteRegisterVC.modalPresentationStyle = .custom
         favoriteRegisterVC.transitioningDelegate = self
+        favoriteRegisterVC.doneDelegate = self
         guard let settingPoints = settingPoints else { return }
         guard let interestPoint = interestPoint else { return }
         favoriteRegisterVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint)
@@ -133,5 +134,11 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
 extension SpotListViewController: UIViewControllerTransitioningDelegate {
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return FavoriteRegisterPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+extension SpotListViewController: FavoriteRegisterModalViewDoneDelegate {
+    public func showDoneRegisterView() {
+        delegate?.showDoneRegisterView()
     }
 }

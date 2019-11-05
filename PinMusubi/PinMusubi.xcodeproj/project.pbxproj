@@ -96,6 +96,11 @@
 		91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */; };
 		91D7FED52370404000520CAD /* FavoriteSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED42370404000520CAD /* FavoriteSpotModel.swift */; };
 		91D7FED72370421200520CAD /* FavoriteSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED62370421200520CAD /* FavoriteSpotPresenter.swift */; };
+		91D7FEDC237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEDB237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift */; };
+		91D7FEDE23718A8200520CAD /* DoneRegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91D7FEDD23718A8200520CAD /* DoneRegisterViewController.storyboard */; };
+		91D7FEE023718AA900520CAD /* DoneRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */; };
+		91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */; };
+		91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
 		91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439232355FB9700A3B936 /* BusStopEntity.swift */; };
 		91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439252355FE3C00A3B936 /* StationEntity.swift */; };
@@ -245,6 +250,11 @@
 		91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotAccessor.swift; sourceTree = "<group>"; };
 		91D7FED42370404000520CAD /* FavoriteSpotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotModel.swift; sourceTree = "<group>"; };
 		91D7FED62370421200520CAD /* FavoriteSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotPresenter.swift; sourceTree = "<group>"; };
+		91D7FEDB237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRegisterModalViewDoneDelegate.swift; sourceTree = "<group>"; };
+		91D7FEDD23718A8200520CAD /* DoneRegisterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoneRegisterViewController.storyboard; sourceTree = "<group>"; };
+		91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterViewController.swift; sourceTree = "<group>"; };
+		91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterPresentationController.swift; sourceTree = "<group>"; };
+		91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterViewDelegate.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
 		91E439232355FB9700A3B936 /* BusStopEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEntity.swift; sourceTree = "<group>"; };
 		91E439252355FE3C00A3B936 /* StationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationEntity.swift; sourceTree = "<group>"; };
@@ -465,8 +475,12 @@
 				9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */,
 				91EF7531236D24F80051ACCB /* WebViewController.swift */,
 				91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */,
-				91C05BD5236F2675006F8A5A /* FavoriteRegisterPresentationController.swift */,
 				91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */,
+				91D7FEDB237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift */,
+				91C05BD5236F2675006F8A5A /* FavoriteRegisterPresentationController.swift */,
+				91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */,
+				91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */,
+				91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -536,6 +550,7 @@
 				915556F223699E9200097D73 /* SpotDetailsView.storyboard */,
 				9162288C236D21F600F009DB /* WebView.storyboard */,
 				91C05BD1236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard */,
+				91D7FEDD23718A8200520CAD /* DoneRegisterViewController.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -684,6 +699,7 @@
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
 				915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
+				91D7FEDE23718A8200520CAD /* DoneRegisterViewController.storyboard in Resources */,
 				91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */,
 				91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */,
 				91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */,
@@ -971,11 +987,13 @@
 				91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */,
 				91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */,
 				91D7FED52370404000520CAD /* FavoriteSpotModel.swift in Sources */,
+				91D7FEDC237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift in Sources */,
 				91D7FED12370348500520CAD /* FavoriteSpotEntity.swift in Sources */,
 				91B5A97B23657EE10030909D /* StationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
 				91A8A1A3236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift in Sources */,
+				91D7FEE023718AA900520CAD /* DoneRegisterViewController.swift in Sources */,
 				915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */,
 				914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */,
 				91B5A9792363F1AE0030909D /* KeyManager.swift in Sources */,
@@ -997,10 +1015,12 @@
 				914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */,
 				918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */,
 				91D190832368485A00B0329A /* UIImageView+Extension.swift in Sources */,
+				91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */,
 				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */,
+				91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */,
 				91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */,
 				91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */,
 				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
@@ -1286,7 +1306,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1309,7 +1329,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = PinMusubi;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

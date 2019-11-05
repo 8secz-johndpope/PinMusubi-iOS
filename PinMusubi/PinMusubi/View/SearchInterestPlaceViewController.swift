@@ -258,6 +258,18 @@ extension SearchInterestPlaceViewController: SpotListViewDelegate {
     public func closeSpotListView() {
         spotListNC?.dismiss(animated: true, completion: nil)
     }
+
+    public func showDoneRegisterView() {
+        floatingPanelController.move(to: .tip, animated: true)
+        spotListNC?.dismiss(animated: true, completion: {
+            let doneRegisterSV = UIStoryboard(name: "DoneRegisterViewController", bundle: nil)
+            guard let doneRegisterVC = doneRegisterSV.instantiateViewController(withIdentifier: "DoneRegisterViewController") as? DoneRegisterViewController else { return }
+            doneRegisterVC.modalPresentationStyle = .custom
+            doneRegisterVC.transitioningDelegate = self
+            self.present(doneRegisterVC, animated: true, completion: nil)
+        }
+        )
+    }
 }
 
 /// 通知設定
@@ -294,5 +306,11 @@ public extension SearchInterestPlaceViewController {
     @objc
     func tappedDoneSettingView(_ notification: Notification) {
         floatingPanelController.move(to: .tip, animated: true)
+    }
+}
+
+extension SearchInterestPlaceViewController: UIViewControllerTransitioningDelegate {
+    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return DoneRegisterPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

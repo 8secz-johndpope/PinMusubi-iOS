@@ -28,6 +28,7 @@ public class FavoriteRegisterModalViewController: UIViewController {
 
     public var presenter: FavoriteSpotPresenterProtocol?
     public weak var delegate: FavoriteRegisterModalViewDelegate?
+    public weak var doneDelegate: FavoriteRegisterModalViewDoneDelegate?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -92,10 +93,11 @@ public class FavoriteRegisterModalViewController: UIViewController {
         favoriteSpot.memo = favoriteMemo
         favoriteSpot.latitude = interestPoint.latitude
         favoriteSpot.longitude = interestPoint.longitude
-        
+
         guard let presenter = presenter else { return }
         if presenter.registerFavoriteSpot(settingPoints: settingPoints, favoriteSpot: favoriteSpot) {
-            
+            delegate?.closePresentedView()
+            doneDelegate?.showDoneRegisterView()
         }
     }
 
