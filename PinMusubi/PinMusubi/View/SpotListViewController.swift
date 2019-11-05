@@ -12,6 +12,7 @@ import UIKit
 public class SpotListViewController: UIViewController {
     @IBOutlet private var segmentedControl: UISegmentedControl!
     @IBOutlet private var favoriteButtonView: UIView!
+    @IBOutlet private var favoriteRegisterLabel: UILabel!
     @IBOutlet private var collectionView: SpotListCollectionView!
     @IBOutlet private var closeViewButton: UIBarButtonItem!
     private var flowLayout: CustomFlowLayout?
@@ -40,7 +41,10 @@ public class SpotListViewController: UIViewController {
         segmentedControl.layer.borderWidth = 1.0
 
         favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
+        favoriteButtonView.layer.borderColor = UIColor(hex: "FA6400").cgColor
+        favoriteButtonView.layer.borderWidth = 1.0
         favoriteButtonView.layer.cornerRadius = 8
+        favoriteRegisterLabel.adjustsFontSizeToFitWidth = true
 
         collectionView.showsHorizontalScrollIndicator = false
         closeViewButton.image = UIImage(named: "CloseButton")
@@ -60,6 +64,18 @@ public class SpotListViewController: UIViewController {
 
     @IBAction private func closeSpotListView(_ sender: Any) {
         delegate?.closeSpotListView()
+    }
+
+    @IBAction private func didTapFavoriteRegisterView(_ sender: Any) {
+        let favoriteRegisterSV = UIStoryboard(name: "FavoriteRegisterModalViewController", bundle: nil)
+        guard let favoriteRegisterVC = favoriteRegisterSV.instantiateViewController(withIdentifier: "FavoriteRegisterModalViewController") as? FavoriteRegisterModalViewController else { return }
+        favoriteRegisterVC.modalPresentationStyle = .custom
+        favoriteRegisterVC.transitioningDelegate = self
+        favoriteRegisterVC.doneDelegate = self
+        guard let settingPoints = settingPoints else { return }
+        guard let interestPoint = interestPoint else { return }
+        favoriteRegisterVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint)
+        present(favoriteRegisterVC, animated: true, completion: nil)
     }
 }
 
@@ -112,5 +128,17 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
         guard let spotDetailsVC = spotDetailsView.instantiateInitialViewController() as? SpotDetailsViewController else { return }
         spotDetailsVC.setParameter(settingPoints: settingPoints, spot: spot)
         navigationController?.show(spotDetailsVC, sender: nil)
+    }
+}
+
+extension SpotListViewController: UIViewControllerTransitioningDelegate {
+    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return FavoriteRegisterPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+extension SpotListViewController: FavoriteRegisterModalViewDoneDelegate {
+    public func showDoneRegisterView() {
+        delegate?.showDoneRegisterView()
     }
 }

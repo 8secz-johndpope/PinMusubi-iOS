@@ -61,6 +61,13 @@ public class SearchInterestPlaceViewController: UIViewController {
         // textFieldに関する通知を設定
         registerNotification()
     }
+
+    /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
+    @IBAction private func didTapTest(_ sender: Any) {
+        let testSettingPoints = TestData.setTestParameter().0
+        let testInterestPoint = TestData.setTestParameter().1
+        showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
+    }
 }
 
 /// MapViewに関するDelegate
@@ -173,14 +180,6 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
         }
         return scale
     }
-
-    /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
-    /// - Parameter mapView: mapView
-    public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        let testSettingPoints = TestData.setTestParameter().0
-        let testInterestPoint = TestData.setTestParameter().1
-        showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
-    }
 }
 
 /// モーダルに関するDelegateメソッド
@@ -258,6 +257,18 @@ extension SearchInterestPlaceViewController: SpotListViewDelegate {
     public func closeSpotListView() {
         spotListNC?.dismiss(animated: true, completion: nil)
     }
+
+    public func showDoneRegisterView() {
+        floatingPanelController.move(to: .tip, animated: true)
+        spotListNC?.dismiss(animated: true, completion: {
+            let doneRegisterSV = UIStoryboard(name: "DoneRegisterViewController", bundle: nil)
+            guard let doneRegisterVC = doneRegisterSV.instantiateViewController(withIdentifier: "DoneRegisterViewController") as? DoneRegisterViewController else { return }
+            doneRegisterVC.modalPresentationStyle = .custom
+            doneRegisterVC.transitioningDelegate = self
+            self.present(doneRegisterVC, animated: true, completion: nil)
+        }
+        )
+    }
 }
 
 /// 通知設定
@@ -294,5 +305,11 @@ public extension SearchInterestPlaceViewController {
     @objc
     func tappedDoneSettingView(_ notification: Notification) {
         floatingPanelController.move(to: .tip, animated: true)
+    }
+}
+
+extension SearchInterestPlaceViewController: UIViewControllerTransitioningDelegate {
+    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return DoneRegisterPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

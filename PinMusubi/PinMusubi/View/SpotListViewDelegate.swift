@@ -10,4 +10,6 @@
 public protocol SpotListViewDelegate: AnyObject {
     /// スポット一覧画面を閉じる
     func closeSpotListView()
+
+    func showDoneRegisterView()
 }

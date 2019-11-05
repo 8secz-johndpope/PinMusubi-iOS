@@ -24,9 +24,9 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     private var spotList = [SpotEntityProtocol]()
     private var settingPoints = [SettingPointEntity]()
 
-    public var restaurantPresenter: RestaurantSpotPresenterProrocol?
-    public var stationPresenter: StationSpotPresenterProrocol?
-    public var busPresenter: BusStopSpotPresenterProrocol?
+    private var restaurantPresenter: RestaurantSpotPresenterProrocol?
+    private var stationPresenter: StationSpotPresenterProrocol?
+    private var busPresenter: BusStopSpotPresenterProrocol?
 
     public weak var delegate: SpotListCollectionViewCellDelegate?
 

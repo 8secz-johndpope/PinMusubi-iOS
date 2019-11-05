@@ -31,12 +31,16 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Cj4-sK-vTy" secondAttribute="bottom" constant="14" id="2TZ-4R-ocT"/>
                                             <constraint firstItem="Cj4-sK-vTy" firstAttribute="leading" secondItem="Sgp-YQ-278" secondAttribute="leading" constant="54" id="VAy-sQ-yHd"/>
                                             <constraint firstItem="Cj4-sK-vTy" firstAttribute="top" secondItem="Sgp-YQ-278" secondAttribute="top" constant="14" id="mM2-Fd-91h"/>
                                             <constraint firstAttribute="trailing" secondItem="Cj4-sK-vTy" secondAttribute="trailing" constant="54" id="wFg-eb-pAW"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="UUN-T1-a0I" appends="YES" id="xWa-c1-KLk"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -110,10 +114,16 @@
                         <outlet property="closeViewButton" destination="srF-RT-YGD" id="rt4-K0-ppP"/>
                         <outlet property="collectionView" destination="8fr-mu-wov" id="XBQ-tN-17A"/>
                         <outlet property="favoriteButtonView" destination="Sgp-YQ-278" id="29g-is-C5k"/>
+                        <outlet property="favoriteRegisterLabel" destination="Cj4-sK-vTy" id="MJb-W0-wMX"/>
                         <outlet property="segmentedControl" destination="ZNo-iv-7YD" id="kUw-6D-QNO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLP-k2-Oos" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UUN-T1-a0I">
+                    <connections>
+                        <action selector="didTapFavoriteRegisterView:" destination="Iu6-TR-OKb" id="Xab-el-8A9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="591.20000000000005" y="154.27286356821591"/>
         </scene>

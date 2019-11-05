@@ -1,3 +1,21 @@
+name: Cosmos, nameSpecified: 
+body: The MIT License
+
+Cop…
+version: 20.0.1
+
+name: Cosmos, nameSpecified: 
+body: The MIT License
+
+Cop…
+version: 20.0.1
+
+name: Cosmos, nameSpecified: 
+body: The MIT License
+
+Cop…
+version: 20.0.1
+
 name: FloatingPanel, nameSpecified: 
 body: MIT License
 

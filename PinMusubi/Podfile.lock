@@ -1,4 +1,5 @@
 PODS:
+  - Cosmos (20.0.1)
   - FloatingPanel (1.6.5)
   - LicensePlist (2.5.8)
   - Realm (3.18.0):
@@ -12,6 +13,7 @@ PODS:
   - SwiftLint (0.35.0)
 
 DEPENDENCIES:
+  - Cosmos
   - FloatingPanel
   - LicensePlist
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
@@ -21,6 +23,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Cosmos
     - FloatingPanel
     - LicensePlist
     - SDWebImage
@@ -47,6 +50,7 @@ CHECKOUT OPTIONS:
     :submodules: true
 
 SPEC CHECKSUMS:
+  Cosmos: b47fddf2102bb48580cd3025d9ce0a5c658a65da
   FloatingPanel: f4a89a848e21415e2e2697ee8f61847178445aa7
   LicensePlist: 3ad60988ec640a2aeae74cdd2e6d01531c03b7cd
   Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
@@ -54,6 +58,6 @@ SPEC CHECKSUMS:
   SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: a801d964b40c58e3848a50d35d1e1a41ac1f71ea
+PODFILE CHECKSUM: f7b9c7035023f9b3e96e7570cf435c8c7b4c0d6d
 
 COCOAPODS: 1.6.0

@@ -28,10 +28,21 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilw-U0-xjt">
+                                <rect key="frame" x="297" y="52" width="62" height="30"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.3921568627" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="テスト用">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CDR-KY-CJG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="Ilw-U0-xjt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="6ax-f9-cGI"/>
                             <constraint firstItem="zG1-UP-Xa6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CJk-aZ-ric"/>
                             <constraint firstItem="Gru-dM-RpU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="CtA-Jr-4TR"/>
                             <constraint firstAttribute="bottom" secondItem="Gru-dM-RpU" secondAttribute="bottom" id="KjO-cB-dx2"/>
@@ -39,6 +50,8 @@
                             <constraint firstItem="Gru-dM-RpU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="d9Y-X2-Ww2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zG1-UP-Xa6" secondAttribute="trailing" id="hVE-lh-GFz"/>
                             <constraint firstItem="Gru-dM-RpU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jap-OQ-HEH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ilw-U0-xjt" secondAttribute="trailing" constant="16" id="jx8-aC-p8O"/>
+                            <constraint firstItem="Ilw-U0-xjt" firstAttribute="top" secondItem="zG1-UP-Xa6" secondAttribute="bottom" constant="8" id="q1W-WA-FL9"/>
                             <constraint firstItem="zG1-UP-Xa6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xWt-hq-L8Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
