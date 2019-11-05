@@ -82,6 +82,10 @@
 		91C05BD2236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C05BD1236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard */; };
 		91C05BD4236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */; };
 		91C05BD6236F2675006F8A5A /* FavoriteRegisterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C05BD5236F2675006F8A5A /* FavoriteRegisterPresentationController.swift */; };
+		91C64A482371A7B60046E7E7 /* MyPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C64A472371A7B60046E7E7 /* MyPageView.storyboard */; };
+		91C64A4A2371A9260046E7E7 /* SettingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C64A492371A9260046E7E7 /* SettingView.storyboard */; };
+		91C64A4C2371AB1D0046E7E7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A4B2371AB1D0046E7E7 /* MyPageViewController.swift */; };
+		91C64A4E2371AB2B0046E7E7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A4D2371AB2B0046E7E7 /* SettingViewController.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */; };
 		91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */; };
@@ -234,6 +238,10 @@
 		91C05BD1236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteRegisterModalViewController.storyboard; sourceTree = "<group>"; };
 		91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRegisterModalViewController.swift; sourceTree = "<group>"; };
 		91C05BD5236F2675006F8A5A /* FavoriteRegisterPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRegisterPresentationController.swift; sourceTree = "<group>"; };
+		91C64A472371A7B60046E7E7 /* MyPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageView.storyboard; sourceTree = "<group>"; };
+		91C64A492371A9260046E7E7 /* SettingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingView.storyboard; sourceTree = "<group>"; };
+		91C64A4B2371AB1D0046E7E7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		91C64A4D2371AB2B0046E7E7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91D08A69236D65B0005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		91D08A6A236D65B1005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchInterestPlaceView.strings; sourceTree = "<group>"; };
@@ -481,6 +489,8 @@
 				91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */,
 				91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */,
 				91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */,
+				91C64A4B2371AB1D0046E7E7 /* MyPageViewController.swift */,
+				91C64A4D2371AB2B0046E7E7 /* SettingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +561,8 @@
 				9162288C236D21F600F009DB /* WebView.storyboard */,
 				91C05BD1236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard */,
 				91D7FEDD23718A8200520CAD /* DoneRegisterViewController.storyboard */,
+				91C64A472371A7B60046E7E7 /* MyPageView.storyboard */,
+				91C64A492371A9260046E7E7 /* SettingView.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -690,10 +702,12 @@
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */,
 				91A4111E2333C16A00AF7897 /* SettingBasePointsView.xib in Resources */,
+				91C64A482371A7B60046E7E7 /* MyPageView.storyboard in Resources */,
 				91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
 				91A8A1A5236C825500903354 /* TravelTimePanelCell.xib in Resources */,
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
+				91C64A4A2371A9260046E7E7 /* SettingView.storyboard in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 				91C05BD2236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard in Resources */,
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
@@ -983,6 +997,7 @@
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */,
 				91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */,
+				91C64A4E2371AB2B0046E7E7 /* SettingViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */,
 				91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */,
@@ -1030,6 +1045,7 @@
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91D1907D2368073700B0329A /* SpotCell.swift in Sources */,
+				91C64A4C2371AB1D0046E7E7 /* MyPageViewController.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
 				91C05BD4236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift in Sources */,
 				91622887236CEE9800F009DB /* TravelTimePanelPresenter.swift in Sources */,
