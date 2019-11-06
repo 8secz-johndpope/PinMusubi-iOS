@@ -8,13 +8,26 @@
 
 import UIKit
 
+/// 個人データの種類
+public enum MyDataType {
+    /// お気に入り
+    case favorite
+    /// 検索履歴
+    case history
+}
+
 public class MyPageCollectionViewCell: UICollectionViewCell {
     private var scrollView: UIScrollView?
     private var tableView: UITableView?
-    private var myPageList = [MyDataEntityProtocol]()
+    private var myDataType: MyDataType?
+    private var myDataList = [MyDataEntityProtocol]()
+    private var presenter: MyDataPresenterProtocol?
 
-    public func configre() {
+    public func configre(myDataType: MyDataType) {
+        self.myDataType = myDataType
+        self.presenter = MyDataPresenter(view: self, modelType: MyDataModel.self)
         configrationContent()
+        getMyDataList(myDataType: myDataType)
     }
 
     private func configrationContent() {
@@ -32,6 +45,16 @@ public class MyPageCollectionViewCell: UICollectionViewCell {
 
         tableView.register(UINib(nibName: "MyDataCell", bundle: nil), forCellReuseIdentifier: "MyDataCell")
     }
+
+    private func getMyDataList(myDataType: MyDataType) {
+        guard let presenter = presenter else { return }
+        if myDataType == .favorite {
+            self.myDataList = presenter.getFavoriteDataList(orderType: .descendingByCreateDate)
+        } else if myDataType == .history {
+            self.myDataList = presenter.getHistoryDataList(orderType: .descendingByCreateDate)
+        }
+        tableView?.reloadData()
+    }
 }
 
 extension MyPageCollectionViewCell: UITableViewDelegate {
@@ -45,13 +68,13 @@ extension MyPageCollectionViewCell: UITableViewDelegate {
 
 extension MyPageCollectionViewCell: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return myPageList.count
-        return 10
+        return myDataList.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyDataCell", for: indexPath) as? MyDataCell else { return MyDataCell() }
         cell.selectionStyle = .none
+        cell.configure(myDataType: myDataList[indexPath.row])
         return cell
     }
 }

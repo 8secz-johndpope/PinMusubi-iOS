@@ -24,6 +24,11 @@ public class MyPageViewController: UIViewController {
         configureUI()
     }
 
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+
     private func configureUI() {
         segmentedControl.setTitle("お気に入り", forSegmentAt: 0)
         segmentedControl.setTitle("検索履歴", forSegmentAt: 1)
@@ -57,7 +62,11 @@ extension MyPageViewController: UICollectionViewDataSource {
         flowLayout?.prepareForPaging()
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPageCollectionViewCell", for: indexPath)
             as? MyPageCollectionViewCell else { return MyPageCollectionViewCell() }
-        cell.configre()
+        if indexPath.row == 0 {
+            cell.configre(myDataType: .favorite)
+        } else if indexPath.row == 1 {
+            cell.configre(myDataType: .history)
+        }
         return cell
     }
 }

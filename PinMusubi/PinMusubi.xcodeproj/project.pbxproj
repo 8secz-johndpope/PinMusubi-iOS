@@ -91,6 +91,8 @@
 		91C64A542371BB0B0046E7E7 /* MyDataEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A532371BB0B0046E7E7 /* MyDataEntityProtocol.swift */; };
 		91C64A562371BEB10046E7E7 /* MyDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91C64A552371BEB10046E7E7 /* MyDataCell.xib */; };
 		91C64A582371BF290046E7E7 /* MyDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A572371BF290046E7E7 /* MyDataCell.swift */; };
+		91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */; };
+		91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5D2372E26F0046E7E7 /* MyDataModel.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */; };
 		91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */; };
@@ -252,6 +254,8 @@
 		91C64A532371BB0B0046E7E7 /* MyDataEntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataEntityProtocol.swift; sourceTree = "<group>"; };
 		91C64A552371BEB10046E7E7 /* MyDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyDataCell.xib; sourceTree = "<group>"; };
 		91C64A572371BF290046E7E7 /* MyDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataCell.swift; sourceTree = "<group>"; };
+		91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataPresenter.swift; sourceTree = "<group>"; };
+		91C64A5D2372E26F0046E7E7 /* MyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataModel.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91D08A69236D65B0005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		91D08A6A236D65B1005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchInterestPlaceView.strings; sourceTree = "<group>"; };
@@ -521,6 +525,7 @@
 				91D190862368A09700B0329A /* StationSpotPresenter.swift */,
 				91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */,
 				91622886236CEE9800F009DB /* TravelTimePanelPresenter.swift */,
+				91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 				91B5A97A23657EE10030909D /* StationModel.swift */,
 				91B5A97E23658BCD0030909D /* BusStopModel.swift */,
 				9162288A236CF6CE00F009DB /* TravelTimeModel.swift */,
+				91C64A5D2372E26F0046E7E7 /* MyDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1053,8 +1059,10 @@
 				91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */,
 				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
+				91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */,
+				91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */,
 				91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */,
 				91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */,
 				91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */,

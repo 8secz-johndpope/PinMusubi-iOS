@@ -32,6 +32,7 @@ public class FavoriteSpotAccessor: AccessorProtcol {
     public func getAll() -> Results<FavoriteSpotEntity>? {
         do {
             let realm = try Realm()
+
             return realm.objects(FavoriteSpotEntity.self)
         } catch {
             print("\n--Error! FavoriteSpotAccessor#getAll")
