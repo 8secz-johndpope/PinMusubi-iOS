@@ -12,7 +12,7 @@ import RealmSwift
 
 @objcMembers
 /// 検索履歴
-public class SearchHistoryEntity: Object {
+public class SearchHistoryEntity: Object, MyDataEntityProtocol {
     /// 検索ID
     public dynamic var id: String = UUID().uuidString
     /// 中間地点の緯度

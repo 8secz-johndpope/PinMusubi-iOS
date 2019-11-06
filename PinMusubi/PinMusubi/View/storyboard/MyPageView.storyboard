@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OrW-bB-33K">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +15,7 @@
                 <navigationController id="OrW-bB-33K" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4r0-a6-aUc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -30,18 +31,65 @@
             <objects>
                 <viewController storyboardIdentifier="MyPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qb1-fb-94e" customClass="MyPageViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zr7-3E-Zf8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="v0W-Hb-2Hn">
+                                <rect key="frame" x="91" y="60" width="193" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="bXq-PN-JPX"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First" width="96"/>
+                                    <segment title="Second" width="96"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeSegment:" destination="qb1-fb-94e" eventType="valueChanged" id="XzL-FB-4br"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w5h-vy-4Fi" customClass="MyPageCollectionView" customModule="PinMusubi" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ndh-YL-wwb" customClass="CustomFlowLayout" customModule="PinMusubi" customModuleProvider="target">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyPageCollectionViewCell" id="tcy-ek-Tn1" customClass="MyPageCollectionViewCell" customModule="PinMusubi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pZW-tW-1V6">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v0W-Hb-2Hn" firstAttribute="top" secondItem="1PU-fq-nCl" secondAttribute="top" constant="16" id="VK3-sf-oKz"/>
+                            <constraint firstItem="1PU-fq-nCl" firstAttribute="bottom" secondItem="w5h-vy-4Fi" secondAttribute="bottom" id="gH6-hd-eJ1"/>
+                            <constraint firstItem="v0W-Hb-2Hn" firstAttribute="centerX" secondItem="zr7-3E-Zf8" secondAttribute="centerX" id="pjI-qn-CKo"/>
+                            <constraint firstItem="w5h-vy-4Fi" firstAttribute="top" secondItem="v0W-Hb-2Hn" secondAttribute="bottom" constant="17" id="q1c-ha-WXF"/>
+                            <constraint firstItem="1PU-fq-nCl" firstAttribute="trailing" secondItem="w5h-vy-4Fi" secondAttribute="trailing" id="qZb-E2-teR"/>
+                            <constraint firstItem="w5h-vy-4Fi" firstAttribute="leading" secondItem="1PU-fq-nCl" secondAttribute="leading" id="tvh-dX-ODH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1PU-fq-nCl"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="マイページ" image="Person" id="HbX-wI-wWm"/>
                     <navigationItem key="navigationItem" title="マイページ" id="Bpz-AE-Qhh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="w5h-vy-4Fi" id="zaJ-GX-ryO"/>
+                        <outlet property="segmentedControl" destination="v0W-Hb-2Hn" id="xob-Uz-8ca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhO-eZ-Rlg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="144"/>
+            <point key="canvasLocation" x="522" y="143"/>
         </scene>
     </scenes>
     <resources>
