@@ -98,6 +98,20 @@ extension MyPageViewController: MyPageCollectionViewCellDelegate {
             myDetailsDataVC.setParameter(myData: myData)
             navigationController?.show(myDetailsDataVC, sender: nil)
         } else if segmentedControl.selectedSegmentIndex == 1 {
+            let actionMenu = UIAlertController()
+            let moveAction = UIAlertAction(title: "MAPで確認する", style: .default, handler: { (_: UIAlertAction) -> Void in
+                print("move")
+            }
+            )
+            let deleteAction = UIAlertAction(title: "履歴から削除する", style: .destructive, handler: { (_: UIAlertAction) -> Void in
+                print("delete")
+            }
+            )
+            let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            actionMenu.addAction(moveAction)
+            actionMenu.addAction(deleteAction)
+            actionMenu.addAction(cancelAction)
+            present(actionMenu, animated: true, completion: nil)
         }
     }
 }

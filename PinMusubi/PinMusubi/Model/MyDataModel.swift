@@ -21,6 +21,10 @@ public protocol MyDataModelProtocol {
     /// コンストラクタ
     init()
 
+    /// idをもとにお気に入りデータを取得
+    /// - Parameter id: id
+    func fetchFavoriteData(id: String) -> FavoriteSpotEntity
+
     /// お気に入りデータ取得
     /// - Parameter orderType: 並び順
     func fetchFavoriteDataList(orderType: MyDataOrderType) -> [FavoriteSpotEntity]
@@ -32,6 +36,11 @@ public protocol MyDataModelProtocol {
 
 public class MyDataModel: MyDataModelProtocol {
     public required init() {}
+
+    public func fetchFavoriteData(id: String) -> FavoriteSpotEntity {
+        guard let favoriteData = FavoriteSpotAccessor().getByID(id: id) else { return FavoriteSpotEntity() }
+        return favoriteData
+    }
 
     public func fetchFavoriteDataList(orderType: MyDataOrderType) -> [FavoriteSpotEntity] {
         guard let results = FavoriteSpotAccessor().getAll() else { return  [FavoriteSpotEntity]() }

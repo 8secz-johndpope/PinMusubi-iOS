@@ -530,13 +530,13 @@
 				91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */,
 				91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */,
 				91C64A4B2371AB1D0046E7E7 /* MyPageViewController.swift */,
-				91C64A6923764B000046E7E7 /* MyDetailsDataViewController.swift */,
-				91D1CAAE2376563B0066F644 /* MyDetailsDataHeaderViewController.swift */,
-				91D1CABA23769F3B0066F644 /* MyDetailsDataActionViewController.swift */,
 				91C64A4F2371B4A30046E7E7 /* MyPageCollectionView.swift */,
 				91C64A512371B8920046E7E7 /* MyPageCollectionViewCell.swift */,
 				91C64A5F23742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift */,
 				91C64A572371BF290046E7E7 /* MyDataCell.swift */,
+				91C64A6923764B000046E7E7 /* MyDetailsDataViewController.swift */,
+				91D1CAAE2376563B0066F644 /* MyDetailsDataHeaderViewController.swift */,
+				91D1CABA23769F3B0066F644 /* MyDetailsDataActionViewController.swift */,
 				91C64A4D2371AB2B0046E7E7 /* SettingViewController.swift */,
 			);
 			path = View;

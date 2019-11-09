@@ -14,25 +14,25 @@ public class MyDetailsDataHeaderViewController: UIViewController {
     @IBOutlet private var memoLabel: UILabel!
     @IBOutlet private var ratingView: CosmosView!
 
-    private var myData: MyDataEntityProtocol?
+    private var favoriteData: FavoriteSpotEntity?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
 
-    public func setParameter(myData: MyDataEntityProtocol) {
-        self.myData = myData
+    public func getFavoriteData(id: String) {
+        let model = MyDataModel()
+        favoriteData = model.fetchFavoriteData(id: id)
     }
 
     private func configureUI() {
-        if let favoriteData = myData as? FavoriteSpotEntity {
-            titleLabel.text = favoriteData.title
-            memoLabel.text = favoriteData.memo
-            memoLabel.numberOfLines = 0
-            memoLabel.sizeToFit()
-            ratingView.rating = favoriteData.rating
-            ratingView.isUserInteractionEnabled = false
-        }
+        guard let favoriteData = favoriteData else { return }
+        titleLabel.text = favoriteData.title
+        memoLabel.text = favoriteData.memo
+        memoLabel.numberOfLines = 0
+        memoLabel.sizeToFit()
+        ratingView.rating = favoriteData.rating
+        ratingView.isUserInteractionEnabled = false
     }
 }
