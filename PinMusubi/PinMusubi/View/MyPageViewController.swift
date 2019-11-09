@@ -104,7 +104,7 @@ extension MyPageViewController: MyPageCollectionViewCellDelegate {
             }
             )
             let deleteAction = UIAlertAction(title: "履歴から削除する", style: .destructive, handler: { (_: UIAlertAction) -> Void in
-                print("delete")
+                self.deleteHistoryData(myData: myData)
             }
             )
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
@@ -112,6 +112,14 @@ extension MyPageViewController: MyPageCollectionViewCellDelegate {
             actionMenu.addAction(deleteAction)
             actionMenu.addAction(cancelAction)
             present(actionMenu, animated: true, completion: nil)
+        }
+    }
+
+    private func deleteHistoryData(myData: MyDataEntityProtocol) {
+        guard let historyData = myData as? SearchHistoryEntity else { return }
+        let model = MyDataModel()
+        if model.deleteHistoryData(id: historyData.id) {
+            collectionView.reloadData()
         }
     }
 }

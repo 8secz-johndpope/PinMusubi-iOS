@@ -39,4 +39,22 @@ public class SearchHistoryAccessor: AccessorProtcol {
         }
         return nil
     }
+
+    /// idをもとにデータを削除
+    /// - Parameter id: id
+    func deleteById(id: String) -> Bool {
+        do {
+            let realm = try Realm()
+            let data = realm.objects(SearchHistoryEntity.self).filter("id = %@", id)
+            if !data.isEmpty {
+                try realm.write {
+                    realm.delete(data)
+                }
+                return true
+            }
+        } catch {
+            print("\n--Error! FavoriteSpotAccessor#getById")
+        }
+        return false
+    }
 }

@@ -72,17 +72,19 @@ public class MyDetailsDataViewController: UIViewController {
     @IBAction private func didTapMenuButton(_ sender: Any) {
         let actionMenu = UIAlertController()
         let editAction = UIAlertAction(title: "スポットを編集する", style: .default, handler: { (_: UIAlertAction) -> Void in
-            // 登録画面へ遷移
-            let favoriteRegisterModalSV = UIStoryboard(name: "FavoriteRegisterModalViewController", bundle: nil)
-            guard let favoriteRegisterModalVC = favoriteRegisterModalSV.instantiateInitialViewController() as? FavoriteRegisterModalViewController else { return }
-            guard let favoriteData = self.myData as? FavoriteSpotEntity else { return }
-            favoriteRegisterModalVC.setEditParameter(favoriteId: favoriteData.id)
-            favoriteRegisterModalVC.delegate = self
-            self.present(favoriteRegisterModalVC, animated: true, completion: nil)
+            self.presentUpdateView()
         }
         )
         let deleteAction = UIAlertAction(title: "スポットを削除する", style: .destructive, handler: { (_: UIAlertAction) -> Void in
-            print("delete")
+            let deleteConfirmAlert = UIAlertController(title: nil, message: "本当に削除してよろしいですか？", preferredStyle: .alert)
+            let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: { (_: UIAlertAction) -> Void in
+                self.deleteFavoriteData()
+            }
+            )
+            let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            deleteConfirmAlert.addAction(deleteAction)
+            deleteConfirmAlert.addAction(cancelAction)
+            self.present(deleteConfirmAlert, animated: true, completion: nil)
         }
         )
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
@@ -90,6 +92,23 @@ public class MyDetailsDataViewController: UIViewController {
         actionMenu.addAction(deleteAction)
         actionMenu.addAction(cancelAction)
         present(actionMenu, animated: true, completion: nil)
+    }
+
+    private func presentUpdateView() {
+        let favoriteRegisterModalSV = UIStoryboard(name: "FavoriteRegisterModalViewController", bundle: nil)
+        guard let favoriteRegisterModalVC = favoriteRegisterModalSV.instantiateInitialViewController() as? FavoriteRegisterModalViewController else { return }
+        guard let favoriteData = self.myData as? FavoriteSpotEntity else { return }
+        favoriteRegisterModalVC.setEditParameter(favoriteId: favoriteData.id)
+        favoriteRegisterModalVC.delegate = self
+        self.present(favoriteRegisterModalVC, animated: true, completion: nil)
+    }
+
+    private func deleteFavoriteData() {
+        let model = MyDataModel()
+        guard let favoriteData = myData as? FavoriteSpotEntity else { return }
+        if model.deleteFavoriteData(id: favoriteData.id) {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 
