@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyDetailsDataHeaderViewController" customModule="PinMusubi" customModuleProvider="target">
+            <connections>
+                <outlet property="memoLabel" destination="Sxl-G3-OEN" id="bl5-Pm-uy3"/>
+                <outlet property="ratingView" destination="jOP-c4-CmT" id="No0-nC-Zdh"/>
+                <outlet property="titleLabel" destination="DIg-eJ-Kj5" id="Zes-0i-UCY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIg-eJ-Kj5">
+                    <rect key="frame" x="16" y="8" width="382" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="DwQ-Fo-k5w"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxl-G3-OEN">
+                    <rect key="frame" x="16" y="36" width="382" height="65"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOP-c4-CmT" customClass="CosmosView" customModule="Cosmos">
+                    <rect key="frame" x="16" y="117" width="382" height="15"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="w2b-n9-WGr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Sxl-G3-OEN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="7vQ-hm-VSs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jOP-c4-CmT" secondAttribute="bottom" constant="16" id="EDp-Mx-sEX"/>
+                <constraint firstItem="DIg-eJ-Kj5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="GdA-xW-bhe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Sxl-G3-OEN" secondAttribute="trailing" constant="16" id="HPe-sJ-dgZ"/>
+                <constraint firstItem="jOP-c4-CmT" firstAttribute="top" secondItem="Sxl-G3-OEN" secondAttribute="bottom" constant="16" id="S8k-6n-huk"/>
+                <constraint firstItem="Sxl-G3-OEN" firstAttribute="top" secondItem="DIg-eJ-Kj5" secondAttribute="bottom" constant="8" id="g7i-q9-fMX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jOP-c4-CmT" secondAttribute="trailing" constant="16" id="s0A-3D-i7X"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DIg-eJ-Kj5" secondAttribute="trailing" constant="16" id="sH1-tJ-bdK"/>
+                <constraint firstItem="DIg-eJ-Kj5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="u6I-md-g1L"/>
+                <constraint firstItem="jOP-c4-CmT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="zdt-cj-Vih"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.59999999999999" y="126.83658170914543"/>
+        </view>
+    </objects>
+</document>

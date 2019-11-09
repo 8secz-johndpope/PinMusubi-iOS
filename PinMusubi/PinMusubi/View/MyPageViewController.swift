@@ -67,6 +67,7 @@ extension MyPageViewController: UICollectionViewDataSource {
         } else if indexPath.row == 1 {
             cell.configre(myDataType: .history)
         }
+        cell.delegate = self
         return cell
     }
 }
@@ -86,5 +87,17 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+    }
+}
+
+extension MyPageViewController: MyPageCollectionViewCellDelegate {
+    public func showSpotDetailsView(myData: MyDataEntityProtocol) {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let myDetailsDataSV = UIStoryboard(name: "MyDetailsDataViewController", bundle: nil)
+            guard let myDetailsDataVC = myDetailsDataSV.instantiateInitialViewController() as? MyDetailsDataViewController else { return }
+            myDetailsDataVC.setParameter(myData: myData)
+            navigationController?.show(myDetailsDataVC, sender: nil)
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+        }
     }
 }

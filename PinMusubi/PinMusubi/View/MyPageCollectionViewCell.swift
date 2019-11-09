@@ -23,6 +23,8 @@ public class MyPageCollectionViewCell: UICollectionViewCell {
     private var myDataList = [MyDataEntityProtocol]()
     private var presenter: MyDataPresenterProtocol?
 
+    public weak var delegate: MyPageCollectionViewCellDelegate?
+
     public func configre(myDataType: MyDataType) {
         self.myDataType = myDataType
         self.presenter = MyDataPresenter(view: self, modelType: MyDataModel.self)
@@ -59,6 +61,7 @@ public class MyPageCollectionViewCell: UICollectionViewCell {
 
 extension MyPageCollectionViewCell: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.showSpotDetailsView(myData: myDataList[indexPath.row])
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

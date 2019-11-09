@@ -93,6 +93,8 @@
 		91C64A582371BF290046E7E7 /* MyDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A572371BF290046E7E7 /* MyDataCell.swift */; };
 		91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */; };
 		91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5D2372E26F0046E7E7 /* MyDataModel.swift */; };
+		91C64A6023742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5F23742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift */; };
+		91C64A6A23764B000046E7E7 /* MyDetailsDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A6923764B000046E7E7 /* MyDetailsDataViewController.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */; };
 		91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */; };
@@ -103,6 +105,14 @@
 		91D190832368485A00B0329A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190822368485A00B0329A /* UIImageView+Extension.swift */; };
 		91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190862368A09700B0329A /* StationSpotPresenter.swift */; };
 		91D190892368A49D00B0329A /* BusStopSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */; };
+		91D1CAB02376563B0066F644 /* MyDetailsDataHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CAAE2376563B0066F644 /* MyDetailsDataHeaderViewController.swift */; };
+		91D1CAB12376563B0066F644 /* MyDetailsDataHeaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D1CAAF2376563B0066F644 /* MyDetailsDataHeaderViewController.xib */; };
+		91D1CAB42376657D0066F644 /* TravelTimePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CAB22376657D0066F644 /* TravelTimePanelViewController.swift */; };
+		91D1CAB52376657D0066F644 /* TravelTimePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D1CAB32376657D0066F644 /* TravelTimePanelViewController.xib */; };
+		91D1CAB723768DBB0066F644 /* MyDetailsDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CAB623768DBB0066F644 /* MyDetailsDataPresenter.swift */; };
+		91D1CAB9237691D70066F644 /* MyDetailsDataViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91D1CAB8237691D70066F644 /* MyDetailsDataViewController.storyboard */; };
+		91D1CABC23769F3B0066F644 /* MyDetailsDataActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CABA23769F3B0066F644 /* MyDetailsDataActionViewController.swift */; };
+		91D1CABD23769F3B0066F644 /* MyDetailsDataActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D1CABB23769F3B0066F644 /* MyDetailsDataActionViewController.xib */; };
 		91D7FED12370348500520CAD /* FavoriteSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED02370348500520CAD /* FavoriteSpotEntity.swift */; };
 		91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */; };
 		91D7FED52370404000520CAD /* FavoriteSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED42370404000520CAD /* FavoriteSpotModel.swift */; };
@@ -256,6 +266,8 @@
 		91C64A572371BF290046E7E7 /* MyDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataCell.swift; sourceTree = "<group>"; };
 		91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataPresenter.swift; sourceTree = "<group>"; };
 		91C64A5D2372E26F0046E7E7 /* MyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataModel.swift; sourceTree = "<group>"; };
+		91C64A5F23742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
+		91C64A6923764B000046E7E7 /* MyDetailsDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsDataViewController.swift; sourceTree = "<group>"; };
 		91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationAnnotationViewDelegate.swift; sourceTree = "<group>"; };
 		91D08A69236D65B0005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		91D08A6A236D65B1005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchInterestPlaceView.strings; sourceTree = "<group>"; };
@@ -268,6 +280,14 @@
 		91D190822368485A00B0329A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		91D190862368A09700B0329A /* StationSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSpotPresenter.swift; sourceTree = "<group>"; };
 		91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSpotPresenter.swift; sourceTree = "<group>"; };
+		91D1CAAE2376563B0066F644 /* MyDetailsDataHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsDataHeaderViewController.swift; sourceTree = "<group>"; };
+		91D1CAAF2376563B0066F644 /* MyDetailsDataHeaderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyDetailsDataHeaderViewController.xib; sourceTree = "<group>"; };
+		91D1CAB22376657D0066F644 /* TravelTimePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePanelViewController.swift; sourceTree = "<group>"; };
+		91D1CAB32376657D0066F644 /* TravelTimePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelTimePanelViewController.xib; sourceTree = "<group>"; };
+		91D1CAB623768DBB0066F644 /* MyDetailsDataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsDataPresenter.swift; sourceTree = "<group>"; };
+		91D1CAB8237691D70066F644 /* MyDetailsDataViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyDetailsDataViewController.storyboard; sourceTree = "<group>"; };
+		91D1CABA23769F3B0066F644 /* MyDetailsDataActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsDataActionViewController.swift; sourceTree = "<group>"; };
+		91D1CABB23769F3B0066F644 /* MyDetailsDataActionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyDetailsDataActionViewController.xib; sourceTree = "<group>"; };
 		91D7FED02370348500520CAD /* FavoriteSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotEntity.swift; sourceTree = "<group>"; };
 		91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotAccessor.swift; sourceTree = "<group>"; };
 		91D7FED42370404000520CAD /* FavoriteSpotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotModel.swift; sourceTree = "<group>"; };
@@ -428,8 +448,11 @@
 				918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */,
 				91D1907A2367F33B00B0329A /* SpotCell.xib */,
 				91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */,
+				91D1CAB32376657D0066F644 /* TravelTimePanelViewController.xib */,
 				91A8A1A4236C825500903354 /* TravelTimePanelCell.xib */,
 				91C64A552371BEB10046E7E7 /* MyDataCell.xib */,
+				91D1CAAF2376563B0066F644 /* MyDetailsDataHeaderViewController.xib */,
+				91D1CABB23769F3B0066F644 /* MyDetailsDataActionViewController.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -496,6 +519,7 @@
 				91D1907C2368073700B0329A /* SpotCell.swift */,
 				915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */,
 				91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */,
+				91D1CAB22376657D0066F644 /* TravelTimePanelViewController.swift */,
 				9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */,
 				91EF7531236D24F80051ACCB /* WebViewController.swift */,
 				91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */,
@@ -506,8 +530,12 @@
 				91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */,
 				91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */,
 				91C64A4B2371AB1D0046E7E7 /* MyPageViewController.swift */,
+				91C64A6923764B000046E7E7 /* MyDetailsDataViewController.swift */,
+				91D1CAAE2376563B0066F644 /* MyDetailsDataHeaderViewController.swift */,
+				91D1CABA23769F3B0066F644 /* MyDetailsDataActionViewController.swift */,
 				91C64A4F2371B4A30046E7E7 /* MyPageCollectionView.swift */,
 				91C64A512371B8920046E7E7 /* MyPageCollectionViewCell.swift */,
+				91C64A5F23742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift */,
 				91C64A572371BF290046E7E7 /* MyDataCell.swift */,
 				91C64A4D2371AB2B0046E7E7 /* SettingViewController.swift */,
 			);
@@ -526,6 +554,7 @@
 				91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */,
 				91622886236CEE9800F009DB /* TravelTimePanelPresenter.swift */,
 				91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */,
+				91D1CAB623768DBB0066F644 /* MyDetailsDataPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -583,6 +612,7 @@
 				91C05BD1236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard */,
 				91D7FEDD23718A8200520CAD /* DoneRegisterViewController.storyboard */,
 				91C64A472371A7B60046E7E7 /* MyPageView.storyboard */,
+				91D1CAB8237691D70066F644 /* MyDetailsDataViewController.storyboard */,
 				91C64A492371A9260046E7E7 /* SettingView.storyboard */,
 			);
 			path = storyboard;
@@ -729,14 +759,18 @@
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
 				91A8A1A5236C825500903354 /* TravelTimePanelCell.xib in Resources */,
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
+				91D1CAB12376563B0066F644 /* MyDetailsDataHeaderViewController.xib in Resources */,
+				91D1CABD23769F3B0066F644 /* MyDetailsDataActionViewController.xib in Resources */,
 				91C64A4A2371A9260046E7E7 /* SettingView.storyboard in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 				91C05BD2236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard in Resources */,
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
 				915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
+				91D1CAB52376657D0066F644 /* TravelTimePanelViewController.xib in Resources */,
 				91D7FEDE23718A8200520CAD /* DoneRegisterViewController.storyboard in Resources */,
 				91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */,
+				91D1CAB9237691D70066F644 /* MyDetailsDataViewController.storyboard in Resources */,
 				91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */,
 				91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */,
 			);
@@ -1016,13 +1050,16 @@
 				914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */,
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
 				91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */,
+				91D1CAB723768DBB0066F644 /* MyDetailsDataPresenter.swift in Sources */,
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */,
 				91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */,
+				91C64A6023742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift in Sources */,
 				91C64A4E2371AB2B0046E7E7 /* SettingViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */,
 				91D190872368A09700B0329A /* StationSpotPresenter.swift in Sources */,
+				91D1CAB02376563B0066F644 /* MyDetailsDataHeaderViewController.swift in Sources */,
 				91D7FED52370404000520CAD /* FavoriteSpotModel.swift in Sources */,
 				91D7FEDC237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift in Sources */,
 				91D7FED12370348500520CAD /* FavoriteSpotEntity.swift in Sources */,
@@ -1048,6 +1085,7 @@
 				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
 				91D190892368A49D00B0329A /* BusStopSpotPresenter.swift in Sources */,
+				91D1CAB42376657D0066F644 /* TravelTimePanelViewController.swift in Sources */,
 				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91C64A502371B4A30046E7E7 /* MyPageCollectionView.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
@@ -1070,11 +1108,13 @@
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
 				91B5A997236715C00030909D /* CustomFlowLayout.swift in Sources */,
+				91C64A6A23764B000046E7E7 /* MyDetailsDataViewController.swift in Sources */,
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91D1907D2368073700B0329A /* SpotCell.swift in Sources */,
 				91C64A4C2371AB1D0046E7E7 /* MyPageViewController.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
+				91D1CABC23769F3B0066F644 /* MyDetailsDataActionViewController.swift in Sources */,
 				91C05BD4236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift in Sources */,
 				91622887236CEE9800F009DB /* TravelTimePanelPresenter.swift in Sources */,
 				91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */,
