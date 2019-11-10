@@ -46,6 +46,11 @@ public class MyPageCollectionViewCell: UICollectionViewCell {
         tableView.dataSource = self
 
         tableView.register(UINib(nibName: "MyDataCell", bundle: nil), forCellReuseIdentifier: "MyDataCell")
+
+        if #available(iOS 13.0, *) {
+            scrollView.backgroundColor = .secondarySystemBackground
+            tableView.backgroundColor = .secondarySystemBackground
+        }
     }
 
     private func getMyDataList(myDataType: MyDataType) {

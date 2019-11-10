@@ -28,7 +28,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="oQw-oF-5ZQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8fs-lI-s0q"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rBg-lJ-1jC" secondAttribute="trailing" constant="20" id="Iu5-iN-wtc"/>
