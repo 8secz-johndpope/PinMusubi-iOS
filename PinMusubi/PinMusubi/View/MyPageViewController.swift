@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import MapKit
 import UIKit
 
 public class MyPageViewController: UIViewController {
@@ -100,7 +101,7 @@ extension MyPageViewController: MyPageCollectionViewCellDelegate {
         } else if segmentedControl.selectedSegmentIndex == 1 {
             let actionMenu = UIAlertController()
             let moveAction = UIAlertAction(title: "MAPで確認する", style: .default, handler: { (_: UIAlertAction) -> Void in
-                print("move")
+                self.showSettingPointsOnMap(myData: myData)
             }
             )
             let deleteAction = UIAlertAction(title: "履歴から削除する", style: .destructive, handler: { (_: UIAlertAction) -> Void in
@@ -121,5 +122,19 @@ extension MyPageViewController: MyPageCollectionViewCellDelegate {
         if model.deleteHistoryData(id: historyData.id) {
             collectionView.reloadData()
         }
+    }
+
+    private func showSettingPointsOnMap(myData: MyDataEntityProtocol) {
+        guard let searchInterestPlaceVC = tabBarController?.viewControllers?[1] as? SearchInterestPlaceViewController else { return }
+        NotificationCenter.default.post(name: Notification.doneSettingNotification, object: nil)
+        if let historyData = myData as? SearchHistoryEntity {
+            var settingPoints = [SettingPointEntity]()
+            for settingPoint in historyData.settingPointEntityList {
+                settingPoints.append(settingPoint)
+            }
+            let historyPoint = CLLocationCoordinate2D(latitude: historyData.halfwayPointLatitude, longitude: historyData.halfwayPointLongitude)
+            searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: historyPoint)
+        }
+        tabBarController?.selectedViewController = searchInterestPlaceVC
     }
 }

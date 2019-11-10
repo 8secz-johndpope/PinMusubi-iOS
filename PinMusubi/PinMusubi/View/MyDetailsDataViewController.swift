@@ -12,6 +12,7 @@ import UIKit
 public class MyDetailsDataViewController: UIViewController {
     @IBOutlet private var stackView: UIStackView!
 
+    private var spotListNC: SpotListNavigationController?
     private var headerVC: MyDetailsDataHeaderViewController?
     private var myData: MyDataEntityProtocol?
 
@@ -50,6 +51,7 @@ public class MyDetailsDataViewController: UIViewController {
         headerVC?.didMove(toParent: self)
         // MyDetailsDataAction
         let myDetailsDataActionVC = MyDetailsDataActionViewController()
+        myDetailsDataActionVC.delegate = self
         addChild(myDetailsDataActionVC)
         stackView.addArrangedSubview(myDetailsDataActionVC.view)
         // TravelTimePanel
@@ -119,4 +121,70 @@ extension MyDetailsDataViewController: FavoriteRegisterModalViewDelegate {
         headerVC?.viewDidLoad()
         presentedViewController?.dismiss(animated: true, completion: nil)
     }
+}
+
+extension MyDetailsDataViewController: MyDetailsDataActionViewDelegate {
+    public func moveFromMyPage(viewType: ViewType) {
+        guard let myData = myData else { return }
+        if viewType == .map {
+            showSettingPointsOnMap(myData: myData)
+        } else if viewType == .spotList {
+            showSpotList(myData: myData)
+        }
+    }
+
+    private func showSettingPointsOnMap(myData: MyDataEntityProtocol) {
+        guard let searchInterestPlaceVC = tabBarController?.viewControllers?[1] as? SearchInterestPlaceViewController else { return }
+        NotificationCenter.default.post(name: Notification.doneSettingNotification, object: nil)
+        if let favoriteData = myData as? FavoriteSpotEntity {
+            var settingPoints = [SettingPointEntity]()
+            for settingPoint in favoriteData.settingPointEntityList {
+                settingPoints.append(settingPoint)
+            }
+            let favoritePoint = CLLocationCoordinate2D(latitude: favoriteData.latitude, longitude: favoriteData.longitude)
+
+            searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: favoritePoint)
+        } else if let historyData = myData as? SearchHistoryEntity {
+            var settingPoints = [SettingPointEntity]()
+            for settingPoint in historyData.settingPointEntityList {
+                settingPoints.append(settingPoint)
+            }
+            let historyPoint = CLLocationCoordinate2D(latitude: historyData.halfwayPointLatitude, longitude: historyData.halfwayPointLongitude)
+            searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: historyPoint)
+        }
+        tabBarController?.selectedViewController = searchInterestPlaceVC
+    }
+
+    private func showSpotList(myData: MyDataEntityProtocol) {
+        if let favoriteData = myData as? FavoriteSpotEntity {
+            let model = SearchInterestPlaceModel()
+            let favoritePoint = CLLocationCoordinate2D(latitude: favoriteData.latitude, longitude: favoriteData.longitude)
+            model.getAddress(point: favoritePoint, complete: { address, status in
+                if status == .success {
+                    let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
+                    self.spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController
+                    guard let spotListNC = self.spotListNC else { return }
+                    guard let spotListVC = spotListNC.topViewController as? SpotListViewController else { return }
+                    spotListVC.delegate = self
+
+                    var settingPoints = [SettingPointEntity]()
+                    for settingPoint in favoriteData.settingPointEntityList {
+                        settingPoints.append(settingPoint)
+                    }
+                    spotListVC.setParameter(settingPoints: settingPoints, interestPoint: favoritePoint, address: address)
+                    self.present(spotListNC, animated: true, completion: nil)
+                    spotListVC.configureFavoriteButton()
+                }
+            }
+            )
+        }
+    }
+}
+
+extension MyDetailsDataViewController: SpotListViewDelegate {
+    public func closeSpotListView() {
+        spotListNC?.dismiss(animated: true, completion: nil)
+    }
+
+    public func showDoneRegisterView() {}
 }

@@ -19,6 +19,7 @@ public class SpotListViewController: UIViewController {
     private var isChangeSegmentedControl: Bool = true
     private var settingPoints: [SettingPointEntity]?
     private var interestPoint: CLLocationCoordinate2D?
+    private var favoriteButtonViewIsHidden = false
 
     public weak var delegate: SpotListViewDelegate?
 
@@ -48,12 +49,21 @@ public class SpotListViewController: UIViewController {
 
         collectionView.showsHorizontalScrollIndicator = false
         closeViewButton.image = UIImage(named: "CloseButton")
+
+        if favoriteButtonViewIsHidden {
+            favoriteButtonView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
+            favoriteButtonView.layer.borderColor = UIColor(hex: "FA6400", alpha: 0.2).cgColor
+        }
     }
 
     public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D, address: String) {
         self.settingPoints = settingPoints
         self.interestPoint = interestPoint
         navigationItem.title = address
+    }
+
+    public func configureFavoriteButton() {
+        favoriteButtonViewIsHidden = true
     }
 
     @IBAction private func segmentChanged(sender: AnyObject) {
@@ -67,15 +77,17 @@ public class SpotListViewController: UIViewController {
     }
 
     @IBAction private func didTapFavoriteRegisterView(_ sender: Any) {
-        let favoriteRegisterSV = UIStoryboard(name: "FavoriteRegisterModalViewController", bundle: nil)
-        guard let favoriteRegisterVC = favoriteRegisterSV.instantiateViewController(withIdentifier: "FavoriteRegisterModalViewController") as? FavoriteRegisterModalViewController else { return }
-        favoriteRegisterVC.modalPresentationStyle = .custom
-        favoriteRegisterVC.transitioningDelegate = self
-        favoriteRegisterVC.doneDelegate = self
-        guard let settingPoints = settingPoints else { return }
-        guard let interestPoint = interestPoint else { return }
-        favoriteRegisterVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint)
-        present(favoriteRegisterVC, animated: true, completion: nil)
+        if !favoriteButtonViewIsHidden {
+            let favoriteRegisterSV = UIStoryboard(name: "FavoriteRegisterModalViewController", bundle: nil)
+            guard let favoriteRegisterVC = favoriteRegisterSV.instantiateViewController(withIdentifier: "FavoriteRegisterModalViewController") as? FavoriteRegisterModalViewController else { return }
+            favoriteRegisterVC.modalPresentationStyle = .custom
+            favoriteRegisterVC.transitioningDelegate = self
+            favoriteRegisterVC.doneDelegate = self
+            guard let settingPoints = settingPoints else { return }
+            guard let interestPoint = interestPoint else { return }
+            favoriteRegisterVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint)
+            present(favoriteRegisterVC, animated: true, completion: nil)
+        }
     }
 }
 

@@ -12,6 +12,8 @@ public class MyDetailsDataActionViewController: UIViewController {
     @IBOutlet private var moveMapButton: UIButton!
     @IBOutlet private var moveSpotListButton: UIButton!
 
+    public weak var delegate: MyDetailsDataActionViewDelegate?
+
     override public func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -28,8 +30,10 @@ public class MyDetailsDataActionViewController: UIViewController {
     }
 
     @IBAction private func didTapMoveMapButton(_ sender: Any) {
+        delegate?.moveFromMyPage(viewType: .map)
     }
 
     @IBAction private func didTapMoveSpotListButton(_ sender: Any) {
+        delegate?.moveFromMyPage(viewType: .spotList)
     }
 }
