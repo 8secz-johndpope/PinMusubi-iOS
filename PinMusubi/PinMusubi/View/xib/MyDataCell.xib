@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="MyDataCell" id="iN0-l3-epB" customClass="MyDataCell" customModule="PinMusubi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-h3-LOr">
+                    <rect key="frame" x="16" y="17" width="382" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="Wmn-FI-vME"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXE-Pc-8Zo">
+                    <rect key="frame" x="16" y="45" width="382" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="qY4-hR-NF4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBj-94-yCf" customClass="CosmosView" customModule="Cosmos">
+                    <rect key="frame" x="16" y="69" width="150" height="14"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="Ag4-n0-CXr"/>
+                        <constraint firstAttribute="width" constant="150" id="YaV-fn-5bw"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTH-wL-96P">
+                    <rect key="frame" x="256" y="78" width="150" height="7.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="OkI-sc-gh6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="EfA-h3-LOr" secondAttribute="trailing" constant="16" id="6Hu-Gk-bfM"/>
+                <constraint firstItem="EfA-h3-LOr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="8Lw-8q-gfp"/>
+                <constraint firstAttribute="trailing" secondItem="MTH-wL-96P" secondAttribute="trailing" constant="8" id="AGy-xc-2BW"/>
+                <constraint firstItem="EfA-h3-LOr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="IQ9-qx-B7w"/>
+                <constraint firstItem="MTH-wL-96P" firstAttribute="top" secondItem="uXE-Pc-8Zo" secondAttribute="bottom" constant="19" id="O5h-vA-HxS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="MTH-wL-96P" secondAttribute="bottom" constant="13.5" id="PDa-ya-UOK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="eBj-94-yCf" secondAttribute="bottom" constant="16" id="RNg-6v-FP1"/>
+                <constraint firstItem="uXE-Pc-8Zo" firstAttribute="top" secondItem="EfA-h3-LOr" secondAttribute="bottom" constant="9" id="UgY-4P-1ZY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uXE-Pc-8Zo" secondAttribute="trailing" constant="16" id="giu-0Y-0nQ"/>
+                <constraint firstItem="eBj-94-yCf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="nNB-Ua-C4W"/>
+                <constraint firstItem="uXE-Pc-8Zo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="wNb-sW-ijI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="ratingView" destination="eBj-94-yCf" id="ThO-zv-IyC"/>
+                <outlet property="registerDateLabel" destination="MTH-wL-96P" id="TUz-kU-pn7"/>
+                <outlet property="subTitleLabel" destination="uXE-Pc-8Zo" id="0Er-DO-6gj"/>
+                <outlet property="titleLabel" destination="EfA-h3-LOr" id="Jhp-hl-yaZ"/>
+            </connections>
+            <point key="canvasLocation" x="57.600000000000001" y="126.38680659670166"/>
+        </view>
+    </objects>
+</document>

@@ -19,12 +19,12 @@ public class FavoriteRegisterModalViewController: UIViewController {
     @IBOutlet private var favoriteMemoTextView: UITextView!
     @IBOutlet private var registerButton: UIButton!
 
-    private var rating = 0.0
     private var activeTextField: AnyObject?
     private let toolBarHeight: CGFloat = 40
     private let headerHeight: CGFloat = 53
     private var settingPoints: [SettingPointEntity]?
     private var interestPoint: CLLocationCoordinate2D?
+    private var favoriteId: String?
 
     public var presenter: FavoriteSpotPresenterProtocol?
     public weak var delegate: FavoriteRegisterModalViewDelegate?
@@ -41,16 +41,40 @@ public class FavoriteRegisterModalViewController: UIViewController {
         configureUI()
         configureKeyboard()
         configureNotification()
+        configureForm()
+        configureRegisterButton()
 
         ratingView.didFinishTouchingCosmos = { rating in
-            self.rating = rating
             self.configureRegisterButton()
+        }
+
+        if favoriteId != nil {
+            registerButton.setTitle("更新する", for: .normal)
         }
     }
 
     public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
         self.settingPoints = settingPoints
         self.interestPoint = interestPoint
+    }
+
+    public func setEditParameter(favoriteId: String) {
+        self.favoriteId = favoriteId
+    }
+
+    private func configureForm() {
+        if let favoriteId = favoriteId {
+            let model = MyDataModel()
+            let favoriteSpot = model.fetchFavoriteData(id: favoriteId)
+            favoriteTitleTextField.text = favoriteSpot.title
+            favoriteMemoTextView.text = favoriteSpot.memo
+            ratingView.rating = favoriteSpot.rating
+            settingPoints = [SettingPointEntity]()
+            for settingPoint in favoriteSpot.settingPointEntityList {
+                settingPoints?.append(settingPoint)
+            }
+            interestPoint = CLLocationCoordinate2D(latitude: favoriteSpot.latitude, longitude: favoriteSpot.longitude)
+        }
     }
 
     private func configureUI() {
@@ -86,23 +110,33 @@ public class FavoriteRegisterModalViewController: UIViewController {
         guard let favoriteMemo = favoriteMemoTextView.text else { return }
         guard let interestPoint = interestPoint else { return }
         guard let settingPoints = settingPoints else { return }
-
-        let favoriteSpot = FavoriteSpotEntity()
-        favoriteSpot.title = favoriteTitle
-        favoriteSpot.rating = rating
-        favoriteSpot.memo = favoriteMemo
-        favoriteSpot.latitude = interestPoint.latitude
-        favoriteSpot.longitude = interestPoint.longitude
-
         guard let presenter = presenter else { return }
-        if presenter.registerFavoriteSpot(settingPoints: settingPoints, favoriteSpot: favoriteSpot) {
-            delegate?.closePresentedView()
-            doneDelegate?.showDoneRegisterView()
+
+        let tmpFavoriteSpot = FavoriteSpotEntity()
+        tmpFavoriteSpot.title = favoriteTitle
+        tmpFavoriteSpot.rating = ratingView.rating
+        tmpFavoriteSpot.memo = favoriteMemo
+        tmpFavoriteSpot.latitude = interestPoint.latitude
+        tmpFavoriteSpot.longitude = interestPoint.longitude
+        tmpFavoriteSpot.dateTime = Date()
+
+        if let favoriteId = favoriteId {
+            // 更新
+            tmpFavoriteSpot.id = favoriteId
+            if presenter.registerFavoriteSpot(settingPoints: settingPoints, favoriteSpot: tmpFavoriteSpot) {
+                delegate?.closePresentedView()
+            }
+        } else {
+            // 登録
+            if presenter.registerFavoriteSpot(settingPoints: settingPoints, favoriteSpot: tmpFavoriteSpot) {
+                delegate?.closePresentedView()
+                doneDelegate?.showDoneRegisterView()
+            }
         }
     }
 
     private func validateCheck() -> Bool {
-        if favoriteTitleTextField.text != "", rating != 0.0 {
+        if favoriteTitleTextField.text != "", ratingView.rating != 0.0 {
             return true
         }
         return false

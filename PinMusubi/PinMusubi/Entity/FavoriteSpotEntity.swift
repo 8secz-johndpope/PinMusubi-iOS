@@ -12,7 +12,7 @@ import RealmSwift
 
 @objcMembers
 /// お気に入りスポット
-public class FavoriteSpotEntity: Object {
+public class FavoriteSpotEntity: Object, MyDataEntityProtocol {
     /// 登録ID
     public dynamic var id: String = UUID().uuidString
     /// お気に入り度

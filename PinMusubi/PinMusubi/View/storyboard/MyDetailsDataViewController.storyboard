@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nzU-yZ-osK">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Details Data View Controller-->
+        <scene sceneID="52b-3Z-Qgg">
+            <objects>
+                <viewController storyboardIdentifier="MyDetailsDataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nzU-yZ-osK" customClass="MyDetailsDataViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3m8-R2-Nnh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYJ-Mz-YfM">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Rve-1n-Vs2">
+                                        <rect key="frame" x="0.0" y="17" width="375" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="JLK-2X-GHz"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="Rve-1n-Vs2" firstAttribute="top" secondItem="QYJ-Mz-YfM" secondAttribute="top" constant="17" id="6O0-NV-Ld3"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rve-1n-Vs2" secondAttribute="bottom" constant="16" id="IL3-oG-1O1"/>
+                                    <constraint firstItem="Rve-1n-Vs2" firstAttribute="leading" secondItem="QYJ-Mz-YfM" secondAttribute="leading" id="SHx-vP-quJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rve-1n-Vs2" secondAttribute="trailing" id="aVk-16-Mfu"/>
+                                    <constraint firstItem="Rve-1n-Vs2" firstAttribute="centerX" secondItem="QYJ-Mz-YfM" secondAttribute="centerX" id="eEj-OA-yaO"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rOg-X1-q5f" appends="YES" id="TUZ-l4-PCj"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QYJ-Mz-YfM" firstAttribute="leading" secondItem="TvV-nB-Ih3" secondAttribute="leading" id="2vL-GM-cYv"/>
+                            <constraint firstItem="TvV-nB-Ih3" firstAttribute="bottom" secondItem="QYJ-Mz-YfM" secondAttribute="bottom" id="DKh-3s-3s6"/>
+                            <constraint firstItem="QYJ-Mz-YfM" firstAttribute="top" secondItem="TvV-nB-Ih3" secondAttribute="top" id="hDV-SC-Ovd"/>
+                            <constraint firstItem="TvV-nB-Ih3" firstAttribute="trailing" secondItem="QYJ-Mz-YfM" secondAttribute="trailing" id="kxa-iI-Jr6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TvV-nB-Ih3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="86q-46-GQ3">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="ToSpotList" id="f6e-DW-Nrh">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="didTapBackButton:" destination="nzU-yZ-osK" id="C7g-iC-Bi6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Menu" id="iWL-8g-Kq8">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="didTapMenuButton:" destination="nzU-yZ-osK" id="4zo-Z2-KX7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="stackView" destination="Rve-1n-Vs2" id="kLr-tJ-9zr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LsU-T6-OD1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="rOg-X1-q5f">
+                    <connections>
+                        <action selector="ditSwipeView:" destination="nzU-yZ-osK" id="pIZ-mW-vI5"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="180" y="107"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Menu" width="25" height="25"/>
+        <image name="ToSpotList" width="25" height="25"/>
+    </resources>
+</document>

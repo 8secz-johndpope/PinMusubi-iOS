@@ -72,7 +72,23 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
         DispatchQueue.main.async {
             self.spotList = spotList
             self.spotListTableView?.reloadData()
+
+            if spotList.isEmpty {
+                guard let spotType = self.spotType else { return }
+                self.setEmptyView(spotType: spotType)
+            }
         }
+    }
+
+    private func setEmptyView(spotType: SpotType) {
+        guard let emptyView = UINib(nibName: "EmptyView", bundle: nil).instantiate(withOwner: self, options: nil).first as? EmptyView else { return }
+        if spotType == .transportation {
+            emptyView.setEmptyType(emptyType: .station)
+        } else if spotType == .restaurant {
+            emptyView.setEmptyType(emptyType: .restaurant)
+        }
+        emptyView.frame = bounds
+        spotListTableView?.addSubview(emptyView)
     }
 }
 

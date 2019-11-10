@@ -32,10 +32,29 @@ public class FavoriteSpotAccessor: AccessorProtcol {
     public func getAll() -> Results<FavoriteSpotEntity>? {
         do {
             let realm = try Realm()
+
             return realm.objects(FavoriteSpotEntity.self)
         } catch {
             print("\n--Error! FavoriteSpotAccessor#getAll")
         }
         return nil
+    }
+
+    /// idをもとにデータを削除
+    /// - Parameter id: id
+    public func deleteById(id: String) -> Bool {
+        do {
+            let realm = try Realm()
+            let data = realm.objects(FavoriteSpotEntity.self).filter("id = %@", id)
+            if !data.isEmpty {
+                try realm.write {
+                    realm.delete(data)
+                }
+                return true
+            }
+        } catch {
+            print("\n--Error! FavoriteSpotAccessor#getById")
+        }
+        return false
     }
 }
