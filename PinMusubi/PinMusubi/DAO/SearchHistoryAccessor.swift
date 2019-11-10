@@ -42,7 +42,7 @@ public class SearchHistoryAccessor: AccessorProtcol {
 
     /// idをもとにデータを削除
     /// - Parameter id: id
-    func deleteById(id: String) -> Bool {
+    public func deleteById(id: String) -> Bool {
         do {
             let realm = try Realm()
             let data = realm.objects(SearchHistoryEntity.self).filter("id = %@", id)

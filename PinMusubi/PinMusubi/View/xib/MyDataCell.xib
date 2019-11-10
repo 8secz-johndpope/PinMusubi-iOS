@@ -15,16 +15,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-h3-LOr">
-                    <rect key="frame" x="16" y="17" width="382" height="16"/>
+                    <rect key="frame" x="16" y="17" width="382" height="19"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="16" id="Wmn-FI-vME"/>
+                        <constraint firstAttribute="height" constant="19" id="Wmn-FI-vME"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXE-Pc-8Zo">
-                    <rect key="frame" x="16" y="42" width="382" height="14"/>
+                    <rect key="frame" x="16" y="45" width="382" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="qY4-hR-NF4"/>
                     </constraints>
@@ -46,9 +46,9 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTH-wL-96P">
-                    <rect key="frame" x="276" y="75" width="130" height="10.5"/>
+                    <rect key="frame" x="256" y="78" width="150" height="7.5"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="130" id="OkI-sc-gh6"/>
+                        <constraint firstAttribute="width" constant="150" id="OkI-sc-gh6"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>

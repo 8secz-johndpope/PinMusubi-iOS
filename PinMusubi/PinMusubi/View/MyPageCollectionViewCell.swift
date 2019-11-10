@@ -56,6 +56,21 @@ public class MyPageCollectionViewCell: UICollectionViewCell {
             self.myDataList = presenter.getHistoryDataList(orderType: .descendingByCreateDate)
         }
         tableView?.reloadData()
+
+        if myDataList.isEmpty {
+            setEmptyView(myDataType: myDataType)
+        }
+    }
+
+    private func setEmptyView(myDataType: MyDataType) {
+        guard let emptyView = UINib(nibName: "EmptyView", bundle: nil).instantiate(withOwner: self, options: nil).first as? EmptyView else { return }
+        if myDataType == .favorite {
+            emptyView.setEmptyType(emptyType: .favorite)
+        } else if myDataType == .history {
+            emptyView.setEmptyType(emptyType: .history)
+        }
+        emptyView.frame = bounds
+        tableView?.addSubview(emptyView)
     }
 }
 
@@ -65,7 +80,7 @@ extension MyPageCollectionViewCell: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 99.5
+        return 105
     }
 }
 
