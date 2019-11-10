@@ -12,18 +12,29 @@ public class SettingTableViewController: UITableViewController {
     private var sectionTitles = [String]()
     private var cellTitles = [[String]]()
 
+    // section
+    private var sectionTitle0 = "一般"
+    private var sectionTitle1 = "アプリについて"
+
+    // cell
+    private var tutorialTitle = "チュートリアルを見る"
+    private var versionTitle = "バージョン"
+    private var creditTitle = "クレジット"
+    private var contactTitle = "ご意見・ご要望はこちら"
+    private var reviewTitle = "このアプリを評価する"
+
     override public func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
 
     private func configure() {
-        sectionTitles = ["一般", "アプリについて"]
+        sectionTitles = [sectionTitle0, sectionTitle1]
         for _ in sectionTitles {
             cellTitles.append([])
         }
-        cellTitles[0] = ["チュートリアルを見る"]
-        cellTitles[1] = ["バージョン", "クレジット", "ご意見・ご要望はこちら", "このアプリを評価する"]
+        cellTitles[0] = [tutorialTitle]
+        cellTitles[1] = [versionTitle, creditTitle, contactTitle]
     }
 
     override public func numberOfSections(in tableView: UITableView) -> Int {
@@ -51,5 +62,20 @@ public class SettingTableViewController: UITableViewController {
         cell.selectionStyle = .none
         cell.textLabel?.text = cellTitles[indexPath.section][indexPath.row]
         return cell
+    }
+
+    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCellTitle = cellTitles[indexPath.section][indexPath.row]
+        if selectedCellTitle == tutorialTitle {
+        } else if selectedCellTitle == creditTitle {
+            let creditListSV = UIStoryboard(name: "CreditListViewController", bundle: nil)
+            guard let creditListVC = creditListSV.instantiateInitialViewController() as? CreditListViewController else { return }
+            navigationController?.show(creditListVC, sender: nil)
+        } else if selectedCellTitle == contactTitle {
+            let contactFormSV = UIStoryboard(name: "ContactFormViewController", bundle: nil)
+            guard let contactFormVC = contactFormSV.instantiateInitialViewController() as? ContactFormViewController else { return }
+            navigationController?.show(contactFormVC, sender: nil)
+        } else if selectedCellTitle == reviewTitle {
+        }
     }
 }
