@@ -32,7 +32,21 @@
                     <view key="view" contentMode="scaleToFill" id="3PH-HV-MbW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95E-hH-Fvi">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <connections>
+                                    <segue destination="5uh-Fp-lN7" kind="embed" id="JX4-uw-sfQ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="95E-hH-Fvi" firstAttribute="leading" secondItem="cyY-SQ-erP" secondAttribute="leading" id="ajL-RY-v2u"/>
+                            <constraint firstItem="95E-hH-Fvi" firstAttribute="top" secondItem="cyY-SQ-erP" secondAttribute="top" id="szA-Q9-HkI"/>
+                            <constraint firstItem="cyY-SQ-erP" firstAttribute="trailing" secondItem="95E-hH-Fvi" secondAttribute="trailing" id="taL-YG-UWm"/>
+                            <constraint firstItem="cyY-SQ-erP" firstAttribute="bottom" secondItem="95E-hH-Fvi" secondAttribute="bottom" id="zOc-Bj-j1E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cyY-SQ-erP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" image="Gear" id="gGy-lg-KGb"/>
@@ -41,7 +55,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQK-8T-KF8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="207" y="125"/>
+            <point key="canvasLocation" x="205.79710144927537" y="124.55357142857142"/>
+        </scene>
+        <!--Setting Table View Controller-->
+        <scene sceneID="veD-oB-8ZU">
+            <objects>
+                <tableViewController storyboardIdentifier="SettingTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5uh-Fp-lN7" customClass="SettingTableViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="vcJ-BE-uOP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="5uh-Fp-lN7" id="UvX-Pg-7VQ"/>
+                            <outlet property="delegate" destination="5uh-Fp-lN7" id="SmY-Ur-1eN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ukj-Gy-ugS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="125"/>
         </scene>
     </scenes>
     <resources>
