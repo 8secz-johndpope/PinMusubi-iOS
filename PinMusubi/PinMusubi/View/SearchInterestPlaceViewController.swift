@@ -7,6 +7,7 @@
 //
 
 import FloatingPanel
+import GoogleMobileAds
 import MapKit
 import UIKit
 
@@ -36,6 +37,8 @@ public class SearchInterestPlaceViewController: UIViewController {
     /// スポットリスト
     private var spotListNC: SpotListNavigationController?
 
+    private var safeAreaTop = CGFloat(0.0)
+
     public var presenter: SearchInterestPlacePresenterProtocol?
 
     override public func viewDidLoad() {
@@ -62,11 +65,42 @@ public class SearchInterestPlaceViewController: UIViewController {
         registerNotification()
     }
 
+    override public func viewWillLayoutSubviews() {
+        if safeAreaTop != self.view.safeAreaInsets.top {
+            safeAreaTop = self.view.safeAreaInsets.top
+            setAd(safeAreaTop: safeAreaTop)
+        }
+    }
+
     /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
     @IBAction private func didTapTest(_ sender: Any) {
         let testSettingPoints = TestData.setTestParameter().0
         let testInterestPoint = TestData.setTestParameter().1
         showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
+    }
+
+    private func setAd(safeAreaTop: CGFloat) {
+        guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
+        let testID = "ca-app-pub-3940256099942544/2934735716"
+        let adMobTest: Bool = false
+
+        print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+
+        var admobView = GADBannerView()
+        admobView = GADBannerView(adSize: kGADAdSizeBanner)
+        admobView.frame.origin = CGPoint(x: 0, y: safeAreaTop)
+        admobView.frame.size = CGSize(width: view.frame.width, height: admobView.frame.height)
+
+        if adMobTest {
+            admobView.adUnitID = testID
+        } else {
+            admobView.adUnitID = adMobID
+        }
+
+        admobView.rootViewController = self
+        admobView.load(GADRequest())
+
+        self.view.addSubview(admobView)
     }
 }
 

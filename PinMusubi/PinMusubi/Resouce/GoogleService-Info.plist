@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>264411225790-4cv03nt8b95v74kmdseldc1fu7knlriv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.264411225790-4cv03nt8b95v74kmdseldc1fu7knlriv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDxKALTDXkVGP0t-j-7bZ0opuNmec9lCxs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>264411225790</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.naipaka.PinMusubiApp</string>
+	<key>PROJECT_ID</key>
+	<string>pinmusubi-ios</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pinmusubi-ios.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:264411225790:ios:fb3735e8a3f88bd3ad88ef</string>
+	<key>DATABASE_URL</key>
+	<string>https://pinmusubi-ios.firebaseio.com</string>
+</dict>
+</plist>

@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 @UIApplicationMain
@@ -20,6 +21,10 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tabvc = selfView.rootViewController as? UITabBarController {
             tabvc.selectedIndex = 1
         }
+
+        FirebaseApp.configure()
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["5a5d77ef1e172802b323f5433e396dbe"]
 
         return true
     }

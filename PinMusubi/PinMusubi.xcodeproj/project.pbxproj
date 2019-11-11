@@ -11,7 +11,92 @@
 		6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
 		784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
 		91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */; };
-		91071C12236FEA37002E8835 /* FavoriteRegisterModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */; };
+		9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9108A7F2237848E000099B0B /* GoogleService-Info.plist */; };
+		9108A7F623784CDE00099B0B /* FavoriteRegisterModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */; };
+		9108A7F723784D5D00099B0B /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
+		9108A7F823784D7C00099B0B /* FavoriteSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED62370421200520CAD /* FavoriteSpotPresenter.swift */; };
+		9108A7F923784DA600099B0B /* MyDataEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A532371BB0B0046E7E7 /* MyDataEntityProtocol.swift */; };
+		9108A7FA23784DA600099B0B /* FavoriteSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED02370348500520CAD /* FavoriteSpotEntity.swift */; };
+		9108A7FB23784DA600099B0B /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
+		9108A7FC23784DA600099B0B /* SpotEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190802368331900B0329A /* SpotEntityProtocol.swift */; };
+		9108A7FD23784DA600099B0B /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
+		9108A7FE23784DA600099B0B /* StationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439252355FE3C00A3B936 /* StationEntity.swift */; };
+		9108A7FF23784DA600099B0B /* BusStopEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439232355FB9700A3B936 /* BusStopEntity.swift */; };
+		9108A80023784DD600099B0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4C2301296E00430D41 /* AppDelegate.swift */; };
+		9108A80123784DD600099B0B /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CC477232F91D00047BC88 /* ColorDefinition.swift */; };
+		9108A80223784DD600099B0B /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
+		9108A80323784DD600099B0B /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9782363F1AE0030909D /* KeyManager.swift */; };
+		9108A80423784DD600099B0B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
+		9108A80523784DD600099B0B /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A8A23388F8500065648 /* Notification+Extension.swift */; };
+		9108A80623784DD600099B0B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190822368485A00B0329A /* UIImageView+Extension.swift */; };
+		9108A80723784DD600099B0B /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A996236715C00030909D /* CustomFlowLayout.swift */; };
+		9108A80823784DD600099B0B /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
+		9108A80923784DD600099B0B /* FavoriteSpotAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */; };
+		9108A80A23784DD600099B0B /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
+		9108A80B23784DD600099B0B /* SearchHistoryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */; };
+		9108A80C23784DD600099B0B /* FavoriteSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FED42370404000520CAD /* FavoriteSpotModel.swift */; };
+		9108A80D23784DD600099B0B /* SearchInterestPlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511D223463458004F820D /* SearchInterestPlaceModel.swift */; };
+		9108A80E23784DD600099B0B /* SettingBasePointsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */; };
+		9108A80F23784DD600099B0B /* PointsInfomationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F49EE233B89C90005C316 /* PointsInfomationModel.swift */; };
+		9108A81023784DD600099B0B /* RestaurantSpotsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439292361DFE500A3B936 /* RestaurantSpotsModel.swift */; };
+		9108A81123784DD600099B0B /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A97A23657EE10030909D /* StationModel.swift */; };
+		9108A81223784DD600099B0B /* BusStopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A97E23658BCD0030909D /* BusStopModel.swift */; };
+		9108A81323784DD600099B0B /* TravelTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162288A236CF6CE00F009DB /* TravelTimeModel.swift */; };
+		9108A81423784DD600099B0B /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5D2372E26F0046E7E7 /* MyDataModel.swift */; };
+		9108A81523784DF500099B0B /* SearchInterestPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4E2301296E00430D41 /* SearchInterestPlaceViewController.swift */; };
+		9108A81623784DF500099B0B /* CustomFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110D2331BCC000AF7897 /* CustomFloatingPanelLayout.swift */; };
+		9108A81723784DF500099B0B /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
+		9108A81823784DF500099B0B /* SettingBasePointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411162332764300AF7897 /* SettingBasePointsView.swift */; };
+		9108A81923784DF500099B0B /* SettingBasePointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */; };
+		9108A81A23784DF500099B0B /* SettingBasePointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411212335066700AF7897 /* SettingBasePointCell.swift */; };
+		9108A81B23784DF500099B0B /* SettingBasePointCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */; };
+		9108A81C23784DF500099B0B /* SettingBasePointActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91504A8C23366F7B00F900C4 /* SettingBasePointActionCell.swift */; };
+		9108A81D23784DF500099B0B /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
+		9108A81E23784DF500099B0B /* PointsInfomationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */; };
+		9108A81F23784DF500099B0B /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
+		9108A82023784DF500099B0B /* PointInfomationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */; };
+		9108A82123784DF500099B0B /* SpotListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9902365DA740030909D /* SpotListNavigationController.swift */; };
+		9108A82223784DF500099B0B /* SpotListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98C2365C2000030909D /* SpotListViewController.swift */; };
+		9108A82323784DF500099B0B /* SpotListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A99A2367EAC60030909D /* SpotListViewDelegate.swift */; };
+		9108A82423784DF500099B0B /* SpotListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A994236714640030909D /* SpotListCollectionView.swift */; };
+		9108A82523784DF500099B0B /* SpotListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */; };
+		9108A82623784DF500099B0B /* SpotListCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */; };
+		9108A82723784DF500099B0B /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1907C2368073700B0329A /* SpotCell.swift */; };
+		9108A82823784DF500099B0B /* SpotDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */; };
+		9108A82923784DF500099B0B /* SpotBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */; };
+		9108A82A23784DF500099B0B /* TravelTimePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CAB22376657D0066F644 /* TravelTimePanelViewController.swift */; };
+		9108A82B23784DF500099B0B /* TravelTimePanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */; };
+		9108A82C23784DF500099B0B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF7531236D24F80051ACCB /* WebViewController.swift */; };
+		9108A82D23784DF500099B0B /* FavoriteRegisterModalViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */; };
+		9108A82E23784DF500099B0B /* FavoriteRegisterModalViewDoneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEDB237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift */; };
+		9108A82F23784DF500099B0B /* FavoriteRegisterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C05BD5236F2675006F8A5A /* FavoriteRegisterPresentationController.swift */; };
+		9108A83023784DF500099B0B /* DoneRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */; };
+		9108A83123784DF500099B0B /* DoneRegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */; };
+		9108A83223784DF500099B0B /* DoneRegisterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */; };
+		9108A83323784DF500099B0B /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A4B2371AB1D0046E7E7 /* MyPageViewController.swift */; };
+		9108A83423784DF500099B0B /* MyPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A4F2371B4A30046E7E7 /* MyPageCollectionView.swift */; };
+		9108A83523784DF500099B0B /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A512371B8920046E7E7 /* MyPageCollectionViewCell.swift */; };
+		9108A83623784DF500099B0B /* MyPageCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5F23742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift */; };
+		9108A83723784DF500099B0B /* MyDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A572371BF290046E7E7 /* MyDataCell.swift */; };
+		9108A83823784DF500099B0B /* MyDetailsDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A6923764B000046E7E7 /* MyDetailsDataViewController.swift */; };
+		9108A83923784DF500099B0B /* MyDetailsDataHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CAAE2376563B0066F644 /* MyDetailsDataHeaderViewController.swift */; };
+		9108A83A23784DF500099B0B /* MyDetailsDataActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CABA23769F3B0066F644 /* MyDetailsDataActionViewController.swift */; };
+		9108A83B23784DF500099B0B /* MyDetailsDataActionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8012377941E00824BBB /* MyDetailsDataActionViewDelegate.swift */; };
+		9108A83C23784DF500099B0B /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8052377A7B900824BBB /* EmptyView.swift */; };
+		9108A83D23784DF500099B0B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A4D2371AB2B0046E7E7 /* SettingViewController.swift */; };
+		9108A83E23784DF500099B0B /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8072377E75400824BBB /* SettingTableViewController.swift */; };
+		9108A83F23784DF500099B0B /* CreditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA80F237809AA00824BBB /* CreditListViewController.swift */; };
+		9108A84023784DF500099B0B /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA815237825AD00824BBB /* CreditViewController.swift */; };
+		9108A84123784DF500099B0B /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA81123780A2700824BBB /* ContactFormViewController.swift */; };
+		9108A84223784DF500099B0B /* SearchInterestPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */; };
+		9108A84323784DF500099B0B /* SettingBasePointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */; };
+		9108A84423784DF500099B0B /* PointsInfomationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */; };
+		9108A84523784DF500099B0B /* RestaurantSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */; };
+		9108A84623784DF500099B0B /* StationSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190862368A09700B0329A /* StationSpotPresenter.swift */; };
+		9108A84723784DF500099B0B /* BusStopSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */; };
+		9108A84823784DF500099B0B /* TravelTimePanelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622886236CEE9800F009DB /* TravelTimePanelPresenter.swift */; };
+		9108A84923784DF500099B0B /* MyDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */; };
+		9108A84A23784DF500099B0B /* MyDetailsDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CAB623768DBB0066F644 /* MyDetailsDataPresenter.swift */; };
 		914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */; };
 		914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */; };
@@ -182,6 +267,7 @@
 		689FE771F63B6B8247656B37 /* Pods-PinMusubiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinMusubiTests.release.xcconfig"; path = "Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B505E40D3B0A11DDB3BD1CA /* Pods_PinMusubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinMusubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRegisterModalViewDelegate.swift; sourceTree = "<group>"; };
+		9108A7F2237848E000099B0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointActionCellDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewDelegate.swift; sourceTree = "<group>"; };
@@ -623,6 +709,7 @@
 			children = (
 				91B3EB532301296F00430D41 /* Assets.xcassets */,
 				91B3EB582301296F00430D41 /* Info.plist */,
+				9108A7F2237848E000099B0B /* GoogleService-Info.plist */,
 				91B5A9762363EF090030909D /* apiKey.plist */,
 			);
 			path = Resouce;
@@ -795,6 +882,7 @@
 				91D1CAB12376563B0066F644 /* MyDetailsDataHeaderViewController.xib in Resources */,
 				91D1CABD23769F3B0066F644 /* MyDetailsDataActionViewController.xib in Resources */,
 				91C64A4A2371A9260046E7E7 /* SettingView.storyboard in Resources */,
+				9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 				91C05BD2236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard in Resources */,
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
@@ -824,9 +912,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-PinMusubiTests/Pods-PinMusubiTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -834,9 +924,11 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -992,9 +1084,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-PinMusubiUITests/Pods-PinMusubiUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1002,9 +1096,11 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1022,9 +1118,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-PinMusubi/Pods-PinMusubi-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1032,9 +1130,11 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1056,6 +1156,90 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9108A81523784DF500099B0B /* SearchInterestPlaceViewController.swift in Sources */,
+				9108A81623784DF500099B0B /* CustomFloatingPanelLayout.swift in Sources */,
+				9108A81723784DF500099B0B /* SettingBasePointsModalViewController.swift in Sources */,
+				9108A81823784DF500099B0B /* SettingBasePointsView.swift in Sources */,
+				9108A81923784DF500099B0B /* SettingBasePointsViewDelegate.swift in Sources */,
+				9108A81A23784DF500099B0B /* SettingBasePointCell.swift in Sources */,
+				9108A81B23784DF500099B0B /* SettingBasePointCellDelegate.swift in Sources */,
+				9108A81C23784DF500099B0B /* SettingBasePointActionCell.swift in Sources */,
+				9108A81D23784DF500099B0B /* SettingBasePointActionCellDelegate.swift in Sources */,
+				9108A81E23784DF500099B0B /* PointsInfomationAnnotationView.swift in Sources */,
+				9108A81F23784DF500099B0B /* PointInfomationAnnotationViewDelegate.swift in Sources */,
+				9108A82023784DF500099B0B /* PointInfomationCell.swift in Sources */,
+				9108A82123784DF500099B0B /* SpotListNavigationController.swift in Sources */,
+				9108A82223784DF500099B0B /* SpotListViewController.swift in Sources */,
+				9108A82323784DF500099B0B /* SpotListViewDelegate.swift in Sources */,
+				9108A82423784DF500099B0B /* SpotListCollectionView.swift in Sources */,
+				9108A82523784DF500099B0B /* SpotListCollectionViewCell.swift in Sources */,
+				9108A82623784DF500099B0B /* SpotListCollectionViewCellDelegate.swift in Sources */,
+				9108A82723784DF500099B0B /* SpotCell.swift in Sources */,
+				9108A82823784DF500099B0B /* SpotDetailsViewController.swift in Sources */,
+				9108A82923784DF500099B0B /* SpotBaseInfoView.swift in Sources */,
+				9108A82A23784DF500099B0B /* TravelTimePanelViewController.swift in Sources */,
+				9108A82B23784DF500099B0B /* TravelTimePanelCell.swift in Sources */,
+				9108A82C23784DF500099B0B /* WebViewController.swift in Sources */,
+				9108A82D23784DF500099B0B /* FavoriteRegisterModalViewDelegate.swift in Sources */,
+				9108A82E23784DF500099B0B /* FavoriteRegisterModalViewDoneDelegate.swift in Sources */,
+				9108A82F23784DF500099B0B /* FavoriteRegisterPresentationController.swift in Sources */,
+				9108A83023784DF500099B0B /* DoneRegisterViewController.swift in Sources */,
+				9108A83123784DF500099B0B /* DoneRegisterViewDelegate.swift in Sources */,
+				9108A83223784DF500099B0B /* DoneRegisterPresentationController.swift in Sources */,
+				9108A83323784DF500099B0B /* MyPageViewController.swift in Sources */,
+				9108A83423784DF500099B0B /* MyPageCollectionView.swift in Sources */,
+				9108A83523784DF500099B0B /* MyPageCollectionViewCell.swift in Sources */,
+				9108A83623784DF500099B0B /* MyPageCollectionViewCellDelegate.swift in Sources */,
+				9108A83723784DF500099B0B /* MyDataCell.swift in Sources */,
+				9108A83823784DF500099B0B /* MyDetailsDataViewController.swift in Sources */,
+				9108A83923784DF500099B0B /* MyDetailsDataHeaderViewController.swift in Sources */,
+				9108A83A23784DF500099B0B /* MyDetailsDataActionViewController.swift in Sources */,
+				9108A83B23784DF500099B0B /* MyDetailsDataActionViewDelegate.swift in Sources */,
+				9108A83C23784DF500099B0B /* EmptyView.swift in Sources */,
+				9108A83D23784DF500099B0B /* SettingViewController.swift in Sources */,
+				9108A83E23784DF500099B0B /* SettingTableViewController.swift in Sources */,
+				9108A83F23784DF500099B0B /* CreditListViewController.swift in Sources */,
+				9108A84023784DF500099B0B /* CreditViewController.swift in Sources */,
+				9108A84123784DF500099B0B /* ContactFormViewController.swift in Sources */,
+				9108A84223784DF500099B0B /* SearchInterestPlacePresenter.swift in Sources */,
+				9108A84323784DF500099B0B /* SettingBasePointsPresenter.swift in Sources */,
+				9108A84423784DF500099B0B /* PointsInfomationPresenter.swift in Sources */,
+				9108A84523784DF500099B0B /* RestaurantSpotPresenter.swift in Sources */,
+				9108A84623784DF500099B0B /* StationSpotPresenter.swift in Sources */,
+				9108A84723784DF500099B0B /* BusStopSpotPresenter.swift in Sources */,
+				9108A84823784DF500099B0B /* TravelTimePanelPresenter.swift in Sources */,
+				9108A84923784DF500099B0B /* MyDataPresenter.swift in Sources */,
+				9108A84A23784DF500099B0B /* MyDetailsDataPresenter.swift in Sources */,
+				9108A80023784DD600099B0B /* AppDelegate.swift in Sources */,
+				9108A80123784DD600099B0B /* ColorDefinition.swift in Sources */,
+				9108A80223784DD600099B0B /* TestData.swift in Sources */,
+				9108A80323784DD600099B0B /* KeyManager.swift in Sources */,
+				9108A80423784DD600099B0B /* UIColor+Extension.swift in Sources */,
+				9108A80523784DD600099B0B /* Notification+Extension.swift in Sources */,
+				9108A80623784DD600099B0B /* UIImageView+Extension.swift in Sources */,
+				9108A80723784DD600099B0B /* CustomFlowLayout.swift in Sources */,
+				9108A80823784DD600099B0B /* AccessorProtcol.swift in Sources */,
+				9108A80923784DD600099B0B /* FavoriteSpotAccessor.swift in Sources */,
+				9108A80A23784DD600099B0B /* SettingPointAccessor.swift in Sources */,
+				9108A80B23784DD600099B0B /* SearchHistoryAccessor.swift in Sources */,
+				9108A80C23784DD600099B0B /* FavoriteSpotModel.swift in Sources */,
+				9108A80D23784DD600099B0B /* SearchInterestPlaceModel.swift in Sources */,
+				9108A80E23784DD600099B0B /* SettingBasePointsModel.swift in Sources */,
+				9108A80F23784DD600099B0B /* PointsInfomationModel.swift in Sources */,
+				9108A81023784DD600099B0B /* RestaurantSpotsModel.swift in Sources */,
+				9108A81123784DD600099B0B /* StationModel.swift in Sources */,
+				9108A81223784DD600099B0B /* BusStopModel.swift in Sources */,
+				9108A81323784DD600099B0B /* TravelTimeModel.swift in Sources */,
+				9108A81423784DD600099B0B /* MyDataModel.swift in Sources */,
+				9108A7F923784DA600099B0B /* MyDataEntityProtocol.swift in Sources */,
+				9108A7FA23784DA600099B0B /* FavoriteSpotEntity.swift in Sources */,
+				9108A7FB23784DA600099B0B /* SearchHistoryEntity.swift in Sources */,
+				9108A7FC23784DA600099B0B /* SpotEntityProtocol.swift in Sources */,
+				9108A7FD23784DA600099B0B /* RestaurantSpotEntity.swift in Sources */,
+				9108A7FE23784DA600099B0B /* StationEntity.swift in Sources */,
+				9108A7FF23784DA600099B0B /* BusStopEntity.swift in Sources */,
+				9108A7F823784D7C00099B0B /* FavoriteSpotPresenter.swift in Sources */,
+				9108A7F723784D5D00099B0B /* SettingPointEntity.swift in Sources */,
 				91B5A97D2365846D0030909D /* StationModelTests.swift in Sources */,
 				91B5A98123658D130030909D /* BusStopTests.swift in Sources */,
 				915A44B1232F3195006A6891 /* SettingPointAccessorTests.swift in Sources */,
@@ -1063,7 +1247,7 @@
 				91B5A9712363260E0030909D /* SearchInterestPlaceModelTests.swift in Sources */,
 				915A44B3232F5532006A6891 /* SearchHistoryAccessorTests.swift in Sources */,
 				91B5A97523633B440030909D /* RestaurantSpotsModelTests.swift in Sources */,
-				91071C12236FEA37002E8835 /* FavoriteRegisterModalViewController.swift in Sources */,
+				9108A7F623784CDE00099B0B /* FavoriteRegisterModalViewController.swift in Sources */,
 				91B5A9732363277C0030909D /* PointsInfomationModelTests.swift in Sources */,
 				9197D6562325396900A5C558 /* PinMusubiTests.swift in Sources */,
 			);
