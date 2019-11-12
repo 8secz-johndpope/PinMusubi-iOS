@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import FirebaseAnalytics
 import MapKit
 import UIKit
 
@@ -20,6 +21,7 @@ public class SpotListViewController: UIViewController {
     private var settingPoints: [SettingPointEntity]?
     private var interestPoint: CLLocationCoordinate2D?
     private var favoriteButtonViewIsHidden = false
+    private var spotListAnalyticsEntity: SpotListAnalyticsEntity?
 
     public weak var delegate: SpotListViewDelegate?
 
@@ -54,6 +56,9 @@ public class SpotListViewController: UIViewController {
             favoriteButtonView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
             favoriteButtonView.layer.borderColor = UIColor(hex: "FA6400", alpha: 0.2).cgColor
         }
+
+        // Firebase用のパラメータ初期化
+        spotListAnalyticsEntity = SpotListAnalyticsEntity()
     }
 
     public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D, address: String) {
@@ -73,6 +78,31 @@ public class SpotListViewController: UIViewController {
     }
 
     @IBAction private func closeSpotListView(_ sender: Any) {
+        guard let sla = spotListAnalyticsEntity else { return }
+        guard let settingPoints = settingPoints else { return }
+        let totalSpotNum = sla.numRestaurantSpot + sla.numHotelSpot + sla.numLeisureSpot + sla.numStationSpot
+        let totalTapTimes = sla.timesTappedRestaurantSpot + sla.timesTappedHotelSpot + sla.timesTappedLeisureSpot + sla.timesTappedStationSpot
+        Analytics.logEvent(
+            "close_spot_list_view",
+            parameters: [
+                "number_of_setting_pin": settingPoints.count as NSObject,
+                "total_number_of_spot": totalSpotNum as NSObject,
+                "number_of_restaurant_spot": sla.numRestaurantSpot as NSObject,
+                // TODO: 後で追加
+                "number_of_hotel_spot": 0 as NSObject,
+                // TODO: 後で追加
+                "number_of_leisure_spot": 0 as NSObject,
+                "number_of_station_spot": sla.numStationSpot as NSObject,
+                "total_tap_times": totalTapTimes as NSObject,
+                // TODO: 後で追加
+                "times_of_restaurant_spot": 0 as NSObject,
+                // TODO: 後で追加
+                "times_of_hotel_spot": 0 as NSObject,
+                // TODO: 後で追加
+                "times_of_leisure_spot": 0 as NSObject,
+                "times_of_station_spot": sla.timesTappedStationSpot as NSObject
+            ]
+        )
         delegate?.closeSpotListView()
     }
 
@@ -85,7 +115,8 @@ public class SpotListViewController: UIViewController {
             favoriteRegisterVC.doneDelegate = self
             guard let settingPoints = settingPoints else { return }
             guard let interestPoint = interestPoint else { return }
-            favoriteRegisterVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint)
+            guard let spotListAnalyticsEntity = spotListAnalyticsEntity else { return }
+            favoriteRegisterVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint, spotListAnalyticsEntity: spotListAnalyticsEntity)
             present(favoriteRegisterVC, animated: true, completion: nil)
         }
     }
@@ -140,6 +171,26 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
         guard let spotDetailsVC = spotDetailsView.instantiateInitialViewController() as? SpotDetailsViewController else { return }
         spotDetailsVC.setParameter(settingPoints: settingPoints, spot: spot)
         navigationController?.show(spotDetailsVC, sender: nil)
+    }
+
+    public func setNumOfSpot(num: Int, spotType: SpotType) {
+        switch spotType {
+        case .restaurant:
+            spotListAnalyticsEntity?.numRestaurantSpot = num
+
+        case .transportation:
+            spotListAnalyticsEntity?.numStationSpot = num
+        }
+    }
+
+    public func setSpotTypeOfTappedSpot(spotType: SpotType) {
+        switch spotType {
+        case .restaurant:
+            spotListAnalyticsEntity?.timesTappedRestaurantSpot += 1
+
+        case .transportation:
+            spotListAnalyticsEntity?.timesTappedStationSpot += 1
+        }
     }
 }
 

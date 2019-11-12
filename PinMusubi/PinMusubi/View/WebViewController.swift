@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import FirebaseAnalytics
 import SDWebImage
 import UIKit
 import WebKit
@@ -15,6 +16,8 @@ public class WebViewController: UIViewController {
     @IBOutlet private var chevronRightButton: UIBarButtonItem!
     @IBOutlet private var safariButton: UIBarButtonItem!
     @IBOutlet private var webView: WKWebView!
+
+    private var movePageTimes = 0
 
     private var shop: Shop?
 
@@ -50,6 +53,12 @@ public class WebViewController: UIViewController {
     }
 
     @IBAction private func didTapBackViewButton(_ sender: Any) {
+        Analytics.logEvent(
+            "close_web_page_of_restaurant",
+            parameters: [
+                "times_of_move_page": movePageTimes as NSObject
+            ]
+        )
         navigationController?.popViewController(animated: true)
     }
 
@@ -94,6 +103,7 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate {
         } else {
             chevronRightButton.tintColor = UIColor.lightGray
         }
+        movePageTimes += 1
     }
 
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation) {

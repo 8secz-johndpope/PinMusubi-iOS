@@ -70,11 +70,13 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
 
     public func setSpotList(spotList: [SpotEntityProtocol]) {
         DispatchQueue.main.async {
+            guard let spotType = self.spotType else { return }
+            self.delegate?.setNumOfSpot(num: spotList.count, spotType: spotType)
+
             self.spotList = spotList
             self.spotListTableView?.reloadData()
 
             if spotList.isEmpty {
-                guard let spotType = self.spotType else { return }
                 self.setEmptyView(spotType: spotType)
             }
         }
@@ -94,6 +96,8 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
 
 extension SpotListCollectionViewCell: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let spotType = spotType else { return }
+        delegate?.setSpotTypeOfTappedSpot(spotType: spotType)
         delegate?.showSpotDetailsView(settingPoints: settingPoints, spot: spotList[indexPath.row])
     }
 

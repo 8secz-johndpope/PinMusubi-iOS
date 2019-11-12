@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import FirebaseAnalytics
 import FloatingPanel
 import GoogleMobileAds
 import MapKit
@@ -36,6 +37,8 @@ public class SearchInterestPlaceViewController: UIViewController {
     private var floatingPanelController = FloatingPanelController()
     /// スポットリスト
     private var spotListNC: SpotListNavigationController?
+    /// ピンを移動した回数
+    private var dragPinTimes = 0
 
     private var safeAreaTop = CGFloat(0.0)
 
@@ -117,6 +120,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             self.halfwayPoint = relesePoint
             setLine(settingPoints: settingPoints, centerPoint: relesePoint)
             pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: relesePoint)
+            dragPinTimes += 1
         }
     }
 
@@ -261,6 +265,9 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
         let region = MKCoordinateRegion(center: halfwayPoint, span: span)
         searchMapView.setRegion(region, animated: true)
         pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
+
+        // パラメータ初期化
+        dragPinTimes = 0
     }
 }
 
@@ -268,6 +275,13 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
     public func searchSpotList() {
         guard let presenter = presenter else { return }
         if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
+            Analytics.logEvent(
+                "show_spot_list",
+                parameters: [
+                    "times_of_drag_pin": dragPinTimes as NSObject,
+                    "number_of_setting_pin": settingPoints.count as NSObject
+                ]
+            )
             showSpotListView(settingPoints: settingPoints, interestPoint: halfwayPoint)
         }
     }

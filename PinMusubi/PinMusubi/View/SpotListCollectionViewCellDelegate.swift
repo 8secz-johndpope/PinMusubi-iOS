@@ -10,4 +10,8 @@
 public protocol SpotListCollectionViewCellDelegate: AnyObject {
     /// スポット詳細画面を表示
     func showSpotDetailsView(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol)
+    /// スポットの数を設定
+    func setNumOfSpot(num: Int, spotType: SpotType)
+    /// スポットタップ時のスポットタイプを設定
+    func setSpotTypeOfTappedSpot(spotType: SpotType)
 }
