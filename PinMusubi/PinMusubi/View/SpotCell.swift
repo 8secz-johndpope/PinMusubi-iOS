@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import GoogleMobileAds
 import SDWebImage
 import UIKit
 
@@ -14,6 +15,9 @@ public class SpotCell: UITableViewCell {
     @IBOutlet private var catchImage: UIImageView!
     @IBOutlet private var title: UILabel!
     @IBOutlet private var subTitle: UILabel!
+    @IBOutlet private var adBaseView: UIView!
+
+    private var adBannerView: GADBannerView?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -27,13 +31,17 @@ public class SpotCell: UITableViewCell {
     }
 
     public func configure(spot: SpotEntityProtocol) {
-        if spot is Shop {
+        adBaseView.isHidden = true
+
+        switch spot {
+        case is Shop:
             guard let restaurant = spot as? Shop else { return }
             title.text = restaurant.name
             subTitle.text = restaurant.genre.name
             guard let imageUrl = URL(string: restaurant.photo.pcPhoto.large) else { return }
             catchImage.sd_setImage(with: imageUrl)
-        } else if spot is Station {
+
+        case is Station :
             guard let station = spot as? Station else { return }
             title.text = station.name + "駅"
             subTitle.text = station.line
@@ -43,7 +51,8 @@ public class SpotCell: UITableViewCell {
                 imageBackView.backgroundColor = UIColor.white
             }
             catchImage.image = UIImage(named: "Train")
-        } else if spot is BusStopEntity {
+
+        case is BusStopEntity :
             guard let busStop = spot as? BusStopEntity else { return }
             title.text = busStop.busStopName
             subTitle.text = busStop.busLineName
@@ -53,6 +62,16 @@ public class SpotCell: UITableViewCell {
                 imageBackView.backgroundColor = UIColor.white
             }
             catchImage.image = UIImage(named: "Bus")
+
+        default:
+            adBaseView.isHidden = false
+            guard let adBannerView = adBannerView else { return }
+            adBaseView.addSubview(adBannerView)
         }
+    }
+
+    public func addAd(adBannerView: GADBannerView) {
+        adBannerView.frame.size = CGSize(width: frame.width, height: frame.height)
+        self.adBannerView = adBannerView
     }
 }

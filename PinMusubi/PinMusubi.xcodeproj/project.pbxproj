@@ -98,6 +98,7 @@
 		9108A84923784DF500099B0B /* MyDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */; };
 		9108A84A23784DF500099B0B /* MyDetailsDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CAB623768DBB0066F644 /* MyDetailsDataPresenter.swift */; };
 		9108A84C237AEC7F00099B0B /* SpotListAnalyticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */; };
+		9108A84E237F584800099B0B /* AdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84D237F584800099B0B /* AdEntity.swift */; };
 		914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */; };
 		914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */; };
@@ -270,6 +271,7 @@
 		91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRegisterModalViewDelegate.swift; sourceTree = "<group>"; };
 		9108A7F2237848E000099B0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListAnalyticsEntity.swift; sourceTree = "<group>"; };
+		9108A84D237F584800099B0B /* AdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdEntity.swift; sourceTree = "<group>"; };
 		914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointActionCellDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewDelegate.swift; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 				91E439252355FE3C00A3B936 /* StationEntity.swift */,
 				91E439232355FB9700A3B936 /* BusStopEntity.swift */,
 				9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */,
+				9108A84D237F584800099B0B /* AdEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1261,6 +1264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91504A8E23366F7B00F900C4 /* SettingBasePointActionCell.swift in Sources */,
+				9108A84E237F584800099B0B /* AdEntity.swift in Sources */,
 				91D190812368331900B0329A /* SpotEntityProtocol.swift in Sources */,
 				91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */,
 				91A411172332764300AF7897 /* SettingBasePointsView.swift in Sources */,

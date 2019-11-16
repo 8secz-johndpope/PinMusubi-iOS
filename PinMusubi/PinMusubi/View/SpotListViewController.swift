@@ -7,6 +7,7 @@
 //
 
 import FirebaseAnalytics
+import GoogleMobileAds
 import MapKit
 import UIKit
 
@@ -191,6 +192,10 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
         case .transportation:
             spotListAnalyticsEntity?.timesTappedStationSpot += 1
         }
+    }
+
+    public func setRootVC(bannerView: GADBannerView) {
+        bannerView.rootViewController = self
     }
 }
 

@@ -83,26 +83,14 @@ public class SearchInterestPlaceViewController: UIViewController {
     }
 
     private func setAd(safeAreaTop: CGFloat) {
-        guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
-        let testID = "ca-app-pub-3940256099942544/2934735716"
-        let adMobTest: Bool = false
-
-        print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
-
-        var admobView = GADBannerView()
-        admobView = GADBannerView(adSize: kGADAdSizeBanner)
-        admobView.frame.origin = CGPoint(x: 0, y: safeAreaTop)
-        admobView.frame.size = CGSize(width: view.frame.width, height: admobView.frame.height)
-
-        if adMobTest {
-            admobView.adUnitID = testID
-        } else {
-            admobView.adUnitID = adMobID
-        }
-
+        // TODO: リリース時に切り替え
+        // guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
+        let adMobID = "ca-app-pub-3940256099942544/2934735716"
+        let admobView = GADBannerView(adSize: kGADAdSizeBanner)
+        admobView.frame.origin = CGPoint(x: (view.frame.width - admobView.bounds.width) / 2, y: safeAreaTop)
+        admobView.adUnitID = adMobID
         admobView.rootViewController = self
         admobView.load(GADRequest())
-
         self.view.addSubview(admobView)
     }
 }

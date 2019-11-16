@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import GoogleMobileAds
 import MapKit
 import UIKit
 
@@ -23,6 +24,7 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     private var spotType: SpotType?
     private var spotList = [SpotEntityProtocol]()
     private var settingPoints = [SettingPointEntity]()
+    private var adBannerView: GADBannerView?
 
     private var restaurantPresenter: RestaurantSpotPresenterProrocol?
     private var stationPresenter: StationSpotPresenterProrocol?
@@ -33,6 +35,7 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     public func configre(spotType: SpotType) {
         self.spotType = spotType
         configrationContent()
+        configureAd()
     }
 
     private func configrationContent() {
@@ -74,6 +77,12 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
             self.delegate?.setNumOfSpot(num: spotList.count, spotType: spotType)
 
             self.spotList = spotList
+
+            // 広告Cellの設定
+            if spotList.count > 20 {
+                self.insertAdElement()
+            }
+
             self.spotListTableView?.reloadData()
 
             if spotList.isEmpty {
@@ -92,13 +101,34 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
         emptyView.frame = bounds
         spotListTableView?.addSubview(emptyView)
     }
+
+    private func insertAdElement() {
+        for index in 0 ... spotList.count - 1 {
+            if index != 0 && index % 20 == 0 {
+                self.spotList.insert(AdEntity(), at: index)
+            }
+        }
+    }
+
+    private func configureAd() {
+        // TODO: リリース時に切り替え
+        // guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
+        let adMobID = "ca-app-pub-3940256099942544/2934735716"
+        let adBannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        adBannerView.adUnitID = adMobID
+        adBannerView.load(GADRequest())
+        delegate?.setRootVC(bannerView: adBannerView)
+        self.adBannerView = adBannerView
+    }
 }
 
 extension SpotListCollectionViewCell: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let spotType = spotType else { return }
+        let didSelectSpot = spotList[indexPath.row]
+        if didSelectSpot is AdEntity { return }
         delegate?.setSpotTypeOfTappedSpot(spotType: spotType)
-        delegate?.showSpotDetailsView(settingPoints: settingPoints, spot: spotList[indexPath.row])
+        delegate?.showSpotDetailsView(settingPoints: settingPoints, spot: didSelectSpot)
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -116,6 +146,8 @@ extension SpotListCollectionViewCell: UITableViewDataSource {
         cell.initialize()
         cell.configure(spot: spotList[indexPath.row])
         cell.selectionStyle = .none
+        guard let adBannerView = adBannerView else { return cell }
+        cell.addAd(adBannerView: adBannerView)
         return cell
     }
 }

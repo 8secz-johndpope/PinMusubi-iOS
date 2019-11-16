@@ -47,15 +47,23 @@
                         <constraint firstAttribute="height" constant="15" id="iP8-Tv-w7L"/>
                     </constraints>
                 </imageView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXu-Ah-9v8">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="JXu-Ah-9v8" secondAttribute="bottom" id="2SH-qt-WbZ"/>
                 <constraint firstItem="HQr-kd-0lS" firstAttribute="leading" secondItem="jVD-ee-n5W" secondAttribute="trailing" constant="12.5" id="2mg-1k-2yb"/>
                 <constraint firstAttribute="trailing" secondItem="HQr-kd-0lS" secondAttribute="trailing" constant="77" id="6d0-UC-sUI"/>
                 <constraint firstItem="jVD-ee-n5W" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="92f-rO-24Z"/>
+                <constraint firstItem="JXu-Ah-9v8" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="B1V-Ag-jy8"/>
                 <constraint firstItem="zVh-g1-Bkf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="HkT-hk-RCP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5MU-KM-Cy1" secondAttribute="trailing" constant="77" id="OTO-hn-cKo"/>
                 <constraint firstAttribute="trailing" secondItem="zVh-g1-Bkf" secondAttribute="trailing" constant="16" id="Qtr-8g-loA"/>
+                <constraint firstItem="JXu-Ah-9v8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Uhi-ur-7t6"/>
+                <constraint firstItem="JXu-Ah-9v8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fHJ-pV-BfF"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5MU-KM-Cy1" secondAttribute="bottom" constant="20" id="kBI-We-6Lg"/>
                 <constraint firstItem="5MU-KM-Cy1" firstAttribute="leading" secondItem="jVD-ee-n5W" secondAttribute="trailing" constant="12.5" id="mAw-O3-B68"/>
                 <constraint firstItem="HQr-kd-0lS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="tBA-o2-v6S"/>
@@ -64,6 +72,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="adBaseView" destination="JXu-Ah-9v8" id="xxS-hc-7Bi"/>
                 <outlet property="catchImage" destination="oR6-Ng-RKR" id="khz-Ic-xO2"/>
                 <outlet property="imageBackView" destination="jVD-ee-n5W" id="AvN-wv-C2r"/>
                 <outlet property="subTitle" destination="5MU-KM-Cy1" id="zYg-tO-eGa"/>
