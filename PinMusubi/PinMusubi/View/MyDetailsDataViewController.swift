@@ -112,6 +112,7 @@ public class MyDetailsDataViewController: UIViewController {
         if model.deleteFavoriteData(id: favoriteData.id) {
             navigationController?.popViewController(animated: true)
         }
+        model.deleteDocument(id: favoriteData.id)
     }
 }
 

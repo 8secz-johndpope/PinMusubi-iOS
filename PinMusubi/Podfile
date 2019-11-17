@@ -15,7 +15,8 @@ target 'PinMusubi' do
   pod 'Cosmos'
   pod 'Firebase/Analytics'
   pod 'Firebase/AdMob'
-  
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
   post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -38,6 +39,8 @@ end
     pod 'Cosmos'
     pod 'Firebase/Analytics'
     pod 'Firebase/AdMob'
+    pod 'Firebase/Core'
+    pod 'Firebase/Firestore'
   end
 
   target 'PinMusubiUITests' do
@@ -51,6 +54,8 @@ end
     pod 'Cosmos'
     pod 'Firebase/Analytics'
     pod 'Firebase/AdMob'
+    pod 'Firebase/Core'
+    pod 'Firebase/Firestore'
   end
 
 end

@@ -163,6 +163,9 @@ public class FavoriteRegisterModalViewController: UIViewController {
                 doneDelegate?.showDoneRegisterView()
             }
         }
+        // FireStoreに登録
+        let model = FavoriteSpotModel()
+        model.addDocument(favoriteSpot: tmpFavoriteSpot)
     }
 
     private func validateCheck() -> Bool {

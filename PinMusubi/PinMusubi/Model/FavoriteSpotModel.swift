@@ -17,6 +17,10 @@ public protocol FavoriteSpotModelProtocol {
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter favoriteSpot: お気に入りスポット情報
     func setFavoriteSpot(settingPoints: [SettingPointEntity], favoriteSpot: FavoriteSpotEntity) -> Bool
+
+    /// Firestoreへ登録
+    /// - Parameter favoriteSpot: 登録するお気に入りスポット
+    func addDocument(favoriteSpot: FavoriteSpotEntity)
 }
 
 public class FavoriteSpotModel: FavoriteSpotModelProtocol {
@@ -35,5 +39,9 @@ public class FavoriteSpotModel: FavoriteSpotModelProtocol {
         favoriteSpot.settingPointEntityList = settingPointsList
 
         return FavoriteSpotAccessor().set(data: favoriteSpot)
+    }
+
+    public func addDocument(favoriteSpot: FavoriteSpotEntity) {
+        FavoriteSpotAccessor().addDocument(favoriteSpot: favoriteSpot)
     }
 }

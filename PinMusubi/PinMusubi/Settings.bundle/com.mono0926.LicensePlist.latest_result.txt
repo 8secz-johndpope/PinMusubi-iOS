@@ -1,3 +1,15 @@
+name: BoringSSL-GRPC, nameSpecified: 
+body: BoringSSL is a fork …
+version: 0.0.3
+
+name: BoringSSL-GRPC, nameSpecified: 
+body: BoringSSL is a fork …
+version: 0.0.3
+
+name: BoringSSL-GRPC, nameSpecified: 
+body: BoringSSL is a fork …
+version: 0.0.3
+
 name: Cosmos, nameSpecified: 
 body: The MIT License
 
@@ -39,6 +51,21 @@ version: 6.1.3
 name: FirebaseAnalytics, nameSpecified: 
 body: Copyright 2019 Googl…
 version: 6.1.3
+
+name: FirebaseAuthInterop, nameSpecified: 
+body: 
+                   …
+version: 1.0.0
+
+name: FirebaseAuthInterop, nameSpecified: 
+body: 
+                   …
+version: 1.0.0
+
+name: FirebaseAuthInterop, nameSpecified: 
+body: 
+                   …
+version: 1.0.0
 
 name: FirebaseCore, nameSpecified: 
 body: 
@@ -84,6 +111,21 @@ name: FirebaseCoreDiagnosticsInterop, nameSpecified:
 body: 
                    …
 version: 1.0.0
+
+name: FirebaseFirestore, nameSpecified: 
+body: 
+                   …
+version: 1.6.0
+
+name: FirebaseFirestore, nameSpecified: 
+body: 
+                   …
+version: 1.6.0
+
+name: FirebaseFirestore, nameSpecified: 
+body: 
+                   …
+version: 1.6.0
 
 name: FirebaseInstanceID, nameSpecified: 
 body: 
@@ -186,6 +228,48 @@ name: GoogleUtilities, nameSpecified:
 body: 
                    …
 version: 6.3.1
+
+name: gRPC-C++, nameSpecified: 
+body: 
+                   …
+version: 
+
+name: gRPC-C++, nameSpecified: 
+body: 
+                   …
+version: 
+
+name: gRPC-C++, nameSpecified: 
+body: 
+                   …
+version: 
+
+name: gRPC-Core, nameSpecified: 
+body: 
+                   …
+version: 1.21.0
+
+name: gRPC-Core, nameSpecified: 
+body: 
+                   …
+version: 1.21.0
+
+name: gRPC-Core, nameSpecified: 
+body: 
+                   …
+version: 1.21.0
+
+name: leveldb-library, nameSpecified: 
+body: Copyright (c) 2011 T…
+version: 1.22
+
+name: leveldb-library, nameSpecified: 
+body: Copyright (c) 2011 T…
+version: 1.22
+
+name: leveldb-library, nameSpecified: 
+body: Copyright (c) 2011 T…
+version: 1.22
 
 name: LicensePlist, nameSpecified: 
 body: MIT License
@@ -204,6 +288,18 @@ version: 0.3.901
 name: nanopb, nameSpecified: 
 body: Copyright (c) 2011 P…
 version: 0.3.901
+
+name: Protobuf, nameSpecified: 
+body: Copyright 2008 Googl…
+version: 3.10.0
+
+name: Protobuf, nameSpecified: 
+body: Copyright 2008 Googl…
+version: 3.10.0
+
+name: Protobuf, nameSpecified: 
+body: Copyright 2008 Googl…
+version: 3.10.0
 
 name: Realm, nameSpecified: 
 body: TABLE OF CONTENTS

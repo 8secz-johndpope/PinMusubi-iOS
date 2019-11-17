@@ -29,6 +29,8 @@ public class FavoriteSpotEntity: Object, MyDataEntityProtocol {
     public dynamic var dateTime = Date()
     /// 設定地点情報
     public var settingPointEntityList = List<SettingPointEntity>()
+    /// シェアの可否
+    public var canShare = false
 
     /// プライマリキーの設定
     override public static func primaryKey() -> String? {
