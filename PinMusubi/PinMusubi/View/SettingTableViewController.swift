@@ -17,10 +17,10 @@ public class SettingTableViewController: UITableViewController {
     private var sectionTitle1 = "アプリについて"
 
     // cell
-    private var tutorialTitle = "チュートリアルを見る"
+    private var tutorialTitle = "使い方を確認する"
     private var versionTitle = "バージョン"
     private var creditTitle = "クレジット"
-    private var contactTitle = "ご意見・ご要望はこちら"
+    private var contactTitle = "ご意見・ご要望を送る"
     private var reviewTitle = "このアプリを評価する"
 
     override public func viewDidLoad() {

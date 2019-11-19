@@ -15,6 +15,6 @@ public class SpotListCollectionView: UICollectionView {
 
         guard let flowLayout = collectionViewLayout as? CustomFlowLayout else { return }
         flowLayout.scrollDirection = .horizontal
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 1_000)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 200)
     }
 }

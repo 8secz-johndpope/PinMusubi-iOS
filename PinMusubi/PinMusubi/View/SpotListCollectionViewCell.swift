@@ -12,10 +12,14 @@ import UIKit
 
 /// スポットの形式
 public enum SpotType {
-    /// 交通機関
-    case transportation
     /// 飲食店
     case restaurant
+    /// 宿泊施設
+    case hotel
+    /// レジャー
+    case leisure
+    /// 交通機関
+    case transportation
 }
 
 public class SpotListCollectionViewCell: UICollectionViewCell {
@@ -59,15 +63,27 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     }
 
     public func setSpotList(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
-        if spotType == .transportation {
+        switch spotType {
+        case .restaurant:
+            let orderType = OrderType.byDistance
+            restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType)
+
+        case .hotel:
+            break
+
+        case .leisure:
+            break
+
+        case .transportation:
             stationPresenter?.fetchStationList(interestPoint: interestPoint, completion: { stations in
                 self.busPresenter?.fetchBusStopList(interestPoint: interestPoint, stations: stations)
             }
             )
-        } else if spotType == .restaurant {
-            let orderType = OrderType.byDistance
-            restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType)
+
+        default:
+            break
         }
+
         self.settingPoints = settingPoints
     }
 

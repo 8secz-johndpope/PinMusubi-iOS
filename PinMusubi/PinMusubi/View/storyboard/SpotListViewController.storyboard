@@ -52,20 +52,6 @@
                                     <constraint firstAttribute="height" constant="80" id="zwb-YJ-ldT"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZNo-iv-7YD">
-                                <rect key="frame" x="91" y="65" width="193" height="32"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="8Dp-0R-2SI"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="First" width="96"/>
-                                    <segment title="Second" width="96"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentChangedWithSender:" destination="Iu6-TR-OKb" eventType="valueChanged" id="JIT-lH-NW1"/>
-                                </connections>
-                            </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8fr-mu-wov" customClass="SpotListCollectionView" customModule="PinMusubi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="112" width="375" height="467"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -87,6 +73,22 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZNo-iv-7YD">
+                                <rect key="frame" x="56" y="65" width="263" height="32"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="8Dp-0R-2SI"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title="Third"/>
+                                    <segment title="Fourth"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChangedWithSender:" destination="Iu6-TR-OKb" eventType="valueChanged" id="JIT-lH-NW1"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

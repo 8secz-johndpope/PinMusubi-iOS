@@ -100,6 +100,9 @@
 		9108A84E237F584800099B0B /* AdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84D237F584800099B0B /* AdEntity.swift */; };
 		9108A8532381933D00099B0B /* SpotListAnalyticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */; };
 		9108A8542381938E00099B0B /* AdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84D237F584800099B0B /* AdEntity.swift */; };
+		914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BA2382AFE000AE7E06 /* HotelEntity.swift */; };
+		914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BC2382C8C600AE7E06 /* HotelModel.swift */; };
+		914455BF2382CC9200AE7E06 /* HotelModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BE2382CC9200AE7E06 /* HotelModelTests.swift */; };
 		914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */; };
 		914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */; };
@@ -273,6 +276,9 @@
 		9108A7F2237848E000099B0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListAnalyticsEntity.swift; sourceTree = "<group>"; };
 		9108A84D237F584800099B0B /* AdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdEntity.swift; sourceTree = "<group>"; };
+		914455BA2382AFE000AE7E06 /* HotelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelEntity.swift; sourceTree = "<group>"; };
+		914455BC2382C8C600AE7E06 /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
+		914455BE2382CC9200AE7E06 /* HotelModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModelTests.swift; sourceTree = "<group>"; };
 		914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointActionCellDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewDelegate.swift; sourceTree = "<group>"; };
@@ -510,6 +516,7 @@
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
 				91D190802368331900B0329A /* SpotEntityProtocol.swift */,
 				91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */,
+				914455BA2382AFE000AE7E06 /* HotelEntity.swift */,
 				91E439252355FE3C00A3B936 /* StationEntity.swift */,
 				91E439232355FB9700A3B936 /* BusStopEntity.swift */,
 				9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */,
@@ -545,6 +552,7 @@
 				9197D65E23253ADB00A5C558 /* SettingBasePointsModelTests.swift */,
 				91B5A9722363277C0030909D /* PointsInfomationModelTests.swift */,
 				91B5A97423633B440030909D /* RestaurantSpotsModelTests.swift */,
+				914455BE2382CC9200AE7E06 /* HotelModelTests.swift */,
 				91B5A97C2365846D0030909D /* StationModelTests.swift */,
 				91B5A98023658D130030909D /* BusStopTests.swift */,
 			);
@@ -688,6 +696,7 @@
 				91BDCB932324B25600E4B5C4 /* SettingBasePointsModel.swift */,
 				914F49EE233B89C90005C316 /* PointsInfomationModel.swift */,
 				91E439292361DFE500A3B936 /* RestaurantSpotsModel.swift */,
+				914455BC2382C8C600AE7E06 /* HotelModel.swift */,
 				91B5A97A23657EE10030909D /* StationModel.swift */,
 				91B5A97E23658BCD0030909D /* BusStopModel.swift */,
 				9162288A236CF6CE00F009DB /* TravelTimeModel.swift */,
@@ -1241,6 +1250,7 @@
 				9108A84023784DF500099B0B /* CreditViewController.swift in Sources */,
 				9108A84123784DF500099B0B /* ContactFormViewController.swift in Sources */,
 				9108A84223784DF500099B0B /* SearchInterestPlacePresenter.swift in Sources */,
+				914455BF2382CC9200AE7E06 /* HotelModelTests.swift in Sources */,
 				9108A84323784DF500099B0B /* SettingBasePointsPresenter.swift in Sources */,
 				9108A84423784DF500099B0B /* PointsInfomationPresenter.swift in Sources */,
 				9108A84523784DF500099B0B /* RestaurantSpotPresenter.swift in Sources */,
@@ -1356,6 +1366,7 @@
 				91D190832368485A00B0329A /* UIImageView+Extension.swift in Sources */,
 				91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */,
 				91EEA810237809AA00824BBB /* CreditListViewController.swift in Sources */,
+				914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */,
 				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
 				91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */,
@@ -1373,6 +1384,7 @@
 				91B5A997236715C00030909D /* CustomFlowLayout.swift in Sources */,
 				91C64A6A23764B000046E7E7 /* MyDetailsDataViewController.swift in Sources */,
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
+				914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91D1907D2368073700B0329A /* SpotCell.swift in Sources */,
 				91C64A4C2371AB1D0046E7E7 /* MyPageViewController.swift in Sources */,

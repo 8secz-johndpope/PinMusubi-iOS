@@ -32,8 +32,10 @@ public class SpotListViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
 
-        segmentedControl.setTitle("飲食店", forSegmentAt: 0)
-        segmentedControl.setTitle("駅・バス停", forSegmentAt: 1)
+        segmentedControl.setTitle("飲食", forSegmentAt: 0)
+        segmentedControl.setTitle("宿泊", forSegmentAt: 1)
+        segmentedControl.setTitle("レジャー", forSegmentAt: 2)
+        segmentedControl.setTitle("駅・バス停", forSegmentAt: 3)
         if #available(iOS 13.0, *) {
             segmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
         } else {
@@ -132,15 +134,27 @@ extension SpotListViewController: UICollectionViewDataSource {
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         flowLayout = collectionView.collectionViewLayout as? CustomFlowLayout
-        flowLayout?.prepareForPaging()
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SpotListCollectionViewCell", for: indexPath)
             as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
         cell.delegate = self
-        if indexPath.row == 0 {
+
+        switch indexPath.row {
+        case 0:
             cell.configre(spotType: .restaurant)
-        } else if indexPath.row == 1 {
+
+        case 1:
+            cell.configre(spotType: .hotel)
+
+        case 2:
+            cell.configre(spotType: .leisure)
+
+        case 3:
             cell.configre(spotType: .transportation)
+
+        default:
+            break
         }
+
         guard let settingPoints = settingPoints else { return cell }
         guard let interestPoint = interestPoint else { return cell }
         cell.setSpotList(settingPoints: settingPoints, interestPoint: interestPoint)
@@ -150,14 +164,26 @@ extension SpotListViewController: UICollectionViewDataSource {
 
 extension SpotListViewController: UICollectionViewDelegateFlowLayout {
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        let collectionView = scrollView as? UICollectionView
+        (collectionView?.collectionViewLayout as? CustomFlowLayout)?.prepareForPaging()
         isChangeSegmentedControl = true
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isChangeSegmentedControl {
             let offSet = scrollView.contentOffset.x
-            let collectionWidth = scrollView.bounds.width / 2
-            segmentedControl.selectedSegmentIndex = Int(offSet / collectionWidth)
+            let collectionWidth = scrollView.bounds.width + 10
+            let centerX = collectionWidth / 2
+
+            if offSet > centerX + collectionWidth * 2 {
+                segmentedControl.selectedSegmentIndex = 3
+            } else if offSet > centerX + collectionWidth {
+                segmentedControl.selectedSegmentIndex = 2
+            } else if offSet > centerX {
+                segmentedControl.selectedSegmentIndex = 1
+            } else if offSet < centerX {
+                segmentedControl.selectedSegmentIndex = 0
+            }
         }
     }
 
@@ -179,6 +205,12 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
         case .restaurant:
             spotListAnalyticsEntity?.numRestaurantSpot = num
 
+        case .hotel:
+            spotListAnalyticsEntity?.numHotelSpot = num
+
+        case .leisure:
+            spotListAnalyticsEntity?.numLeisureSpot = num
+
         case .transportation:
             spotListAnalyticsEntity?.numStationSpot = num
         }
@@ -188,6 +220,12 @@ extension SpotListViewController: SpotListCollectionViewCellDelegate {
         switch spotType {
         case .restaurant:
             spotListAnalyticsEntity?.timesTappedRestaurantSpot += 1
+
+        case .hotel:
+            spotListAnalyticsEntity?.timesTappedHotelSpot += 1
+
+        case .leisure:
+            spotListAnalyticsEntity?.timesTappedLeisureSpot += 1
 
         case .transportation:
             spotListAnalyticsEntity?.timesTappedStationSpot += 1
