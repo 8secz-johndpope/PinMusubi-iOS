@@ -15,7 +15,7 @@ public struct HotelEntity: Codable {
 }
 
 // MARK: - HotelEntityHotel
-public struct Hotels: Codable {
+public struct Hotels: Codable, SpotEntityProtocol {
     public let hotel: [Hotel]
 }
 

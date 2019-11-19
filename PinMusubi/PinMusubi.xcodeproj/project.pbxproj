@@ -103,6 +103,9 @@
 		914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BA2382AFE000AE7E06 /* HotelEntity.swift */; };
 		914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BC2382C8C600AE7E06 /* HotelModel.swift */; };
 		914455BF2382CC9200AE7E06 /* HotelModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BE2382CC9200AE7E06 /* HotelModelTests.swift */; };
+		914455C12384186100AE7E06 /* LeisureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C02384186000AE7E06 /* LeisureEntity.swift */; };
+		914455C32384206400AE7E06 /* LeisureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C22384206400AE7E06 /* LeisureModel.swift */; };
+		914455C5238426FA00AE7E06 /* LeisureModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C4238426F900AE7E06 /* LeisureModelTests.swift */; };
 		914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */; };
 		914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */; };
@@ -279,6 +282,9 @@
 		914455BA2382AFE000AE7E06 /* HotelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelEntity.swift; sourceTree = "<group>"; };
 		914455BC2382C8C600AE7E06 /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
 		914455BE2382CC9200AE7E06 /* HotelModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModelTests.swift; sourceTree = "<group>"; };
+		914455C02384186000AE7E06 /* LeisureEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureEntity.swift; sourceTree = "<group>"; };
+		914455C22384206400AE7E06 /* LeisureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureModel.swift; sourceTree = "<group>"; };
+		914455C4238426F900AE7E06 /* LeisureModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureModelTests.swift; sourceTree = "<group>"; };
 		914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointActionCellDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewDelegate.swift; sourceTree = "<group>"; };
@@ -517,6 +523,7 @@
 				91D190802368331900B0329A /* SpotEntityProtocol.swift */,
 				91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */,
 				914455BA2382AFE000AE7E06 /* HotelEntity.swift */,
+				914455C02384186000AE7E06 /* LeisureEntity.swift */,
 				91E439252355FE3C00A3B936 /* StationEntity.swift */,
 				91E439232355FB9700A3B936 /* BusStopEntity.swift */,
 				9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */,
@@ -553,6 +560,7 @@
 				91B5A9722363277C0030909D /* PointsInfomationModelTests.swift */,
 				91B5A97423633B440030909D /* RestaurantSpotsModelTests.swift */,
 				914455BE2382CC9200AE7E06 /* HotelModelTests.swift */,
+				914455C4238426F900AE7E06 /* LeisureModelTests.swift */,
 				91B5A97C2365846D0030909D /* StationModelTests.swift */,
 				91B5A98023658D130030909D /* BusStopTests.swift */,
 			);
@@ -697,6 +705,7 @@
 				914F49EE233B89C90005C316 /* PointsInfomationModel.swift */,
 				91E439292361DFE500A3B936 /* RestaurantSpotsModel.swift */,
 				914455BC2382C8C600AE7E06 /* HotelModel.swift */,
+				914455C22384206400AE7E06 /* LeisureModel.swift */,
 				91B5A97A23657EE10030909D /* StationModel.swift */,
 				91B5A97E23658BCD0030909D /* BusStopModel.swift */,
 				9162288A236CF6CE00F009DB /* TravelTimeModel.swift */,
@@ -1207,6 +1216,7 @@
 				9108A81523784DF500099B0B /* SearchInterestPlaceViewController.swift in Sources */,
 				9108A81623784DF500099B0B /* CustomFloatingPanelLayout.swift in Sources */,
 				9108A81723784DF500099B0B /* SettingBasePointsModalViewController.swift in Sources */,
+				914455C5238426FA00AE7E06 /* LeisureModelTests.swift in Sources */,
 				9108A81823784DF500099B0B /* SettingBasePointsView.swift in Sources */,
 				9108A81923784DF500099B0B /* SettingBasePointsViewDelegate.swift in Sources */,
 				9108A81A23784DF500099B0B /* SettingBasePointCell.swift in Sources */,
@@ -1370,6 +1380,7 @@
 				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
 				91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */,
+				914455C32384206400AE7E06 /* LeisureModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */,
 				91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */,
@@ -1391,6 +1402,7 @@
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
 				91D1CABC23769F3B0066F644 /* MyDetailsDataActionViewController.swift in Sources */,
 				91C05BD4236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift in Sources */,
+				914455C12384186100AE7E06 /* LeisureEntity.swift in Sources */,
 				91EEA81223780A2700824BBB /* ContactFormViewController.swift in Sources */,
 				91622887236CEE9800F009DB /* TravelTimePanelPresenter.swift in Sources */,
 				91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */,
