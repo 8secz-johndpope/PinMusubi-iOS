@@ -18,7 +18,7 @@ public struct LeisureEntity: Codable {
 }
 
 // MARK: - Feature
-public struct Feature: Codable {
+public struct Feature: Codable, SpotEntityProtocol {
     public let id, gid, name: String
     public let geometry: Geometry
     public let category: [String]
@@ -54,7 +54,7 @@ public struct Property: Codable {
     public let cassetteID: String
     public let yomi: String?
     public let country: Country
-    public let address, governmentCode, addressMatchingLevel, tel1: String
+    public let address, governmentCode, addressMatchingLevel, tel1: String?
     public let genre: [YGenre]
     public let station: [YStation]
     public let smartPhoneCouponFlag: String

@@ -41,10 +41,10 @@ public class LeisureModel: LeisureModelProtocol {
             URLQueryItem(name: "lon", value: "\(pinPoint.longitude)"),
             URLQueryItem(name: "gc", value: "03"),
             URLQueryItem(name: "dist", value: "20"),
-            URLQueryItem(name: "result", value: "100"),
+            URLQueryItem(name: "results", value: "100"),
             URLQueryItem(name: "sort", value: "geo"),
             URLQueryItem(name: "image", value: "true"),
-            URLQueryItem(name: "device", value: "mobil"),
+            URLQueryItem(name: "device", value: "mobile"),
             URLQueryItem(name: "output", value: "json")
         ]
         guard let urlRequest = urlComponents.url else { return }
@@ -53,9 +53,12 @@ public class LeisureModel: LeisureModelProtocol {
             guard let jsonData = data else { return }
             do {
                 let leisureInfo = try JSONDecoder().decode(LeisureEntity.self, from: jsonData)
-                completion(leisureInfo.feature, .success)
+                var features = [Feature]()
+                for feature in leisureInfo.feature where !feature.property.genre[0].code.contains("0304") {
+                    features.append(feature)
+                }
+                completion(features, .success)
             } catch {
-                print("😆😆😆😆😆😆😆😆😆😆😆😆")
                 print(error)
                 completion([], .error)
             }

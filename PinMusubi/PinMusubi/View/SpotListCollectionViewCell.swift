@@ -31,6 +31,8 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     private var adBannerView: GADBannerView?
 
     private var restaurantPresenter: RestaurantSpotPresenterProrocol?
+    private var hotelPresenter: HotelSpotPresenterProrocol?
+    private var leisurePresenter: LeisureSpotPresenterProrocol?
     private var stationPresenter: StationSpotPresenterProrocol?
     private var busPresenter: BusStopSpotPresenterProrocol?
 
@@ -56,6 +58,8 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
         spotListTableView.dataSource = self
 
         restaurantPresenter = RestaurantSpotPresenter(view: self, modelType: RestaurantSpotsModel.self)
+        hotelPresenter = HotelSpotPresenter(view: self, modelType: HotelModel.self)
+        leisurePresenter = LeisureSpotPresenter(view: self, modelType: LeisureModel.self)
         stationPresenter = StationSpotPresenter(view: self, modelType: StationModel.self)
         busPresenter = BusStopSpotPresenter(view: self, modelType: BusStopModel.self)
 
@@ -69,10 +73,10 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
             restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType)
 
         case .hotel:
-            break
+            hotelPresenter?.fetchHotelSpotList(interestPoint: interestPoint)
 
         case .leisure:
-            break
+            leisurePresenter?.fetchHotelSpotList(interestPoint: interestPoint)
 
         case .transportation:
             stationPresenter?.fetchStationList(interestPoint: interestPoint, completion: { stations in

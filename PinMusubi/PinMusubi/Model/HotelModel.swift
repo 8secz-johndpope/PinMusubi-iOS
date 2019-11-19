@@ -46,7 +46,7 @@ public class HotelModel: HotelModelProtocol {
             URLQueryItem(name: "datumType", value: "1"),
             URLQueryItem(name: "latitude", value: "\(pinPoint.latitude)"),
             URLQueryItem(name: "longitude", value: "\(pinPoint.longitude)"),
-            URLQueryItem(name: "searchRadius", value: "2"),
+            URLQueryItem(name: "searchRadius", value: "1"),
             URLQueryItem(name: "allReturnFlag", value: "1")
         ]
         guard let urlRequest = urlComponents.url else { return }
@@ -57,7 +57,6 @@ public class HotelModel: HotelModelProtocol {
                 let hotelInfo = try JSONDecoder().decode(HotelEntity.self, from: jsonData)
                 completion(hotelInfo.hotels, .success)
             } catch {
-                print("😆😆😆😆😆😆😆😆😆😆😆😆")
                 print(error)
                 completion([], .error)
             }

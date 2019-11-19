@@ -76,7 +76,6 @@ public class FavoriteSpotAccessor: AccessorProtcol {
             ]
         ) { err in
             if let err = err {
-                print("😩😩😩😩😩😩")
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
@@ -90,7 +89,6 @@ public class FavoriteSpotAccessor: AccessorProtcol {
         let dataStore = Firestore.firestore()
         dataStore.collection("favorite_spots").document(id).delete { err in
             if let err = err {
-                print("😩😩😩😩😩😩")
                 print("Error removing document: \(err)")
             } else {
                 print("Document successfully removed!")

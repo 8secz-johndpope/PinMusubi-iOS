@@ -106,6 +106,15 @@
 		914455C12384186100AE7E06 /* LeisureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C02384186000AE7E06 /* LeisureEntity.swift */; };
 		914455C32384206400AE7E06 /* LeisureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C22384206400AE7E06 /* LeisureModel.swift */; };
 		914455C5238426FA00AE7E06 /* LeisureModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C4238426F900AE7E06 /* LeisureModelTests.swift */; };
+		914455C7238438E400AE7E06 /* HotelSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C6238438E400AE7E06 /* HotelSpotPresenter.swift */; };
+		914455C92384397600AE7E06 /* LeisureSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C82384397600AE7E06 /* LeisureSpotPresenter.swift */; };
+		914455CA23843C7F00AE7E06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EB4C2301296E00430D41 /* AppDelegate.swift */; };
+		914455CB23843C7F00AE7E06 /* HotelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BA2382AFE000AE7E06 /* HotelEntity.swift */; };
+		914455CC23843C7F00AE7E06 /* LeisureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C02384186000AE7E06 /* LeisureEntity.swift */; };
+		914455CD23843C7F00AE7E06 /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BC2382C8C600AE7E06 /* HotelModel.swift */; };
+		914455CE23843C7F00AE7E06 /* LeisureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C22384206400AE7E06 /* LeisureModel.swift */; };
+		914455CF23843C7F00AE7E06 /* HotelSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C6238438E400AE7E06 /* HotelSpotPresenter.swift */; };
+		914455D023843C7F00AE7E06 /* LeisureSpotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C82384397600AE7E06 /* LeisureSpotPresenter.swift */; };
 		914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */; };
 		914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */; };
@@ -285,6 +294,8 @@
 		914455C02384186000AE7E06 /* LeisureEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureEntity.swift; sourceTree = "<group>"; };
 		914455C22384206400AE7E06 /* LeisureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureModel.swift; sourceTree = "<group>"; };
 		914455C4238426F900AE7E06 /* LeisureModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureModelTests.swift; sourceTree = "<group>"; };
+		914455C6238438E400AE7E06 /* HotelSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelSpotPresenter.swift; sourceTree = "<group>"; };
+		914455C82384397600AE7E06 /* LeisureSpotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureSpotPresenter.swift; sourceTree = "<group>"; };
 		914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointActionCellDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewDelegate.swift; sourceTree = "<group>"; };
@@ -687,11 +698,13 @@
 				914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */,
 				914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */,
 				91D1907E2368157600B0329A /* RestaurantSpotPresenter.swift */,
+				914455C6238438E400AE7E06 /* HotelSpotPresenter.swift */,
 				91D190862368A09700B0329A /* StationSpotPresenter.swift */,
 				91D190882368A49D00B0329A /* BusStopSpotPresenter.swift */,
 				91622886236CEE9800F009DB /* TravelTimePanelPresenter.swift */,
 				91C64A5B2372E0F90046E7E7 /* MyDataPresenter.swift */,
 				91D1CAB623768DBB0066F644 /* MyDetailsDataPresenter.swift */,
+				914455C82384397600AE7E06 /* LeisureSpotPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1211,6 +1224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914455CA23843C7F00AE7E06 /* AppDelegate.swift in Sources */,
+				914455CB23843C7F00AE7E06 /* HotelEntity.swift in Sources */,
+				914455CC23843C7F00AE7E06 /* LeisureEntity.swift in Sources */,
+				914455CD23843C7F00AE7E06 /* HotelModel.swift in Sources */,
+				914455CE23843C7F00AE7E06 /* LeisureModel.swift in Sources */,
+				914455CF23843C7F00AE7E06 /* HotelSpotPresenter.swift in Sources */,
+				914455D023843C7F00AE7E06 /* LeisureSpotPresenter.swift in Sources */,
 				9108A8542381938E00099B0B /* AdEntity.swift in Sources */,
 				9108A8532381933D00099B0B /* SpotListAnalyticsEntity.swift in Sources */,
 				9108A81523784DF500099B0B /* SearchInterestPlaceViewController.swift in Sources */,
@@ -1368,6 +1388,7 @@
 				91D1CAB42376657D0066F644 /* TravelTimePanelViewController.swift in Sources */,
 				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91C64A502371B4A30046E7E7 /* MyPageCollectionView.swift in Sources */,
+				914455C7238438E400AE7E06 /* HotelSpotPresenter.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */,
 				91B5A97F23658BCD0030909D /* BusStopModel.swift in Sources */,
@@ -1382,6 +1403,7 @@
 				91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */,
 				914455C32384206400AE7E06 /* LeisureModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
+				914455C92384397600AE7E06 /* LeisureSpotPresenter.swift in Sources */,
 				91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */,
 				91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */,
 				91EEA8082377E75400824BBB /* SettingTableViewController.swift in Sources */,

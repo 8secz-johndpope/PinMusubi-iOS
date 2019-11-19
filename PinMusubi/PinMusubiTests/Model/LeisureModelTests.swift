@@ -29,6 +29,6 @@ class LeisureModelTests: XCTestCase {
             }
             fetchExpectation?.fulfill()
         })
-        self.waitForExpectations(timeout: 1000, handler: nil)
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
 }

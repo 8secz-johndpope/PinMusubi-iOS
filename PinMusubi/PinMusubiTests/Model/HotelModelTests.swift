@@ -29,6 +29,6 @@ class HotelModelTests: XCTestCase {
             }
             fetchExpectation?.fulfill()
         })
-        self.waitForExpectations(timeout: 100, handler: nil)
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
 }
