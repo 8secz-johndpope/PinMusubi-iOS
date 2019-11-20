@@ -124,6 +124,7 @@ PODS:
     - SDWebImage/Core (= 5.2.3)
   - SDWebImage/Core (5.2.3)
   - SwiftLint (0.35.0)
+  - SwiftyGif (5.1.1)
 
 DEPENDENCIES:
   - Cosmos
@@ -137,6 +138,7 @@ DEPENDENCIES:
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
   - SDWebImage
   - SwiftLint
+  - SwiftyGif
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -164,6 +166,7 @@ SPEC REPOS:
     - Protobuf
     - SDWebImage
     - SwiftLint
+    - SwiftyGif
 
 EXTERNAL SOURCES:
   Realm:
@@ -212,7 +215,8 @@ SPEC CHECKSUMS:
   RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
   SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
+  SwiftyGif: f7702483db93586a41f04f4927cd682852a2fa10
 
-PODFILE CHECKSUM: 4529b802b1653cf94a27fcd8b5ac3c0095cda771
+PODFILE CHECKSUM: fb812bbf9026494ee43b062e1d662a93bb039622
 
 COCOAPODS: 1.6.0

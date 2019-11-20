@@ -361,6 +361,18 @@ name: SwiftLint, nameSpecified:
 body: The MIT License (MIT…
 version: 0.35.0
 
+name: SwiftyGif, nameSpecified: 
+body: The MIT License (MIT…
+version: 5.1.1
+
+name: SwiftyGif, nameSpecified: 
+body: The MIT License (MIT…
+version: 5.1.1
+
+name: SwiftyGif, nameSpecified: 
+body: The MIT License (MIT…
+version: 5.1.1
+
 add-version-numbers: false
 
 LicensePlist Version: 1.8.3

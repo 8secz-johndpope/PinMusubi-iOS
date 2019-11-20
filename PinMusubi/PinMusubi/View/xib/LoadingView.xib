@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoadingView" customModule="PinMusubi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="QHI-W2-skP">
+                    <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="6Yh-DT-vUR"/>
+                        <constraint firstAttribute="height" constant="50" id="lv1-Dr-PvH"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スポットを検索中..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMn-Mb-KP3">
+                    <rect key="frame" x="57" y="225" width="261" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="5K5-Nw-dQb"/>
+                        <constraint firstAttribute="width" constant="261" id="ws1-fR-pGk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfv-ed-gtU">
+                    <rect key="frame" x="112.5" y="296" width="150" height="75"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="jRF-bf-IBE"/>
+                        <constraint firstAttribute="height" constant="75" id="zo8-D5-fo9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tfv-ed-gtU" firstAttribute="top" secondItem="AMn-Mb-KP3" secondAttribute="bottom" constant="50" id="Eko-Yv-T2z"/>
+                <constraint firstItem="QHI-W2-skP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VvL-Oj-a2c"/>
+                <constraint firstItem="tfv-ed-gtU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WX1-gb-KQw"/>
+                <constraint firstItem="tfv-ed-gtU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lY7-Mw-tlf"/>
+                <constraint firstItem="QHI-W2-skP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="y6i-0w-pMr"/>
+                <constraint firstItem="AMn-Mb-KP3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zmq-QC-yGp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="loadingImageView" destination="QHI-W2-skP" id="SPx-7c-cyg"/>
+                <outlet property="loadingView" destination="tfv-ed-gtU" id="aug-6V-Vha"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="126.38680659670166"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Pin" width="24" height="24"/>
+    </resources>
+</document>

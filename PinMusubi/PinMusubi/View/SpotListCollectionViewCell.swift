@@ -25,6 +25,7 @@ public enum SpotType {
 public class SpotListCollectionViewCell: UICollectionViewCell {
     private var spotListScrollView: UIScrollView?
     private var spotListTableView: UITableView?
+    private var loadingView = LoadingView()
     private var spotType: SpotType?
     private var spotList = [SpotEntityProtocol]()
     private var settingPoints = [SettingPointEntity]()
@@ -53,6 +54,11 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
         guard let spotListTableView = spotListTableView else { return }
         spotListTableView.tableFooterView = UIView(frame: .zero)
         spotListScrollView.addSubview(spotListTableView)
+
+        guard let loadingView = UINib(nibName: "LoadingView", bundle: nil).instantiate(withOwner: LoadingView.self, options: nil).first as? LoadingView else { return }
+        loadingView.frame = bounds
+        self.loadingView = loadingView
+        addSubview(self.loadingView)
 
         spotListTableView.delegate = self
         spotListTableView.dataSource = self
@@ -103,6 +109,7 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
                 self.insertAdElement()
             }
 
+            self.loadingView.removeFromSuperview()
             self.spotListTableView?.reloadData()
 
             if spotList.isEmpty {
