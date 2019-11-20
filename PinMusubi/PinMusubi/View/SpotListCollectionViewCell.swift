@@ -6,15 +6,20 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import GoogleMobileAds
 import MapKit
 import UIKit
 
 /// スポットの形式
 public enum SpotType {
-    /// 交通機関
-    case transportation
     /// 飲食店
     case restaurant
+    /// 宿泊施設
+    case hotel
+    /// レジャー
+    case leisure
+    /// 交通機関
+    case transportation
 }
 
 public class SpotListCollectionViewCell: UICollectionViewCell {
@@ -23,8 +28,11 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     private var spotType: SpotType?
     private var spotList = [SpotEntityProtocol]()
     private var settingPoints = [SettingPointEntity]()
+    private var adBannerView: GADBannerView?
 
     private var restaurantPresenter: RestaurantSpotPresenterProrocol?
+    private var hotelPresenter: HotelSpotPresenterProrocol?
+    private var leisurePresenter: LeisureSpotPresenterProrocol?
     private var stationPresenter: StationSpotPresenterProrocol?
     private var busPresenter: BusStopSpotPresenterProrocol?
 
@@ -33,6 +41,7 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     public func configre(spotType: SpotType) {
         self.spotType = spotType
         configrationContent()
+        configureAd()
     }
 
     private func configrationContent() {
@@ -49,6 +58,8 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
         spotListTableView.dataSource = self
 
         restaurantPresenter = RestaurantSpotPresenter(view: self, modelType: RestaurantSpotsModel.self)
+        hotelPresenter = HotelSpotPresenter(view: self, modelType: HotelModel.self)
+        leisurePresenter = LeisureSpotPresenter(view: self, modelType: LeisureModel.self)
         stationPresenter = StationSpotPresenter(view: self, modelType: StationModel.self)
         busPresenter = BusStopSpotPresenter(view: self, modelType: BusStopModel.self)
 
@@ -56,25 +67,45 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     }
 
     public func setSpotList(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
-        if spotType == .transportation {
+        switch spotType {
+        case .restaurant:
+            let orderType = OrderType.byDistance
+            restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType)
+
+        case .hotel:
+            hotelPresenter?.fetchHotelSpotList(interestPoint: interestPoint)
+
+        case .leisure:
+            leisurePresenter?.fetchHotelSpotList(interestPoint: interestPoint)
+
+        case .transportation:
             stationPresenter?.fetchStationList(interestPoint: interestPoint, completion: { stations in
                 self.busPresenter?.fetchBusStopList(interestPoint: interestPoint, stations: stations)
             }
             )
-        } else if spotType == .restaurant {
-            let orderType = OrderType.byDistance
-            restaurantPresenter?.fetchRestaurantSpotList(interestPoint: interestPoint, order: orderType)
+
+        default:
+            break
         }
+
         self.settingPoints = settingPoints
     }
 
     public func setSpotList(spotList: [SpotEntityProtocol]) {
         DispatchQueue.main.async {
+            guard let spotType = self.spotType else { return }
+            self.delegate?.setNumOfSpot(num: spotList.count, spotType: spotType)
+
             self.spotList = spotList
+
+            // 広告Cellの設定
+            if spotList.count > 20 {
+                self.insertAdElement()
+            }
+
             self.spotListTableView?.reloadData()
 
             if spotList.isEmpty {
-                guard let spotType = self.spotType else { return }
                 self.setEmptyView(spotType: spotType)
             }
         }
@@ -90,11 +121,34 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
         emptyView.frame = bounds
         spotListTableView?.addSubview(emptyView)
     }
+
+    private func insertAdElement() {
+        for index in 0 ... spotList.count - 1 {
+            if index != 0 && index % 20 == 0 {
+                self.spotList.insert(AdEntity(), at: index)
+            }
+        }
+    }
+
+    private func configureAd() {
+        // TODO: リリース時に切り替え
+        // guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
+        let adMobID = "ca-app-pub-3940256099942544/2934735716"
+        let adBannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        adBannerView.adUnitID = adMobID
+        adBannerView.load(GADRequest())
+        delegate?.setRootVC(bannerView: adBannerView)
+        self.adBannerView = adBannerView
+    }
 }
 
 extension SpotListCollectionViewCell: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.showSpotDetailsView(settingPoints: settingPoints, spot: spotList[indexPath.row])
+        guard let spotType = spotType else { return }
+        let didSelectSpot = spotList[indexPath.row]
+        if didSelectSpot is AdEntity { return }
+        delegate?.setSpotTypeOfTappedSpot(spotType: spotType)
+        delegate?.showSpotDetailsView(settingPoints: settingPoints, spot: didSelectSpot)
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,6 +166,8 @@ extension SpotListCollectionViewCell: UITableViewDataSource {
         cell.initialize()
         cell.configure(spot: spotList[indexPath.row])
         cell.selectionStyle = .none
+        guard let adBannerView = adBannerView else { return cell }
+        cell.addAd(adBannerView: adBannerView)
         return cell
     }
 }

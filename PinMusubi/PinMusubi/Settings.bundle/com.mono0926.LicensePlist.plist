@@ -6,9 +6,81 @@
 	<array>
 		<dict>
 			<key>File</key>
+			<string>com.mono0926.LicensePlist/BoringSSL-GRPC</string>
+			<key>Title</key>
+			<string>BoringSSL-GRPC</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>com.mono0926.LicensePlist/Cosmos</string>
 			<key>Title</key>
 			<string>Cosmos</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/Firebase</string>
+			<key>Title</key>
+			<string>Firebase</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/FirebaseAnalytics</string>
+			<key>Title</key>
+			<string>FirebaseAnalytics</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/FirebaseAuthInterop</string>
+			<key>Title</key>
+			<string>FirebaseAuthInterop</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/FirebaseCore</string>
+			<key>Title</key>
+			<string>FirebaseCore</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/FirebaseCoreDiagnostics</string>
+			<key>Title</key>
+			<string>FirebaseCoreDiagnostics</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/FirebaseCoreDiagnosticsInterop</string>
+			<key>Title</key>
+			<string>FirebaseCoreDiagnosticsInterop</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/FirebaseFirestore</string>
+			<key>Title</key>
+			<string>FirebaseFirestore</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/FirebaseInstanceID</string>
+			<key>Title</key>
+			<string>FirebaseInstanceID</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -22,9 +94,89 @@
 		</dict>
 		<dict>
 			<key>File</key>
+			<string>com.mono0926.LicensePlist/Google-Mobile-Ads-SDK</string>
+			<key>Title</key>
+			<string>Google-Mobile-Ads-SDK</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/GoogleAppMeasurement</string>
+			<key>Title</key>
+			<string>GoogleAppMeasurement</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/GoogleDataTransport</string>
+			<key>Title</key>
+			<string>GoogleDataTransport</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/GoogleDataTransportCCTSupport</string>
+			<key>Title</key>
+			<string>GoogleDataTransportCCTSupport</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/GoogleUtilities</string>
+			<key>Title</key>
+			<string>GoogleUtilities</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/gRPC-C++</string>
+			<key>Title</key>
+			<string>gRPC-C++</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/gRPC-Core</string>
+			<key>Title</key>
+			<string>gRPC-Core</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/leveldb-library</string>
+			<key>Title</key>
+			<string>leveldb-library</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>com.mono0926.LicensePlist/LicensePlist</string>
 			<key>Title</key>
 			<string>LicensePlist</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/nanopb</string>
+			<key>Title</key>
+			<string>nanopb</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/Protobuf</string>
+			<key>Title</key>
+			<string>Protobuf</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

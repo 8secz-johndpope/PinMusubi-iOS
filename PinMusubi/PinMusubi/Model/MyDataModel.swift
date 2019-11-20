@@ -29,6 +29,10 @@ public protocol MyDataModelProtocol {
     /// - Parameter orderType: 並び順
     func fetchFavoriteDataList(orderType: MyDataOrderType) -> [FavoriteSpotEntity]
 
+    /// Firestoreから削除
+    /// - Parameter id: document_id
+    func deleteDocument(id: String)
+
     /// idをもとにお気に入りデータを削除
     /// - Parameter id: id
     func deleteFavoriteData(id: String) -> Bool
@@ -77,6 +81,10 @@ public class MyDataModel: MyDataModelProtocol {
 
     public func deleteFavoriteData(id: String) -> Bool {
         return FavoriteSpotAccessor().deleteById(id: id)
+    }
+
+    public func deleteDocument(id: String) {
+        FavoriteSpotAccessor().deleteDocument(id: id)
     }
 
     public func fetchHistoryDataList(orderType: MyDataOrderType) -> [SearchHistoryEntity] {

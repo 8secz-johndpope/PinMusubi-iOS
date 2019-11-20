@@ -6,7 +6,9 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import FirebaseAnalytics
 import FloatingPanel
+import GoogleMobileAds
 import MapKit
 import UIKit
 
@@ -35,6 +37,10 @@ public class SearchInterestPlaceViewController: UIViewController {
     private var floatingPanelController = FloatingPanelController()
     /// スポットリスト
     private var spotListNC: SpotListNavigationController?
+    /// ピンを移動した回数
+    private var dragPinTimes = 0
+
+    private var safeAreaTop = CGFloat(0.0)
 
     public var presenter: SearchInterestPlacePresenterProtocol?
 
@@ -62,11 +68,30 @@ public class SearchInterestPlaceViewController: UIViewController {
         registerNotification()
     }
 
+    override public func viewWillLayoutSubviews() {
+        if safeAreaTop != self.view.safeAreaInsets.top {
+            safeAreaTop = self.view.safeAreaInsets.top
+            setAd(safeAreaTop: safeAreaTop)
+        }
+    }
+
     /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
     @IBAction private func didTapTest(_ sender: Any) {
         let testSettingPoints = TestData.setTestParameter().0
         let testInterestPoint = TestData.setTestParameter().1
         showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
+    }
+
+    private func setAd(safeAreaTop: CGFloat) {
+        // TODO: リリース時に切り替え
+        // guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
+        let adMobID = "ca-app-pub-3940256099942544/2934735716"
+        let admobView = GADBannerView(adSize: kGADAdSizeBanner)
+        admobView.frame.origin = CGPoint(x: (view.frame.width - admobView.bounds.width) / 2, y: safeAreaTop)
+        admobView.adUnitID = adMobID
+        admobView.rootViewController = self
+        admobView.load(GADRequest())
+        self.view.addSubview(admobView)
     }
 }
 
@@ -83,6 +108,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             self.halfwayPoint = relesePoint
             setLine(settingPoints: settingPoints, centerPoint: relesePoint)
             pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: relesePoint)
+            dragPinTimes += 1
         }
     }
 
@@ -227,6 +253,9 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
         let region = MKCoordinateRegion(center: halfwayPoint, span: span)
         searchMapView.setRegion(region, animated: true)
         pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
+
+        // パラメータ初期化
+        dragPinTimes = 0
     }
 }
 
@@ -234,6 +263,13 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
     public func searchSpotList() {
         guard let presenter = presenter else { return }
         if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
+            Analytics.logEvent(
+                "show_spot_list",
+                parameters: [
+                    "times_of_drag_pin": dragPinTimes as NSObject,
+                    "number_of_setting_pin": settingPoints.count as NSObject
+                ]
+            )
             showSpotListView(settingPoints: settingPoints, interestPoint: halfwayPoint)
         }
     }

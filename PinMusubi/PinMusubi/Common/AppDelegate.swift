@@ -6,6 +6,8 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import Firebase
+import RealmSwift
 import UIKit
 
 @UIApplicationMain
@@ -14,12 +16,28 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        // tabbar
         guard let selfView = self.window else {
             return true
         }
         if let tabvc = selfView.rootViewController as? UITabBarController {
             tabvc.selectedIndex = 1
         }
+
+        // Realm
+        let config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { _, oldSchemaVersion in
+                if oldSchemaVersion < 2 {}
+            }
+        )
+        Realm.Configuration.defaultConfiguration = config
+
+        // Firebase
+        FirebaseApp.configure()
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["5a5d77ef1e172802b323f5433e396dbe"]
 
         return true
     }

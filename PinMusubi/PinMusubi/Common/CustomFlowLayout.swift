@@ -25,7 +25,7 @@ public class CustomFlowLayout: UICollectionViewFlowLayout {
         }
         guard let attributes = nextAttributes else { return proposedContentOffset }
         let cellLeftMargin = (collectionView.bounds.width - attributes.bounds.width) * 0.5
-        return CGPoint(x: attributes.frame.minX - cellLeftMargin, y: (attributes.frame.maxY - attributes.frame.minY) / 2)
+        return CGPoint(x: attributes.frame.minX - cellLeftMargin, y: collectionView.contentOffset.y)
     }
 
     private func layoutAttributesForNearbyCenterX(in attributes: [UICollectionViewLayoutAttributes], collectionView: UICollectionView) -> UICollectionViewLayoutAttributes? {

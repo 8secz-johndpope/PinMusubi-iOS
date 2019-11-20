@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import FirebaseFirestore
 import RealmSwift
 
 /// お気に入りスポットのデータアクセスクラス
@@ -56,5 +57,42 @@ public class FavoriteSpotAccessor: AccessorProtcol {
             print("\n--Error! FavoriteSpotAccessor#getById")
         }
         return false
+    }
+
+    /// Firestoreへ登録
+    /// - Parameter favoriteSpot: 登録するお気に入りスポット
+    /// - Parameter canShare: シェアの可否
+    public func addDocument(favoriteSpot: FavoriteSpotEntity) {
+        let dataStore = Firestore.firestore()
+        dataStore.collection("favorite_spots").document(favoriteSpot.id).setData(
+            [
+                "title": favoriteSpot.title,
+                "memo": favoriteSpot.memo,
+                "rating": favoriteSpot.rating,
+                "latitude": favoriteSpot.latitude,
+                "longitude": favoriteSpot.longitude,
+                "canShare": favoriteSpot.canShare,
+                "date": favoriteSpot.dateTime
+            ]
+        ) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+    }
+
+    /// Firestoreから削除
+    /// - Parameter id: document_id
+    public func deleteDocument(id: String) {
+        let dataStore = Firestore.firestore()
+        dataStore.collection("favorite_spots").document(id).delete { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
 }

@@ -24,6 +24,15 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>img.travel.rakuten.co.jp</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
 			<key>heartrails.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
@@ -71,5 +80,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-5031557878875193~1514128549</string>
 </dict>
 </plist>

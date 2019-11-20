@@ -8,6 +8,7 @@
 
 import CoreLocation
 import Cosmos
+import FirebaseAnalytics
 import UIKit
 
 public class FavoriteRegisterModalViewController: UIViewController {
@@ -24,6 +25,7 @@ public class FavoriteRegisterModalViewController: UIViewController {
     private let headerHeight: CGFloat = 53
     private var settingPoints: [SettingPointEntity]?
     private var interestPoint: CLLocationCoordinate2D?
+    private var spotListAnalyticsEntity: SpotListAnalyticsEntity?
     private var favoriteId: String?
 
     public var presenter: FavoriteSpotPresenterProtocol?
@@ -53,9 +55,10 @@ public class FavoriteRegisterModalViewController: UIViewController {
         }
     }
 
-    public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
+    public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D, spotListAnalyticsEntity: SpotListAnalyticsEntity) {
         self.settingPoints = settingPoints
         self.interestPoint = interestPoint
+        self.spotListAnalyticsEntity = spotListAnalyticsEntity
     }
 
     public func setEditParameter(favoriteId: String) {
@@ -129,10 +132,36 @@ public class FavoriteRegisterModalViewController: UIViewController {
         } else {
             // 登録
             if presenter.registerFavoriteSpot(settingPoints: settingPoints, favoriteSpot: tmpFavoriteSpot) {
+                // Firebaseへイベント送信
+                guard let sla = spotListAnalyticsEntity else { return }
+                let totalSpotNum = sla.numRestaurantSpot + sla.numHotelSpot + sla.numLeisureSpot + sla.numStationSpot
+                let totalTapTimes = sla.timesTappedRestaurantSpot + sla.timesTappedHotelSpot + sla.timesTappedLeisureSpot + sla.timesTappedStationSpot
+                Analytics.logEvent(
+                    "register_favorite",
+                    parameters: [
+                        "rating": ratingView.rating as NSObject,
+                        "number_of_setting_pin": settingPoints.count as NSObject,
+                        "total_number_of_spot": totalSpotNum as NSObject,
+                        "number_of_restaurant_spot": sla.numRestaurantSpot as NSObject,
+                        "number_of_hotel_spot": sla.numHotelSpot as NSObject,
+                        "number_of_leisure_spot": sla.numLeisureSpot as NSObject,
+                        "number_of_station_spot": sla.numStationSpot as NSObject,
+                        "total_tap_times": totalTapTimes as NSObject,
+                        "times_of_restaurant_spot": sla.timesTappedRestaurantSpot as NSObject,
+                        "times_of_hotel_spot": sla.timesTappedHotelSpot as NSObject,
+                        "times_of_leisure_spot": sla.timesTappedStationSpot as NSObject,
+                        "times_of_station_spot": sla.timesTappedStationSpot as NSObject
+                    ]
+                )
+
+                // 登録完了処理
                 delegate?.closePresentedView()
                 doneDelegate?.showDoneRegisterView()
             }
         }
+        // FireStoreに登録
+        let model = FavoriteSpotModel()
+        model.addDocument(favoriteSpot: tmpFavoriteSpot)
     }
 
     private func validateCheck() -> Bool {

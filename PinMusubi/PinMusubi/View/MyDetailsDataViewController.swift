@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import FirebaseAnalytics
 import MapKit
 import UIKit
 
@@ -111,6 +112,7 @@ public class MyDetailsDataViewController: UIViewController {
         if model.deleteFavoriteData(id: favoriteData.id) {
             navigationController?.popViewController(animated: true)
         }
+        model.deleteDocument(id: favoriteData.id)
     }
 }
 
@@ -137,6 +139,12 @@ extension MyDetailsDataViewController: MyDetailsDataActionViewDelegate {
         guard let searchInterestPlaceVC = tabBarController?.viewControllers?[1] as? SearchInterestPlaceViewController else { return }
         NotificationCenter.default.post(name: Notification.doneSettingNotification, object: nil)
         if let favoriteData = myData as? FavoriteSpotEntity {
+            // Firebaseのイベント送信
+            Analytics.logEvent(
+                "show_setting_points_on_map_from_favorite",
+                parameters: [:]
+            )
+
             var settingPoints = [SettingPointEntity]()
             for settingPoint in favoriteData.settingPointEntityList {
                 settingPoints.append(settingPoint)
@@ -145,6 +153,12 @@ extension MyDetailsDataViewController: MyDetailsDataActionViewDelegate {
 
             searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: favoritePoint)
         } else if let historyData = myData as? SearchHistoryEntity {
+            // Firebaseのイベント送信
+            Analytics.logEvent(
+                "show_setting_points_on_map_from_history",
+                parameters: [:]
+            )
+
             var settingPoints = [SettingPointEntity]()
             for settingPoint in historyData.settingPointEntityList {
                 settingPoints.append(settingPoint)
@@ -157,6 +171,12 @@ extension MyDetailsDataViewController: MyDetailsDataActionViewDelegate {
 
     private func showSpotList(myData: MyDataEntityProtocol) {
         if let favoriteData = myData as? FavoriteSpotEntity {
+            // Firebaseのイベント送信
+            Analytics.logEvent(
+                "show_spot_list_from_favorite",
+                parameters: [:]
+            )
+
             let model = SearchInterestPlaceModel()
             let favoritePoint = CLLocationCoordinate2D(latitude: favoriteData.latitude, longitude: favoriteData.longitude)
             model.getAddress(point: favoritePoint, complete: { address, status in
