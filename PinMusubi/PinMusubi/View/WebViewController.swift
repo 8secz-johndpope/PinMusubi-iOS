@@ -66,8 +66,21 @@ public class WebViewController: UIViewController {
     }
 
     @IBAction private func didTapBackViewButton(_ sender: Any) {
+        var eventQuery = ""
+
+        switch spot {
+        case is Shop:
+            eventQuery = "restaurant"
+        case is Hotels:
+            eventQuery = "hotel"
+        case is Feature:
+            eventQuery = "leisure"
+        default:
+            break
+        }
+
         Analytics.logEvent(
-            "close_web_page_of_restaurant",
+            "close_web_page_of_" + eventQuery,
             parameters: [
                 "times_of_move_page": movePageTimes as NSObject
             ]

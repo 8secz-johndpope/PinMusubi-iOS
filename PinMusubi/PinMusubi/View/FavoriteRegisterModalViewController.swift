@@ -143,17 +143,13 @@ public class FavoriteRegisterModalViewController: UIViewController {
                         "number_of_setting_pin": settingPoints.count as NSObject,
                         "total_number_of_spot": totalSpotNum as NSObject,
                         "number_of_restaurant_spot": sla.numRestaurantSpot as NSObject,
-                        // TODO: 後で追加
-                        "number_of_hotel_spot": 0 as NSObject,
-                        // TODO: 後で追加
-                        "number_of_leisure_spot": 0 as NSObject,
+                        "number_of_hotel_spot": sla.numHotelSpot as NSObject,
+                        "number_of_leisure_spot": sla.numLeisureSpot as NSObject,
                         "number_of_station_spot": sla.numStationSpot as NSObject,
                         "total_tap_times": totalTapTimes as NSObject,
                         "times_of_restaurant_spot": sla.timesTappedRestaurantSpot as NSObject,
-                        // TODO: 後で追加
-                        "times_of_hotel_spot": 0 as NSObject,
-                        // TODO: 後で追加
-                        "times_of_leisure_spot": 0 as NSObject,
+                        "times_of_hotel_spot": sla.timesTappedHotelSpot as NSObject,
+                        "times_of_leisure_spot": sla.timesTappedStationSpot as NSObject,
                         "times_of_station_spot": sla.timesTappedStationSpot as NSObject
                     ]
                 )
