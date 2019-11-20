@@ -19,7 +19,7 @@ public class WebViewController: UIViewController {
 
     private var movePageTimes = 0
 
-    private var shop: Shop?
+    private var spot: SpotEntityProtocol?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,20 @@ public class WebViewController: UIViewController {
         webView.uiDelegate = self
         webView.navigationDelegate = self
 
-        guard let spotUrl = shop?.urls.pcUrl else { return }
+        loadWebView()
+    }
+
+    private func loadWebView() {
+        var spotUrl = ""
+        if let shop = spot as? Shop {
+            spotUrl = shop.urls.pcUrl
+        } else if let hotels = spot as? Hotels {
+            guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
+            spotUrl = hotelInformationURL
+        } else if let leisure = spot as? Feature {
+            guard let searchUrl = ("https://www.google.com/search?q=" + leisure.name).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+            spotUrl = searchUrl
+        }
         guard let requestUrl = URL(string: spotUrl) else { return }
         let request = URLRequest(url: requestUrl)
         webView.load(request)
@@ -48,8 +61,8 @@ public class WebViewController: UIViewController {
         chevronRightButton.tintColor = UIColor.lightGray
     }
 
-    public func setParameter(shop: Shop) {
-        self.shop = shop
+    public func setParameter(spot: SpotEntityProtocol) {
+        self.spot = spot
     }
 
     @IBAction private func didTapBackViewButton(_ sender: Any) {
@@ -75,18 +88,25 @@ public class WebViewController: UIViewController {
     }
 
     @IBAction private func didTapActionButton(_ sender: Any) {
-        guard let shop = shop else { return }
-        let shareText = shop.name
-        let shareWebsite = URL(string: shop.urls.pcUrl)
-
+        var shareText = ""
+        var spotUrl = ""
+        if let shop = spot as? Shop {
+            shareText = shop.name
+            spotUrl = shop.urls.pcUrl
+        } else if let hotels = spot as? Hotels {
+            guard let hotelName = hotels.hotel[0].hotelBasicInfo?.hotelName else { return }
+            shareText = hotelName
+            guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
+            spotUrl = hotelInformationURL
+        }
+        let shareWebsite = URL(string: spotUrl)
         let activityItems = [shareText, shareWebsite as Any] as [Any]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
 
     @IBAction private func didTapSafariButton(_ sender: Any) {
-        guard let spotUrl = shop?.urls.pcUrl else { return }
-        guard let requestUrl = URL(string: spotUrl) else { return }
+        guard let requestUrl = webView?.url else { return }
         UIApplication.shared.open(requestUrl)
     }
 }

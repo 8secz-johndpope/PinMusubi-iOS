@@ -19,28 +19,28 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3j0-P2-gIs">
                             <rect key="frame" x="0.0" y="43.5" width="375" height="1"/>
-                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="kFS-VW-9nY"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLg-Eo-ApY">
                             <rect key="frame" x="16" y="120.5" width="343" height="1"/>
-                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="cL9-DO-mPZ"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaG-gl-3Pe">
                             <rect key="frame" x="16" y="166.5" width="343" height="1"/>
-                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="epR-NY-Dlz"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfu-b0-KQU">
                             <rect key="frame" x="16" y="213.5" width="343" height="1"/>
-                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="cCu-rX-deO"/>
                             </constraints>
@@ -183,6 +183,11 @@
                 <outlet property="addressLabel" destination="gKc-4J-tx4" id="1H6-WN-P8F"/>
                 <outlet property="businessTimeLabel" destination="JhF-a5-MoG" id="JJq-M0-rNg"/>
                 <outlet property="fromTrainLabel" destination="dRT-he-rAP" id="Dyh-uH-hB3"/>
+                <outlet property="image1" destination="aL9-Te-l7e" id="uwR-Zu-gJk"/>
+                <outlet property="image2" destination="jME-IS-t5V" id="izT-6f-8Lo"/>
+                <outlet property="image3" destination="jFM-4H-TFc" id="bRO-Dh-ycb"/>
+                <outlet property="image4" destination="dyr-xu-v7P" id="Gg9-wO-PTF"/>
+                <outlet property="image5" destination="mDY-jM-PmK" id="aFR-bA-aDC"/>
                 <outlet property="regularHolidayLabel" destination="Qzo-I6-UbM" id="oJA-yY-H3k"/>
                 <outlet property="seatCountLabel" destination="jzg-1J-gS3" id="Bp3-p4-jku"/>
             </connections>
@@ -190,10 +195,10 @@
         </view>
     </objects>
     <resources>
-        <image name="BusinessTime" width="9" height="9"/>
-        <image name="PinIcon" width="6.5" height="8.5"/>
-        <image name="RegularHoliday" width="9" height="9"/>
-        <image name="Seat" width="6.5" height="8"/>
-        <image name="TrainIcon" width="7" height="8"/>
+        <image name="BusinessTime" width="25" height="25"/>
+        <image name="PinIcon" width="24" height="24"/>
+        <image name="RegularHoliday" width="24" height="24"/>
+        <image name="Seat" width="30" height="30"/>
+        <image name="TrainIcon" width="24" height="24"/>
     </resources>
 </document>

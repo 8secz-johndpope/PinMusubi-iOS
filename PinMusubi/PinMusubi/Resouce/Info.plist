@@ -24,6 +24,15 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>img.travel.rakuten.co.jp</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
 			<key>heartrails.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>

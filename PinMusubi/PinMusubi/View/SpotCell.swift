@@ -21,7 +21,6 @@ public class SpotCell: UITableViewCell {
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        imageBackView.backgroundColor = .lightGray
         imageBackView?.layer.cornerRadius = 10
         catchImage.layer.cornerRadius = 10
     }
@@ -91,33 +90,17 @@ public class SpotCell: UITableViewCell {
             guard let imageUrl = URL(string: imageUrlStr) else { return }
             catchImage.sd_setImage(with: imageUrl)
         }
-
-        if #available(iOS 13.0, *) {
-            imageBackView.backgroundColor = UIColor.systemBackground
-        } else {
-            imageBackView.backgroundColor = UIColor.white
-        }
     }
 
     private func configureStation(station: Station) {
         title.text = station.name + "駅"
         subTitle.text = station.line
-        if #available(iOS 13.0, *) {
-            imageBackView.backgroundColor = UIColor.systemBackground
-        } else {
-            imageBackView.backgroundColor = UIColor.white
-        }
         catchImage.image = UIImage(named: "Train")
     }
 
     private func configureBusStop(busStop: BusStopEntity) {
         title.text = busStop.busStopName
         subTitle.text = busStop.busLineName
-        if #available(iOS 13.0, *) {
-            imageBackView.backgroundColor = UIColor.systemBackground
-        } else {
-            imageBackView.backgroundColor = UIColor.white
-        }
         catchImage.image = UIImage(named: "Bus")
     }
 }
