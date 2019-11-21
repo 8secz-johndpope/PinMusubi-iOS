@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bv5-PX-6YA">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tutorial Collection View Controller-->
+        <scene sceneID="suY-mO-whC">
+            <objects>
+                <collectionViewController storyboardIdentifier="TutorialCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bv5-PX-6YA" customClass="TutorialCollectionViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Htn-yx-FMN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.96062618489999996" blue="0.88711041209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dwh-Uf-Rfr" customClass="CustomFlowLayout" customModule="PinMusubi" customModuleProvider="target">
+                            <size key="itemSize" width="410" height="854"/>
+                            <size key="headerReferenceSize" width="50" height="554"/>
+                            <size key="footerReferenceSize" width="50" height="492"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TutorialCell" id="S0x-yj-cYt" customClass="TutorialCollectionViewCell" customModule="PinMusubi" customModuleProvider="target">
+                                <rect key="frame" x="2" y="554" width="410" height="854"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6VY-v5-QLy">
+                                    <rect key="frame" x="0.0" y="0.0" width="410" height="854"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jrx-eb-Hi9">
+                                            <rect key="frame" x="10" y="125" width="390" height="719"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGW-iA-Of3">
+                                            <rect key="frame" x="55" y="10" width="300" height="105"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="dMV-av-4gq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Jrx-eb-Hi9" secondAttribute="trailing" constant="10" id="BfS-zG-On1"/>
+                                        <constraint firstAttribute="bottom" secondItem="Jrx-eb-Hi9" secondAttribute="bottom" constant="10" id="bTi-xg-OIb"/>
+                                        <constraint firstItem="dGW-iA-Of3" firstAttribute="centerX" secondItem="6VY-v5-QLy" secondAttribute="centerX" id="eGs-gj-vB1"/>
+                                        <constraint firstItem="Jrx-eb-Hi9" firstAttribute="leading" secondItem="6VY-v5-QLy" secondAttribute="leading" constant="10" id="lEI-uX-8A7"/>
+                                        <constraint firstItem="dGW-iA-Of3" firstAttribute="top" secondItem="6VY-v5-QLy" secondAttribute="top" constant="10" id="qfd-tJ-haX"/>
+                                        <constraint firstItem="Jrx-eb-Hi9" firstAttribute="top" secondItem="6VY-v5-QLy" secondAttribute="top" constant="125" id="sca-9b-of4"/>
+                                        <constraint firstItem="Jrx-eb-Hi9" firstAttribute="top" secondItem="dGW-iA-Of3" secondAttribute="bottom" constant="10" id="tNK-0g-Ttx"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <size key="customSize" width="410" height="854"/>
+                                <connections>
+                                    <outlet property="descriptionImageView" destination="Jrx-eb-Hi9" id="brx-bg-NjP"/>
+                                    <outlet property="descriptionLabel" destination="dGW-iA-Of3" id="WVR-rQ-2Oa"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TutorialHeader" id="IgD-Yw-xg3" customClass="TutorialHeaderView" customModule="PinMusubi" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="554"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ScK-LU-m8g">
+                                    <rect key="frame" x="107" y="177" width="200" height="200"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="200" id="6ek-iQ-X6r"/>
+                                        <constraint firstAttribute="width" constant="200" id="8Xl-EC-RcS"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ダウンロードしていただき ありがとうございます！🎉" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-gz-6cA">
+                                    <rect key="frame" x="100" y="106" width="214" height="41"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="これから使い方を説明します" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8D-tg-R5J">
+                                    <rect key="frame" x="94.5" y="387" width="225.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Mnm-Cf-pSn">
+                                    <rect key="frame" x="132" y="417.5" width="150" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="sQa-Iw-lyG"/>
+                                        <constraint firstAttribute="width" constant="150" id="tcb-xy-YvS"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="Idb-gz-6cA" firstAttribute="centerX" secondItem="IgD-Yw-xg3" secondAttribute="centerX" id="996-2H-Evn"/>
+                                <constraint firstItem="ScK-LU-m8g" firstAttribute="centerY" secondItem="IgD-Yw-xg3" secondAttribute="centerY" id="BFn-Vb-oYM"/>
+                                <constraint firstItem="h8D-tg-R5J" firstAttribute="top" secondItem="ScK-LU-m8g" secondAttribute="bottom" constant="10" id="HTq-xu-LNF"/>
+                                <constraint firstItem="h8D-tg-R5J" firstAttribute="centerX" secondItem="IgD-Yw-xg3" secondAttribute="centerX" id="PUH-hX-pSc"/>
+                                <constraint firstItem="ScK-LU-m8g" firstAttribute="top" secondItem="Idb-gz-6cA" secondAttribute="bottom" constant="30" id="Vlz-QP-yYF"/>
+                                <constraint firstItem="ScK-LU-m8g" firstAttribute="centerX" secondItem="IgD-Yw-xg3" secondAttribute="centerX" id="aWF-Xi-WMp"/>
+                                <constraint firstItem="Mnm-Cf-pSn" firstAttribute="centerX" secondItem="IgD-Yw-xg3" secondAttribute="centerX" id="auq-Wo-sbp"/>
+                                <constraint firstItem="Mnm-Cf-pSn" firstAttribute="top" secondItem="h8D-tg-R5J" secondAttribute="bottom" constant="10" id="w9y-iT-7YL"/>
+                            </constraints>
+                        </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TutorialFooter" id="Ih3-BU-Zcu" customClass="TutorialFooterView" customModule="PinMusubi" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="1408" width="414" height="492"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading.gif" translatesAutoresizingMaskIntoConstraints="NO" id="1zG-5N-nvM">
+                                    <rect key="frame" x="107" y="146" width="200" height="200"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="7Gq-Yb-WT3"/>
+                                        <constraint firstAttribute="height" constant="200" id="Fgl-YE-Oh6"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使い方の説明は以上です！  早速スポットを 探してみましょう！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbc-mH-Gte">
+                                    <rect key="frame" x="103" y="34.5" width="208" height="81.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Na-BV-ahW">
+                                    <rect key="frame" x="94.5" y="376" width="225" height="36"/>
+                                    <color key="backgroundColor" red="0.98039215690000003" green="0.3921568627" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="225" id="q9q-U7-v6v"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <state key="normal" title="スポットを探しに行く">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didTappedCloseTutorialViewButton:" destination="Ih3-BU-Zcu" eventType="touchUpInside" id="R6w-lT-D6q"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="1Na-BV-ahW" firstAttribute="top" secondItem="1zG-5N-nvM" secondAttribute="bottom" constant="30" id="7J6-4X-Zwr"/>
+                                <constraint firstItem="lbc-mH-Gte" firstAttribute="centerX" secondItem="Ih3-BU-Zcu" secondAttribute="centerX" id="HLZ-1z-Hjm"/>
+                                <constraint firstItem="1zG-5N-nvM" firstAttribute="centerY" secondItem="Ih3-BU-Zcu" secondAttribute="centerY" id="L4s-v7-hTs"/>
+                                <constraint firstItem="1zG-5N-nvM" firstAttribute="centerX" secondItem="Ih3-BU-Zcu" secondAttribute="centerX" id="X4o-qd-WBl"/>
+                                <constraint firstItem="1Na-BV-ahW" firstAttribute="centerX" secondItem="Ih3-BU-Zcu" secondAttribute="centerX" id="vKK-2T-txS"/>
+                                <constraint firstItem="1zG-5N-nvM" firstAttribute="top" secondItem="lbc-mH-Gte" secondAttribute="bottom" constant="30" id="xel-GH-GQg"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="closeTutorialViewButton" destination="1Na-BV-ahW" id="Fsf-5o-BX1"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="bv5-PX-6YA" id="Gjt-Gi-SPA"/>
+                            <outlet property="delegate" destination="bv5-PX-6YA" id="vjW-g4-xqy"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTW-Oj-F2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76.811594202898561" y="40.848214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Arrow" width="50" height="50"/>
+        <image name="loading.gif" width="1920" height="1080"/>
+    </resources>
+</document>

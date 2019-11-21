@@ -142,6 +142,16 @@
 		9162288B236CF6CE00F009DB /* TravelTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162288A236CF6CE00F009DB /* TravelTimeModel.swift */; };
 		9162288D236D21F600F009DB /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9162288C236D21F600F009DB /* WebView.storyboard */; };
 		9163A5DA236C860200612E06 /* TravelTimePanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */; };
+		9166710923869BD500236FEC /* TutorialCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9166710823869BD500236FEC /* TutorialCollectionViewController.storyboard */; };
+		9166710B23869D8C00236FEC /* TutorialCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166710A23869D8C00236FEC /* TutorialCollectionViewController.swift */; };
+		9166710D23869E3500236FEC /* TutorialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166710C23869E3500236FEC /* TutorialCollectionViewCell.swift */; };
+		9166710F2386B76B00236FEC /* TutorialHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166710E2386B76A00236FEC /* TutorialHeaderView.swift */; };
+		916671112386B78F00236FEC /* TutorialFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916671102386B78E00236FEC /* TutorialFooterView.swift */; };
+		916671152386BCC700236FEC /* TutorialFooterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916671142386BCC700236FEC /* TutorialFooterDelegate.swift */; };
+		916671202386D97E00236FEC /* Tutorial4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9166711C2386D97E00236FEC /* Tutorial4.jpg */; };
+		916671212386D97E00236FEC /* Tutorial1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9166711D2386D97E00236FEC /* Tutorial1.jpg */; };
+		916671222386D97E00236FEC /* Tutorial2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9166711E2386D97E00236FEC /* Tutorial2.jpg */; };
+		916671232386D97E00236FEC /* Tutorial3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9166711F2386D97E00236FEC /* Tutorial3.jpg */; };
 		91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91816D9F232F6D5D00C48C78 /* MapKit.framework */; };
 		918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CC477232F91D00047BC88 /* ColorDefinition.swift */; };
 		918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */; };
@@ -332,6 +342,16 @@
 		9162288A236CF6CE00F009DB /* TravelTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeModel.swift; sourceTree = "<group>"; };
 		9162288C236D21F600F009DB /* WebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
 		9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePanelCell.swift; sourceTree = "<group>"; };
+		9166710823869BD500236FEC /* TutorialCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TutorialCollectionViewController.storyboard; sourceTree = "<group>"; };
+		9166710A23869D8C00236FEC /* TutorialCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCollectionViewController.swift; sourceTree = "<group>"; };
+		9166710C23869E3500236FEC /* TutorialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCollectionViewCell.swift; sourceTree = "<group>"; };
+		9166710E2386B76A00236FEC /* TutorialHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHeaderView.swift; sourceTree = "<group>"; };
+		916671102386B78E00236FEC /* TutorialFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFooterView.swift; sourceTree = "<group>"; };
+		916671142386BCC700236FEC /* TutorialFooterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFooterDelegate.swift; sourceTree = "<group>"; };
+		9166711C2386D97E00236FEC /* Tutorial4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial4.jpg; sourceTree = "<group>"; };
+		9166711D2386D97E00236FEC /* Tutorial1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial1.jpg; sourceTree = "<group>"; };
+		9166711E2386D97E00236FEC /* Tutorial2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial2.jpg; sourceTree = "<group>"; };
+		9166711F2386D97E00236FEC /* Tutorial3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial3.jpg; sourceTree = "<group>"; };
 		91816D9F232F6D5D00C48C78 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		918CC477232F91D00047BC88 /* ColorDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDefinition.swift; sourceTree = "<group>"; };
 		918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationAnnotationView.swift; sourceTree = "<group>"; };
@@ -538,6 +558,17 @@
 			path = DAO;
 			sourceTree = "<group>";
 		};
+		9166711B2386D97E00236FEC /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				9166711D2386D97E00236FEC /* Tutorial1.jpg */,
+				9166711E2386D97E00236FEC /* Tutorial2.jpg */,
+				9166711F2386D97E00236FEC /* Tutorial3.jpg */,
+				9166711C2386D97E00236FEC /* Tutorial4.jpg */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		9197D63E23250D2400A5C558 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -702,6 +733,11 @@
 				91EEA815237825AD00824BBB /* CreditViewController.swift */,
 				91EEA81123780A2700824BBB /* ContactFormViewController.swift */,
 				9116C907238598B20026513D /* LoadingView.swift */,
+				9166710A23869D8C00236FEC /* TutorialCollectionViewController.swift */,
+				9166710C23869E3500236FEC /* TutorialCollectionViewCell.swift */,
+				9166710E2386B76A00236FEC /* TutorialHeaderView.swift */,
+				916671102386B78E00236FEC /* TutorialFooterView.swift */,
+				916671142386BCC700236FEC /* TutorialFooterDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -761,6 +797,7 @@
 		91B3EB622301332C00430D41 /* Resouce */ = {
 			isa = PBXGroup;
 			children = (
+				9166711B2386D97E00236FEC /* Tutorial */,
 				9116C90923859A1A0026513D /* gif */,
 				91B3EB532301296F00430D41 /* Assets.xcassets */,
 				91B3EB582301296F00430D41 /* Info.plist */,
@@ -786,6 +823,7 @@
 				91C64A492371A9260046E7E7 /* SettingView.storyboard */,
 				91EEA80D2378095200824BBB /* CreditListViewController.storyboard */,
 				91EEA81323780A3E00824BBB /* ContactFormViewController.storyboard */,
+				9166710823869BD500236FEC /* TutorialCollectionViewController.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -920,13 +958,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916671232386D97E00236FEC /* Tutorial3.jpg in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
 				91EEA80E2378095200824BBB /* CreditListViewController.storyboard in Resources */,
 				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
 				91C64A562371BEB10046E7E7 /* MyDataCell.xib in Resources */,
+				916671212386D97E00236FEC /* Tutorial1.jpg in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */,
+				916671202386D97E00236FEC /* Tutorial4.jpg in Resources */,
 				91A4111E2333C16A00AF7897 /* SettingBasePointsView.xib in Resources */,
+				9166710923869BD500236FEC /* TutorialCollectionViewController.storyboard in Resources */,
 				91C64A482371A7B60046E7E7 /* MyPageView.storyboard in Resources */,
 				91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
@@ -939,6 +981,7 @@
 				91D1CABD23769F3B0066F644 /* MyDetailsDataActionViewController.xib in Resources */,
 				91C64A4A2371A9260046E7E7 /* SettingView.storyboard in Resources */,
 				9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */,
+				916671222386D97E00236FEC /* Tutorial2.jpg in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 				91C05BD2236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard in Resources */,
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
@@ -1361,6 +1404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91504A8E23366F7B00F900C4 /* SettingBasePointActionCell.swift in Sources */,
+				9166710B23869D8C00236FEC /* TutorialCollectionViewController.swift in Sources */,
 				9108A84E237F584800099B0B /* AdEntity.swift in Sources */,
 				91D190812368331900B0329A /* SpotEntityProtocol.swift in Sources */,
 				91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */,
@@ -1371,6 +1415,7 @@
 				9162288B236CF6CE00F009DB /* TravelTimeModel.swift in Sources */,
 				914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */,
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
+				9166710D23869E3500236FEC /* TutorialCollectionViewCell.swift in Sources */,
 				91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */,
 				91D1CAB723768DBB0066F644 /* MyDetailsDataPresenter.swift in Sources */,
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
@@ -1390,6 +1435,7 @@
 				91EEA8022377941E00824BBB /* MyDetailsDataActionViewDelegate.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
 				91C64A522371B8920046E7E7 /* MyPageCollectionViewCell.swift in Sources */,
+				916671152386BCC700236FEC /* TutorialFooterDelegate.swift in Sources */,
 				9108A84C237AEC7F00099B0B /* SpotListAnalyticsEntity.swift in Sources */,
 				91A8A1A3236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift in Sources */,
 				91D7FEE023718AA900520CAD /* DoneRegisterViewController.swift in Sources */,
@@ -1419,6 +1465,7 @@
 				91B5A97F23658BCD0030909D /* BusStopModel.swift in Sources */,
 				914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */,
 				918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */,
+				9166710F2386B76B00236FEC /* TutorialHeaderView.swift in Sources */,
 				91D190832368485A00B0329A /* UIImageView+Extension.swift in Sources */,
 				91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */,
 				9116C908238598B20026513D /* LoadingView.swift in Sources */,
@@ -1444,6 +1491,7 @@
 				91C64A6A23764B000046E7E7 /* MyDetailsDataViewController.swift in Sources */,
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */,
+				916671112386B78F00236FEC /* TutorialFooterView.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91D1907D2368073700B0329A /* SpotCell.swift in Sources */,
 				91C64A4C2371AB1D0046E7E7 /* MyPageViewController.swift in Sources */,
