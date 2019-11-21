@@ -1,0 +1,57 @@
+//
+//  TutorialCollectionViewCell.swift
+//  PinMusubi
+//
+//  Created by rMac on 2019/11/21.
+//  Copyright © 2019 naipaka. All rights reserved.
+//
+
+import SwiftyGif
+import UIKit
+
+public class TutorialCollectionViewCell: UICollectionViewCell {
+    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var descriptionImageView: UIImageView!
+
+    private var descriptionText = ""
+
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 20
+    }
+
+    public func configure(row: Int) {
+        switch row {
+        case 0:
+            descriptionText = "まず、中間地点を求めるための\n基準となる場所を設定します\n\n最大10個まで設定できます！"
+            descriptionImageView.image = UIImage(named: "Tutorial1.jpg")
+
+        case 1:
+            descriptionText = "ピンを中間地点から移動させて\n気になる場所を探します\n\nピンを長押して浮かせると\n移動させることができます"
+            descriptionImageView.image = UIImage(named: "Tutorial2.jpg")
+
+        case 2:
+            descriptionText = "詳細を見るボタンを押すと\nスポット一覧を表示します\n\nこの場所が気に入ったら\nお気に入り登録しましょう！"
+            descriptionImageView.image = UIImage(named: "Tutorial3.jpg")
+
+        case 3:
+            descriptionText = "お気に入りとスポット検索履歴は\nマイページから確認できます"
+            descriptionImageView.image = UIImage(named: "Tutorial4.jpg")
+
+        default:
+            break
+        }
+        descriptionLabel.text = descriptionText
+        guard let image = descriptionImageView.image else { return }
+        let aspectScale = image.size.height / image.size.width
+        let screenWidth = UIScreen.main.bounds.size.width
+        let resizedSize = CGSize(width: screenWidth * 0.7, height: screenWidth * aspectScale * 0.7)
+        UIGraphicsBeginImageContext(resizedSize)
+        image.draw(in: CGRect(x: 0, y: 0, width: resizedSize.width, height: resizedSize.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        descriptionImageView.image = resizedImage
+        descriptionImageView.layer.borderWidth = 1.0
+        descriptionImageView.layer.borderColor = UIColor(hex: "FA6400").cgColor
+    }
+}

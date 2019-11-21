@@ -73,6 +73,7 @@ public class SearchInterestPlaceViewController: UIViewController {
             safeAreaTop = self.view.safeAreaInsets.top
             setAd(safeAreaTop: safeAreaTop)
         }
+        showTutorialView()
     }
 
     /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
@@ -92,6 +93,17 @@ public class SearchInterestPlaceViewController: UIViewController {
         admobView.rootViewController = self
         admobView.load(GADRequest())
         self.view.addSubview(admobView)
+    }
+
+    private func showTutorialView() {
+        if (UserDefaults.standard.value(forKey: "firstLaunch") as? Bool) == nil {
+            let tutorialSV = UIStoryboard(name: "TutorialCollectionViewController", bundle: nil)
+            guard let tutorialVC = tutorialSV.instantiateInitialViewController() as? TutorialCollectionViewController else { return }
+            tutorialVC.modalPresentationStyle = .fullScreen
+            present(tutorialVC, animated: true, completion: nil)
+
+            UserDefaults.standard.set(true, forKey: "firstLaunch")
+        }
     }
 }
 
