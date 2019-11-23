@@ -269,6 +269,10 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
         // パラメータ初期化
         dragPinTimes = 0
     }
+
+    public func moveModalToFull() {
+        floatingPanelController.move(to: .full, animated: true)
+    }
 }
 
 extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelegate {

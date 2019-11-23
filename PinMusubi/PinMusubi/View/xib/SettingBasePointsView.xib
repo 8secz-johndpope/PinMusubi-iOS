@@ -25,11 +25,15 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="HkR-bz-LeH"/>
                         <constraint firstItem="FxL-2I-n5f" firstAttribute="centerY" secondItem="s6r-Yr-ol9" secondAttribute="centerY" id="dmq-pq-Lx8"/>
                         <constraint firstItem="FxL-2I-n5f" firstAttribute="centerX" secondItem="s6r-Yr-ol9" secondAttribute="centerX" id="nzP-K8-s28"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="KZf-24-3SV" appends="YES" id="Srx-Gh-jk1"/>
+                    </connections>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQi-x2-kuB">
                     <rect key="frame" x="0.0" y="68" width="375" height="676"/>
@@ -54,7 +58,7 @@
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eoe-XR-4XB">
                     <rect key="frame" x="0.0" y="60" width="375" height="1"/>
-                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="cOj-wD-pnj"/>
                     </constraints>
@@ -89,6 +93,11 @@
         <tapGestureRecognizer id="rht-nz-JbE">
             <connections>
                 <action selector="didTapView:" destination="iN0-l3-epB" id="23L-Qe-Tvb"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="KZf-24-3SV">
+            <connections>
+                <action selector="didTapHeader:" destination="iN0-l3-epB" id="qrd-bS-nqp"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

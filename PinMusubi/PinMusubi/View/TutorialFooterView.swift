@@ -18,7 +18,7 @@ public class TutorialFooterView: UICollectionReusableView {
         closeTutorialViewButton.layer.cornerRadius = 10
     }
 
-    @IBAction func didTappedCloseTutorialViewButton(_ sender: Any) {
+    @IBAction private func didTappedCloseTutorialViewButton(_ sender: Any) {
         delegate?.closeTutorialView()
     }
 }

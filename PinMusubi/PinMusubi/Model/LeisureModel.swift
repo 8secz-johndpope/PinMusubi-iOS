@@ -39,7 +39,7 @@ public class LeisureModel: LeisureModelProtocol {
             URLQueryItem(name: "appid", value: appid),
             URLQueryItem(name: "lat", value: "\(pinPoint.latitude)"),
             URLQueryItem(name: "lon", value: "\(pinPoint.longitude)"),
-            URLQueryItem(name: "gc", value: "03"),
+            URLQueryItem(name: "gc", value: "0301,0302,0303,0305,0307,0308"),
             URLQueryItem(name: "dist", value: "20"),
             URLQueryItem(name: "results", value: "100"),
             URLQueryItem(name: "sort", value: "geo"),

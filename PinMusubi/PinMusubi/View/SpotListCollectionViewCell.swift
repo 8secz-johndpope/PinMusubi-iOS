@@ -120,10 +120,18 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
 
     private func setEmptyView(spotType: SpotType) {
         guard let emptyView = UINib(nibName: "EmptyView", bundle: nil).instantiate(withOwner: self, options: nil).first as? EmptyView else { return }
-        if spotType == .transportation {
-            emptyView.setEmptyType(emptyType: .station)
-        } else if spotType == .restaurant {
+        switch spotType {
+        case .restaurant:
             emptyView.setEmptyType(emptyType: .restaurant)
+
+        case .hotel:
+            emptyView.setEmptyType(emptyType: .hotel)
+
+        case .leisure:
+            emptyView.setEmptyType(emptyType: .leisure)
+
+        case .transportation:
+            emptyView.setEmptyType(emptyType: .station)
         }
         emptyView.frame = bounds
         spotListTableView?.addSubview(emptyView)

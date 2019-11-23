@@ -56,6 +56,9 @@ public class SettingBasePointsView: UIView {
         self.endEditing(true)
     }
 
+    @IBAction private func didTapHeader(_ sender: Any) {
+        delegate?.moveModalToFull()
+    }
     /// 全ての入力値に対する入力チェックを行い、すべて正常であれば設定完了ボタンを活性に切り替え
     private func setActionButton() {
         let canDoneSetting = canDoneSettingList.contains(.empty) || canDoneSettingList.contains(.error)
