@@ -14,4 +14,7 @@ public protocol SettingBasePointsViewDelegate: AnyObject {
     /// - Parameter settingPoints: 設定地点リスト
     /// - Parameter halfwayPoint: 中間地点
     func setPin(settingPoints: [SettingPointEntity], halfwayPoint: CLLocationCoordinate2D)
+
+    /// モーダルを最大にする
+    func moveModalToFull()
 }
