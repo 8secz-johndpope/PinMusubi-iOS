@@ -64,7 +64,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="554"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ScK-LU-m8g">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinMusu" translatesAutoresizingMaskIntoConstraints="NO" id="ScK-LU-m8g">
                                     <rect key="frame" x="107" y="177" width="200" height="200"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="6ek-iQ-X6r"/>
@@ -105,7 +105,7 @@
                             <rect key="frame" x="0.0" y="1408" width="414" height="492"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading.gif" translatesAutoresizingMaskIntoConstraints="NO" id="1zG-5N-nvM">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinMusuSmile" translatesAutoresizingMaskIntoConstraints="NO" id="1zG-5N-nvM">
                                     <rect key="frame" x="107" y="146" width="200" height="200"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="200" id="7Gq-Yb-WT3"/>
@@ -158,6 +158,7 @@
     </scenes>
     <resources>
         <image name="Arrow" width="50" height="50"/>
-        <image name="loading.gif" width="1920" height="1080"/>
+        <image name="PinMusu" width="512" height="512"/>
+        <image name="PinMusuSmile" width="512" height="512"/>
     </resources>
 </document>
