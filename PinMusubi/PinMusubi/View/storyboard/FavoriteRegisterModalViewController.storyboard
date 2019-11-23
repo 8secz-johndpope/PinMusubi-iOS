@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="height" constant="1" id="PCH-nD-GPo"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFb-dk-1Lf">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFb-dk-1Lf">
                                 <rect key="frame" x="0.0" y="53" width="375" height="614"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBZ-as-hMB">
@@ -105,9 +105,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCC-cn-DqA" customClass="CosmosView" customModule="Cosmos">
-                                                <rect key="frame" x="16" y="136.5" width="343" height="32"/>
+                                                <rect key="frame" x="16" y="136.5" width="180" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="qOK-Vi-Cy1"/>
+                                                    <constraint firstAttribute="width" constant="180" id="qwo-E9-0f6"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -156,7 +157,6 @@
                                             <constraint firstItem="7jU-Ny-NyM" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="XWQ-De-Bn6"/>
                                             <constraint firstItem="Ydg-vn-fQP" firstAttribute="top" secondItem="KX5-N4-jHK" secondAttribute="bottom" constant="24" id="YES-kd-u7n"/>
                                             <constraint firstItem="Jzx-md-P8G" firstAttribute="top" secondItem="7jU-Ny-NyM" secondAttribute="bottom" constant="50.5" id="eA4-lo-Cbb"/>
-                                            <constraint firstAttribute="trailing" secondItem="oCC-cn-DqA" secondAttribute="trailing" constant="16" id="fe7-Ku-Lg0"/>
                                             <constraint firstItem="Jzx-md-P8G" firstAttribute="leading" secondItem="SBZ-as-hMB" secondAttribute="leading" constant="16" id="htW-Lf-SEU"/>
                                             <constraint firstItem="ZkD-qU-qmJ" firstAttribute="top" secondItem="SBZ-as-hMB" secondAttribute="top" constant="24.5" id="jlZ-NX-vHH"/>
                                             <constraint firstAttribute="trailing" secondItem="KX5-N4-jHK" secondAttribute="trailing" constant="16" id="qfL-eO-brc"/>
@@ -228,7 +228,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuM-74-N2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="NGp-rd-D3F">
+                <tapGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" id="NGp-rd-D3F">
                     <connections>
                         <action selector="didTapView:" destination="4ub-n3-Udo" id="zhS-rf-6Ik"/>
                     </connections>

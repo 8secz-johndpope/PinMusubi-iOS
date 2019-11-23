@@ -99,6 +99,7 @@ public class FavoriteRegisterModalViewController: UIViewController {
     @IBAction private func didTapCloseButton(_ sender: Any) {
         delegate?.closePresentedView()
     }
+
     @IBAction private func didTapView(_ sender: Any) {
         view.endEditing(true)
     }
