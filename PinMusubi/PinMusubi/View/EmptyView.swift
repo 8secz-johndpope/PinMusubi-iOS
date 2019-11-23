@@ -12,6 +12,10 @@ import UIKit
 public enum EmptyType {
     /// 飲食店
     case restaurant
+    /// 宿泊
+    case hotel
+    /// レジャー
+    case leisure
     /// 交通機関
     case station
     /// お気に入り
@@ -28,6 +32,12 @@ public class EmptyView: UIView {
         if emptyType == .restaurant {
             emptyImage.image = UIImage(named: "EmptyRestaurant")
             emptyTitle.text = "このスポット付近の飲食店が\n見つかりませんでした"
+        } else if emptyType == .hotel {
+            emptyImage.image = UIImage(named: "EmptyHotel")
+            emptyTitle.text = "このスポット付近の宿泊施設が\n見つかりませんでした"
+        } else if emptyType == .leisure {
+            emptyImage.image = UIImage(named: "EmptyLeisure")
+            emptyTitle.text = "このスポット付近のレジャー施設が\n見つかりませんでした"
         } else if emptyType == .station {
             emptyImage.image = UIImage(named: "EmptyStation")
             emptyTitle.text = "このスポット付近の駅・バス停が\n見つかりませんでした"
