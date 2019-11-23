@@ -34,9 +34,9 @@ public class SettingBasePointCell: UITableViewCell {
         addressTextField.delegate = self
         // textFieldの設定
         pointNameTextField.borderStyle = .none
-        pointNameTextField.placeholder = "例）自分の家"
+        pointNameTextField.placeholder = "例）太郎君の家"
         addressTextField.borderStyle = .none
-        addressTextField.placeholder = "例) 東京都目黒区下目黒◯-◯"
+        addressTextField.placeholder = "例) 東京都目黒区下目黒◯-◯, 東京駅"
         // textFieldの背景の設定
         pointNameView.layer.cornerRadius = 4
         addressView.layer.cornerRadius = 4
