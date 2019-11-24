@@ -76,17 +76,8 @@ public class SearchInterestPlaceViewController: UIViewController {
         showTutorialView()
     }
 
-    /// TODO: いちいち入力面倒だからすぐ画面遷移するようにした。後で消す。
-    @IBAction private func didTapTest(_ sender: Any) {
-        let testSettingPoints = TestData.setTestParameter().0
-        let testInterestPoint = TestData.setTestParameter().1
-        showSpotListView(settingPoints: testSettingPoints, interestPoint: testInterestPoint)
-    }
-
     private func setAd(safeAreaTop: CGFloat) {
-        // TODO: リリース時に切り替え
-        // guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
-        let adMobID = "ca-app-pub-3940256099942544/2934735716"
+        guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
         let admobView = GADBannerView(adSize: kGADAdSizeBanner)
         admobView.frame.origin = CGPoint(x: (view.frame.width - admobView.bounds.width) / 2, y: safeAreaTop)
         admobView.adUnitID = adMobID

@@ -18,6 +18,7 @@ disabled_rules:
 - strict_fileprivate # fileprivateを利用したいため
 - switch_case_on_newline # caseと同じ行に記述したいため
 - trailing_closure # RxSwiftのOnNextでwarningが出るため
+- cyclomatic_complexity # caseが多い場合に対応するため
 
 # defaultルール以外にopt-inから採用するルール
 opt_in_rules:
