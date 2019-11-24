@@ -41,7 +41,7 @@ public class DoneRegisterPresentationController: UIPresentationController {
     }
 
     override public func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSize(width: parentSize.width * 9 / 10, height: parentSize.height / 3)
+        return CGSize(width: parentSize.width * 9 / 10, height: 300)
     }
 
     override public var frameOfPresentedViewInContainerView: CGRect {
@@ -50,7 +50,7 @@ public class DoneRegisterPresentationController: UIPresentationController {
         let childContentSize = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds.size)
         presentedViewFrame.size = childContentSize
         presentedViewFrame.origin.x = childContentSize.width / 20
-        presentedViewFrame.origin.y = childContentSize.height
+        presentedViewFrame.origin.y = UIScreen.main.bounds.size.height / 4
 
         return presentedViewFrame
     }
