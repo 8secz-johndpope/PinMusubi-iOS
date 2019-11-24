@@ -146,9 +146,7 @@ public class SpotListCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureAd() {
-        // TODO: リリース時に切り替え
-        // guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
-        let adMobID = "ca-app-pub-3940256099942544/2934735716"
+        guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
         let adBannerView = GADBannerView(adSize: kGADAdSizeBanner)
         adBannerView.adUnitID = adMobID
         adBannerView.load(GADRequest())
