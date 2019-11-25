@@ -33,11 +33,17 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
         var idList = [String]()
         var pointNameList = [String]()
         var transferTimeList = [Int].init(repeating: Int(), count: settingPoints.count)
+        var pointCount = 1
 
         // 地点名の設定
         for settingPoint in settingPoints {
             idList.append(settingPoint.id)
-            pointNameList.append(settingPoint.name)
+            if settingPoint.name != "" {
+                pointNameList.append(settingPoint.name)
+            } else {
+                pointNameList.append("地点" + String(pointCount))
+            }
+            pointCount += 1
         }
 
         // 移動時間の設定
