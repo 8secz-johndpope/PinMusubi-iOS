@@ -34,7 +34,7 @@ public class SettingTableViewController: UITableViewController {
             cellTitles.append([])
         }
         cellTitles[0] = [tutorialTitle]
-        cellTitles[1] = [versionTitle, creditTitle, contactTitle]
+        cellTitles[1] = [versionTitle, creditTitle, contactTitle, reviewTitle]
     }
 
     override public func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,6 +79,8 @@ public class SettingTableViewController: UITableViewController {
             guard let contactFormVC = contactFormSV.instantiateInitialViewController() as? ContactFormViewController else { return }
             navigationController?.show(contactFormVC, sender: nil)
         } else if selectedCellTitle == reviewTitle {
+            guard let reviewUrl = URL(string: "https://itunes.apple.com/app/id1489074206?action=write-review") else { return }
+            UIApplication.shared.open(reviewUrl)
         }
     }
 }

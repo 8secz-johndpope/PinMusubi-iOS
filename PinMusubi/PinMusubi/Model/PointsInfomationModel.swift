@@ -30,12 +30,20 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
     /// - Parameter complete: 完了ハンドラ
     public func calculateTransferTime(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D, complete: @escaping ([String], [Int]) -> Void) {
         let dispatchGroup = DispatchGroup()
+        var idList = [String]()
         var pointNameList = [String]()
         var transferTimeList = [Int].init(repeating: Int(), count: settingPoints.count)
+        var pointCount = 1
 
         // 地点名の設定
         for settingPoint in settingPoints {
-            pointNameList.append(settingPoint.name)
+            idList.append(settingPoint.id)
+            if settingPoint.name != "" {
+                pointNameList.append(settingPoint.name)
+            } else {
+                pointNameList.append("地点" + String(pointCount))
+            }
+            pointCount += 1
         }
 
         // 移動時間の設定
@@ -57,7 +65,7 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
             dispatchGroup.enter()
             directions.calculate(completionHandler: { response, error -> Void in
                 // 地点名と対応する移動時間を設定
-                guard let index = pointNameList.firstIndex(of: settingPoint.name) else { return }
+                guard let index = idList.firstIndex(of: settingPoint.id) else { return }
                 if let routes = response?.routes {
                     if error != nil || routes.isEmpty {
                         transferTimeList[index] = -1

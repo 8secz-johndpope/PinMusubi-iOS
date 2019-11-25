@@ -20,7 +20,7 @@ public class TutorialCollectionViewController: UICollectionViewController {
     }
 
     override public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 4
+        return 5
     }
 
     override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

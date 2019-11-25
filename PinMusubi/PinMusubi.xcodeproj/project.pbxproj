@@ -148,10 +148,11 @@
 		9166710F2386B76B00236FEC /* TutorialHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166710E2386B76A00236FEC /* TutorialHeaderView.swift */; };
 		916671112386B78F00236FEC /* TutorialFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916671102386B78E00236FEC /* TutorialFooterView.swift */; };
 		916671152386BCC700236FEC /* TutorialFooterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916671142386BCC700236FEC /* TutorialFooterDelegate.swift */; };
-		916671202386D97E00236FEC /* Tutorial4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9166711C2386D97E00236FEC /* Tutorial4.jpg */; };
-		916671212386D97E00236FEC /* Tutorial1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9166711D2386D97E00236FEC /* Tutorial1.jpg */; };
-		916671222386D97E00236FEC /* Tutorial2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9166711E2386D97E00236FEC /* Tutorial2.jpg */; };
-		916671232386D97E00236FEC /* Tutorial3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9166711F2386D97E00236FEC /* Tutorial3.jpg */; };
+		916E9540238C05180090FB0A /* Tutorial3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 916E953B238C05180090FB0A /* Tutorial3.jpeg */; };
+		916E9541238C05180090FB0A /* Tutorial4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 916E953C238C05180090FB0A /* Tutorial4.jpeg */; };
+		916E9542238C05180090FB0A /* Tutorial0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 916E953D238C05180090FB0A /* Tutorial0.jpeg */; };
+		916E9543238C05180090FB0A /* Tutorial2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 916E953E238C05180090FB0A /* Tutorial2.jpeg */; };
+		916E9544238C05180090FB0A /* Tutorial1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 916E953F238C05180090FB0A /* Tutorial1.jpeg */; };
 		91816DA0232F6D5D00C48C78 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91816D9F232F6D5D00C48C78 /* MapKit.framework */; };
 		918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CC477232F91D00047BC88 /* ColorDefinition.swift */; };
 		918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */; };
@@ -348,10 +349,11 @@
 		9166710E2386B76A00236FEC /* TutorialHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHeaderView.swift; sourceTree = "<group>"; };
 		916671102386B78E00236FEC /* TutorialFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFooterView.swift; sourceTree = "<group>"; };
 		916671142386BCC700236FEC /* TutorialFooterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFooterDelegate.swift; sourceTree = "<group>"; };
-		9166711C2386D97E00236FEC /* Tutorial4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial4.jpg; sourceTree = "<group>"; };
-		9166711D2386D97E00236FEC /* Tutorial1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial1.jpg; sourceTree = "<group>"; };
-		9166711E2386D97E00236FEC /* Tutorial2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial2.jpg; sourceTree = "<group>"; };
-		9166711F2386D97E00236FEC /* Tutorial3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial3.jpg; sourceTree = "<group>"; };
+		916E953B238C05180090FB0A /* Tutorial3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial3.jpeg; sourceTree = "<group>"; };
+		916E953C238C05180090FB0A /* Tutorial4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial4.jpeg; sourceTree = "<group>"; };
+		916E953D238C05180090FB0A /* Tutorial0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial0.jpeg; sourceTree = "<group>"; };
+		916E953E238C05180090FB0A /* Tutorial2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial2.jpeg; sourceTree = "<group>"; };
+		916E953F238C05180090FB0A /* Tutorial1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tutorial1.jpeg; sourceTree = "<group>"; };
 		91816D9F232F6D5D00C48C78 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		918CC477232F91D00047BC88 /* ColorDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDefinition.swift; sourceTree = "<group>"; };
 		918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationAnnotationView.swift; sourceTree = "<group>"; };
@@ -561,10 +563,11 @@
 		9166711B2386D97E00236FEC /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				9166711D2386D97E00236FEC /* Tutorial1.jpg */,
-				9166711E2386D97E00236FEC /* Tutorial2.jpg */,
-				9166711F2386D97E00236FEC /* Tutorial3.jpg */,
-				9166711C2386D97E00236FEC /* Tutorial4.jpg */,
+				916E953D238C05180090FB0A /* Tutorial0.jpeg */,
+				916E953F238C05180090FB0A /* Tutorial1.jpeg */,
+				916E953E238C05180090FB0A /* Tutorial2.jpeg */,
+				916E953B238C05180090FB0A /* Tutorial3.jpeg */,
+				916E953C238C05180090FB0A /* Tutorial4.jpeg */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -958,15 +961,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				916671232386D97E00236FEC /* Tutorial3.jpg in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
 				91EEA80E2378095200824BBB /* CreditListViewController.storyboard in Resources */,
 				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
 				91C64A562371BEB10046E7E7 /* MyDataCell.xib in Resources */,
-				916671212386D97E00236FEC /* Tutorial1.jpg in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */,
-				916671202386D97E00236FEC /* Tutorial4.jpg in Resources */,
 				91A4111E2333C16A00AF7897 /* SettingBasePointsView.xib in Resources */,
 				9166710923869BD500236FEC /* TutorialCollectionViewController.storyboard in Resources */,
 				91C64A482371A7B60046E7E7 /* MyPageView.storyboard in Resources */,
@@ -974,6 +974,7 @@
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
 				91EEA81423780A3E00824BBB /* ContactFormViewController.storyboard in Resources */,
 				91EEA818237825AD00824BBB /* CreditViewController.xib in Resources */,
+				916E9540238C05180090FB0A /* Tutorial3.jpeg in Resources */,
 				91A8A1A5236C825500903354 /* TravelTimePanelCell.xib in Resources */,
 				9116C90B23859AED0026513D /* loading.gif in Resources */,
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
@@ -981,10 +982,12 @@
 				91D1CABD23769F3B0066F644 /* MyDetailsDataActionViewController.xib in Resources */,
 				91C64A4A2371A9260046E7E7 /* SettingView.storyboard in Resources */,
 				9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */,
-				916671222386D97E00236FEC /* Tutorial2.jpg in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
+				916E9542238C05180090FB0A /* Tutorial0.jpeg in Resources */,
+				916E9544238C05180090FB0A /* Tutorial1.jpeg in Resources */,
 				91C05BD2236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard in Resources */,
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
+				916E9541238C05180090FB0A /* Tutorial4.jpeg in Resources */,
 				915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
 				91D1CAB52376657D0066F644 /* TravelTimePanelViewController.xib in Resources */,
@@ -994,6 +997,7 @@
 				9116C906238596B60026513D /* LoadingView.xib in Resources */,
 				91D1CAB9237691D70066F644 /* MyDetailsDataViewController.storyboard in Resources */,
 				91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */,
+				916E9543238C05180090FB0A /* Tutorial2.jpeg in Resources */,
 				91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1762,6 +1766,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
@@ -1770,7 +1775,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1786,6 +1791,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
@@ -1794,10 +1800,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = PinMusubi;
+				PROVISIONING_PROFILE_SPECIFIER = PinMusubiApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

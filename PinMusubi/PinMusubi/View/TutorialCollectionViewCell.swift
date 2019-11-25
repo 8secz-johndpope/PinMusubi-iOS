@@ -24,19 +24,23 @@ public class TutorialCollectionViewCell: UICollectionViewCell {
         switch row {
         case 0:
             descriptionText = "まず、中間地点を求めるための\n基準となる場所を設定します\n\n最大10個まで設定できます！"
-            descriptionImageView.image = UIImage(named: "Tutorial1.jpg")
+            descriptionImageView.image = UIImage(named: "Tutorial0.jpeg")
 
         case 1:
-            descriptionText = "ピンを中間地点から移動させて\n気になる場所を探します\n\nピンを長押して浮かせると\n移動させることができます"
-            descriptionImageView.image = UIImage(named: "Tutorial2.jpg")
+            descriptionText = "設定が完了すると設定場所の\n中間地点にピンが設置されます"
+            descriptionImageView.image = UIImage(named: "Tutorial1.jpeg")
 
         case 2:
-            descriptionText = "詳細を見るボタンを押すと\nスポット一覧を表示します\n\nこの場所が気に入ったら\nお気に入り登録しましょう！"
-            descriptionImageView.image = UIImage(named: "Tutorial3.jpg")
+            descriptionText = "中間地点が気に入らなければ\nピンの移動も可能です！\n\nピンを長押しして浮かせてから\n移動させましょう！"
+            descriptionImageView.image = UIImage(named: "Tutorial2.jpeg")
 
         case 3:
+            descriptionText = "詳細を見るボタンを押すと\nスポット一覧を表示します\n\nこの場所が気に入ったら\nお気に入り登録しましょう！"
+            descriptionImageView.image = UIImage(named: "Tutorial3.jpeg")
+
+        case 4:
             descriptionText = "お気に入りとスポット検索履歴は\nマイページから確認できます"
-            descriptionImageView.image = UIImage(named: "Tutorial4.jpg")
+            descriptionImageView.image = UIImage(named: "Tutorial4.jpeg")
 
         default:
             break
@@ -52,6 +56,7 @@ public class TutorialCollectionViewCell: UICollectionViewCell {
         UIGraphicsEndImageContext()
         descriptionImageView.image = resizedImage
         descriptionImageView.layer.borderWidth = 1.0
-        descriptionImageView.layer.borderColor = UIColor(hex: "FA6400").cgColor
+        descriptionImageView.layer.borderColor = UIColor.lightGray.cgColor
+        descriptionImageView.layer.cornerRadius = 10
     }
 }
