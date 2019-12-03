@@ -93,8 +93,10 @@ public class SearchInterestPlaceViewController: UIViewController {
         guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
         bottomAdMobView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         guard let bottomAdMobView = bottomAdMobView else { return }
-        let screenSize = UIScreen.main.bounds.size
-        bottomAdMobView.frame.origin = CGPoint(x: (view.frame.width - bottomAdMobView.bounds.width) / 2, y: screenSize.height - 158)
+        let screenHeight = UIScreen.main.bounds.size.height
+        let safeAreaBottom = view.safeAreaInsets.bottom
+        let bottomAdMobViewY = screenHeight - safeAreaBottom - bottomAdMobView.bounds.height - 60
+        bottomAdMobView.frame.origin = CGPoint(x: (view.frame.width - bottomAdMobView.bounds.width) / 2, y: bottomAdMobViewY)
         bottomAdMobView.adUnitID = adMobID
         bottomAdMobView.rootViewController = self
         bottomAdMobView.load(GADRequest())
