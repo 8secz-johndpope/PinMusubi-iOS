@@ -17,12 +17,13 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        // tabbar
-        guard let selfView = self.window else {
-            return true
-        }
-        if let tabvc = selfView.rootViewController as? UITabBarController {
-            tabvc.selectedIndex = 1
+        // TabBar
+        if let tabVC = window?.rootViewController as? UITabBarController {
+            tabVC.selectedIndex = 1
+            tabVC.tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+            tabVC.tabBar.layer.shadowColor = UIColor.gray.cgColor
+            tabVC.tabBar.layer.shadowRadius = 4.0
+            tabVC.tabBar.layer.shadowOpacity = 0.6
         }
 
         // Realm
