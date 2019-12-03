@@ -238,8 +238,8 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
         self.halfwayPoint = halfwayPoint
 
         // 中間地点にピンを設置
-        self.annotation.coordinate = halfwayPoint
-        self.searchMapView.addAnnotation(self.annotation)
+        annotation.coordinate = halfwayPoint
+        searchMapView.addAnnotation(annotation)
 
         // Overlayの初期化
         searchMapView.removeOverlays(circles)
