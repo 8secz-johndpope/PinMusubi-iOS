@@ -78,6 +78,8 @@ public class SpotListViewController: UIViewController {
         isChangeSegmentedControl = false
         let selectedIndex = segmentedControl.selectedSegmentIndex
         flowLayout?.slideView(selectedSegmentIndex: selectedIndex)
+        let feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator.selectionChanged()
     }
 
     @IBAction private func closeSpotListView(_ sender: Any) {
@@ -115,6 +117,8 @@ public class SpotListViewController: UIViewController {
             guard let interestPoint = interestPoint else { return }
             guard let spotListAnalyticsEntity = spotListAnalyticsEntity else { return }
             favoriteRegisterVC.setParameter(settingPoints: settingPoints, interestPoint: interestPoint, spotListAnalyticsEntity: spotListAnalyticsEntity)
+            let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+            feedbackGenerator.impactOccurred()
             present(favoriteRegisterVC, animated: true, completion: nil)
         }
     }

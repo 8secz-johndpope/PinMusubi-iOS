@@ -97,6 +97,8 @@ public class SettingBasePointActionCell: UITableViewCell {
     /// - Parameter sender: UITapGestureRecognizer
     @IBAction private func tappedAddCellView(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
+        let feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator.selectionChanged()
         delegate.addSettingBasePointCell()
     }
 
@@ -104,6 +106,8 @@ public class SettingBasePointActionCell: UITableViewCell {
     /// - Parameter sender: UITapGestureRecognizer
     @IBAction private func tappedRemoveCellView(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
+        let feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator.selectionChanged()
         delegate.removeSettingBasePointCell()
     }
 
@@ -114,6 +118,8 @@ public class SettingBasePointActionCell: UITableViewCell {
             // 設定完了ボタン押下をMap画面に通知してモーダルを下げる
             NotificationCenter.default.post(name: Notification.doneSettingNotification, object: nil)
             guard let delegate = delegate else { return }
+            let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+            feedbackGenerator.impactOccurred()
             delegate.doneSetting()
         }
     }

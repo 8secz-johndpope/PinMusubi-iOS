@@ -57,6 +57,8 @@ public class PointsInfomationAnnotationView: UIView {
     }
 
     @IBAction private func tappedShowSpotListButton(_ sender: UITapGestureRecognizer) {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        feedbackGenerator.impactOccurred()
         guard let delegate = delegate else { return }
         delegate.searchSpotList()
     }
@@ -68,7 +70,7 @@ public class PointsInfomationAnnotationView: UIView {
 
     public func configureUI() {
         let screenSize = UIScreen.main.bounds.size
-        pointsInfoScrollView.heightAnchor.constraint(equalToConstant: screenSize.height / 8).isActive = true
+        pointsInfoScrollView.heightAnchor.constraint(equalToConstant: screenSize.height / 7).isActive = true
         showSpotListButton.widthAnchor.constraint(equalToConstant: screenSize.width * 0.8).isActive = true
 
         showSpotListButton.backgroundColor = UIColor(hex: "FA6400")
