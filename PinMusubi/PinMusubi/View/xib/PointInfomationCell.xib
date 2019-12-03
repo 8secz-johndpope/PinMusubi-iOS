@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4s-cd-n7a">
-                        <rect key="frame" x="109" y="10" width="83" height="16"/>
+                        <rect key="frame" x="139" y="10" width="53" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKK-Ho-IHX">
-                        <rect key="frame" x="23" y="10" width="66" height="16"/>
+                        <rect key="frame" x="23" y="10" width="96" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuN-6T-bte">
-                        <rect key="frame" x="96.5" y="10.5" width="4" height="16"/>
+                        <rect key="frame" x="126.5" y="10.5" width="4" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="4" id="B7q-k8-hFr"/>
                         </constraints>
@@ -84,7 +84,7 @@
                 </constraints>
             </tableViewCellContentView>
             <constraints>
-                <constraint firstItem="GuN-6T-bte" firstAttribute="centerX" secondItem="njF-e1-oar" secondAttribute="centerX" id="kLL-mg-FAP"/>
+                <constraint firstItem="GuN-6T-bte" firstAttribute="centerX" secondItem="njF-e1-oar" secondAttribute="centerX" constant="30" id="kLL-mg-FAP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

@@ -11,6 +11,8 @@ import UIKit
 
 /// マップ上の地点間の情報を表示するビュー
 public class PointsInfomationAnnotationView: UIView {
+    /// 地点間の移動距離を表示するScrollView
+    @IBOutlet private var pointsInfoScrollView: UIScrollView!
     /// 地点間の移動時間を表示するTableView
     @IBOutlet private var pointsInfoTableView: UITableView!
     /// 「詳細を見る」のボタンとなるView
@@ -31,12 +33,10 @@ public class PointsInfomationAnnotationView: UIView {
         pointsInfoTableView.dataSource = self
         // プレゼンターの初期化
         self.presenter = PointsInfomationPresenter(view: self, modelType: PointsInfomationModel.self)
-        // 詳細を見るボタンの設定
-        showSpotListButton.backgroundColor = UIColor(hex: "FA6400")
-        showSpotListButton.layer.cornerRadius = 8
         // pointsInfoTabelViewにカスタムセルを設定
         pointsInfoTableView.register(UINib(nibName: "PointInfomationCell", bundle: nil), forCellReuseIdentifier: "PointInfomationCell")
 
+        configureUI()
         setGesture()
     }
 
@@ -57,6 +57,8 @@ public class PointsInfomationAnnotationView: UIView {
     }
 
     @IBAction private func tappedShowSpotListButton(_ sender: UITapGestureRecognizer) {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        feedbackGenerator.impactOccurred()
         guard let delegate = delegate else { return }
         delegate.searchSpotList()
     }
@@ -64,6 +66,15 @@ public class PointsInfomationAnnotationView: UIView {
     private func setGesture() {
         let tapShowSpotListButton = UITapGestureRecognizer(target: self, action: #selector(self.tappedShowSpotListButton(_:)))
         showSpotListButton.addGestureRecognizer(tapShowSpotListButton)
+    }
+
+    public func configureUI() {
+        let screenSize = UIScreen.main.bounds.size
+        pointsInfoScrollView.heightAnchor.constraint(equalToConstant: screenSize.height / 7).isActive = true
+        showSpotListButton.widthAnchor.constraint(equalToConstant: screenSize.width * 0.8).isActive = true
+
+        showSpotListButton.backgroundColor = UIColor(hex: "FA6400")
+        showSpotListButton.layer.cornerRadius = 8
     }
 }
 

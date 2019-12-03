@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import GoogleMobileAds
 import MapKit
 import UIKit
 
@@ -14,6 +15,8 @@ public class SettingBasePointsView: UIView {
     // 入力フィールドを表示するためのScrollViewとTableView
     @IBOutlet private var settingBasePointsScrollView: UIScrollView!
     @IBOutlet private var settingBasePointsTableView: UITableView!
+
+    private var adBannerView = GADBannerView()
 
     /// セルの数（初期値2）
     private var cellRow: Int = 2
@@ -31,6 +34,9 @@ public class SettingBasePointsView: UIView {
 
     /// MapViewに処理を委譲するdelegate
     public weak var delegate: SettingBasePointsViewDelegate?
+
+    /// rootViewControllerに処理を委譲するdelegate
+    public weak var adDelegate: SettingBasePointsViewAdDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -98,10 +104,21 @@ extension SettingBasePointsView: UITableViewDelegate, UITableViewDataSource {
         } else {
             // アクションセルの設定
             guard let cell = settingBasePointsTableView.dequeueReusableCell(withIdentifier: "SettingBasePointActionCell") as? SettingBasePointActionCell else { return UITableViewCell() }
+            configureAd()
             cell.delegate = self
+            cell.setAdBannerView(adBannerView: adBannerView)
             actionCell = cell
             return cell
         }
+    }
+
+    private func configureAd() {
+        guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
+        let adBannerView = GADBannerView(adSize: kGADAdSizeMediumRectangle)
+        adBannerView.adUnitID = adMobID
+        adDelegate?.setRootVC(bannerView: adBannerView)
+        adBannerView.load(GADRequest())
+        self.adBannerView = adBannerView
     }
 }
 

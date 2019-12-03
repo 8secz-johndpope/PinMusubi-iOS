@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import GoogleMobileAds
 import UIKit
 
 /// モーダルのViewController
@@ -18,6 +19,13 @@ public class SettingBasePointsModalViewController: UIViewController {
             .instantiate(withOwner: self, options: nil)
             .first as? SettingBasePointsView else { return }
         modalContentView.frame = view.frame
+        modalContentView.adDelegate = self
         view.addSubview(modalContentView)
+    }
+}
+
+extension SettingBasePointsModalViewController: SettingBasePointsViewAdDelegate {
+    public func setRootVC(bannerView: GADBannerView) {
+        bannerView.rootViewController = self
     }
 }

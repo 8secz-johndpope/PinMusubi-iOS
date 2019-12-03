@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import GoogleMobileAds
 import UIKit
 
 /// 地点設定に関するアクションを行うCell
@@ -14,6 +15,7 @@ public class SettingBasePointActionCell: UITableViewCell {
     @IBOutlet private var addCellView: UIView!
     @IBOutlet private var removeCellView: UIView!
     @IBOutlet private var doneSettingView: UIView!
+    @IBOutlet private var adSuperView: UIView!
 
     /// 設定可否
     private var isEnabledDoneSetting = false
@@ -42,6 +44,10 @@ public class SettingBasePointActionCell: UITableViewCell {
         removeCellView.addGestureRecognizer(tapRemoveCellViewGesture)
         let tapDoneSettingView = UITapGestureRecognizer(target: self, action: #selector(self.tappedDoneSettingView(_:)))
         doneSettingView.addGestureRecognizer(tapDoneSettingView)
+    }
+
+    public func setAdBannerView(adBannerView: GADBannerView) {
+        adSuperView.addSubview(adBannerView)
     }
 
     /// セル選択時の状態を変化させない
@@ -91,6 +97,8 @@ public class SettingBasePointActionCell: UITableViewCell {
     /// - Parameter sender: UITapGestureRecognizer
     @IBAction private func tappedAddCellView(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
+        let feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator.selectionChanged()
         delegate.addSettingBasePointCell()
     }
 
@@ -98,6 +106,8 @@ public class SettingBasePointActionCell: UITableViewCell {
     /// - Parameter sender: UITapGestureRecognizer
     @IBAction private func tappedRemoveCellView(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
+        let feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator.selectionChanged()
         delegate.removeSettingBasePointCell()
     }
 
@@ -108,6 +118,8 @@ public class SettingBasePointActionCell: UITableViewCell {
             // 設定完了ボタン押下をMap画面に通知してモーダルを下げる
             NotificationCenter.default.post(name: Notification.doneSettingNotification, object: nil)
             guard let delegate = delegate else { return }
+            let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+            feedbackGenerator.impactOccurred()
             delegate.doneSetting()
         }
     }

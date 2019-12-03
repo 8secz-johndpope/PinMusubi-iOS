@@ -124,6 +124,9 @@ public class FavoriteRegisterModalViewController: UIViewController {
         tmpFavoriteSpot.longitude = interestPoint.longitude
         tmpFavoriteSpot.dateTime = Date()
 
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        feedbackGenerator.impactOccurred()
+
         if let favoriteId = favoriteId {
             // 更新
             tmpFavoriteSpot.id = favoriteId
