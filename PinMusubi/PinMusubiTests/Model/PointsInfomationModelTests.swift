@@ -17,7 +17,7 @@ class PointsInfomationModelTests: XCTestCase {
     
     func testCalculateTransferTime_ok() {
         let pointsInfomationModel = PointsInfomationModel()
-        let calculateTransferTimeExpectation: XCTestExpectation? = self.expectation(description: "calculateTransferTime")
+        let calculateTransferTimeExpectation = expectation(description: "calculateTransferTime")
         var exampleSettingPoints = [SettingPointEntity]()
         let exampleSettingPoint0 = SettingPointEntity()
         let exampleSettingPoint1 = SettingPointEntity()
@@ -38,8 +38,39 @@ class PointsInfomationModelTests: XCTestCase {
             XCTAssert(pointNames.contains(exampleSettingPoint1.name))
             XCTAssert(transferTimes[0] != -1)
             XCTAssert(transferTimes[1] != -1)
-            calculateTransferTimeExpectation?.fulfill()
-        })
-        self.waitForExpectations(timeout: 10, handler: nil)
+            calculateTransferTimeExpectation.fulfill()
+        }
+        )
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testGetTransferGuide_ok() {
+        let pointsInfomationModel = PointsInfomationModel()
+        let getTransferGuideExpectation = expectation(description: "getTransferGuideSuccess")
+        let exampleFrom = "西船橋"
+        let exampleTo = "新木場"
+        
+        pointsInfomationModel.getTransferGuide(fromStation: exampleFrom, toStation: exampleTo, complete: {
+            responseString, status in
+            XCTAssert(status == .success)
+            getTransferGuideExpectation.fulfill()
+        }
+        )
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testGetTransferGuide_ng() {
+        let pointsInfomationModel = PointsInfomationModel()
+        let getTransferGuideExpectation = expectation(description: "getTransferGuideError")
+        let exampleFrom = "天国"
+        let exampleTo = "地獄"
+        
+        pointsInfomationModel.getTransferGuide(fromStation: exampleFrom, toStation: exampleTo, complete: {
+            responseString, status in
+            XCTAssert(status == .error)
+            getTransferGuideExpectation.fulfill()
+        }
+        )
+        waitForExpectations(timeout: 10, handler: nil)
     }
 }

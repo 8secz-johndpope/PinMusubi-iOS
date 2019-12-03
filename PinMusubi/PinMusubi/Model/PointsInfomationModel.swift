@@ -17,12 +17,23 @@ public protocol PointsInfomationModelProtocol {
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
     func calculateTransferTime(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D, complete: @escaping ([String], [Int]) -> Void)
+
+    /// 乗換案内情報URLの文字列を取得
+    /// - Parameter fromStation: 出発駅
+    /// - Parameter toStation: 到着駅
+    /// - Parameter complete: 完了ハンドラß
+    func getTransferGuide(fromStation: String, toStation: String, complete: @escaping (String, ResponseStatus) -> Void)
 }
 
 /// マップ上の地点間の情報を処理するモデル
 public class PointsInfomationModel: PointsInfomationModelProtocol {
+    private var ekispertKey = ""
+
     /// コンストラクタ
-    public required init() {}
+    public required init() {
+        guard let key = KeyManager().getValue(key: "Ekispert API Key") as? String else { return }
+        self.ekispertKey = key
+    }
 
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
@@ -83,5 +94,35 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
         dispatchGroup.notify(queue: .main) {
             complete(pointNameList, transferTimeList)
         }
+    }
+
+    public func getTransferGuide(fromStation: String, toStation: String, complete: @escaping (String, ResponseStatus) -> Void) {
+        // リクエストURL生成
+        let ekispertUrlString = "http://api.ekispert.jp/v1/json/search/course/light"
+        guard var urlComponents = URLComponents(string: ekispertUrlString) else { return }
+        urlComponents.queryItems = [
+            URLQueryItem(name: "key", value: ekispertKey),
+            URLQueryItem(name: "from", value: fromStation),
+            URLQueryItem(name: "to", value: toStation),
+            URLQueryItem(name: "contentsMode", value: "sp")
+        ]
+        guard let urlRequest = urlComponents.url else { return }
+
+        // レスポンスJSONから乗換案内URLを取得
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            guard let jsonData = data else { return }
+            do {
+                let transferGuide = try JSONDecoder().decode(TransferGuideEntity.self, from: jsonData)
+                if let transferGuideURLString = transferGuide.resultSet.resourceURI {
+                    complete(transferGuideURLString, .success)
+                } else if let transferGuideError = transferGuide.resultSet.error {
+                    complete(transferGuideError.message, .error)
+                }
+            } catch {
+                complete("その他のエラー", .error)
+                print(error)
+            }
+        }
+        task.resume()
     }
 }
