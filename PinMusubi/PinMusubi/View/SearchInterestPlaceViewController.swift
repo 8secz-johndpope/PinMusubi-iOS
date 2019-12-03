@@ -40,7 +40,8 @@ public class SearchInterestPlaceViewController: UIViewController {
     /// ピンを移動した回数
     private var dragPinTimes = 0
 
-    private var safeAreaTop = CGFloat(0.0)
+    private var topAdMobView: GADBannerView?
+    private var bottomAdMobView: GADBannerView?
 
     public var presenter: SearchInterestPlacePresenterProtocol?
 
@@ -69,21 +70,36 @@ public class SearchInterestPlaceViewController: UIViewController {
     }
 
     override public func viewWillLayoutSubviews() {
-        if safeAreaTop != self.view.safeAreaInsets.top {
-            safeAreaTop = self.view.safeAreaInsets.top
-            setAd(safeAreaTop: safeAreaTop)
+        if topAdMobView == nil || bottomAdMobView == nil {
+            configureTopAdMobView()
+            configureBottomAdMobView()
         }
         showTutorialView()
     }
 
-    private func setAd(safeAreaTop: CGFloat) {
+    private func configureTopAdMobView() {
         guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
-        let admobView = GADBannerView(adSize: kGADAdSizeBanner)
-        admobView.frame.origin = CGPoint(x: (view.frame.width - admobView.bounds.width) / 2, y: safeAreaTop)
-        admobView.adUnitID = adMobID
-        admobView.rootViewController = self
-        admobView.load(GADRequest())
-        self.view.addSubview(admobView)
+        topAdMobView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        guard let topAdMobView = topAdMobView else { return }
+        topAdMobView.frame.origin = CGPoint(x: (view.frame.width - topAdMobView.bounds.width) / 2, y: view.safeAreaInsets.top)
+        topAdMobView.adUnitID = adMobID
+        topAdMobView.rootViewController = self
+        topAdMobView.load(GADRequest())
+        topAdMobView.isHidden = true
+        view.addSubview(topAdMobView)
+    }
+
+    private func configureBottomAdMobView() {
+        guard let adMobID = KeyManager().getValue(key: "Ad Mob ID") as? String else { return }
+        bottomAdMobView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        guard let bottomAdMobView = bottomAdMobView else { return }
+        let screenSize = UIScreen.main.bounds.size
+        bottomAdMobView.frame.origin = CGPoint(x: (view.frame.width - bottomAdMobView.bounds.width) / 2, y: screenSize.height - 158)
+        bottomAdMobView.adUnitID = adMobID
+        bottomAdMobView.rootViewController = self
+        bottomAdMobView.load(GADRequest())
+        bottomAdMobView.isHidden = true
+        view.addSubview(bottomAdMobView)
     }
 
     private func showTutorialView() {
@@ -223,7 +239,28 @@ extension SearchInterestPlaceViewController: FloatingPanelControllerDelegate {
     /// モーダルをドラッグ時、キーボードを下げる
     /// - Parameter vc: FloatingPanelController
     public func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
-        self.view.endEditing(true)
+        topAdMobView?.isHidden = true
+        bottomAdMobView?.isHidden = true
+        view.endEditing(true)
+    }
+
+    public func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
+        switch vc.position {
+        case .tip:
+            topAdMobView?.isHidden = true
+            bottomAdMobView?.isHidden = false
+
+        case .half:
+            topAdMobView?.isHidden = true
+            bottomAdMobView?.isHidden = true
+
+        case .full:
+            topAdMobView?.isHidden = false
+            bottomAdMobView?.isHidden = true
+
+        case .hidden:
+            break
+        }
     }
 }
 
