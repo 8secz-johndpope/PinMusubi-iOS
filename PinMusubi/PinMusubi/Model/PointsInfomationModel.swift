@@ -74,12 +74,12 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
         var toStation = ""
 
         let stationModel = StationModel()
-        stationModel.fetchStationList(pinPoint: fromPoint) { fromStations, status in
+        stationModel.fetchStationList(pinPoint: fromPoint) { [weak self] fromStations, status in
             if status == .success && !fromStations.isEmpty {
-                fromStation = fromStations[0].name
+                fromStation = self?.modifyStationName(stationName: fromStations[0].name) ?? fromStations[0].name
                 stationModel.fetchStationList(pinPoint: toPoint) { [weak self] toStations, status in
                     if status == .success && !toStations.isEmpty {
-                        toStation = toStations[0].name
+                        toStation = self?.modifyStationName(stationName: toStations[0].name) ?? toStations[0].name
                         self?.fetchTransferGuide(fromStation: fromStation, toStation: toStation) { urlString, status in
                             complete(urlString, status)
                         }
@@ -121,5 +121,14 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
             }
         }
         task.resume()
+    }
+
+    private func modifyStationName(stationName: String) -> String {
+        if stationName.contains("新線") {
+            let modifiedStationName = stationName.replacingOccurrences(of: "新線", with: "")
+            return modifiedStationName
+        }
+
+        return stationName
     }
 }
