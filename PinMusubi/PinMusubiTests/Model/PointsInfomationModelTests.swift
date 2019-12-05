@@ -17,29 +17,39 @@ class PointsInfomationModelTests: XCTestCase {
     
     func testCalculateTransferTime_ok() {
         let pointsInfomationModel = PointsInfomationModel()
-        let calculateTransferTimeExpectation: XCTestExpectation? = self.expectation(description: "calculateTransferTime")
-        var exampleSettingPoints = [SettingPointEntity]()
-        let exampleSettingPoint0 = SettingPointEntity()
-        let exampleSettingPoint1 = SettingPointEntity()
-        exampleSettingPoint0.name = "東京駅"
-        exampleSettingPoint0.latitude = 35.681236
-        exampleSettingPoint0.longitude = 139.767125
-        exampleSettingPoint1.name = "渋谷駅"
-        exampleSettingPoint1.latitude = 35.658034
-        exampleSettingPoint1.longitude = 139.701636
-        exampleSettingPoints.append(exampleSettingPoint0)
-        exampleSettingPoints.append(exampleSettingPoint1)
+        let calculateTransferTimeExpectation = expectation(description: "calculateTransferTime")
+        let exampleSettingPoint = SettingPointEntity()
+        exampleSettingPoint.name = "東京駅"
+        exampleSettingPoint.latitude = 35.681236
+        exampleSettingPoint.longitude = 139.767125
+        
         var examplePinPoint = CLLocationCoordinate2D()
         examplePinPoint.latitude = 35.710063
         examplePinPoint.longitude = 139.8107
         
-        pointsInfomationModel.calculateTransferTime(settingPoints: exampleSettingPoints, pinPoint: examplePinPoint, complete: { pointNames, transferTimes in
-            XCTAssert(pointNames.contains(exampleSettingPoint0.name))
-            XCTAssert(pointNames.contains(exampleSettingPoint1.name))
-            XCTAssert(transferTimes[0] != -1)
-            XCTAssert(transferTimes[1] != -1)
-            calculateTransferTimeExpectation?.fulfill()
-        })
-        self.waitForExpectations(timeout: 10, handler: nil)
+        pointsInfomationModel.calculateTransferTime(settingPoint: exampleSettingPoint, pinPoint: examplePinPoint) { transferTime  in
+            XCTAssert(transferTime != -1)
+            calculateTransferTimeExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testGetTransferGuide_ok() {
+        let pointsInfomationModel = PointsInfomationModel()
+        let getTransferGuideExpectation = expectation(description: "transferGuideExpectation")
+        let exampleSettingPoint = SettingPointEntity()
+        exampleSettingPoint.name = "東京駅"
+        exampleSettingPoint.latitude = 35.681236
+        exampleSettingPoint.longitude = 139.767125
+        
+        var examplePinPoint = CLLocationCoordinate2D()
+        examplePinPoint.latitude = 35.710063
+        examplePinPoint.longitude = 139.8107
+        
+        pointsInfomationModel.getTransportationGuide(settingPoint: exampleSettingPoint, pinPoint: examplePinPoint) { responseString, status in
+            XCTAssert(status == .success)
+            getTransferGuideExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
     }
 }

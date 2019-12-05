@@ -19,6 +19,8 @@ public class WebViewController: UIViewController {
 
     private var movePageTimes = 0
 
+    private var requestUrlString = ""
+    private var shareTitle = ""
     private var spot: SpotEntityProtocol?
 
     override public func viewDidLoad() {
@@ -32,17 +34,7 @@ public class WebViewController: UIViewController {
     }
 
     private func loadWebView() {
-        var spotUrl = ""
-        if let shop = spot as? Shop {
-            spotUrl = shop.urls.pcUrl
-        } else if let hotels = spot as? Hotels {
-            guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
-            spotUrl = hotelInformationURL
-        } else if let leisure = spot as? Feature {
-            guard let searchUrl = ("https://www.google.com/search?q=" + leisure.name).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-            spotUrl = searchUrl
-        }
-        guard let requestUrl = URL(string: spotUrl) else { return }
+        guard let requestUrl = URL(string: requestUrlString) else { return }
         let request = URLRequest(url: requestUrl)
         webView.load(request)
     }
@@ -61,8 +53,26 @@ public class WebViewController: UIViewController {
         chevronRightButton.tintColor = UIColor.lightGray
     }
 
-    public func setParameter(spot: SpotEntityProtocol) {
+    public func setSpot(spot: SpotEntityProtocol) {
         self.spot = spot
+        if let shop = spot as? Shop {
+            requestUrlString = shop.urls.pcUrl
+            shareTitle = shop.name
+        } else if let hotels = spot as? Hotels {
+            guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
+            requestUrlString = hotelInformationURL
+            guard let hotelName = hotels.hotel[0].hotelBasicInfo?.hotelName else { return }
+            shareTitle = hotelName
+        } else if let leisure = spot as? Feature {
+            guard let searchUrl = ("https://www.google.com/search?q=" + leisure.name).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+            requestUrlString = searchUrl
+            shareTitle = leisure.name
+        }
+    }
+
+    public func setTransportationGuideInfo(urlString: String, fromStation: String, toStation: String) {
+        requestUrlString = urlString
+        shareTitle = "\(fromStation)駅から\(toStation)駅までの乗換案内"
     }
 
     @IBAction private func didTapBackViewButton(_ sender: Any) {
@@ -101,19 +111,8 @@ public class WebViewController: UIViewController {
     }
 
     @IBAction private func didTapActionButton(_ sender: Any) {
-        var shareText = ""
-        var spotUrl = ""
-        if let shop = spot as? Shop {
-            shareText = shop.name
-            spotUrl = shop.urls.pcUrl
-        } else if let hotels = spot as? Hotels {
-            guard let hotelName = hotels.hotel[0].hotelBasicInfo?.hotelName else { return }
-            shareText = hotelName
-            guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
-            spotUrl = hotelInformationURL
-        }
-        let shareWebsite = URL(string: spotUrl)
-        let activityItems = [shareText, shareWebsite as Any] as [Any]
+        let shareWebsite = URL(string: requestUrlString)
+        let activityItems = [shareTitle, shareWebsite as Any] as [Any]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }

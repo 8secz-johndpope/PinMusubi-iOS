@@ -319,6 +319,10 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
             showSpotListView(settingPoints: settingPoints, interestPoint: halfwayPoint)
         }
     }
+
+    public func showTransportationGuideWebPage(webVCInstance: WebViewController) {
+        present(webVCInstance, animated: true, completion: nil)
+    }
 }
 
 extension SearchInterestPlaceViewController: SpotListViewDelegate {

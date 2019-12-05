@@ -239,7 +239,7 @@ public class SpotDetailsViewController: UIViewController {
             let webView = UIStoryboard(name: "WebView", bundle: nil)
             guard let webVC = webView.instantiateInitialViewController() as? WebViewController else { return }
             guard let spot = spot else { return }
-            webVC.setParameter(spot: spot)
+            webVC.setSpot(spot: spot)
             navigationController?.show(webVC, sender: nil)
 
         case .cancelled: break
