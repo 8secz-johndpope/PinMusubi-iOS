@@ -14,32 +14,23 @@ import UIKit
 
 /// 興味のある場所を探すView
 public class SearchInterestPlaceViewController: UIViewController {
-    // MapView
-    @IBOutlet private var searchMapView: MKMapView!
+    @IBOutlet private var searchMapView: MKMapView! {
+        didSet {
+            searchMapView.delegate = self
+        }
+    }
 
-    /// ピンのAnnotation
-    private let annotation = MKPointAnnotation()
-    /// カスタムAnnotationView
     private var pointsInfomationAnnotationView: PointsInfomationAnnotationView?
-    /// 円のリスト
-    private var circles = [MKCircle]()
-    /// 線のリスト
-    private var lines = [MKPolyline]()
-    /// 円の色の番号
-    private var circleColorIndex = 0
-    /// 線の色の番号
-    private var lineColorIndex = 0
-    /// 設定地点のリスト
-    private var settingPoints = [SettingPointEntity]()
-    /// 中間地点
-    private var halfwayPoint = CLLocationCoordinate2D()
-    /// モーダル
     private var floatingPanelController = FloatingPanelController()
-    /// スポットリスト
+    private let annotation = MKPointAnnotation()
+    private var circles = [MKCircle]()
+    private var lines = [MKPolyline]()
+    private var circleColorIndex = 0
+    private var lineColorIndex = 0
+    private var settingPoints = [SettingPointEntity]()
+    private var halfwayPoint = CLLocationCoordinate2D()
     private var spotListNC: SpotListNavigationController?
-    /// ピンを移動した回数
     private var dragPinTimes = 0
-
     private var topAdMobView: GADBannerView?
     private var bottomAdMobView: GADBannerView?
 
@@ -47,26 +38,23 @@ public class SearchInterestPlaceViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        // delegateの設定
-        searchMapView.delegate = self
+
+        presenter = SearchInterestPlacePresenter(vc: self, modelType: SearchInterestPlaceModel.self)
+
         floatingPanelController.delegate = self
-        // モーダル表示
-        let modalVC = SettingBasePointsModalViewController()
         floatingPanelController.surfaceView.cornerRadius = 9.0
-        floatingPanelController.set(contentViewController: modalVC)
         floatingPanelController.addPanel(toParent: self, animated: true)
+
+        let modalVC = SettingBasePointsModalViewController()
+        floatingPanelController.set(contentViewController: modalVC)
         guard let modalContentView = modalVC.view.subviews.first as? SettingBasePointsView else { return }
         modalContentView.delegate = self
 
-        // カスタムAnnotationViewの設定
-        guard let pointsInfomationAnnotationView =
+        guard let nibAnotationView =
             UINib(nibName: "PointsInfomationAnnotationView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PointsInfomationAnnotationView else { return }
-        self.pointsInfomationAnnotationView = pointsInfomationAnnotationView
+        pointsInfomationAnnotationView = nibAnotationView
 
-        self.presenter = SearchInterestPlacePresenter(vc: self, modelType: SearchInterestPlaceModel.self)
-
-        // textFieldに関する通知を設定
-        registerNotification()
+        registerTextFieldNotification()
     }
 
     override public func viewWillLayoutSubviews() {
@@ -360,7 +348,7 @@ extension SearchInterestPlaceViewController: SpotListViewDelegate {
 /// 通知設定
 public extension SearchInterestPlaceViewController {
     /// 通知登録
-    func registerNotification() {
+    func registerTextFieldNotification() {
         // 通知センターの取得
         let notification = NotificationCenter.default
         // キーボード登場通知の設定

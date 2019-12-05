@@ -76,15 +76,27 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
         let stationModel = StationModel()
         stationModel.fetchStationList(pinPoint: fromPoint) { [weak self] fromStations, status in
             if status == .success && !fromStations.isEmpty {
-                fromStation = self?.modifyStationName(stationName: fromStations[0].name) ?? fromStations[0].name
-                stationModel.fetchStationList(pinPoint: toPoint) { [weak self] toStations, status in
-                    if status == .success && !toStations.isEmpty {
-                        toStation = self?.modifyStationName(stationName: toStations[0].name) ?? toStations[0].name
-                        self?.fetchTransferGuide(fromStation: fromStation, toStation: toStation) { urlString, status in
-                            complete(urlString, status)
+                self?.fetchCorrectStationName(stationName: fromStations[0].name, point: fromPoint) { fromStationName, status in
+                    if status == .success {
+                        fromStation = fromStationName
+                        stationModel.fetchStationList(pinPoint: toPoint) { [weak self] toStations, status in
+                            if status == .success && !toStations.isEmpty {
+                                self?.fetchCorrectStationName(stationName: toStations[0].name, point: toPoint) { toStationName, status in
+                                    if status == .success {
+                                        toStation = toStationName
+                                        self?.fetchTransferGuide(fromStation: fromStation, toStation: toStation) { urlString, status in
+                                            complete(urlString, status)
+                                        }
+                                    } else {
+                                        complete("ピンの近くの駅が見つかりませんでした。", .error)
+                                    }
+                                }
+                            } else {
+                                complete("ピンの近くの駅が見つかりませんでした。", .error)
+                            }
                         }
                     } else {
-                        complete("ピンの近くの駅が見つかりませんでした。", .error)
+                        complete("「\(settingPoint.name)」近くの駅が見つかりませんでした。", .error)
                     }
                 }
             } else {
@@ -123,12 +135,48 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
         task.resume()
     }
 
-    private func modifyStationName(stationName: String) -> String {
+    private func fetchCorrectStationName(stationName: String, point: CLLocationCoordinate2D, complete: @escaping (String, ResponseStatus) -> Void) {
+        // 前処理
+        var correctStationName = stationName
         if stationName.contains("新線") {
-            let modifiedStationName = stationName.replacingOccurrences(of: "新線", with: "")
-            return modifiedStationName
+            correctStationName = stationName.replacingOccurrences(of: "新線", with: "")
         }
 
-        return stationName
+        // リクエストURL生成
+        let ekispertUrlString = "http://api.ekispert.jp/v1/json/station"
+        guard var urlComponents = URLComponents(string: ekispertUrlString) else { return }
+        urlComponents.queryItems = [
+            URLQueryItem(name: "key", value: ekispertKey),
+            URLQueryItem(name: "name", value: correctStationName),
+            URLQueryItem(name: "gcs", value: "wgs84")
+        ]
+        guard let urlRequest = urlComponents.url else { return }
+
+        // レスポンスJSONから駅名を取得
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            guard let jsonData = data else { return }
+            do {
+                let ekispertStation = try JSONDecoder().decode(EkispertStationsEntity.self, from: jsonData)
+                var comparedDiff = 1_000.0
+                for stationPoint in ekispertStation.resultSet.point {
+                    guard let pointLatitude = Double(stationPoint.geoPoint.latiD) else { return }
+                    guard let pointLongitude = Double(stationPoint.geoPoint.longiD) else { return }
+                    let diff = fabs(Double(point.latitude) - pointLatitude) + fabs(Double(point.longitude) - pointLongitude)
+                    if diff < comparedDiff {
+                        comparedDiff = diff
+                        correctStationName = stationPoint.station.name
+                    }
+                }
+                complete(correctStationName, .success)
+            } catch {
+                do {
+                    let ekispertStation = try JSONDecoder().decode(EkispertStationEntity.self, from: jsonData)
+                    complete(ekispertStation.resultSet.point.station.name, .success)
+                } catch {
+                    complete("デコードエラー", .error)
+                }
+            }
+        }
+        task.resume()
     }
 }

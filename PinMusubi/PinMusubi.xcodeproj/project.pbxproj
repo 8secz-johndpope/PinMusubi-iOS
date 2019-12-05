@@ -31,6 +31,7 @@
 		911B88BC2395EF8C0030708E /* BusStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98023658D130030909D /* BusStopTests.swift */; };
 		911B88C02396A0250030708E /* SettingBasePointsViewAdDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B88BF2396A0250030708E /* SettingBasePointsViewAdDelegate.swift */; };
 		912E0B3E23993D63008A91FA /* PointInfomationCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */; };
+		912E0B4023999BE2008A91FA /* EkispertStationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E0B3F23999BE2008A91FA /* EkispertStationEntity.swift */; };
 		914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BA2382AFE000AE7E06 /* HotelEntity.swift */; };
 		914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BC2382C8C600AE7E06 /* HotelModel.swift */; };
 		914455C12384186100AE7E06 /* LeisureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C02384186000AE7E06 /* LeisureEntity.swift */; };
@@ -218,6 +219,7 @@
 		911B88AA23955A0B0030708E /* TransferGuideEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferGuideEntity.swift; sourceTree = "<group>"; };
 		911B88BF2396A0250030708E /* SettingBasePointsViewAdDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewAdDelegate.swift; sourceTree = "<group>"; };
 		912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationCellDelegate.swift; sourceTree = "<group>"; };
+		912E0B3F23999BE2008A91FA /* EkispertStationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertStationEntity.swift; sourceTree = "<group>"; };
 		914455BA2382AFE000AE7E06 /* HotelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelEntity.swift; sourceTree = "<group>"; };
 		914455BC2382C8C600AE7E06 /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
 		914455BE2382CC9200AE7E06 /* HotelModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModelTests.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				914455BA2382AFE000AE7E06 /* HotelEntity.swift */,
 				914455C02384186000AE7E06 /* LeisureEntity.swift */,
 				91E439252355FE3C00A3B936 /* StationEntity.swift */,
+				912E0B3F23999BE2008A91FA /* EkispertStationEntity.swift */,
 				91E439232355FB9700A3B936 /* BusStopEntity.swift */,
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
 				9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */,
@@ -1289,6 +1292,7 @@
 				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91C64A502371B4A30046E7E7 /* MyPageCollectionView.swift in Sources */,
 				914455C7238438E400AE7E06 /* HotelSpotPresenter.swift in Sources */,
+				912E0B4023999BE2008A91FA /* EkispertStationEntity.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */,
 				91B5A97F23658BCD0030909D /* BusStopModel.swift in Sources */,
