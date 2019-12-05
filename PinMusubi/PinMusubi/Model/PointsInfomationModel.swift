@@ -16,13 +16,12 @@ public protocol PointsInfomationModelProtocol {
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    func calculateTransferTime(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D, complete: @escaping ([String], [Int]) -> Void)
+    func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (Int) -> Void)
 
     /// 乗換案内情報URLの文字列を取得
-    /// - Parameter fromStation: 出発駅
-    /// - Parameter toStation: 到着駅
-    /// - Parameter complete: 完了ハンドラß
-    func getTransferGuide(fromStation: String, toStation: String, complete: @escaping (String, ResponseStatus) -> Void)
+    /// - Parameter settingPoints: 設定地点情報
+    /// - Parameter pinPoint: ピンの地点の座標
+    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, ResponseStatus) -> Void)
 }
 
 /// マップ上の地点間の情報を処理するモデル
@@ -36,67 +35,65 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
     }
 
     /// 設定地点とピンの地点との間の移動時間の計算
-    /// - Parameter settingPoints: 設定地点情報
+    /// - Parameter settingPoint: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
     /// - Parameter complete: 完了ハンドラ
-    public func calculateTransferTime(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D, complete: @escaping ([String], [Int]) -> Void) {
-        let dispatchGroup = DispatchGroup()
-        var idList = [String]()
-        var pointNameList = [String]()
-        var transferTimeList = [Int].init(repeating: Int(), count: settingPoints.count)
-        var pointCount = 1
-
-        // 地点名の設定
-        for settingPoint in settingPoints {
-            idList.append(settingPoint.id)
-            if settingPoint.name != "" {
-                pointNameList.append(settingPoint.name)
-            } else {
-                pointNameList.append("地点" + String(pointCount))
-            }
-            pointCount += 1
-        }
-
-        // 移動時間の設定
-        for settingPoint in settingPoints {
-            // PlaceMarkに出発地と目的地の座標を設定
-            let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-            let fromPlace = MKPlacemark(coordinate: fromCoordinate, addressDictionary: nil)
-            let toPlace = MKPlacemark(coordinate: pinPoint, addressDictionary: nil)
-            // MKDirectionsRequestに出発地と目的地を設定
-            let request = MKDirections.Request()
-            request.source = MKMapItem(placemark: fromPlace)
-            request.destination = MKMapItem(placemark: toPlace)
-            // 複数経路の検索を有効に設定
-            request.requestsAlternateRoutes = true
-            // 移動手段を車に設定
-            request.transportType = .automobile
-            // MKDirectionsにrequestを設定し、移動時間を計算
-            let directions = MKDirections(request: request)
-            dispatchGroup.enter()
-            directions.calculate(completionHandler: { response, error -> Void in
-                // 地点名と対応する移動時間を設定
-                guard let index = idList.firstIndex(of: settingPoint.id) else { return }
-                if let routes = response?.routes {
-                    if error != nil || routes.isEmpty {
-                        transferTimeList[index] = -1
-                    } else {
-                        transferTimeList[index] = Int( routes[0].expectedTravelTime / 60)
-                    }
+    public func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (Int) -> Void) {
+        // PlaceMarkに出発地と目的地の座標を設定
+        let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+        let fromPlace = MKPlacemark(coordinate: fromCoordinate, addressDictionary: nil)
+        let toPlace = MKPlacemark(coordinate: pinPoint, addressDictionary: nil)
+        // MKDirectionsRequestに出発地と目的地を設定
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: fromPlace)
+        request.destination = MKMapItem(placemark: toPlace)
+        // 複数経路の検索を有効に設定
+        request.requestsAlternateRoutes = true
+        // 移動手段を車に設定
+        request.transportType = .automobile
+        // MKDirectionsにrequestを設定し、移動時間を計算
+        let directions = MKDirections(request: request)
+        directions.calculate { response, error -> Void in
+            if let routes = response?.routes {
+                if error != nil || routes.isEmpty {
+                    complete(-1)
                 } else {
-                    transferTimeList[index] = -1
+                    complete(Int( routes[0].expectedTravelTime / 60))
                 }
-                dispatchGroup.leave()
+            } else {
+                complete(-1)
             }
-            )
-        }
-
-        dispatchGroup.notify(queue: .main) {
-            complete(pointNameList, transferTimeList)
         }
     }
 
-    public func getTransferGuide(fromStation: String, toStation: String, complete: @escaping (String, ResponseStatus) -> Void) {
+    public func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, ResponseStatus) -> Void) {
+        let fromPoint = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
+        let toPoint = pinPoint
+
+        var fromStation = ""
+        var toStation = ""
+
+        let stationModel = StationModel()
+        stationModel.fetchStationList(pinPoint: fromPoint) { fromStations, status in
+            if status == .success && !fromStations.isEmpty {
+                fromStation = fromStations[0].name
+                stationModel.fetchStationList(pinPoint: toPoint) { [weak self] toStations, status in
+                    if status == .success && !toStations.isEmpty {
+                        toStation = toStations[0].name
+                        self?.fetchTransferGuide(fromStation: fromStation, toStation: toStation) { urlString, status in
+                            complete(urlString, status)
+                        }
+                    } else {
+                        complete("ピンの近くの駅が見つかりませんでした。", .error)
+                    }
+                }
+            } else {
+                complete("「\(settingPoint.name)」近くの駅が見つかりませんでした。", .error)
+            }
+        }
+    }
+
+    private func fetchTransferGuide(fromStation: String, toStation: String, complete: @escaping (String, ResponseStatus) -> Void) {
         // リクエストURL生成
         let ekispertUrlString = "http://api.ekispert.jp/v1/json/search/course/light"
         guard var urlComponents = URLComponents(string: ekispertUrlString) else { return }

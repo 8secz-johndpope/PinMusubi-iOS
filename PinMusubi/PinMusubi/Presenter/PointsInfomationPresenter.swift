@@ -11,34 +11,46 @@ import MapKit
 /// マップ上の地点間の情報を渡すプレゼンターのプロトコル
 public protocol PointsInfomationPresenterProrocol: AnyObject {
     /// コンストラクタ
-    init(view: PointsInfomationAnnotationView, modelType model: PointsInfomationModelProtocol.Type)
+    init(view: PointInfomationCell, modelType model: PointsInfomationModelProtocol.Type)
 
     /// 設定地点とピンの地点との間の移動時間の計算
-    /// - Parameter settingPoints: 設定地点情報
+    /// - Parameter settingPoint: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    func getPointsInfomation(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D)
+    func getTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D)
+
+    /// 設定地点とピンの地点の乗換案内URLを取得
+    /// - Parameter settingPoint: 設定地点情報
+    /// - Parameter pinPoint: ピンの地点の座標
+    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D)
 }
 
 /// マップ上の地点間の情報を渡すプレゼンター
 public class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
-    private weak var view: PointsInfomationAnnotationView?
+    private weak var view: PointInfomationCell?
     private let model: PointsInfomationModelProtocol?
 
     /// コンストラクタ
-    public required init(view: PointsInfomationAnnotationView, modelType model: PointsInfomationModelProtocol.Type) {
+    public required init(view: PointInfomationCell, modelType model: PointsInfomationModelProtocol.Type) {
         self.view = view
         self.model = model.init()
     }
 
     /// 設定地点とピンの地点との間の移動時間の計算
-    /// - Parameter settingPoints: 設定地点情報
+    /// - Parameter settingPoint: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    public func getPointsInfomation(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D) {
+    public func getTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
         guard let model = model else { return }
         guard let view = view else { return }
-        model.calculateTransferTime(settingPoints: settingPoints, pinPoint: pinPoint, complete: { pointNameList, transferTimeList in
-            view.reloadPointsInfoTableView(pointNameList: pointNameList, transferTimeList: transferTimeList)
+        model.calculateTransferTime(settingPoint: settingPoint, pinPoint: pinPoint) { transferTime in
+            view.setTransferTime(transferTime: transferTime)
         }
-        )
+    }
+
+    public func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
+        guard let model = model else { return }
+        guard let view = view else { return }
+        model.getTransportationGuide(settingPoint: settingPoint, pinPoint: pinPoint) { urlString, status in
+            view.setTransportationGuideURLString(urlString: urlString, status: status)
+        }
     }
 }

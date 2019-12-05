@@ -8,4 +8,6 @@
 
 public protocol PointInfomationAnnotationViewDelegate: AnyObject {
     func searchSpotList()
+
+    func showTransportationGuideWebPage(webVCInstance: WebViewController)
 }

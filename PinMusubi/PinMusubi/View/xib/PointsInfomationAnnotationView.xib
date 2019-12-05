@@ -19,7 +19,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スポットを検索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ve-bA-s38">
                             <rect key="frame" x="87.333333333333343" y="10" width="107.33333333333334" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -60,7 +60,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KIR-fE-ZYj">
-                    <rect key="frame" x="150.66666666666666" y="0.0" width="130.99999999999997" height="32"/>
+                    <rect key="frame" x="150.66666666666666" y="-2.6666666666666661" width="130.99999999999997" height="32.333333333333329"/>
                     <segments>
                         <segment title="First"/>
                         <segment title="Second"/>
@@ -75,12 +75,12 @@
                 <constraint firstItem="gGD-ZQ-iIM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0rN-ma-OMm"/>
                 <constraint firstAttribute="bottom" secondItem="9vd-4D-8Ox" secondAttribute="bottom" id="Ccq-po-iBu"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="top" secondItem="gGD-ZQ-iIM" secondAttribute="bottom" constant="13" id="GNK-pT-G7q"/>
+                <constraint firstItem="KIR-fE-ZYj" firstAttribute="centerY" secondItem="gGD-ZQ-iIM" secondAttribute="centerY" id="GPj-Oh-IeR"/>
                 <constraint firstItem="gGD-ZQ-iIM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="KEB-fQ-Mpv"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="leading" secondItem="gGD-ZQ-iIM" secondAttribute="leading" id="KYf-2a-zL4"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="trailing" secondItem="9vd-4D-8Ox" secondAttribute="trailing" id="S33-d1-LWL"/>
                 <constraint firstItem="9vd-4D-8Ox" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YR4-gG-LhA"/>
                 <constraint firstItem="9vd-4D-8Ox" firstAttribute="top" secondItem="xCC-TX-amt" secondAttribute="bottom" constant="14" id="g5t-x2-fxc"/>
-                <constraint firstItem="KIR-fE-ZYj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nkf-kN-lnQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9vd-4D-8Ox" secondAttribute="trailing" id="pRR-aj-QXh"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>

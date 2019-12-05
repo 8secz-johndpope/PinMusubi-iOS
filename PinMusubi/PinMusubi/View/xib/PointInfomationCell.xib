@@ -44,9 +44,10 @@
                             <constraint firstAttribute="width" constant="74" id="Rm6-Qf-Ll8"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="乗換案内">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
+                        <state key="normal" title="乗換案内"/>
+                        <connections>
+                            <action selector="didTapTransportationGuideButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="d7y-kF-DvO"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPV-IZ-46T">
                         <rect key="frame" x="0.0" y="17" width="17" height="17"/>
@@ -103,8 +104,8 @@
                 <outlet property="imageBackgroundView" destination="MCQ-Yh-qLz" id="eJ9-GV-eYS"/>
                 <outlet property="pinImage" destination="voa-NP-3Dq" id="nag-3q-gri"/>
                 <outlet property="pointNameLabel" destination="rKK-Ho-IHX" id="E0C-td-v32"/>
-                <outlet property="transferGuideButton" destination="sAg-vb-ZWT" id="vb8-rf-wyR"/>
                 <outlet property="transferTimeLabel" destination="Q4s-cd-n7a" id="bpm-UL-pBC"/>
+                <outlet property="transportationGuideButton" destination="sAg-vb-ZWT" id="vb8-rf-wyR"/>
                 <outlet property="whiteView" destination="kPV-IZ-46T" id="fOd-up-JPr"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="117.52232142857142"/>

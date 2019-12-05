@@ -6,4 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import Foundation
+public protocol PointInfomationCellDelegate: AnyObject {
+    func sendWebVCInstance(webVCInstance: WebViewController)
+}
