@@ -14,6 +14,8 @@ public class PointInfomationCell: UITableViewCell {
     @IBOutlet private var pointNameLabel: UILabel!
     /// 移動時間を表示するラベル
     @IBOutlet private var transferTimeLabel: UILabel!
+    /// 乗換案内を表示するボタン
+    @IBOutlet private var transferGuideButton: UIButton!
     /// ピン画像の背景
     @IBOutlet private var whiteView: UIView!
     @IBOutlet private var imageBackgroundView: UIView!
@@ -25,6 +27,9 @@ public class PointInfomationCell: UITableViewCell {
         // 画像の背景の設定
         whiteView.layer.cornerRadius = 17
         imageBackgroundView.layer.cornerRadius = 17
+
+        transferGuideButton.backgroundColor = UIColor(hex: "FA6400")
+        transferGuideButton.layer.cornerRadius = 8
     }
 
     /// セルが選択された時の処理
@@ -54,6 +59,21 @@ public class PointInfomationCell: UITableViewCell {
             transferTimeLabel.text = String(transferTime) + "分"
         } else {
             transferTimeLabel.text = String(transferTime / 60) + "時間" + String(transferTime % 60) + "分"
+        }
+    }
+
+    public func changeTranspotation(selectedSegmentIndex: Int) {
+        switch selectedSegmentIndex {
+        case 0:
+            transferTimeLabel.isHidden = false
+            transferGuideButton.isHidden = true
+
+        case 1:
+            transferTimeLabel.isHidden = true
+            transferGuideButton.isHidden = false
+
+        default:
+            break
         }
     }
 }

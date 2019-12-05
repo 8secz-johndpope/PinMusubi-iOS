@@ -17,6 +17,8 @@ public class PointsInfomationAnnotationView: UIView {
     @IBOutlet private var pointsInfoTableView: UITableView!
     /// 「詳細を見る」のボタンとなるView
     @IBOutlet private var showSpotListButton: UIView!
+    /// 交通手段のSegmentedControl
+    @IBOutlet private var transportationSegmentedControl: UISegmentedControl!
     /// 設定地点名の一覧
     private var pointNameList = [String]()
     /// 設定地点からピンの地点までの移動時間一覧
@@ -32,7 +34,7 @@ public class PointsInfomationAnnotationView: UIView {
         pointsInfoTableView.delegate = self
         pointsInfoTableView.dataSource = self
         // プレゼンターの初期化
-        self.presenter = PointsInfomationPresenter(view: self, modelType: PointsInfomationModel.self)
+        presenter = PointsInfomationPresenter(view: self, modelType: PointsInfomationModel.self)
         // pointsInfoTabelViewにカスタムセルを設定
         pointsInfoTableView.register(UINib(nibName: "PointInfomationCell", bundle: nil), forCellReuseIdentifier: "PointInfomationCell")
 
@@ -75,6 +77,27 @@ public class PointsInfomationAnnotationView: UIView {
 
         showSpotListButton.backgroundColor = UIColor(hex: "FA6400")
         showSpotListButton.layer.cornerRadius = 8
+
+        // 交通手段のSegmentedControlの設定
+        transportationSegmentedControl.setTitle("車", forSegmentAt: 0)
+        transportationSegmentedControl.setTitle("電車", forSegmentAt: 1)
+        transportationSegmentedControl.setWidth(50, forSegmentAt: 0)
+        transportationSegmentedControl.setWidth(50, forSegmentAt: 1)
+        if #available(iOS 13.0, *) {
+            transportationSegmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
+        } else {
+            transportationSegmentedControl.tintColor = UIColor(hex: "FA6400")
+        }
+        transportationSegmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        transportationSegmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor(hex: "FA6400")], for: .normal)
+        transportationSegmentedControl.layer.borderColor = UIColor(hex: "FA6400").cgColor
+        transportationSegmentedControl.layer.borderWidth = 1.0
+    }
+
+    @IBAction private func didChangeSegmentedControl(_ sender: Any) {
+        pointsInfoTableView.reloadData()
+        let feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator.selectionChanged()
     }
 }
 
@@ -88,6 +111,7 @@ extension PointsInfomationAnnotationView: UITableViewDelegate, UITableViewDataSo
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PointInfomationCell") as? PointInfomationCell else { return UITableViewCell() }
         cell.setPointInfo(pointName: pointNameList[indexPath.row], transferTime: transferTimeList[indexPath.row])
         cell.setPinImage(row: indexPath.row)
+        cell.changeTranspotation(selectedSegmentIndex: transportationSegmentedControl.selectedSegmentIndex)
         return cell
     }
 }
