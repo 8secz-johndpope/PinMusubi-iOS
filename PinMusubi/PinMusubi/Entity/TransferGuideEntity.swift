@@ -6,7 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-public struct TransferGuideEntity: Codable {
+public class TransferGuideEntity: Codable {
     public var resultSet: ResultSet
 
     private enum CodingKeys: String, CodingKey {
@@ -14,7 +14,7 @@ public struct TransferGuideEntity: Codable {
     }
 }
 
-public struct ResultSet: Codable {
+public class ResultSet: Codable {
     public var apiVersion: String
     public var engineVersion: String
     public var resourceURI: String?
@@ -28,7 +28,7 @@ public struct ResultSet: Codable {
     }
 }
 
-public struct TransferGuideError: Codable {
+public class TransferGuideError: Codable {
     public var code: String
     public var message: String
 

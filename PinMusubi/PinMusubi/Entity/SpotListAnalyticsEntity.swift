@@ -7,7 +7,7 @@
 //
 
 /// FirebaseAnalyticsに用いるパラメータのエンティティ
-public struct SpotListAnalyticsEntity {
+public class SpotListAnalyticsEntity {
     /// 飲食店スポットの数
     public var numRestaurantSpot = 0
     /// 宿泊施設スポットの数

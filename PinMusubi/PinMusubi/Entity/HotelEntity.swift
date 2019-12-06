@@ -9,24 +9,24 @@
 import Foundation
 
 // MARK: - HotelEntity
-public struct HotelEntity: Codable {
+public class HotelEntity: Codable {
     public let pagingInfo: PagingInfo
     public let hotels: [Hotels]
 }
 
 // MARK: - HotelEntityHotel
-public struct Hotels: Codable, SpotEntityProtocol {
+public class Hotels: Codable, SpotEntityProtocol {
     public let hotel: [Hotel]
 }
 
 // MARK: - HotelHotel
-public struct Hotel: Codable {
+public class Hotel: Codable {
     public let hotelBasicInfo: HotelBasicInfo?
     public let hotelRatingInfo: HotelRatingInfo?
 }
 
 // MARK: - HotelBasicInfo
-public struct HotelBasicInfo: Codable {
+public class HotelBasicInfo: Codable {
     public let hotelNo: Int
     public let hotelName: String
     public let hotelInformationURL, planListURL, dpPlanListURL, reviewURL: String?
@@ -59,13 +59,13 @@ public struct HotelBasicInfo: Codable {
 }
 
 // MARK: - HotelRatingInfo
-public struct HotelRatingInfo: Codable {
+public class HotelRatingInfo: Codable {
     public let serviceAverage, locationAverage, roomAverage, equipmentAverage: Double?
     public let bathAverage, mealAverage: Double?
 }
 
 // MARK: - PagingInfo
-public struct PagingInfo: Codable {
+public class PagingInfo: Codable {
     public let recordCount, pageCount, page, first: Int
     public let last: Int
 }

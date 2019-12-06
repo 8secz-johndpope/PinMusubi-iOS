@@ -8,15 +8,15 @@
 
 import CoreLocation
 
-public struct StationEntity: Codable {
+public class StationEntity: Codable {
     public var response: Response
 }
 
-public struct Response: Codable {
+public class Response: Codable {
     public var station: [Station]
 }
 
-public struct Station: Codable, SpotEntityProtocol {
+public class Station: Codable, SpotEntityProtocol {
     public var name: String
     public var prefecture: String
     public var line: String

@@ -8,11 +8,11 @@
 
 import CoreLocation
 
-public struct RestaurantSpotEntity: Codable {
+public class RestaurantSpotEntity: Codable {
     public var results: FetchRestaurantSpotResult
 }
 
-public struct FetchRestaurantSpotResult: Codable {
+public class FetchRestaurantSpotResult: Codable {
     public var resultsAvailable: Int
     public var shop: [Shop]
 
@@ -22,7 +22,7 @@ public struct FetchRestaurantSpotResult: Codable {
     }
 }
 
-public struct Shop: Codable, SpotEntityProtocol {
+public class Shop: Codable, SpotEntityProtocol {
     public var id: String
     public var name: String
     public var logoImage: String
@@ -68,7 +68,7 @@ public struct Shop: Codable, SpotEntityProtocol {
     }
 }
 
-public struct Genre: Codable {
+public class Genre: Codable {
     public var code: String
     public var name: String
     public var genreCatch: String
@@ -80,13 +80,13 @@ public struct Genre: Codable {
     }
 }
 
-public struct Budget: Codable {
+public class Budget: Codable {
     public var code: String
     public var name: String
     public var average: String
 }
 
-public struct Url: Codable {
+public class Url: Codable {
     public var pcUrl: String
 
     private enum CodingKeys: String, CodingKey {
@@ -94,7 +94,7 @@ public struct Url: Codable {
     }
 }
 
-public struct Photo: Codable {
+public class Photo: Codable {
     public var pcPhoto: PcSize
     public var mobilePhoto: Mobile
 
@@ -104,7 +104,7 @@ public struct Photo: Codable {
     }
 }
 
-public struct PcSize: Codable {
+public class PcSize: Codable {
     public var large: String
     public var middle: String
     public var small: String
@@ -116,7 +116,7 @@ public struct PcSize: Codable {
     }
 }
 
-public struct Mobile: Codable {
+public class Mobile: Codable {
     public var large: String
     public var small: String
 

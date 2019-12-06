@@ -7,7 +7,7 @@
 //
 
 // MARK: - LeisureEntity
-public struct LeisureEntity: Codable {
+public class LeisureEntity: Codable {
     public let resultInfo: ResultInfo
     public let feature: [Feature]
 
@@ -18,7 +18,7 @@ public struct LeisureEntity: Codable {
 }
 
 // MARK: - Feature
-public struct Feature: Codable, SpotEntityProtocol {
+public class Feature: Codable, SpotEntityProtocol {
     public let id, gid, name: String
     public let geometry: Geometry
     public let category: [String]
@@ -39,7 +39,7 @@ public struct Feature: Codable, SpotEntityProtocol {
 }
 
 // MARK: - Geometry
-public struct Geometry: Codable {
+public class Geometry: Codable {
     public let type: String
     public let coordinates: String
 
@@ -49,7 +49,7 @@ public struct Geometry: Codable {
     }
 }
 // MARK: - Property
-public struct Property: Codable {
+public class Property: Codable {
     public let uid: String
     public let cassetteID: String
     public let yomi: String?
@@ -91,7 +91,7 @@ public struct Property: Codable {
 }
 
 // MARK: - Country
-public struct Country: Codable {
+public class Country: Codable {
     public let code, name: String
 
     private enum CodingKeys: String, CodingKey {
@@ -101,7 +101,7 @@ public struct Country: Codable {
 }
 
 // MARK: - YGenre
-public struct YGenre: Codable {
+public class YGenre: Codable {
     public let code, name: String
 
     private enum CodingKeys: String, CodingKey {
@@ -111,7 +111,7 @@ public struct YGenre: Codable {
 }
 
 // MARK: - Coupon
-public struct Coupon: Codable {
+public class Coupon: Codable {
     public let pcURL, smartPhoneURL: String
 
     private enum CodingKeys: String, CodingKey {
@@ -121,7 +121,7 @@ public struct Coupon: Codable {
 }
 
 // MARK: - Station
-public struct YStation: Codable {
+public class YStation: Codable {
     public let id, subID: String
     public let name: String
     public let railway: String
@@ -142,7 +142,7 @@ public struct YStation: Codable {
 }
 
 // MARK: - ResultInfo
-public struct ResultInfo: Codable {
+public class ResultInfo: Codable {
     public let count, total, start, status: Int
     public let resultInfoDescription, copyright: String
     public let latency: Double

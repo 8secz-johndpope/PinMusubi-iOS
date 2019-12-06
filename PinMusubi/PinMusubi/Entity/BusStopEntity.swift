@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-public struct BusStopEntity: Codable, SpotEntityProtocol {
+public class BusStopEntity: Codable, SpotEntityProtocol {
     public var busLineName: String
     public var busOperationCompany: String
     public var busStopName: String
