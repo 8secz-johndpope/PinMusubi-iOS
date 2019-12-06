@@ -3,109 +3,109 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "PInMusubi_iPhone_Notifications@2x.png",
+      "filename" : "PinMusubi_winter_iPhone_Notifications@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "PInMusubi_iPhone_Notifications@3x.png",
+      "filename" : "PinMusubi_winter_iPhone_Notifications@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "PInMusubi_iPhone_Settings@2x.png",
+      "filename" : "PinMusubi_winter_iPhone_Settings@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "PInMusubi_iPhone_Settings@3x.png",
+      "filename" : "PinMusubi_winter_iPhone_Settings@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "PInMusubi_iPhone_Spotlight@2x.png",
+      "filename" : "PinMusubi_winter_iPhone_Spotlight@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "PInMusubi_iPhone_Spotlight@3x.png",
+      "filename" : "PinMusubi_winter_iPhone_Spotlight@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "PInMusubi_iPhone_App@2x.png",
+      "filename" : "PinMusubi_winter_iPhone_App@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "PInMusubi_iPhone_App@3x.png",
+      "filename" : "PinMusubi_winter_iPhone_App@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPad_Notifications.png",
+      "filename" : "PinMusubi_winter_iPad_Notifications.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPad_Notifications@2x.png",
+      "filename" : "PinMusubi_winter_iPad_Notifications@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPad_Settings.png",
+      "filename" : "PinMusubi_winter_iPad_Settings.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPad_Settings@2x.png",
+      "filename" : "PinMusubi_winter_iPad_Settings@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPad_Spotlight.png",
+      "filename" : "PinMusubi_winter_iPad_Spotlight.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPad_Spotlight@2x.png",
+      "filename" : "PinMusubi_winter_iPad_Spotlight@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPad_App.png",
+      "filename" : "PinMusubi_winter_iPad_App.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPad_App@2x.png",
+      "filename" : "PinMusubi_winter_iPad_App@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "PInMusubi_iPadPro_App@2x.png",
+      "filename" : "PinMusubi_winter_iPadPro_App@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "PInMusubi_AppStore.png",
+      "filename" : "PinMusubi_winter_AppStore.png",
       "scale" : "1x"
     }
   ],
