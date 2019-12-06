@@ -8,20 +8,6 @@
 
 import UIKit
 
-/// クレジットのType
-public enum CreditType {
-    /// リクルート
-    case recruit
-    /// 電車
-    case heartRailsExpress
-    /// バス
-    case busstopapi
-    /// Icons8
-    case icons8
-    /// PagingCollectionView
-    case pagingCollectionView
-}
-
 public class CreditViewController: UIViewController {
     @IBOutlet private var creditTitleLabel: UILabel!
     @IBOutlet private var creditBodyLabel: UILabel!
@@ -73,4 +59,18 @@ public class CreditViewController: UIViewController {
             creditBodyLabel.text = creditBodyText
         }
     }
+}
+
+/// クレジットのType
+public enum CreditType {
+    /// リクルート
+    case recruit
+    /// 電車
+    case heartRailsExpress
+    /// バス
+    case busstopapi
+    /// Icons8
+    case icons8
+    /// PagingCollectionView
+    case pagingCollectionView
 }

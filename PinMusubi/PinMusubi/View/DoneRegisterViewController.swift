@@ -9,20 +9,15 @@
 import UIKit
 
 public class DoneRegisterViewController: UIViewController {
-    @IBOutlet private var closeButton: UIButton!
+    @IBOutlet private var closeButton: UIButton! {
+        didSet {
+            closeButton.layer.borderWidth = 1.0
+            closeButton.layer.borderColor = UIColor.lightGray.cgColor
+            closeButton.layer.cornerRadius = 10
+        }
+    }
 
     public weak var delegate: DoneRegisterViewDelegate?
-
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-    }
-
-    private func configureUI() {
-        closeButton.layer.borderWidth = 1.0
-        closeButton.layer.borderColor = UIColor.lightGray.cgColor
-        closeButton.layer.cornerRadius = 10
-    }
 
     @IBAction private func didTapCloseButton(_ sender: Any) {
         delegate?.closePresentedView()

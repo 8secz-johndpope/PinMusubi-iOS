@@ -12,46 +12,53 @@ import UIKit
 import WebKit
 
 public class WebViewController: UIViewController {
-    @IBOutlet private var chevronLeftButton: UIBarButtonItem!
-    @IBOutlet private var chevronRightButton: UIBarButtonItem!
-    @IBOutlet private var safariButton: UIBarButtonItem!
-    @IBOutlet private var webView: WKWebView!
+    @IBOutlet private var chevronLeftButton: UIBarButtonItem! {
+        didSet {
+            if #available(iOS 13.0, *) {
+                chevronLeftButton.image = UIImage(systemName: "chevron.left")
+            } else {
+                chevronLeftButton.image = UIImage(named: "ChevronLeft")
+            }
+            chevronLeftButton.tintColor = UIColor.lightGray
+        }
+    }
 
-    private var movePageTimes = 0
+    @IBOutlet private var chevronRightButton: UIBarButtonItem! {
+        didSet {
+            if #available(iOS 13.0, *) {
+                chevronRightButton.image = UIImage(systemName: "chevron.right")
+            } else {
+                chevronRightButton.image = UIImage(named: "ChevronRight")
+            }
+            chevronRightButton.tintColor = UIColor.lightGray
+        }
+    }
+
+    @IBOutlet private var safariButton: UIBarButtonItem! {
+        didSet {
+            if #available(iOS 13.0, *) {
+                safariButton.image = UIImage(systemName: "safari")
+            } else {
+                safariButton.image = UIImage(named: "Safari")
+            }
+        }
+    }
+
+    @IBOutlet private var webView: WKWebView! {
+        didSet {
+            webView.uiDelegate = self
+            webView.navigationDelegate = self
+
+            guard let requestUrl = URL(string: requestUrlString) else { return }
+            let request = URLRequest(url: requestUrl)
+            webView.load(request)
+        }
+    }
 
     private var requestUrlString = ""
     private var shareTitle = ""
     private var spot: SpotEntityProtocol?
-
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        configureButtunItem()
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-
-        loadWebView()
-    }
-
-    private func loadWebView() {
-        guard let requestUrl = URL(string: requestUrlString) else { return }
-        let request = URLRequest(url: requestUrl)
-        webView.load(request)
-    }
-
-    private func configureButtunItem() {
-        if #available(iOS 13.0, *) {
-            chevronLeftButton.image = UIImage(systemName: "chevron.left")
-            chevronRightButton.image = UIImage(systemName: "chevron.right")
-            safariButton.image = UIImage(systemName: "safari")
-        } else {
-            chevronLeftButton.image = UIImage(named: "ChevronLeft")
-            chevronRightButton.image = UIImage(named: "ChevronRight")
-            safariButton.image = UIImage(named: "Safari")
-        }
-        chevronLeftButton.tintColor = UIColor.lightGray
-        chevronRightButton.tintColor = UIColor.lightGray
-    }
+    private var movePageTimes = 0
 
     public func setSpot(spot: SpotEntityProtocol) {
         self.spot = spot

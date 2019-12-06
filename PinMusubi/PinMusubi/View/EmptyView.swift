@@ -8,22 +8,6 @@
 
 import UIKit
 
-/// 空データのType
-public enum EmptyType {
-    /// 飲食店
-    case restaurant
-    /// 宿泊
-    case hotel
-    /// レジャー
-    case leisure
-    /// 交通機関
-    case station
-    /// お気に入り
-    case favorite
-    /// 検索履歴
-    case history
-}
-
 public class EmptyView: UIView {
     @IBOutlet private var emptyImage: UIImageView!
     @IBOutlet private var emptyTitle: UILabel!
@@ -49,4 +33,20 @@ public class EmptyView: UIView {
             emptyTitle.text = "まだ１度もスポットの検索が\nされていません"
         }
     }
+}
+
+/// 空データのType
+public enum EmptyType {
+    /// 飲食店
+    case restaurant
+    /// 宿泊
+    case hotel
+    /// レジャー
+    case leisure
+    /// 交通機関
+    case station
+    /// お気に入り
+    case favorite
+    /// 検索履歴
+    case history
 }

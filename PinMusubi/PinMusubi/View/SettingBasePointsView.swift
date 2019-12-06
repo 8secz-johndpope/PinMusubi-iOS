@@ -12,48 +12,41 @@ import UIKit
 
 /// 基準となる地点を設定するView
 public class SettingBasePointsView: UIView {
-    // 入力フィールドを表示するためのScrollViewとTableView
-    @IBOutlet private var settingBasePointsScrollView: UIScrollView!
-    @IBOutlet private var settingBasePointsTableView: UITableView!
+    @IBOutlet private var settingBasePointsScrollView: UIScrollView! {
+        didSet {
+            settingBasePointsScrollView.delegate = self
+        }
+    }
+    @IBOutlet private var settingBasePointsTableView: UITableView! {
+        didSet {
+            settingBasePointsTableView.delegate = self
+            settingBasePointsTableView.dataSource = self
 
+            for index in 0...cellRow - 1 {
+                settingBasePointsTableView.register(UINib(nibName: "SettingBasePointCell", bundle: nil), forCellReuseIdentifier: "SettingBasePointCell" + String(index))
+                settingPoints.append(SettingPointEntity())
+            }
+            settingBasePointsTableView.register(UINib(nibName: "SettingBasePointActionCell", bundle: nil), forCellReuseIdentifier: "SettingBasePointActionCell")
+        }
+    }
+
+    private var cellRow: Int = 2
+    private var editingCell: SettingBasePointCell?
+    private var actionCell: SettingBasePointActionCell?
+    private var canDoneSettingList = [AddressValidationStatus].init(repeating: .empty, count: 2)
+    private var settingPoints = [SettingPointEntity]()
     private var adBannerView = GADBannerView()
 
-    /// セルの数（初期値2）
-    private var cellRow: Int = 2
-    /// 編集中のセル
-    private var editingCell: SettingBasePointCell?
-    /// 設定に関するアクションを行うセル
-    private var actionCell: SettingBasePointActionCell?
-    /// 設定地点のチェックリスト（success、error、empty）
-    private var canDoneSettingList = [AddressValidationStatus].init(repeating: .empty, count: 2)
-    /// 設定地点のリスト
-    private var settingPoints = [SettingPointEntity]()
-
-    /// 設定地点に関する処理をModelに渡すPresenter
     private var presenter: SettingBasePointsPresenterProtocol?
 
-    /// MapViewに処理を委譲するdelegate
     public weak var delegate: SettingBasePointsViewDelegate?
-
-    /// rootViewControllerに処理を委譲するdelegate
     public weak var adDelegate: SettingBasePointsViewAdDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        // delegateの設定
-        settingBasePointsScrollView.delegate = self
-        settingBasePointsTableView.delegate = self
-        settingBasePointsTableView.dataSource = self
-        // presenterの設定
-        self.presenter = SettingBasePointsPresenter(view: self, modelType: SettingBasePointsModel.self)
-        // tableViewにcellを登録
-        for index in 0...cellRow - 1 {
-            settingBasePointsTableView.register(UINib(nibName: "SettingBasePointCell", bundle: nil), forCellReuseIdentifier: "SettingBasePointCell" + String(index))
-            settingPoints.append(SettingPointEntity())
-        }
-        settingBasePointsTableView.register(UINib(nibName: "SettingBasePointActionCell", bundle: nil), forCellReuseIdentifier: "SettingBasePointActionCell")
-        // 通知設定登録
-        registerNotification()
+
+        presenter = SettingBasePointsPresenter(view: self, modelType: SettingBasePointsModel.self)
+        registerKeybordNotification()
     }
 
     /// Viewタップ時キーボードを閉じる
@@ -200,13 +193,16 @@ extension SettingBasePointsView: SettingBasePointActionCellDelegate {
 
     /// 設定完了ボタン押下
     public func doneSetting() {
+        for index in 0...settingPoints.count - 1 where settingPoints[index].name == "" {
+            settingPoints[index].name = "地点\(String(index + 1))"
+        }
         presenter?.setPointsOnMapView(settingPoints: settingPoints)
     }
 }
 
 /// NotificationCenterに関するメソッド
 extension SettingBasePointsView {
-    private func registerNotification() {
+    private func registerKeybordNotification() {
         let center = NotificationCenter.default
 
         center.addObserver(

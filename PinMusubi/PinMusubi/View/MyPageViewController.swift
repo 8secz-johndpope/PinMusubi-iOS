@@ -10,38 +10,36 @@ import MapKit
 import UIKit
 
 public class MyPageViewController: UIViewController {
-    @IBOutlet private var segmentedControl: UISegmentedControl!
-    @IBOutlet private var collectionView: MyPageCollectionView!
+    @IBOutlet private var segmentedControl: UISegmentedControl! {
+        didSet {
+            segmentedControl.setTitle("お気に入り", forSegmentAt: 0)
+            segmentedControl.setTitle("検索履歴", forSegmentAt: 1)
+            if #available(iOS 13.0, *) {
+                segmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
+            } else {
+                segmentedControl.tintColor = UIColor(hex: "FA6400")
+            }
+            segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+            segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor(hex: "FA6400")], for: .normal)
+            segmentedControl.layer.borderColor = UIColor(hex: "FA6400").cgColor
+            segmentedControl.layer.borderWidth = 1.0
+        }
+    }
+
+    @IBOutlet private var collectionView: MyPageCollectionView! {
+        didSet {
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            collectionView.showsHorizontalScrollIndicator = false
+        }
+    }
 
     private var flowLayout: CustomFlowLayout?
     private var isChangeSegmentedControl: Bool = true
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.showsHorizontalScrollIndicator = false
-
-        configureUI()
-    }
-
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
-    }
-
-    private func configureUI() {
-        segmentedControl.setTitle("お気に入り", forSegmentAt: 0)
-        segmentedControl.setTitle("検索履歴", forSegmentAt: 1)
-        if #available(iOS 13.0, *) {
-            segmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
-        } else {
-            segmentedControl.tintColor = UIColor(hex: "FA6400")
-        }
-        segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
-        segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor(hex: "FA6400")], for: .normal)
-        segmentedControl.layer.borderColor = UIColor(hex: "FA6400").cgColor
-        segmentedControl.layer.borderWidth = 1.0
     }
 
     @IBAction private func didChangeSegment(_ sender: Any) {

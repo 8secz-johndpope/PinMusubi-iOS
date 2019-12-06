@@ -21,7 +21,7 @@ public protocol PointsInfomationModelProtocol {
     /// 乗換案内情報URLの文字列を取得
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, ResponseStatus) -> Void)
+    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String, ResponseStatus) -> Void)
 }
 
 /// マップ上の地点間の情報を処理するモデル
@@ -66,7 +66,7 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
         }
     }
 
-    public func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, ResponseStatus) -> Void) {
+    public func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String, ResponseStatus) -> Void) {
         let fromPoint = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
         let toPoint = pinPoint
 
@@ -74,33 +74,33 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
         var toStation = ""
 
         let stationModel = StationModel()
-        stationModel.fetchStationList(pinPoint: fromPoint) { [weak self] fromStations, status in
+        stationModel.fetchStationList(pinPoint: fromPoint) { fromStations, status in
             if status == .success && !fromStations.isEmpty {
-                self?.fetchCorrectStationName(stationName: fromStations[0].name, point: fromPoint) { fromStationName, status in
+                self.fetchCorrectStationName(stationName: fromStations[0].name, point: fromPoint) { fromStationName, status in
                     if status == .success {
                         fromStation = fromStationName
-                        stationModel.fetchStationList(pinPoint: toPoint) { [weak self] toStations, status in
+                        stationModel.fetchStationList(pinPoint: toPoint) { toStations, status in
                             if status == .success && !toStations.isEmpty {
-                                self?.fetchCorrectStationName(stationName: toStations[0].name, point: toPoint) { toStationName, status in
+                                self.fetchCorrectStationName(stationName: toStations[0].name, point: toPoint) { toStationName, status in
                                     if status == .success {
                                         toStation = toStationName
-                                        self?.fetchTransferGuide(fromStation: fromStation, toStation: toStation) { urlString, status in
-                                            complete(urlString, status)
+                                        self.fetchTransferGuide(fromStation: fromStation, toStation: toStation) { urlString, status in
+                                            complete(urlString, fromStation, toStation, status)
                                         }
                                     } else {
-                                        complete("ピンの近くの駅が見つかりませんでした。", .error)
+                                        complete("ピンの近くの駅が見つかりませんでした。", fromStation, toStation, .error)
                                     }
                                 }
                             } else {
-                                complete("ピンの近くの駅が見つかりませんでした。", .error)
+                                complete("ピンの近くの駅が見つかりませんでした。", fromStation, toStation, .error)
                             }
                         }
                     } else {
-                        complete("「\(settingPoint.name)」近くの駅が見つかりませんでした。", .error)
+                        complete("「\(settingPoint.name)」近くの駅が見つかりませんでした。", fromStation, toStation, .error)
                     }
                 }
             } else {
-                complete("「\(settingPoint.name)」近くの駅が見つかりませんでした。", .error)
+                complete("「\(settingPoint.name)」近くの駅が見つかりませんでした。", fromStation, toStation, .error)
             }
         }
     }

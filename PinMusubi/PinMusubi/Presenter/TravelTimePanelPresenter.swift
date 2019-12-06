@@ -13,10 +13,20 @@ public protocol TravelTimePanelPresenterProtcol: AnyObject {
     /// コンストラクタ
     init(view: TravelTimePanelCell, modelType model: TravelTimeModelProtocol.Type)
 
-    /// 設定地点とピンの地点との間の移動時間の計算
+    /// 設定地点とピンの地点との間の歩きでの移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    func getPointsInfomation(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, transportType: MKDirectionsTransportType, complete: @escaping (Int) -> Void)
+    func getWalkingTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D)
+
+    /// 設定地点とピンの地点との間の車での移動時間の計算
+    /// - Parameter settingPoints: 設定地点情報
+    /// - Parameter pinPoint: ピンの地点の座標
+    func getDrivingTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D)
+
+    /// 設定地点とピンの地点の乗換案内URLを取得
+    /// - Parameter settingPoint: 設定地点情報
+    /// - Parameter pinPoint: ピンの地点の座標
+    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D)
 }
 
 /// 地点間の情報を渡すプレゼンター
@@ -33,11 +43,29 @@ public class TravelTimePanelPresenter: TravelTimePanelPresenterProtcol {
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    public func getPointsInfomation(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, transportType: MKDirectionsTransportType, complete: @escaping (Int) -> Void) {
+    public func getWalkingTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
+        guard let view = view else { return }
         guard let model = model else { return }
-        model.calculateTransferTime(settingPoint: settingPoint, pinPoint: pinPoint, transportType: transportType, complete: { travelTime in
-            complete(travelTime)
+        model.calculateTransferTime(settingPoint: settingPoint, pinPoint: pinPoint, transportType: .walking, complete: { walkingTime in
+            view.setWalkingTime(walkingTime: walkingTime)
         }
         )
+    }
+
+    public func getDrivingTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
+        guard let view = view else { return }
+        guard let model = model else { return }
+        model.calculateTransferTime(settingPoint: settingPoint, pinPoint: pinPoint, transportType: .automobile, complete: { drivingTime in
+            view.setDrivingTime(drivingTime: drivingTime)
+        }
+        )
+    }
+
+    public func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
+        guard let view = view else { return }
+        let pointsInfomation = PointsInfomationModel()
+        pointsInfomation.getTransportationGuide(settingPoint: settingPoint, pinPoint: pinPoint) { urlString, fromStationName, toStationName, status in
+            view.setTransportationGuide(urlString: urlString, fromStationName: fromStationName, toStationName: toStationName, status: status)
+        }
     }
 }

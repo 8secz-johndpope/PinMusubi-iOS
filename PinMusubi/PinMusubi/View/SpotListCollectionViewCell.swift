@@ -10,18 +10,6 @@ import GoogleMobileAds
 import MapKit
 import UIKit
 
-/// スポットの形式
-public enum SpotType {
-    /// 飲食店
-    case restaurant
-    /// 宿泊施設
-    case hotel
-    /// レジャー
-    case leisure
-    /// 交通機関
-    case transportation
-}
-
 public class SpotListCollectionViewCell: UICollectionViewCell {
     private var spotListScrollView: UIScrollView?
     private var spotListTableView: UITableView?
@@ -183,4 +171,16 @@ extension SpotListCollectionViewCell: UITableViewDataSource {
         cell.addAd(adBannerView: adBannerView)
         return cell
     }
+}
+
+/// スポットの形式
+public enum SpotType {
+    /// 飲食店
+    case restaurant
+    /// 宿泊施設
+    case hotel
+    /// レジャー
+    case leisure
+    /// 交通機関
+    case transportation
 }

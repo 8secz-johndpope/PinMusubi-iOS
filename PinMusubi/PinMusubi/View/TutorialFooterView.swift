@@ -9,14 +9,13 @@
 import UIKit
 
 public class TutorialFooterView: UICollectionReusableView {
-    @IBOutlet private var closeTutorialViewButton: UIButton!
+    @IBOutlet private var closeTutorialViewButton: UIButton! {
+        didSet {
+            closeTutorialViewButton.layer.cornerRadius = 10
+        }
+    }
 
     public weak var delegate: TutorialFooterDelegate?
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        closeTutorialViewButton.layer.cornerRadius = 10
-    }
 
     @IBAction private func didTappedCloseTutorialViewButton(_ sender: Any) {
         delegate?.closeTutorialView()

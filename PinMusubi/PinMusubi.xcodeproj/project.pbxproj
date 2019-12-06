@@ -14,6 +14,7 @@
 		9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9108A7F2237848E000099B0B /* GoogleService-Info.plist */; };
 		9108A84C237AEC7F00099B0B /* SpotListAnalyticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */; };
 		9108A84E237F584800099B0B /* AdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84D237F584800099B0B /* AdEntity.swift */; };
+		910EC0BC239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910EC0BB239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift */; };
 		9116C906238596B60026513D /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9116C905238596B60026513D /* LoadingView.xib */; };
 		9116C908238598B20026513D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116C907238598B20026513D /* LoadingView.swift */; };
 		9116C90B23859AED0026513D /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9116C90A23859AED0026513D /* loading.gif */; };
@@ -213,6 +214,7 @@
 		9108A7F2237848E000099B0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListAnalyticsEntity.swift; sourceTree = "<group>"; };
 		9108A84D237F584800099B0B /* AdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdEntity.swift; sourceTree = "<group>"; };
+		910EC0BB239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePanelCellDelegate.swift; sourceTree = "<group>"; };
 		9116C905238596B60026513D /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		9116C907238598B20026513D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9116C90A23859AED0026513D /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 				91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */,
 				91D1CAB22376657D0066F644 /* TravelTimePanelViewController.swift */,
 				9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */,
+				910EC0BB239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift */,
 				91EF7531236D24F80051ACCB /* WebViewController.swift */,
 				91C05BD3236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift */,
 				91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */,
@@ -1325,6 +1328,7 @@
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				912E0B3E23993D63008A91FA /* PointInfomationCellDelegate.swift in Sources */,
 				914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */,
+				910EC0BC239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift in Sources */,
 				916671112386B78F00236FEC /* TutorialFooterView.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91D1907D2368073700B0329A /* SpotCell.swift in Sources */,

@@ -54,7 +54,14 @@ extension TravelTimePanelViewController: UITableViewDataSource {
             let settingPoint = favoriteData.settingPointEntityList[indexPath.row]
             let favoriteSpot = CLLocationCoordinate2D(latitude: favoriteData.latitude, longitude: favoriteData.longitude)
             cell.configureContents(row: indexPath.row, settingPoint: settingPoint, spotPoint: favoriteSpot)
+            cell.delegate = self
         }
         return cell
+    }
+}
+
+extension TravelTimePanelViewController: TravelTimePanelCellDelegate {
+    public func showWebPage(webVCInstance: WebViewController) {
+        present(webVCInstance, animated: true, completion: nil)
     }
 }

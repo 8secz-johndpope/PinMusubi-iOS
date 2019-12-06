@@ -10,29 +10,34 @@ import Cosmos
 import UIKit
 
 public class MyDetailsDataHeaderViewController: UIViewController {
-    @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var memoLabel: UILabel!
-    @IBOutlet private var ratingView: CosmosView!
+    @IBOutlet private var titleLabel: UILabel! {
+        didSet {
+            guard let favoriteData = favoriteData else { return }
+            titleLabel.text = favoriteData.title
+        }
+    }
+
+    @IBOutlet private var memoLabel: UILabel! {
+        didSet {
+            guard let favoriteData = favoriteData else { return }
+            memoLabel.text = favoriteData.memo
+            memoLabel.numberOfLines = 0
+            memoLabel.sizeToFit()
+        }
+    }
+
+    @IBOutlet private var ratingView: CosmosView! {
+        didSet {
+            guard let favoriteData = favoriteData else { return }
+            ratingView.rating = favoriteData.rating
+            ratingView.isUserInteractionEnabled = false
+        }
+    }
 
     private var favoriteData: FavoriteSpotEntity?
-
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-    }
 
     public func getFavoriteData(id: String) {
         let model = MyDataModel()
         favoriteData = model.fetchFavoriteData(id: id)
-    }
-
-    private func configureUI() {
-        guard let favoriteData = favoriteData else { return }
-        titleLabel.text = favoriteData.title
-        memoLabel.text = favoriteData.memo
-        memoLabel.numberOfLines = 0
-        memoLabel.sizeToFit()
-        ratingView.rating = favoriteData.rating
-        ratingView.isUserInteractionEnabled = false
     }
 }

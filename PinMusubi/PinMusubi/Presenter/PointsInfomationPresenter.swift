@@ -49,8 +49,8 @@ public class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
     public func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
         guard let model = model else { return }
         guard let view = view else { return }
-        model.getTransportationGuide(settingPoint: settingPoint, pinPoint: pinPoint) { urlString, status in
-            view.setTransportationGuideURLString(urlString: urlString, status: status)
+        model.getTransportationGuide(settingPoint: settingPoint, pinPoint: pinPoint) { urlString, fromStationName, toStationName, status in
+            view.setTransportationGuideURLString(urlString: urlString, fromStationName: fromStationName, toStationName: toStationName, status: status)
         }
     }
 }

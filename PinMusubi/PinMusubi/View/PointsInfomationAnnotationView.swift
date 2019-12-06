@@ -14,7 +14,7 @@ public class PointsInfomationAnnotationView: UIView {
     @IBOutlet private var pointsInfoScrollView: UIScrollView! {
         didSet {
             let screenSize = UIScreen.main.bounds.size
-            pointsInfoScrollView.heightAnchor.constraint(equalToConstant: screenSize.height / 7).isActive = true
+            pointsInfoScrollView.heightAnchor.constraint(equalToConstant: screenSize.height / 5).isActive = true
         }
     }
 
@@ -32,6 +32,10 @@ public class PointsInfomationAnnotationView: UIView {
             showSpotListButton.widthAnchor.constraint(equalToConstant: screenSize.width * 0.8).isActive = true
             showSpotListButton.backgroundColor = UIColor(hex: "FA6400")
             showSpotListButton.layer.cornerRadius = 8
+            showSpotListButton.layer.shadowOpacity = 0.5
+            showSpotListButton.layer.shadowRadius = 1
+            showSpotListButton.layer.shadowColor = UIColor.lightGray.cgColor
+            showSpotListButton.layer.shadowOffset = CGSize(width: 3, height: 3)
 
             let tapShowSpotListButton = UITapGestureRecognizer(target: self, action: #selector(self.tappedShowSpotListButton(_:)))
             showSpotListButton.addGestureRecognizer(tapShowSpotListButton)
@@ -60,10 +64,6 @@ public class PointsInfomationAnnotationView: UIView {
     private var pinPoint = CLLocationCoordinate2D()
 
     public weak var delegate: PointInfomationAnnotationViewDelegate?
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
     /// 地点情報の設定処理
     /// - Parameter settingPoints: 設定地点情報

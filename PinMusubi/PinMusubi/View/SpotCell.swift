@@ -11,19 +11,23 @@ import SDWebImage
 import UIKit
 
 public class SpotCell: UITableViewCell {
-    @IBOutlet private var imageBackView: UIView!
-    @IBOutlet private var catchImage: UIImageView!
+    @IBOutlet private var imageBackView: UIView! {
+        didSet {
+            imageBackView?.layer.cornerRadius = 10
+        }
+    }
+
+    @IBOutlet private var catchImage: UIImageView! {
+        didSet {
+            catchImage.layer.cornerRadius = 10
+        }
+    }
+
     @IBOutlet private var title: UILabel!
     @IBOutlet private var subTitle: UILabel!
     @IBOutlet private var adBaseView: UIView!
 
     private var adBannerView: GADBannerView?
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        imageBackView?.layer.cornerRadius = 10
-        catchImage.layer.cornerRadius = 10
-    }
 
     public func initialize() {
         catchImage.image = nil

@@ -11,7 +11,11 @@ import MapKit
 import UIKit
 
 public class MyDetailsDataViewController: UIViewController {
-    @IBOutlet private var stackView: UIStackView!
+    @IBOutlet private var stackView: UIStackView! {
+        didSet {
+            stackView.removeConstraints(stackView.constraints)
+        }
+    }
 
     private var spotListNC: SpotListNavigationController?
     private var headerVC: MyDetailsDataHeaderViewController?
@@ -21,10 +25,10 @@ public class MyDetailsDataViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        stackView.removeConstraints(stackView.constraints)
-        configureChildren()
 
         presenter = MyDetailsDataPresenter(vc: self, modelType: SearchInterestPlaceModel.self)
+
+        configureChildren()
         configureNavigationBar()
     }
 

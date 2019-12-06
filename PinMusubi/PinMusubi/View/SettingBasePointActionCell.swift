@@ -11,31 +11,39 @@ import UIKit
 
 /// 地点設定に関するアクションを行うCell
 public class SettingBasePointActionCell: UITableViewCell {
-    // アクションを発生させるViews
-    @IBOutlet private var addCellView: UIView!
-    @IBOutlet private var removeCellView: UIView!
-    @IBOutlet private var doneSettingView: UIView!
+    @IBOutlet private var addCellView: UIView! {
+        didSet {
+            addCellView.layer.cornerRadius = 20
+            addCellView.layer.borderWidth = 0.5
+            addCellView.layer.borderColor = UIColor.lightGray.cgColor
+            addCellView.isHidden = false
+        }
+    }
+
+    @IBOutlet private var removeCellView: UIView! {
+        didSet {
+            removeCellView.layer.cornerRadius = 20
+            removeCellView.layer.borderWidth = 0.5
+            removeCellView.layer.borderColor = UIColor.lightGray.cgColor
+            removeCellView.isHidden = true
+        }
+    }
+
+    @IBOutlet private var doneSettingView: UIView! {
+        didSet {
+            doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
+            doneSettingView.layer.cornerRadius = 8
+        }
+    }
+
     @IBOutlet private var adSuperView: UIView!
 
-    /// 設定可否
     private var isEnabledDoneSetting = false
 
-    /// 地点設定Viewに処理を委譲するためのdelegate
     public weak var delegate: SettingBasePointActionCellDelegate?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        // ActionViewの設定
-        addCellView.layer.cornerRadius = 20
-        addCellView.layer.borderWidth = 0.5
-        addCellView.layer.borderColor = UIColor.lightGray.cgColor
-        addCellView.isHidden = false
-        removeCellView.layer.cornerRadius = 20
-        removeCellView.layer.borderWidth = 0.5
-        removeCellView.layer.borderColor = UIColor.lightGray.cgColor
-        removeCellView.isHidden = true
-        doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
-        doneSettingView.layer.cornerRadius = 8
 
         // gestureの設定
         let tapAddCellViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedAddCellView(_:)))

@@ -12,17 +12,35 @@ import SDWebImage
 import UIKit
 
 public class SpotDetailsViewController: UIViewController {
+    @IBOutlet private var showWebPageButtonView: UIView! {
+        didSet {
+            showWebPageButtonView.layer.cornerRadius = 10
+            showWebPageButtonView.layer.borderColor = UIColor(hex: "FA6400").cgColor
+            showWebPageButtonView.layer.borderWidth = 1.5
+
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didTapShowWebView(recognizer:)))
+            longPressGesture.minimumPressDuration = 0
+            showWebPageButtonView.addGestureRecognizer(longPressGesture)
+        }
+    }
+
+    @IBOutlet private var travelTimePanelTableView: UITableView! {
+        didSet {
+            travelTimePanelTableView.delegate = self
+            travelTimePanelTableView.dataSource = self
+            travelTimePanelTableView.register(UINib(nibName: "TravelTimePanelCell", bundle: nil), forCellReuseIdentifier: "TravelTimePanelCell")
+        }
+    }
+
     @IBOutlet private var mainImage: UIImageView!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var valueImageView: UIImageView!
     @IBOutlet private var valueLabel: UILabel!
     @IBOutlet private var categoryLabel: UILabel!
     @IBOutlet private var directionLabel: UILabel!
-    @IBOutlet private var showWebPageView: UIView!
     @IBOutlet private var showWebPageLabel: UILabel!
     @IBOutlet private var baseInfoView: UIView!
     @IBOutlet private var baseInfoMapView: MKMapView!
-    @IBOutlet private var travelTimePanelTableView: UITableView!
 
     private var settingPoints: [SettingPointEntity]?
     private var spot: SpotEntityProtocol?
@@ -33,14 +51,6 @@ public class SpotDetailsViewController: UIViewController {
 
         configureContents()
         configureMap()
-
-        travelTimePanelTableView.delegate = self
-        travelTimePanelTableView.dataSource = self
-        travelTimePanelTableView.register(UINib(nibName: "TravelTimePanelCell", bundle: nil), forCellReuseIdentifier: "TravelTimePanelCell")
-
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didTapShowWebView(recognizer:)))
-        longPressGesture.minimumPressDuration = 0
-        showWebPageView.addGestureRecognizer(longPressGesture)
     }
 
     public func setParameter(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol) {
@@ -78,10 +88,6 @@ public class SpotDetailsViewController: UIViewController {
     }
 
     private func configureContents() {
-        showWebPageView.layer.cornerRadius = 10
-        showWebPageView.layer.borderColor = UIColor(hex: "FA6400").cgColor
-        showWebPageView.layer.borderWidth = 1.5
-
         if let shop = spot as? Shop {
             configureShop(shop: shop)
         } else if let hotels = spot as? Hotels {
@@ -171,7 +177,7 @@ public class SpotDetailsViewController: UIViewController {
         valueLabel.text = "前の駅：" + prevStation + "駅" + " / " + "次の駅：" + nextStation + "駅"
         categoryLabel.text = station.prefecture + "県"
         directionLabel.text = station.line
-        showWebPageView.isHidden = true
+        showWebPageButtonView.isHidden = true
     }
 
     private func configureBusStop(busStop: BusStopEntity) {
@@ -182,7 +188,7 @@ public class SpotDetailsViewController: UIViewController {
         valueLabel.text = ""
         categoryLabel.text = busStop.busLineName
         directionLabel.text = busStop.busOperationCompany
-        showWebPageView.isHidden = true
+        showWebPageButtonView.isHidden = true
     }
 
     private func configureMap() {
@@ -224,16 +230,16 @@ public class SpotDetailsViewController: UIViewController {
         case .possible: break
 
         case .began:
-            showWebPageView.backgroundColor = UIColor(hex: "FA6400")
+            showWebPageButtonView.backgroundColor = UIColor(hex: "FA6400")
             showWebPageLabel.textColor = UIColor.white
 
         case .changed: break
 
         case .ended:
             if #available(iOS 13.0, *) {
-                showWebPageView.backgroundColor = UIColor.systemBackground
+                showWebPageButtonView.backgroundColor = UIColor.systemBackground
             } else {
-                showWebPageView.backgroundColor = UIColor.white
+                showWebPageButtonView.backgroundColor = UIColor.white
             }
             showWebPageLabel.textColor = UIColor(hex: "FA6400")
             let webView = UIStoryboard(name: "WebView", bundle: nil)
@@ -264,6 +270,13 @@ extension SpotDetailsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTimePanelCell") as? TravelTimePanelCell else { return TravelTimePanelCell() }
         guard let settingPoint = settingPoints?[indexPath.row] else { return TravelTimePanelCell() }
         cell.configureContents(row: indexPath.row, settingPoint: settingPoint, spotPoint: spotPoint)
+        cell.delegate = self
         return cell
+    }
+}
+
+extension SpotDetailsViewController: TravelTimePanelCellDelegate {
+    public func showWebPage(webVCInstance: WebViewController) {
+        present(webVCInstance, animated: true, completion: nil)
     }
 }

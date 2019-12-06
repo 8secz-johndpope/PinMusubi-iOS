@@ -52,6 +52,8 @@ public class PointInfomationCell: UITableViewCell {
     @IBOutlet private var pinImage: UIImageView!
 
     private var transportationGuideURLString = ""
+    private var fromStationName = ""
+    private var toStationName = ""
 
     private var presenter: PointsInfomationPresenterProrocol?
 
@@ -83,11 +85,7 @@ public class PointInfomationCell: UITableViewCell {
     /// - Parameter pointName: 地点名
     /// - Parameter transferTime: 移動時間
     public func setPointInfo(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, row: Int) {
-        if settingPoint.name != "" {
-            pointNameLabel.text = settingPoint.name
-        } else {
-            pointNameLabel.text =  "地点\(String(row + 1))"
-        }
+        pointNameLabel.text = settingPoint.name
         presenter?.getTransferTime(settingPoint: settingPoint, pinPoint: pinPoint)
         presenter?.getTransportationGuide(settingPoint: settingPoint, pinPoint: pinPoint)
     }
@@ -102,11 +100,13 @@ public class PointInfomationCell: UITableViewCell {
         }
     }
 
-    public func setTransportationGuideURLString(urlString: String, status: ResponseStatus) {
+    public func setTransportationGuideURLString(urlString: String, fromStationName: String, toStationName: String, status: ResponseStatus) {
         if status == .success {
             DispatchQueue.main.async {
                 self.transportationGuideURLString = urlString
                 self.transportationGuideButton.isEnabled = true
+                self.fromStationName = fromStationName
+                self.toStationName = toStationName
             }
         } else {
             DispatchQueue.main.async {
@@ -132,7 +132,7 @@ public class PointInfomationCell: UITableViewCell {
     @IBAction private func didTapTransportationGuideButton(_ sender: Any) {
         let webView = UIStoryboard(name: "WebView", bundle: nil)
         guard let webVC = webView.instantiateInitialViewController() as? WebViewController else { return }
-        webVC.setTransportationGuideInfo(urlString: transportationGuideURLString, fromStation: "西船橋", toStation: "氏家")
+        webVC.setTransportationGuideInfo(urlString: transportationGuideURLString, fromStation: fromStationName, toStation: toStationName)
         delegate?.sendWebVCInstance(webVCInstance: webVC)
     }
 }

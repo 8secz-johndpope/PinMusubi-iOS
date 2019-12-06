@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R7f-A4-ZpL">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -148,7 +146,7 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53E-hh-RbI">
                                                         <rect key="frame" x="0.0" y="43" width="375" height="1"/>
-                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="e2H-sl-5KO"/>
                                                         </constraints>
@@ -199,7 +197,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="RIs-8b-eel" firstAttribute="leading" secondItem="rNw-sk-REe" secondAttribute="leading" id="12u-GD-4J0"/>
                                             <constraint firstItem="Ieb-Ge-h1v" firstAttribute="leading" secondItem="rNw-sk-REe" secondAttribute="leading" id="1g5-h7-ekt"/>
@@ -256,8 +254,8 @@
                         <outlet property="directionLabel" destination="hRk-sT-GiN" id="Hq2-8q-jbH"/>
                         <outlet property="mainImage" destination="9eH-Xz-TRb" id="Dao-UA-R7T"/>
                         <outlet property="nameLabel" destination="8OX-pX-MEx" id="Wzh-oj-Z4a"/>
+                        <outlet property="showWebPageButtonView" destination="v0i-Rc-Ihb" id="YK7-QP-Jhv"/>
                         <outlet property="showWebPageLabel" destination="Auy-0T-Cs7" id="WBk-nv-ldw"/>
-                        <outlet property="showWebPageView" destination="v0i-Rc-Ihb" id="YK7-QP-Jhv"/>
                         <outlet property="travelTimePanelTableView" destination="Vwl-eZ-PWm" id="F5D-T0-lAP"/>
                         <outlet property="valueImageView" destination="zJg-eA-xor" id="jUa-Yt-K1r"/>
                         <outlet property="valueLabel" destination="7OK-1V-txt" id="Cju-BL-SRD"/>

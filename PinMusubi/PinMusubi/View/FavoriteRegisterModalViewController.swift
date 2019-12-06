@@ -12,13 +12,41 @@ import FirebaseAnalytics
 import UIKit
 
 public class FavoriteRegisterModalViewController: UIViewController {
-    @IBOutlet private var scrollView: UIScrollView!
-    @IBOutlet private var favoriteTitleView: UIView!
-    @IBOutlet private var favoriteTitleTextField: UITextField!
+    @IBOutlet private var scrollView: UIScrollView! {
+        didSet {
+            scrollView.delegate = self
+        }
+    }
+
+    @IBOutlet private var favoriteTitleView: UIView! {
+        didSet {
+            favoriteTitleView.layer.cornerRadius = 5
+        }
+    }
+
+    @IBOutlet private var favoriteTitleTextField: UITextField! {
+        didSet {
+            favoriteTitleTextField.delegate = self
+        }
+    }
+
     @IBOutlet private var ratingView: CosmosView!
-    @IBOutlet private var favoriteMemoView: UIView!
-    @IBOutlet private var favoriteMemoTextView: UITextView!
-    @IBOutlet private var registerButton: UIButton!
+    @IBOutlet private var favoriteMemoView: UIView! {
+        didSet {
+            favoriteMemoView.layer.cornerRadius = 5
+        }
+    }
+    @IBOutlet private var favoriteMemoTextView: UITextView! {
+        didSet {
+            favoriteMemoTextView.delegate = self
+        }
+    }
+
+    @IBOutlet private var registerButton: UIButton! {
+        didSet {
+            registerButton.layer.cornerRadius = 5
+        }
+    }
 
     private var activeTextField: AnyObject?
     private let toolBarHeight: CGFloat = 40
@@ -35,13 +63,9 @@ public class FavoriteRegisterModalViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        favoriteTitleTextField.delegate = self
-        favoriteMemoTextView.delegate = self
-        scrollView.delegate = self
         presenter = FavoriteSpotPresenter(vc: self, modelType: FavoriteSpotModel.self)
 
-        configureUI()
-        configureKeyboard()
+        configureKeybord()
         configureNotification()
         configureForm()
         configureRegisterButton()
@@ -65,6 +89,15 @@ public class FavoriteRegisterModalViewController: UIViewController {
         self.favoriteId = favoriteId
     }
 
+    private func configureKeybord() {
+        let tools = UIToolbar()
+        tools.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: toolBarHeight)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        tools.items = [spacer, closeButton]
+        favoriteMemoTextView.inputAccessoryView = tools
+    }
+
     private func configureForm() {
         if let favoriteId = favoriteId {
             let model = MyDataModel()
@@ -78,22 +111,6 @@ public class FavoriteRegisterModalViewController: UIViewController {
             }
             interestPoint = CLLocationCoordinate2D(latitude: favoriteSpot.latitude, longitude: favoriteSpot.longitude)
         }
-    }
-
-    private func configureUI() {
-        favoriteTitleView.layer.cornerRadius = 5
-        favoriteMemoView.layer.cornerRadius = 5
-        registerButton.layer.cornerRadius = 5
-        configureRegisterButton()
-    }
-
-    private func configureKeyboard() {
-        let tools = UIToolbar()
-        tools.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: toolBarHeight)
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
-        tools.items = [spacer, closeButton]
-        favoriteMemoTextView.inputAccessoryView = tools
     }
 
     @IBAction private func didTapCloseButton(_ sender: Any) {

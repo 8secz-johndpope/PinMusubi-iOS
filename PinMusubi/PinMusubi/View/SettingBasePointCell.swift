@@ -10,40 +10,51 @@ import UIKit
 
 /// 設定したい地点を入力するセル
 public class SettingBasePointCell: UITableViewCell {
-    // textField
-    @IBOutlet private var pointNameTextField: UITextField!
-    @IBOutlet private var addressTextField: UITextField!
-    // textFieldの背景
-    @IBOutlet private var pointNameView: UIView!
-    @IBOutlet private var addressView: UIView!
-    // 画像
+    @IBOutlet private var pointNameTextField: UITextField! {
+        didSet {
+            pointNameTextField.delegate = self
+            pointNameTextField.borderStyle = .none
+            pointNameTextField.placeholder = "例）太郎君の家"
+        }
+    }
+
+    @IBOutlet private var addressTextField: UITextField! {
+        didSet {
+            addressTextField.delegate = self
+            addressTextField.borderStyle = .none
+            addressTextField.placeholder = "例) 東京都目黒区下目黒◯-◯, 東京駅"
+        }
+    }
+
+    @IBOutlet private var pointNameView: UIView! {
+        didSet {
+            pointNameView.layer.cornerRadius = 4
+        }
+    }
+
+    @IBOutlet private var addressView: UIView! {
+        didSet {
+            addressView.layer.cornerRadius = 4
+        }
+    }
+
+    @IBOutlet private var underWhiteView: UIView! {
+        didSet {
+            underWhiteView.layer.cornerRadius = 17
+        }
+    }
+
+    @IBOutlet private var underView: UIView! {
+        didSet {
+            underView.layer.cornerRadius = 17
+        }
+    }
+
     @IBOutlet private var pinImageOnModal: UIImageView!
     @IBOutlet private var addressStatusImage: UIImageView!
     @IBOutlet private var brokenLineImage: UIImageView!
-    // 画像の背景
-    @IBOutlet private var underWhiteView: UIView!
-    @IBOutlet private var underView: UIView!
 
-    /// 処理を地点設定Viewに委譲するDelegate
     public weak var delegate: SettingBasePointCellDelegate?
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        // delegateの設定
-        pointNameTextField.delegate = self
-        addressTextField.delegate = self
-        // textFieldの設定
-        pointNameTextField.borderStyle = .none
-        pointNameTextField.placeholder = "例）太郎君の家"
-        addressTextField.borderStyle = .none
-        addressTextField.placeholder = "例) 東京都目黒区下目黒◯-◯, 東京駅"
-        // textFieldの背景の設定
-        pointNameView.layer.cornerRadius = 4
-        addressView.layer.cornerRadius = 4
-        // 画像の背景の設定
-        underWhiteView.layer.cornerRadius = 17
-        underView.layer.cornerRadius = 17
-    }
 
     /// セル選択時の状態を変化させない
     /// - Parameter selected: 選択状態
