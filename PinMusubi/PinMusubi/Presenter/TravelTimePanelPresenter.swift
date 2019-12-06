@@ -46,19 +46,17 @@ public class TravelTimePanelPresenter: TravelTimePanelPresenterProtcol {
     public func getWalkingTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
         guard let view = view else { return }
         guard let model = model else { return }
-        model.calculateTransferTime(settingPoint: settingPoint, pinPoint: pinPoint, transportType: .walking, complete: { walkingTime in
+        model.calculateTransferTime(settingPoint: settingPoint, pinPoint: pinPoint, transportType: .walking) { walkingTime in
             view.setWalkingTime(walkingTime: walkingTime)
         }
-        )
     }
 
     public func getDrivingTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
         guard let view = view else { return }
         guard let model = model else { return }
-        model.calculateTransferTime(settingPoint: settingPoint, pinPoint: pinPoint, transportType: .automobile, complete: { drivingTime in
+        model.calculateTransferTime(settingPoint: settingPoint, pinPoint: pinPoint, transportType: .automobile) { drivingTime in
             view.setDrivingTime(drivingTime: drivingTime)
         }
-        )
     }
 
     public func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {

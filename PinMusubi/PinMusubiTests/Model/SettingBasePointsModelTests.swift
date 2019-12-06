@@ -19,13 +19,13 @@ class SettingBasePointsModelTests: XCTestCase {
         let settingBasePointsModel = SettingBasePointsModel()
         let geocodingExpectation: XCTestExpectation? = self.expectation(description: "geocoding")
         let exampleAddress = "東京都千代田区丸の内1丁目"
-        settingBasePointsModel.geocode(address: exampleAddress, complete:{ settingPoint, status in
+        settingBasePointsModel.geocode(address: exampleAddress) { settingPoint, status in
             XCTAssertEqual(settingPoint.address, exampleAddress)
             XCTAssertEqual(status, AddressValidationStatus.success)
             print(settingPoint.latitude)
             print(settingPoint.longitude)
             geocodingExpectation?.fulfill()
-        })
+        }
         self.waitForExpectations(timeout: 10, handler: nil)
     }
     
@@ -33,13 +33,13 @@ class SettingBasePointsModelTests: XCTestCase {
         let settingBasePointsModel = SettingBasePointsModel()
         let geocodingExpectation: XCTestExpectation? = self.expectation(description: "geocoding")
         let exampleAddress = "無効な住所"
-        settingBasePointsModel.geocode(address: exampleAddress, complete:{ settingPoint, status in
+        settingBasePointsModel.geocode(address: exampleAddress) { settingPoint, status in
             XCTAssertEqual(settingPoint.address, "")
             XCTAssertEqual(settingPoint.latitude, 0.0)
             XCTAssertEqual(settingPoint.longitude, 0.0)
             XCTAssertEqual(status, AddressValidationStatus.error)
             geocodingExpectation?.fulfill()
-        })
+        }
         self.waitForExpectations(timeout: 10, handler: nil)
     }
     

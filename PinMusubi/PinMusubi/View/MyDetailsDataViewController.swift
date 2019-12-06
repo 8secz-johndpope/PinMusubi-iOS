@@ -39,10 +39,9 @@ public class MyDetailsDataViewController: UIViewController {
     private func configureNavigationBar() {
         if let favoriteData = myData as? FavoriteSpotEntity {
             let interestPoint = CLLocationCoordinate2D(latitude: favoriteData.latitude, longitude: favoriteData.longitude)
-            presenter?.getAddress(interestPoint: interestPoint, complete: { address in
+            presenter?.getAddress(interestPoint: interestPoint) { address in
                 self.navigationItem.title = address
             }
-            )
         }
     }
 
@@ -183,7 +182,7 @@ extension MyDetailsDataViewController: MyDetailsDataActionViewDelegate {
 
             let model = SearchInterestPlaceModel()
             let favoritePoint = CLLocationCoordinate2D(latitude: favoriteData.latitude, longitude: favoriteData.longitude)
-            model.getAddress(point: favoritePoint, complete: { address, status in
+            model.getAddress(point: favoritePoint) { address, status in
                 if status == .success {
                     let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
                     self.spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController
@@ -200,7 +199,6 @@ extension MyDetailsDataViewController: MyDetailsDataActionViewDelegate {
                     spotListVC.configureFavoriteButton()
                 }
             }
-            )
         }
     }
 }

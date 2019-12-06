@@ -315,7 +315,7 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
 
 extension SearchInterestPlaceViewController: SpotListViewDelegate {
     private func showSpotListView(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) {
-        presenter?.getAddress(interestPoint: interestPoint, complete: { address in
+        presenter?.getAddress(interestPoint: interestPoint) { address in
             let spotListSV = UIStoryboard(name: "SpotListViewController", bundle: nil)
             self.spotListNC = spotListSV.instantiateInitialViewController() as? SpotListNavigationController
             guard let spotListNC = self.spotListNC else { return }
@@ -325,7 +325,6 @@ extension SearchInterestPlaceViewController: SpotListViewDelegate {
             spotListNC.modalPresentationStyle = .fullScreen
             self.present(spotListNC, animated: true, completion: nil)
         }
-        )
     }
 
     public func closeSpotListView() {

@@ -43,7 +43,7 @@ public class TravelTimeModel: TravelTimeModelProtocol {
         request.transportType = transportType
         // MKDirectionsにrequestを設定し、移動時間を計算
         let directions = MKDirections(request: request)
-        directions.calculate(completionHandler: { response, error -> Void in
+        directions.calculate { response, error -> Void in
             // 地点名と対応する移動時間を設定
             if let routes = response?.routes {
                 if error != nil {
@@ -57,6 +57,5 @@ public class TravelTimeModel: TravelTimeModelProtocol {
                 complete(-1)
             }
         }
-        )
     }
 }

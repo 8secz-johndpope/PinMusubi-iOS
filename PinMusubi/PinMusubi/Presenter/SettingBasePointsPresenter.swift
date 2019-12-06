@@ -42,10 +42,9 @@ public class SettingBasePointsPresenter: SettingBasePointsPresenterProtocol {
     /// - Parameter address: 入力された住所
     /// - Parameter complete: 完了ハンドラ
     public func validateAddress(address: String, complete: @escaping (SettingPointEntity, AddressValidationStatus) -> Void) {
-        model?.geocode(address: address, complete: { settingPoint, status in
+        model?.geocode(address: address) { settingPoint, status in
             complete(settingPoint, status)
         }
-        )
     }
 
     /// 設定地点をもとにMapViewにピン等を設置

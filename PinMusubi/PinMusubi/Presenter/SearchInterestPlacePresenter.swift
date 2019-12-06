@@ -32,9 +32,8 @@ public class SearchInterestPlacePresenter: SearchInterestPlacePresenterProtocol 
 
     public func getAddress(interestPoint: CLLocationCoordinate2D, complete: @escaping (String) -> Void) {
         guard let model = model else { return }
-        model.getAddress(point: interestPoint, complete: { address, _ in
+        model.getAddress(point: interestPoint) { address, _ in
             complete(address)
         }
-        )
     }
 }

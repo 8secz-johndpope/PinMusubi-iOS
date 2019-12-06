@@ -46,7 +46,7 @@ class PointsInfomationModelTests: XCTestCase {
         examplePinPoint.latitude = 35.710063
         examplePinPoint.longitude = 139.8107
         
-        pointsInfomationModel.getTransportationGuide(settingPoint: exampleSettingPoint, pinPoint: examplePinPoint) { responseString, status in
+        pointsInfomationModel.getTransportationGuide(settingPoint: exampleSettingPoint, pinPoint: examplePinPoint) { responseString, fromStation, toStationName, status  in
             XCTAssert(status == .success)
             getTransferGuideExpectation.fulfill()
         }

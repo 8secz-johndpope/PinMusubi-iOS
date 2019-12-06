@@ -140,7 +140,7 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
             self.canDoneSettingList[indexPath.row] = .empty
             setActionButton()
         } else {
-            presenter?.validateAddress(address: address, complete: {settingPoint, status in
+            presenter?.validateAddress(address: address) {settingPoint, status in
                 targetCell.setAddressStatus(addressValidationStatus: status)
                 self.canDoneSettingList[indexPath.row] = status
                 self.settingPoints[indexPath.row].address = settingPoint.address
@@ -148,7 +148,6 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
                 self.settingPoints[indexPath.row].longitude = settingPoint.longitude
                 self.setActionButton()
             }
-            )
         }
     }
 

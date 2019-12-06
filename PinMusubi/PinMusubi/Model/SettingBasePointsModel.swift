@@ -32,7 +32,7 @@ public class SettingBasePointsModel: SettingBasePointsModelProtocol {
     /// - Parameter complete: 完了ハンドラ
     public func geocode(address: String, complete: @escaping (SettingPointEntity, AddressValidationStatus) -> Void) {
         let settingPoint = SettingPointEntity()
-        CLGeocoder().geocodeAddressString(address, completionHandler: {placemark, error -> Void in
+        CLGeocoder().geocodeAddressString(address) { placemark, error -> Void in
             if (error) == nil {
                 guard let coordinate = placemark?.first?.location?.coordinate else { return }
                 settingPoint.address = address
@@ -43,7 +43,6 @@ public class SettingBasePointsModel: SettingBasePointsModelProtocol {
                 complete(settingPoint, .error)
             }
         }
-        )
     }
 
     /// 中間地点を計算して返却

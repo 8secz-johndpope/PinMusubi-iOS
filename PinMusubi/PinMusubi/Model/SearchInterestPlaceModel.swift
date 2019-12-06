@@ -46,7 +46,7 @@ public class SearchInterestPlaceModel: SearchInterestPlaceModelProtocol {
 
     public func getAddress(point: CLLocationCoordinate2D, complete: @escaping (String, AddressValidationStatus) -> Void) {
         let location = CLLocation(latitude: point.latitude, longitude: point.longitude)
-        CLGeocoder().reverseGeocodeLocation(location, completionHandler: { placemark, error -> Void in
+        CLGeocoder().reverseGeocodeLocation(location) { placemark, error -> Void in
             if (error) == nil {
                 guard let address = placemark?.first?.name else { return }
                 complete(address, .success)
@@ -54,6 +54,5 @@ public class SearchInterestPlaceModel: SearchInterestPlaceModelProtocol {
                 complete("？", .error)
             }
         }
-        )
     }
 }
