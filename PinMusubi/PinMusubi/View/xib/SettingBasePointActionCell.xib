@@ -13,12 +13,12 @@
         <tableViewCell contentMode="scaleToFill" restorationIdentifier="SettingBasePointActionCell" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SettingBasePointActionCell" customModule="PinMusubi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvA-GG-zRH">
-                        <rect key="frame" x="62" y="0.0" width="85" height="39"/>
+                        <rect key="frame" x="62" y="8" width="85" height="39"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="jT6-We-lRX">
                                 <rect key="frame" x="15.5" y="12.5" width="14" height="14"/>
@@ -47,7 +47,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRC-wc-jiL">
-                        <rect key="frame" x="242" y="0.0" width="77" height="39"/>
+                        <rect key="frame" x="242" y="8" width="77" height="39"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Minus" translatesAutoresizingMaskIntoConstraints="NO" id="9jy-vO-yQm">
                                 <rect key="frame" x="7.5" y="12.5" width="14" height="14"/>
@@ -76,7 +76,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAh-Rt-4au">
-                        <rect key="frame" x="62" y="62" width="257" height="48"/>
+                        <rect key="frame" x="62" y="70" width="257" height="48"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定を完了する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyS-Ni-b4q">
                                 <rect key="frame" x="71" y="14" width="115" height="20"/>
@@ -93,7 +93,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cof-vr-dw0">
-                        <rect key="frame" x="37.5" y="114" width="300" height="250"/>
+                        <rect key="frame" x="37.5" y="122" width="300" height="250"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="300" id="E5C-Yg-9aF"/>
@@ -103,11 +103,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="cof-vr-dw0" secondAttribute="bottom" constant="200" id="EZE-cV-rZP"/>
-                    <constraint firstItem="CRC-wc-jiL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ha8-qv-5Ml"/>
+                    <constraint firstItem="CRC-wc-jiL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ha8-qv-5Ml"/>
                     <constraint firstItem="cof-vr-dw0" firstAttribute="top" secondItem="fAh-Rt-4au" secondAttribute="bottom" constant="4" id="KLm-1g-cyW"/>
                     <constraint firstAttribute="trailing" secondItem="CRC-wc-jiL" secondAttribute="trailing" constant="56" id="Z4G-vQ-h9f"/>
                     <constraint firstItem="fAh-Rt-4au" firstAttribute="top" secondItem="CRC-wc-jiL" secondAttribute="bottom" constant="23" id="cEN-Xe-JRa"/>
-                    <constraint firstItem="MvA-GG-zRH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="g6Z-au-ZhJ"/>
+                    <constraint firstItem="MvA-GG-zRH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="g6Z-au-ZhJ"/>
                     <constraint firstItem="cof-vr-dw0" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="itW-EX-ZTh"/>
                     <constraint firstItem="fAh-Rt-4au" firstAttribute="top" secondItem="MvA-GG-zRH" secondAttribute="bottom" constant="23" id="wnq-vY-Cq4"/>
                 </constraints>

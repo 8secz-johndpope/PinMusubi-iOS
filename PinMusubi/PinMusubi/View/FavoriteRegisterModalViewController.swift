@@ -195,9 +195,14 @@ public class FavoriteRegisterModalViewController: UIViewController {
     private func configureRegisterButton() {
         if validateCheck() {
             registerButton.backgroundColor = UIColor(hex: "FA6400")
+            registerButton.layer.shadowOpacity = 0.5
+            registerButton.layer.shadowRadius = 3
+            registerButton.layer.shadowColor = UIColor.gray.cgColor
+            registerButton.layer.shadowOffset = CGSize(width: 3, height: 3)
             registerButton.isEnabled = true
         } else {
             registerButton.backgroundColor = UIColor(hex: "FA6400", alpha: 0.3)
+            registerButton.layer.shadowOpacity = 0
             registerButton.isEnabled = false
         }
     }

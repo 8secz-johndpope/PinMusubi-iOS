@@ -21,10 +21,6 @@ public class SpotBaseInfoView: UIView {
     @IBOutlet private var image4: UIImageView!
     @IBOutlet private var image5: UIImageView!
 
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     public func configureLabel(spot: SpotEntityProtocol) {
         if let shop = spot as? Shop {
             addressLabel.text = shop.address

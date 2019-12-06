@@ -35,6 +35,10 @@ public class SpotListViewController: UIViewController {
             if !favoriteButtonViewIsHidden {
                 favoriteButtonView.backgroundColor = UIColor(hex: "FA6400")
                 favoriteButtonView.layer.borderColor = UIColor(hex: "FA6400").cgColor
+                favoriteButtonView.layer.shadowOpacity = 0.5
+                favoriteButtonView.layer.shadowRadius = 3
+                favoriteButtonView.layer.shadowColor = UIColor.gray.cgColor
+                favoriteButtonView.layer.shadowOffset = CGSize(width: 3, height: 3)
             } else {
                 favoriteButtonView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
                 favoriteButtonView.layer.borderColor = UIColor(hex: "FA6400", alpha: 0.2).cgColor

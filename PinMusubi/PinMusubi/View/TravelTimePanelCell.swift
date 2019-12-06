@@ -13,7 +13,6 @@ public class TravelTimePanelCell: UITableViewCell {
     @IBOutlet private var panelView: UIView! {
         didSet {
             panelView.layer.cornerRadius = 15
-            panelView.layer.borderColor = UIColor.lightGray.cgColor
             panelView.layer.borderWidth = 1.0
         }
     }
@@ -37,9 +36,9 @@ public class TravelTimePanelCell: UITableViewCell {
             transportationGuideButton.layer.borderWidth = 1.0
             transportationGuideButton.layer.cornerRadius = 8
             transportationGuideButton.layer.shadowOpacity = 0.5
-            transportationGuideButton.layer.shadowRadius = 1
+            transportationGuideButton.layer.shadowRadius = 3
             transportationGuideButton.layer.shadowColor = UIColor.gray.cgColor
-            transportationGuideButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+            transportationGuideButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         }
     }
 
@@ -78,6 +77,7 @@ public class TravelTimePanelCell: UITableViewCell {
     }
 
     public func configureContents(row: Int, settingPoint: SettingPointEntity, spotPoint: CLLocationCoordinate2D) {
+        panelView.layer.borderColor = ColorDefinition.settingPointColors[row].cgColor
         tagView.backgroundColor = ColorDefinition.settingPointColors[row]
         settingNameLabel.text = settingPoint.name
 

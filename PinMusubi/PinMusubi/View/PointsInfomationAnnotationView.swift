@@ -33,7 +33,7 @@ public class PointsInfomationAnnotationView: UIView {
             showSpotListButton.backgroundColor = UIColor(hex: "FA6400")
             showSpotListButton.layer.cornerRadius = 8
             showSpotListButton.layer.shadowOpacity = 0.5
-            showSpotListButton.layer.shadowRadius = 1
+            showSpotListButton.layer.shadowRadius = 3
             showSpotListButton.layer.shadowColor = UIColor.lightGray.cgColor
             showSpotListButton.layer.shadowOffset = CGSize(width: 3, height: 3)
 

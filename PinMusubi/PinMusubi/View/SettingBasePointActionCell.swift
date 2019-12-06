@@ -13,18 +13,36 @@ import UIKit
 public class SettingBasePointActionCell: UITableViewCell {
     @IBOutlet private var addCellView: UIView! {
         didSet {
+            if #available(iOS 13.0, *) {
+                addCellView.backgroundColor = .systemBackground
+            } else {
+                addCellView.backgroundColor = .white
+            }
             addCellView.layer.cornerRadius = 20
             addCellView.layer.borderWidth = 0.5
             addCellView.layer.borderColor = UIColor.lightGray.cgColor
+            addCellView.layer.shadowOpacity = 0.5
+            addCellView.layer.shadowRadius = 3
+            addCellView.layer.shadowColor = UIColor.gray.cgColor
+            addCellView.layer.shadowOffset = CGSize(width: 3, height: 3)
             addCellView.isHidden = false
         }
     }
 
     @IBOutlet private var removeCellView: UIView! {
         didSet {
+            if #available(iOS 13.0, *) {
+                removeCellView.backgroundColor = .systemBackground
+            } else {
+                removeCellView.backgroundColor = .white
+            }
             removeCellView.layer.cornerRadius = 20
             removeCellView.layer.borderWidth = 0.5
             removeCellView.layer.borderColor = UIColor.lightGray.cgColor
+            removeCellView.layer.shadowOpacity = 0.5
+            removeCellView.layer.shadowRadius = 3
+            removeCellView.layer.shadowColor = UIColor.gray.cgColor
+            removeCellView.layer.shadowOffset = CGSize(width: 3, height: 3)
             removeCellView.isHidden = true
         }
     }
@@ -94,9 +112,14 @@ public class SettingBasePointActionCell: UITableViewCell {
     public func changeDoneSettingStatus(canDoneSetting: Bool) {
         if canDoneSetting {
             doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 1)
+            doneSettingView.layer.shadowOpacity = 0.5
+            doneSettingView.layer.shadowRadius = 3
+            doneSettingView.layer.shadowColor = UIColor.gray.cgColor
+            doneSettingView.layer.shadowOffset = CGSize(width: 3, height: 3)
             isEnabledDoneSetting = true
         } else {
             doneSettingView.backgroundColor = UIColor(hex: "FA6400", alpha: 0.2)
+            doneSettingView.layer.shadowOpacity = 0
             isEnabledDoneSetting = false
         }
     }

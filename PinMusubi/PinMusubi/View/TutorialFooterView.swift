@@ -12,6 +12,10 @@ public class TutorialFooterView: UICollectionReusableView {
     @IBOutlet private var closeTutorialViewButton: UIButton! {
         didSet {
             closeTutorialViewButton.layer.cornerRadius = 10
+            closeTutorialViewButton.layer.shadowOpacity = 0.5
+            closeTutorialViewButton.layer.shadowRadius = 3
+            closeTutorialViewButton.layer.shadowColor = UIColor.gray.cgColor
+            closeTutorialViewButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         }
     }
 

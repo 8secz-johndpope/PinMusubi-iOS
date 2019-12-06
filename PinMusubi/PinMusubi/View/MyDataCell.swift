@@ -15,10 +15,6 @@ public class MyDataCell: UITableViewCell {
     @IBOutlet private var registerDateLabel: UILabel!
     @IBOutlet private var ratingView: CosmosView!
 
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     public func configure(myDataType: MyDataEntityProtocol) {
         let format = DateFormatter()
         format.timeStyle = .medium

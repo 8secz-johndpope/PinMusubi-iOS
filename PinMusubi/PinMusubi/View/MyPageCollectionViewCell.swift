@@ -8,14 +8,6 @@
 
 import UIKit
 
-/// 個人データの種類
-public enum MyDataType {
-    /// お気に入り
-    case favorite
-    /// 検索履歴
-    case history
-}
-
 public class MyPageCollectionViewCell: UICollectionViewCell {
     private var scrollView: UIScrollView?
     private var tableView: UITableView?
@@ -100,4 +92,12 @@ extension MyPageCollectionViewCell: UITableViewDataSource {
         cell.configure(myDataType: myDataList[indexPath.row])
         return cell
     }
+}
+
+/// 個人データの種類
+public enum MyDataType {
+    /// お気に入り
+    case favorite
+    /// 検索履歴
+    case history
 }

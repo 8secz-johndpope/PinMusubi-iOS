@@ -31,9 +31,9 @@ public class PointInfomationCell: UITableViewCell {
             transportationGuideButton.layer.borderWidth = 1.0
             transportationGuideButton.layer.cornerRadius = 8
             transportationGuideButton.layer.shadowOpacity = 0.5
-            transportationGuideButton.layer.shadowRadius = 1
+            transportationGuideButton.layer.shadowRadius = 3
             transportationGuideButton.layer.shadowColor = UIColor.gray.cgColor
-            transportationGuideButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+            transportationGuideButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         }
     }
 

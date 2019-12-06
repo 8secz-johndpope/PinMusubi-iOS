@@ -17,6 +17,10 @@ public class SpotDetailsViewController: UIViewController {
             showWebPageButtonView.layer.cornerRadius = 10
             showWebPageButtonView.layer.borderColor = UIColor(hex: "FA6400").cgColor
             showWebPageButtonView.layer.borderWidth = 1.5
+            showWebPageButtonView.layer.shadowOpacity = 0.5
+            showWebPageButtonView.layer.shadowRadius = 3
+            showWebPageButtonView.layer.shadowColor = UIColor.gray.cgColor
+            showWebPageButtonView.layer.shadowOffset = CGSize(width: 3, height: 3)
 
             let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didTapShowWebView(recognizer:)))
             longPressGesture.minimumPressDuration = 0
@@ -100,6 +104,7 @@ public class SpotDetailsViewController: UIViewController {
             configureBusStop(busStop: busStop)
         }
     }
+
     private func configureShop(shop: Shop) {
         title = shop.name
         guard let imageUrl = URL(string: shop.photo.pcPhoto.middle) else { return }
