@@ -15,6 +15,8 @@
 		9108A84C237AEC7F00099B0B /* SpotListAnalyticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */; };
 		9108A84E237F584800099B0B /* AdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84D237F584800099B0B /* AdEntity.swift */; };
 		910EC0BC239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910EC0BB239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift */; };
+		910EC0BE239DD65D00F0D87C /* SearchCompleterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 910EC0BD239DD65D00F0D87C /* SearchCompleterViewController.storyboard */; };
+		910EC0C0239DD6B000F0D87C /* SearchCompleterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910EC0BF239DD6B000F0D87C /* SearchCompleterViewController.swift */; };
 		9116C906238596B60026513D /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9116C905238596B60026513D /* LoadingView.xib */; };
 		9116C908238598B20026513D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116C907238598B20026513D /* LoadingView.swift */; };
 		9116C90B23859AED0026513D /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9116C90A23859AED0026513D /* loading.gif */; };
@@ -215,6 +217,8 @@
 		9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListAnalyticsEntity.swift; sourceTree = "<group>"; };
 		9108A84D237F584800099B0B /* AdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdEntity.swift; sourceTree = "<group>"; };
 		910EC0BB239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePanelCellDelegate.swift; sourceTree = "<group>"; };
+		910EC0BD239DD65D00F0D87C /* SearchCompleterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchCompleterViewController.storyboard; sourceTree = "<group>"; };
+		910EC0BF239DD6B000F0D87C /* SearchCompleterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleterViewController.swift; sourceTree = "<group>"; };
 		9116C905238596B60026513D /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		9116C907238598B20026513D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9116C90A23859AED0026513D /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
@@ -618,6 +622,7 @@
 				915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */,
 				91504A8C23366F7B00F900C4 /* SettingBasePointActionCell.swift */,
 				914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */,
+				910EC0BF239DD6B000F0D87C /* SearchCompleterViewController.swift */,
 				918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */,
 				91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */,
 				918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */,
@@ -738,6 +743,7 @@
 				91B3EB552301296F00430D41 /* LaunchScreen.storyboard */,
 				91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */,
 				91B3EB502301296E00430D41 /* SearchInterestPlaceView.storyboard */,
+				910EC0BD239DD65D00F0D87C /* SearchCompleterViewController.storyboard */,
 				91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */,
 				915556F223699E9200097D73 /* SpotDetailsView.storyboard */,
 				9162288C236D21F600F009DB /* WebView.storyboard */,
@@ -902,6 +908,7 @@
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
 				91D1CAB12376563B0066F644 /* MyDetailsDataHeaderViewController.xib in Resources */,
 				91D1CABD23769F3B0066F644 /* MyDetailsDataActionViewController.xib in Resources */,
+				910EC0BE239DD65D00F0D87C /* SearchCompleterViewController.storyboard in Resources */,
 				91C64A4A2371A9260046E7E7 /* SettingView.storyboard in Resources */,
 				9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */,
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
@@ -1295,6 +1302,7 @@
 				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91C64A502371B4A30046E7E7 /* MyPageCollectionView.swift in Sources */,
 				914455C7238438E400AE7E06 /* HotelSpotPresenter.swift in Sources */,
+				910EC0C0239DD6B000F0D87C /* SearchCompleterViewController.swift in Sources */,
 				912E0B4023999BE2008A91FA /* EkispertStationEntity.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */,

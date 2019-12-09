@@ -291,6 +291,13 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
     public func moveModalToFull() {
         floatingPanelController.move(to: .full, animated: true)
     }
+
+    public func showSearchCompleterView(inputEditingCell: SettingBasePointCell) {
+        let searchCompleterSV = UIStoryboard(name: "SearchCompleterViewController", bundle: nil)
+        guard let searchCompleterVC = searchCompleterSV.instantiateInitialViewController() as? SearchCompleterViewController else { return }
+        searchCompleterVC.setInputEditingCellInstance(inputEditingCell: inputEditingCell)
+        present(searchCompleterVC, animated: true, completion: nil)
+    }
 }
 
 extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelegate {

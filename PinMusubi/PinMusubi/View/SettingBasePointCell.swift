@@ -10,19 +10,19 @@ import UIKit
 
 /// 設定したい地点を入力するセル
 public class SettingBasePointCell: UITableViewCell {
-    @IBOutlet private var pointNameTextField: UITextField! {
-        didSet {
-            pointNameTextField.delegate = self
-            pointNameTextField.borderStyle = .none
-            pointNameTextField.placeholder = "例）太郎君の家"
-        }
-    }
-
     @IBOutlet private var addressTextField: UITextField! {
         didSet {
             addressTextField.delegate = self
             addressTextField.borderStyle = .none
             addressTextField.placeholder = "例) 東京都目黒区下目黒◯-◯, 東京駅"
+        }
+    }
+
+    @IBOutlet private var pointNameTextField: UITextField! {
+        didSet {
+            pointNameTextField.delegate = self
+            pointNameTextField.borderStyle = .none
+            pointNameTextField.placeholder = "例）太郎君の家"
         }
     }
 
@@ -101,18 +101,34 @@ public class SettingBasePointCell: UITableViewCell {
             addressStatusImage.image = image
         }
     }
+
+    public func getAddress() -> String {
+        return addressTextField.text ?? ""
+    }
+
+    public func setAddress(outputAddress: String) {
+        addressTextField.text = outputAddress
+    }
 }
 
 /// textFieldに関するDelegateメソッド
 extension SettingBasePointCell: UITextFieldDelegate {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == addressTextField {
+            endEditing(true)
+            delegate?.sendEditingCellInstance(inputEditingCell: self)
+            return false
+        }
+        return true
+    }
+
     /// 編集開始した後
     /// - Parameter textField: 対象のtextField
     public func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard let delegate = delegate else { return }
         // セルを編集中セルに設定
-        delegate.setEditingCell(editingCell: self)
+        delegate?.setEditingCell(editingCell: self)
         // アクションボタンを隠蔽
-        delegate.hideActionButton()
+        delegate?.hideActionButton()
     }
 
     /// フォーカスが外れた後

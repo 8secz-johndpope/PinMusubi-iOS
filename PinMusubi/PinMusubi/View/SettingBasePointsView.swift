@@ -130,6 +130,12 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
         actionCell.hideActionButton()
     }
 
+    public func sendEditingCellInstance(inputEditingCell: SettingBasePointCell) {
+        editingCell = inputEditingCell
+        delegate?.moveModalToFull()
+        delegate?.showSearchCompleterView(inputEditingCell: inputEditingCell)
+    }
+
     /// 住所の入力チェック
     /// - Parameter address: 住所の入力情報
     public func validateAddress(address: String) {
