@@ -157,6 +157,19 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
         }
     }
 
+    /// 現在地を設定
+    /// - Parameter location: 現在地情報
+    public func setYourLocation(location: CLLocation) {
+        guard let targetCell = editingCell else { return }
+        guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
+        targetCell.setAddressStatus(addressValidationStatus: .success)
+        canDoneSettingList[indexPath.row] = .success
+        settingPoints[indexPath.row].address = "現在地"
+        settingPoints[indexPath.row].latitude = location.coordinate.latitude
+        settingPoints[indexPath.row].longitude = location.coordinate.longitude
+        setActionButton()
+    }
+
     /// 設定地点の名前をセット
     /// - Parameter name: 設定地点の名前
     public func setPointName(name: String) {

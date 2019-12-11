@@ -16,6 +16,8 @@ public protocol SettingBasePointCellDelegate: AnyObject {
 
     func validateAddress(completion: MKLocalSearchCompletion?)
 
+    func setYourLocation(location: CLLocation)
+
     func setPointName(name: String)
 
     func sendEditingCellInstance(inputEditingCell: SettingBasePointCell)
