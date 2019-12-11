@@ -294,9 +294,10 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
 
     public func showSearchCompleterView(inputEditingCell: SettingBasePointCell) {
         let searchCompleterSV = UIStoryboard(name: "SearchCompleterViewController", bundle: nil)
-        guard let searchCompleterVC = searchCompleterSV.instantiateInitialViewController() as? SearchCompleterViewController else { return }
+        guard let searchCompleterNC = searchCompleterSV.instantiateInitialViewController() as? SearchCompleterNavigationController else { return }
+        guard let searchCompleterVC = searchCompleterNC.topViewController as? SearchCompleterViewController else { return }
         searchCompleterVC.setInputEditingCellInstance(inputEditingCell: inputEditingCell)
-        present(searchCompleterVC, animated: true, completion: nil)
+        present(searchCompleterNC, animated: true, completion: nil)
     }
 }
 

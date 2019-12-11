@@ -138,22 +138,22 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
 
     /// 住所の入力チェック
     /// - Parameter address: 住所の入力情報
-    public func validateAddress(address: String) {
+    public func validateAddress(completion: MKLocalSearchCompletion?) {
         guard let targetCell = editingCell else { return }
         guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
-        if address == "" {
+        if let completion = completion {
+            presenter?.validateAddress(completion: completion) { coordinate, status in
+                targetCell.setAddressStatus(addressValidationStatus: status)
+                self.canDoneSettingList[indexPath.row] = status
+                self.settingPoints[indexPath.row].address = completion.title + ", " + completion.subtitle
+                self.settingPoints[indexPath.row].latitude = coordinate.latitude
+                self.settingPoints[indexPath.row].longitude = coordinate.longitude
+                self.setActionButton()
+            }
+        } else {
             targetCell.setAddressStatus(addressValidationStatus: .empty)
             self.canDoneSettingList[indexPath.row] = .empty
             setActionButton()
-        } else {
-            presenter?.validateAddress(address: address) {settingPoint, status in
-                targetCell.setAddressStatus(addressValidationStatus: status)
-                self.canDoneSettingList[indexPath.row] = status
-                self.settingPoints[indexPath.row].address = settingPoint.address
-                self.settingPoints[indexPath.row].latitude = settingPoint.latitude
-                self.settingPoints[indexPath.row].longitude = settingPoint.longitude
-                self.setActionButton()
-            }
         }
     }
 

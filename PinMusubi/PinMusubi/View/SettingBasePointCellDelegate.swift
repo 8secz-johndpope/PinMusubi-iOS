@@ -6,13 +6,15 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import MapKit
+
 /// 検索条件セルのDelegate
 public protocol SettingBasePointCellDelegate: AnyObject {
     func setEditingCell(editingCell: SettingBasePointCell)
 
     func hideActionButton()
 
-    func validateAddress(address: String)
+    func validateAddress(completion: MKLocalSearchCompletion?)
 
     func setPointName(name: String)
 

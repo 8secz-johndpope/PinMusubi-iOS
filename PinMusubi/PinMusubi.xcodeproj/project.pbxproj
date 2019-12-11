@@ -17,6 +17,7 @@
 		910EC0BC239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910EC0BB239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift */; };
 		910EC0BE239DD65D00F0D87C /* SearchCompleterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 910EC0BD239DD65D00F0D87C /* SearchCompleterViewController.storyboard */; };
 		910EC0C0239DD6B000F0D87C /* SearchCompleterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910EC0BF239DD6B000F0D87C /* SearchCompleterViewController.swift */; };
+		910EC0C4239E7B8E00F0D87C /* SearchCompleterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910EC0C3239E7B8E00F0D87C /* SearchCompleterNavigationController.swift */; };
 		9116C906238596B60026513D /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9116C905238596B60026513D /* LoadingView.xib */; };
 		9116C908238598B20026513D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116C907238598B20026513D /* LoadingView.swift */; };
 		9116C90B23859AED0026513D /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9116C90A23859AED0026513D /* loading.gif */; };
@@ -153,6 +154,7 @@
 		91D7FEE023718AA900520CAD /* DoneRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */; };
 		91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */; };
 		91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */; };
+		91E2425B239EAD89008420E5 /* InputPlaceNameHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2425A239EAD89008420E5 /* InputPlaceNameHistoryEntity.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */; };
 		91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439232355FB9700A3B936 /* BusStopEntity.swift */; };
 		91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439252355FE3C00A3B936 /* StationEntity.swift */; };
@@ -219,6 +221,7 @@
 		910EC0BB239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePanelCellDelegate.swift; sourceTree = "<group>"; };
 		910EC0BD239DD65D00F0D87C /* SearchCompleterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchCompleterViewController.storyboard; sourceTree = "<group>"; };
 		910EC0BF239DD6B000F0D87C /* SearchCompleterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleterViewController.swift; sourceTree = "<group>"; };
+		910EC0C3239E7B8E00F0D87C /* SearchCompleterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleterNavigationController.swift; sourceTree = "<group>"; };
 		9116C905238596B60026513D /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		9116C907238598B20026513D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9116C90A23859AED0026513D /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
@@ -370,6 +373,7 @@
 		91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterViewController.swift; sourceTree = "<group>"; };
 		91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterPresentationController.swift; sourceTree = "<group>"; };
 		91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterViewDelegate.swift; sourceTree = "<group>"; };
+		91E2425A239EAD89008420E5 /* InputPlaceNameHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPlaceNameHistoryEntity.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantSpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSpotEntity.swift; sourceTree = "<group>"; };
 		91E439232355FB9700A3B936 /* BusStopEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEntity.swift; sourceTree = "<group>"; };
 		91E439252355FE3C00A3B936 /* StationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationEntity.swift; sourceTree = "<group>"; };
@@ -510,6 +514,7 @@
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
 				9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */,
 				9108A84D237F584800099B0B /* AdEntity.swift */,
+				91E2425A239EAD89008420E5 /* InputPlaceNameHistoryEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -622,6 +627,7 @@
 				915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */,
 				91504A8C23366F7B00F900C4 /* SettingBasePointActionCell.swift */,
 				914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */,
+				910EC0C3239E7B8E00F0D87C /* SearchCompleterNavigationController.swift */,
 				910EC0BF239DD6B000F0D87C /* SearchCompleterViewController.swift */,
 				918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */,
 				91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */,
@@ -1275,6 +1281,7 @@
 				91B5A97B23657EE10030909D /* StationModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				91EEA8022377941E00824BBB /* MyDetailsDataActionViewDelegate.swift in Sources */,
+				91E2425B239EAD89008420E5 /* InputPlaceNameHistoryEntity.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
 				91C64A522371B8920046E7E7 /* MyPageCollectionViewCell.swift in Sources */,
 				916671152386BCC700236FEC /* TutorialFooterDelegate.swift in Sources */,
@@ -1290,6 +1297,7 @@
 				91EEA8062377A7B900824BBB /* EmptyView.swift in Sources */,
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
 				91D7FED72370421200520CAD /* FavoriteSpotPresenter.swift in Sources */,
+				910EC0C4239E7B8E00F0D87C /* SearchCompleterNavigationController.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				91C64A542371BB0B0046E7E7 /* MyDataEntityProtocol.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,

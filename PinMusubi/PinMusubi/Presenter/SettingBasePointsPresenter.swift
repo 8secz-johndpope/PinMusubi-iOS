@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 /// 地点設定処理に関するPresenterのプロトコル
 public protocol SettingBasePointsPresenterProtocol: AnyObject {
@@ -18,7 +19,7 @@ public protocol SettingBasePointsPresenterProtocol: AnyObject {
     /// 入力された住所をもとに入力チェックを行う
     /// - Parameter address: 入力された住所
     /// - Parameter complete: 完了ハンドラ
-    func validateAddress(address: String, complete: @escaping (SettingPointEntity, AddressValidationStatus) -> Void)
+    func validateAddress(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D, AddressValidationStatus) -> Void)
 
     /// 設定地点をもとにMapViewにピン等を設置
     /// - Parameter settingPoints: 設定地点リスト
@@ -41,9 +42,9 @@ public class SettingBasePointsPresenter: SettingBasePointsPresenterProtocol {
     /// 入力された住所をもとに入力チェックを行う
     /// - Parameter address: 入力された住所
     /// - Parameter complete: 完了ハンドラ
-    public func validateAddress(address: String, complete: @escaping (SettingPointEntity, AddressValidationStatus) -> Void) {
-        model?.geocode(address: address) { settingPoint, status in
-            complete(settingPoint, status)
+    public func validateAddress(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D, AddressValidationStatus) -> Void) {
+        model?.geocode(completion: completion) { coordinate, status in
+            complete(coordinate, status)
         }
     }
 

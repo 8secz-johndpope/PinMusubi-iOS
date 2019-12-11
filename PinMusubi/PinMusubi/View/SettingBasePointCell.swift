@@ -139,10 +139,6 @@ extension SettingBasePointCell: UITextFieldDelegate {
             guard let pointName = textField.text else { return }
             guard let delegate = delegate else { return }
             delegate.setPointName(name: pointName)
-        } else {
-            guard let address = textField.text else { return }
-            guard let delegate = delegate else { return }
-            delegate.validateAddress(address: address)
         }
     }
 
