@@ -143,16 +143,25 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
         guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
         if let completion = completion {
             presenter?.validateAddress(completion: completion) { coordinate, status in
-                targetCell.setAddressStatus(addressValidationStatus: status)
-                self.canDoneSettingList[indexPath.row] = status
-                self.settingPoints[indexPath.row].address = completion.title + ", " + completion.subtitle
-                self.settingPoints[indexPath.row].latitude = coordinate.latitude
-                self.settingPoints[indexPath.row].longitude = coordinate.longitude
-                self.setActionButton()
+                if status == .success {
+                    targetCell.setAddress(outputAddress: completion.title)
+                    targetCell.setAddressStatus(addressValidationStatus: status)
+                    self.canDoneSettingList[indexPath.row] = status
+                    self.settingPoints[indexPath.row].address = completion.title + ", " + completion.subtitle
+                    self.settingPoints[indexPath.row].latitude = coordinate.latitude
+                    self.settingPoints[indexPath.row].longitude = coordinate.longitude
+                    self.setActionButton()
+                } else {
+                    targetCell.setAddress(outputAddress: completion.title)
+                    targetCell.setAddressStatus(addressValidationStatus: status)
+                    self.canDoneSettingList[indexPath.row] = .error
+                    self.setActionButton()
+                }
             }
         } else {
+            targetCell.setAddress(outputAddress: "")
             targetCell.setAddressStatus(addressValidationStatus: .empty)
-            self.canDoneSettingList[indexPath.row] = .empty
+            canDoneSettingList[indexPath.row] = .empty
             setActionButton()
         }
     }

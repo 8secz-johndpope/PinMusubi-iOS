@@ -43,18 +43,6 @@ public class SettingBasePointsModel: SettingBasePointsModelProtocol {
                 complete(coordinate, .error)
             }
         }
-
-        //        CLGeocoder().geocodeAddressString(address) { placemark, error -> Void in
-        //            if (error) == nil {
-        //                guard let coordinate = placemark?.first?.location?.coordinate else { return }
-        //                settingPoint.address = address
-        //                settingPoint.latitude = coordinate.latitude
-        //                settingPoint.longitude = coordinate.longitude
-        //                complete(settingPoint, .success)
-        //            } else {
-        //                complete(settingPoint, .error)
-        //            }
-        //        }
     }
 
     /// 中間地点を計算して返却

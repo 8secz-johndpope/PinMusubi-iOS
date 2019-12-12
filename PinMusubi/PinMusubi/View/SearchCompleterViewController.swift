@@ -43,18 +43,23 @@ public class SearchCompleterViewController: UIViewController {
 
     private var editingCell: SettingBasePointCell?
     private var sectionCount = 0
-    private var initSectionTitles = ["便利機能", "履歴"]
+    private var initSectionTitles = ["便利機能", "検索履歴"]
     private var editingSectionTitles = ["候補"]
     private var utilities = ["現在地を設定", "登録地点から選ぶ"]
-    private var inputHistorys = [InputPlaceNameHistoryEntity]()
+    private var inputHistories = [InputHistoryEntity]()
     private var searchCompleter = MKLocalSearchCompleter()
     private var locationManager: CLLocationManager?
+
+    public var presenter: SearchCompleterPresenter?
 
     override public func awakeFromNib() {
         super.awakeFromNib()
 
         searchCompleter.delegate = self
         sectionCount = initSectionTitles.count
+
+        presenter = SearchCompleterPresenter(vc: self, modelType: InputHistoryModel.self)
+        presenter?.getAllInputHistory()
     }
 
     public func setInputEditingCellInstance(inputEditingCell: SettingBasePointCell) {
@@ -78,12 +83,14 @@ public class SearchCompleterViewController: UIViewController {
 
     public func setComplete(completion: MKLocalSearchCompletion?) {
         if let completion = completion {
-            editingCell?.setAddress(outputAddress: completion.title)
-        } else {
-            editingCell?.setAddress(outputAddress: "")
+            presenter?.registerInputHistory(keyword: completion.title)
         }
         editingCell?.delegate?.validateAddress(completion: completion)
         dismiss(animated: true, completion: nil)
+    }
+
+    public func setInputHistoryList(inputHistoryList: [InputHistoryEntity]) {
+        inputHistories = inputHistoryList
     }
 }
 
@@ -133,7 +140,7 @@ extension SearchCompleterViewController: UITableViewDataSource {
                 return utilities.count
 
             case 1:
-                return inputHistorys.count
+                return inputHistories.count
 
             default:
                 return 0
@@ -155,6 +162,7 @@ extension SearchCompleterViewController: UITableViewDataSource {
 
             case 1:
                 let cell = UITableViewCell(style: .default, reuseIdentifier: "inputHistoryCell")
+                cell.textLabel?.text = inputHistories[indexPath.row].keyword
                 return cell
 
             default:
@@ -192,8 +200,15 @@ extension SearchCompleterViewController: UITableViewDelegate {
                 }
 
             case 1:
-                print("section:\(indexPath.section)")
-                print("row:\(indexPath.row)")
+                addressTextField.text = inputHistories[indexPath.row].keyword
+                guard let address = addressTextField.text else { return }
+                if address.isEmpty {
+                    sectionCount = initSectionTitles.count
+                    placeNameSuggestionTableView.reloadData()
+                } else {
+                    guard let address = addressTextField.text else { return }
+                    searchCompleter.queryFragment = address
+                }
 
             default:
                 break
@@ -220,7 +235,20 @@ extension SearchCompleterViewController: MKLocalSearchCompleterDelegate {
     }
 
     public func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-        print(error)
+        var failedGetYourLocationAlert = UIAlertController()
+        failedGetYourLocationAlert = UIAlertController(
+            title: "場所の候補を取得することができませんでした",
+            message: "インターネット接続を確認してください",
+            preferredStyle: .alert
+        )
+        failedGetYourLocationAlert.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil
+            )
+        )
+        present(failedGetYourLocationAlert, animated: true)
     }
 }
 
@@ -272,5 +300,22 @@ extension SearchCompleterViewController: CLLocationManagerDelegate {
         editingCell?.delegate?.setYourLocation(location: yourLocation)
         locationManager?.stopUpdatingLocation()
         dismiss(animated: true, completion: nil)
+    }
+
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        var failedGetYourLocationAlert = UIAlertController()
+        failedGetYourLocationAlert = UIAlertController(
+            title: "現在地を取得することができませんでした",
+            message: "インターネット接続を確認してください",
+            preferredStyle: .alert
+        )
+        failedGetYourLocationAlert.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil
+            )
+        )
+        present(failedGetYourLocationAlert, animated: true)
     }
 }
