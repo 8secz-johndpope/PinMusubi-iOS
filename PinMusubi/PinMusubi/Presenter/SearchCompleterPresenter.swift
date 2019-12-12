@@ -15,7 +15,9 @@ public protocol SearchCompleterPresenterProtocol: AnyObject {
 
     func getAllInputHistory()
 
-    func deleteInputHistory()
+    func deleteInputHistory(targetInputHistory: InputHistoryEntity) -> Bool
+
+    func deleteAllInputHistory()
 }
 
 public class SearchCompleterPresenter: SearchCompleterPresenterProtocol {
@@ -41,8 +43,11 @@ public class SearchCompleterPresenter: SearchCompleterPresenterProtocol {
         }
     }
 
-    public func deleteInputHistory() {
-        guard let vc = vc else { return }
-        guard let model = model else { return }
+    public func deleteInputHistory(targetInputHistory: InputHistoryEntity) -> Bool {
+        guard let model = model else { return false }
+        return model.deleteInputHistory(inputHistory: targetInputHistory)
+    }
+
+    public func deleteAllInputHistory() {
     }
 }

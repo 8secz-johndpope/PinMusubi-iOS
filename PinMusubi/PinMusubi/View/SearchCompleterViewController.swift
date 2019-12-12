@@ -183,6 +183,23 @@ extension SearchCompleterViewController: UITableViewDataSource {
 }
 
 extension SearchCompleterViewController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if sectionCount == initSectionTitles.count && indexPath.section == 1 {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            if presenter?.deleteInputHistory(targetInputHistory: inputHistories[indexPath.row]) ?? false {
+                presenter?.getAllInputHistory()
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+            }
+        }
+    }
+
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch sectionCount {
         case initSectionTitles.count:
