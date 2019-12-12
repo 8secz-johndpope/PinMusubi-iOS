@@ -22,7 +22,7 @@ public class SearchCompleterViewController: UIViewController {
             addressTextField.becomeFirstResponder()
             addressTextField.returnKeyType = .done
             addressTextField.clearButtonMode = .whileEditing
-            addressTextField.placeholder = "場所の名前"
+            addressTextField.placeholder = "場所を検索"
             addressTextField.text = editingCell?.getAddress()
         }
     }
