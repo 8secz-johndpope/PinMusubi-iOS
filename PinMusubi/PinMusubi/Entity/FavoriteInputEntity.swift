@@ -1,5 +1,5 @@
 //
-//  InputHistoryEntity.swift
+//  FavoriteInputEntity.swift
 //  PinMusubi
 //
 //  Created by rMac on 2019/12/13.
@@ -10,20 +10,16 @@ import CoreLocation
 import RealmSwift
 
 @objcMembers
-/// 入力履歴
-public class InputHistoryEntity: Object {
+/// 登録地点
+public class FavoriteInputEntity: Object {
     /// ID
     public dynamic var id: String = UUID().uuidString
-    /// タイトル
-    public dynamic var title: String = ""
-    /// サブタイトル
-    public dynamic var subtitle: String = ""
+    /// お気に入り名称
+    public dynamic var name: String = ""
     /// 緯度
     public dynamic var latitude = CLLocationDegrees()
     /// 経度
     public dynamic var longitude = CLLocationDegrees()
-    /// 検索日付
-    public dynamic var dateTime = Date()
 
     /// プライマリキーの設定
     override public static func primaryKey() -> String? {

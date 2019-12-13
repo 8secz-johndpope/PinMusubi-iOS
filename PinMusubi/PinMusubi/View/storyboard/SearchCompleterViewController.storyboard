@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-1599" y="274"/>
         </scene>
-        <!--地名 / 住所 / 駅名など-->
+        <!--基準場所の設定-->
         <scene sceneID="gDT-oK-E4A">
             <objects>
                 <viewController storyboardIdentifier="SearchCompleterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7uP-Rd-oG1" customClass="SearchCompleterViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
@@ -111,7 +111,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qsC-EA-0p3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="地名 / 住所 / 駅名など" id="Z4B-IN-et8"/>
+                    <navigationItem key="navigationItem" title="基準場所の設定" id="Z4B-IN-et8"/>
                     <connections>
                         <outlet property="addressTextField" destination="X0D-K6-FUK" id="5VE-VC-Igu"/>
                         <outlet property="inputTextView" destination="f0f-qv-GbN" id="Tsb-U4-2mt"/>

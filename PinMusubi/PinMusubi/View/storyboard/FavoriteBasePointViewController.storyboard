@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a09-Hd-7Fh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorite Base Point View Controller-->
+        <scene sceneID="SCa-jf-yET">
+            <objects>
+                <viewController storyboardIdentifier="FavoriteBasePointViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a09-Hd-7Fh" customClass="FavoriteBasePointViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5H9-qx-Lnt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFg-nD-IZX">
+                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-QC-RKI">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="728"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="s6q-QC-RKI" secondAttribute="bottom" id="9de-FT-RWU"/>
+                                    <constraint firstItem="s6q-QC-RKI" firstAttribute="top" secondItem="LFg-nD-IZX" secondAttribute="top" id="B8o-o7-Qx2"/>
+                                    <constraint firstItem="s6q-QC-RKI" firstAttribute="bottom" secondItem="5Fq-af-jJH" secondAttribute="bottom" id="HAA-dR-aio"/>
+                                    <constraint firstItem="s6q-QC-RKI" firstAttribute="centerX" secondItem="LFg-nD-IZX" secondAttribute="centerX" id="PvP-z2-Qh8"/>
+                                    <constraint firstAttribute="trailing" secondItem="s6q-QC-RKI" secondAttribute="trailing" id="dNo-gL-XXh"/>
+                                    <constraint firstItem="s6q-QC-RKI" firstAttribute="leading" secondItem="LFg-nD-IZX" secondAttribute="leading" id="vMh-UE-59E"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Gn4-jb-Ses"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="5Fq-af-jJH"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPs-9b-ldV">
+                                <rect key="frame" x="153" y="68" width="108" height="30"/>
+                                <state key="normal" title="地点を登録する"/>
+                                <connections>
+                                    <action selector="showRegisterBasePointView:" destination="a09-Hd-7Fh" eventType="touchUpInside" id="ewD-M9-kM0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LFg-nD-IZX" firstAttribute="bottom" secondItem="TCm-I2-OVU" secondAttribute="bottom" id="APV-lb-RG8"/>
+                            <constraint firstItem="DPs-9b-ldV" firstAttribute="top" secondItem="TCm-I2-OVU" secondAttribute="top" constant="24" id="C3N-H0-U3z"/>
+                            <constraint firstItem="LFg-nD-IZX" firstAttribute="leading" secondItem="TCm-I2-OVU" secondAttribute="leading" id="X3A-fL-Fhm"/>
+                            <constraint firstItem="DPs-9b-ldV" firstAttribute="centerX" secondItem="5H9-qx-Lnt" secondAttribute="centerX" id="dbY-5P-x4v"/>
+                            <constraint firstItem="LFg-nD-IZX" firstAttribute="top" secondItem="DPs-9b-ldV" secondAttribute="bottom" constant="36" id="u3b-6s-rQ4"/>
+                            <constraint firstItem="LFg-nD-IZX" firstAttribute="centerX" secondItem="DPs-9b-ldV" secondAttribute="centerX" id="vnX-od-15p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TCm-I2-OVU"/>
+                    </view>
+                    <connections>
+                        <outlet property="favoriteBasePointTableView" destination="s6q-QC-RKI" id="aBG-Bc-ywD"/>
+                        <outlet property="showRegisterBasePointViewButton" destination="DPs-9b-ldV" id="gAH-A5-oWl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gza-kI-5ky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="237.68115942028987" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+</document>

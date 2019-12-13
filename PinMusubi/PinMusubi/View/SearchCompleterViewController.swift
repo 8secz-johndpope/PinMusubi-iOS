@@ -217,7 +217,11 @@ extension SearchCompleterViewController: UITableViewDelegate {
                     setupLocationManager()
 
                 case 1:
-                    print("登録処理")
+                    let favoriteBasePointView = UIStoryboard(name: "FavoriteBasePointViewController", bundle: nil)
+                    guard let favoriteBasePointVC = favoriteBasePointView.instantiateInitialViewController() as? FavoriteBasePointViewController else { return }
+                    guard let editingCell = editingCell else { return }
+                    favoriteBasePointVC.setInputEditingCellInstance(inputEditingCell: editingCell)
+                    navigationController?.show(favoriteBasePointVC, sender: nil)
 
                 default:
                     break

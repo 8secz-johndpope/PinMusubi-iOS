@@ -182,6 +182,18 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
         self.setActionButton()
     }
 
+    public func setCoordinageFromFavoriteInput(favoriteInput: FavoriteInputEntity) {
+        guard let targetCell = editingCell else { return }
+        guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
+        targetCell.setAddress(outputAddress: favoriteInput.name)
+        targetCell.setAddressStatus(addressValidationStatus: .success)
+        self.canDoneSettingList[indexPath.row] = .success
+        self.settingPoints[indexPath.row].address = favoriteInput.name
+        self.settingPoints[indexPath.row].latitude = favoriteInput.latitude
+        self.settingPoints[indexPath.row].longitude = favoriteInput.longitude
+        self.setActionButton()
+    }
+
     /// 現在地を設定
     /// - Parameter location: 現在地情報
     public func setYourLocation(location: CLLocation) {
@@ -237,7 +249,7 @@ extension SettingBasePointsView: SettingBasePointActionCellDelegate {
     /// 設定完了ボタン押下
     public func doneSetting() {
         for index in 0...settingPoints.count - 1 where settingPoints[index].name == "" {
-            settingPoints[index].name = "地点\(String(index + 1))"
+            settingPoints[index].name = settingPoints[index].address
         }
         presenter?.setPointsOnMapView(settingPoints: settingPoints)
     }

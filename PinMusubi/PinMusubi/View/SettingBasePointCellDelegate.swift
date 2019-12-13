@@ -18,6 +18,8 @@ public protocol SettingBasePointCellDelegate: AnyObject {
 
     func setCoordinateFromInputHistory(inputHistory: InputHistoryEntity)
 
+    func setCoordinageFromFavoriteInput(favoriteInput: FavoriteInputEntity)
+
     func setYourLocation(location: CLLocation)
 
     func setPointName(name: String)

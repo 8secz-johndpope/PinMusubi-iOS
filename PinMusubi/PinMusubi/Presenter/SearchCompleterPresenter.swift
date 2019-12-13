@@ -6,8 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import MapKit
-
 public protocol SearchCompleterPresenterProtocol: AnyObject {
     init(vc: SearchCompleterViewController, modelType model: InputHistoryModelProtocol.Type)
 
