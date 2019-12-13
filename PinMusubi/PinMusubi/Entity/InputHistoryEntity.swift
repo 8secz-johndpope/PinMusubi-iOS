@@ -6,18 +6,27 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import CoreLocation
 import RealmSwift
 
 @objcMembers
 /// お気に入りスポット
-public class InputHistoryEntity: Object, MyDataEntityProtocol {
-    /// 検索キーワード
-    public dynamic var keyword: String = ""
+public class InputHistoryEntity: Object {
+    /// ID
+    public dynamic var id: String = UUID().uuidString
+    /// タイトル
+    public dynamic var title: String = ""
+    /// サブタイトル
+    public dynamic var subtitle: String = ""
+    /// 緯度
+    public dynamic var latitude = CLLocationDegrees()
+    /// 経度
+    public dynamic var longitude = CLLocationDegrees()
     /// 検索日付
     public dynamic var dateTime = Date()
 
     /// プライマリキーの設定
     override public static func primaryKey() -> String? {
-        return "keyword"
+        return "id"
     }
 }

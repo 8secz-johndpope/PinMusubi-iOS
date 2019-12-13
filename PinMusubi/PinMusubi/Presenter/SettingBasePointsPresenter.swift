@@ -16,10 +16,10 @@ public protocol SettingBasePointsPresenterProtocol: AnyObject {
     /// - Parameter model: SearchCriteriaModelProtocol
     init(view: SettingBasePointsView, modelType model: SettingBasePointsModelProtocol.Type)
 
-    /// 入力された住所をもとに入力チェックを行う
-    /// - Parameter address: 入力された住所
+    /// 場所情報から座標を取得
+    /// - Parameter completion: 場所情報
     /// - Parameter complete: 完了ハンドラ
-    func validateAddress(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D, AddressValidationStatus) -> Void)
+    func getAddress(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D?) -> Void)
 
     /// 設定地点をもとにMapViewにピン等を設置
     /// - Parameter settingPoints: 設定地点リスト
@@ -31,25 +31,17 @@ public class SettingBasePointsPresenter: SettingBasePointsPresenterProtocol {
     private weak var view: SettingBasePointsView?
     private let model: SettingBasePointsModelProtocol?
 
-    /// コンストラクタ
-    /// - Parameter view: SettingBasePointsView
-    /// - Parameter model: SearchCriteriaModelProtocol
     public required init(view: SettingBasePointsView, modelType model: SettingBasePointsModelProtocol.Type) {
         self.view = view
         self.model = model.init()
     }
 
-    /// 入力された住所をもとに入力チェックを行う
-    /// - Parameter address: 入力された住所
-    /// - Parameter complete: 完了ハンドラ
-    public func validateAddress(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D, AddressValidationStatus) -> Void) {
-        model?.geocode(completion: completion) { coordinate, status in
-            complete(coordinate, status)
+    public func getAddress(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D?) -> Void) {
+        model?.geocode(completion: completion) { coordinate in
+            complete(coordinate)
         }
     }
 
-    /// 設定地点をもとにMapViewにピン等を設置
-    /// - Parameter settingPoints: 設定地点リスト
     public func setPointsOnMapView(settingPoints: [SettingPointEntity]) {
         guard let model = model else { return }
         guard let view = view else { return }

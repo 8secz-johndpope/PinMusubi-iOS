@@ -13,6 +13,20 @@ public class InputHistoryAccessor: AccessorProtcol {
     /// オブジェクトタイプの設定
     public typealias ObjectType = InputHistoryEntity
 
+    public func set(data: ObjectType) -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                data.dateTime = Date()
+                realm.add(data, update: .all)
+            }
+            return true
+        } catch {
+            print("\n--Error! Accessor#set")
+        }
+        return false
+    }
+
     /// idから対応するデータを取得
     /// - Parameter id: 検索ID
     public func getByID(id: String) -> InputHistoryEntity? {

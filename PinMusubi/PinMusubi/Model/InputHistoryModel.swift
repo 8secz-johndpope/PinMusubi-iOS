@@ -17,7 +17,7 @@ public protocol InputHistoryModelProtocol {
     func getAllInputHistory() -> [InputHistoryEntity]
 
     /// 入力履歴を登録
-    func setInputHistory(inputKeyword: String) -> Bool
+    func setInputHistory(inputHistory: InputHistoryEntity) -> Bool
 
     /// 入力履歴を削除
     func deleteInputHistory(inputHistory: InputHistoryEntity) -> Bool
@@ -39,7 +39,7 @@ public class InputHistoryModel: InputHistoryModelProtocol {
         return inputHistoryList
     }
 
-    public func setInputHistory(inputKeyword: String) -> Bool {
+    public func setInputHistory(inputHistory: InputHistoryEntity) -> Bool {
         let inputHistoryAccessor = InputHistoryAccessor()
         guard let storedInputHistoryList = inputHistoryAccessor.getAll() else { return false }
         if storedInputHistoryList.count > 19 {
@@ -48,8 +48,6 @@ public class InputHistoryModel: InputHistoryModelProtocol {
                 print("Error --InputHistoryModel#setInputHistory")
             }
         }
-        let inputHistory = InputHistoryEntity()
-        inputHistory.keyword = inputKeyword
         return inputHistoryAccessor.set(data: inputHistory)
     }
 

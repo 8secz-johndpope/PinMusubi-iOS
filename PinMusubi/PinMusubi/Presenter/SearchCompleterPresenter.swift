@@ -11,7 +11,7 @@ import MapKit
 public protocol SearchCompleterPresenterProtocol: AnyObject {
     init(vc: SearchCompleterViewController, modelType model: InputHistoryModelProtocol.Type)
 
-    func registerInputHistory(keyword: String)
+    func registerInputHistory(inputHistory: InputHistoryEntity)
 
     func getAllInputHistory()
 
@@ -36,9 +36,9 @@ public class SearchCompleterPresenter: SearchCompleterPresenterProtocol {
         vc.setInputHistoryList(inputHistoryList: inputHistoryList)
     }
 
-    public func registerInputHistory(keyword: String) {
+    public func registerInputHistory(inputHistory: InputHistoryEntity) {
         guard let model = model else { return }
-        if !model.setInputHistory(inputKeyword: keyword) {
+        if !model.setInputHistory(inputHistory: inputHistory) {
             print("Error --SearchCompleterPresenter#registerInputHistory")
         }
     }

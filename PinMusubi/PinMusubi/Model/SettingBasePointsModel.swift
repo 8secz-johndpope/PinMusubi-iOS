@@ -16,7 +16,7 @@ public protocol SettingBasePointsModelProtocol {
     /// 住所等から地理座標を設定
     /// - Parameter address: 住所等情報
     /// - Parameter complete: 完了ハンドラ
-    func geocode(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D, AddressValidationStatus) -> Void)
+    func geocode(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D?) -> Void)
 
     /// 中間地点を計算して返却する
     func calculateHalfPoint(settingPoints: [SettingPointEntity]) -> CLLocationCoordinate2D
@@ -28,19 +28,18 @@ public class SettingBasePointsModel: SettingBasePointsModelProtocol {
     public required init() {}
 
     /// 場所情報から地理座標を設定
-    /// - Parameter completion: オートコンプリートされた場所情報
+    /// - Parameter completion: 場所情報
     /// - Parameter complete: 完了ハンドラ
-    public func geocode(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D, AddressValidationStatus) -> Void) {
-        var coordinate = CLLocationCoordinate2D()
+    public func geocode(completion: MKLocalSearchCompletion, complete: @escaping (CLLocationCoordinate2D?) -> Void) {
         let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { response, error in
             if error == nil {
                 guard let response = response else { return }
-                coordinate = response.mapItems[0].placemark.coordinate
-                complete(coordinate, .success)
+                let coordinate = response.mapItems[0].placemark.coordinate
+                complete(coordinate)
             } else {
-                complete(coordinate, .error)
+                complete(nil)
             }
         }
     }

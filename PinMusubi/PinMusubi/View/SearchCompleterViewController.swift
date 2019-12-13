@@ -81,12 +81,18 @@ public class SearchCompleterViewController: UIViewController {
         }
     }
 
-    public func setComplete(completion: MKLocalSearchCompletion?) {
-        if let completion = completion {
-            presenter?.registerInputHistory(keyword: completion.title)
+    public func setCompletion(completion: MKLocalSearchCompletion?) {
+        editingCell?.delegate?.setCoordinate(completion: completion) { coordinate in
+            if let completion = completion, let coordinate = coordinate {
+                let inputHistory = InputHistoryEntity()
+                inputHistory.title = completion.title
+                inputHistory.subtitle = completion.subtitle
+                inputHistory.latitude = coordinate.latitude
+                inputHistory.longitude = coordinate.longitude
+                self.presenter?.registerInputHistory(inputHistory: inputHistory)
+            }
+            self.dismiss(animated: true, completion: nil)
         }
-        editingCell?.delegate?.validateAddress(completion: completion)
-        dismiss(animated: true, completion: nil)
     }
 
     public func setInputHistoryList(inputHistoryList: [InputHistoryEntity]) {
@@ -97,12 +103,12 @@ public class SearchCompleterViewController: UIViewController {
 extension SearchCompleterViewController: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if addressTextField.text == "" {
-            setComplete(completion: nil)
+            setCompletion(completion: nil)
         } else {
             if searchCompleter.results.isEmpty {
                 view.endEditing(true)
             } else {
-                setComplete(completion: searchCompleter.results[0])
+                setCompletion(completion: searchCompleter.results[0])
             }
         }
         return true
@@ -161,8 +167,9 @@ extension SearchCompleterViewController: UITableViewDataSource {
                 return cell
 
             case 1:
-                let cell = UITableViewCell(style: .default, reuseIdentifier: "inputHistoryCell")
-                cell.textLabel?.text = inputHistories[indexPath.row].keyword
+                let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "inputHistoryCell")
+                cell.textLabel?.text = inputHistories[indexPath.row].title
+                cell.detailTextLabel?.text = inputHistories[indexPath.row].subtitle
                 return cell
 
             default:
@@ -217,22 +224,16 @@ extension SearchCompleterViewController: UITableViewDelegate {
                 }
 
             case 1:
-                addressTextField.text = inputHistories[indexPath.row].keyword
-                guard let address = addressTextField.text else { return }
-                if address.isEmpty {
-                    sectionCount = initSectionTitles.count
-                    placeNameSuggestionTableView.reloadData()
-                } else {
-                    guard let address = addressTextField.text else { return }
-                    searchCompleter.queryFragment = address
-                }
+                editingCell?.delegate?.setCoordinateFromInputHistory(inputHistory: inputHistories[indexPath.row])
+                presenter?.registerInputHistory(inputHistory: inputHistories[indexPath.row])
+                dismiss(animated: true, completion: nil)
 
             default:
                 break
             }
 
         case editingSectionTitles.count:
-            setComplete(completion: searchCompleter.results[indexPath.row])
+            setCompletion(completion: searchCompleter.results[indexPath.row])
 
         default:
             break

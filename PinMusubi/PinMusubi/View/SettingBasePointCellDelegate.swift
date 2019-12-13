@@ -14,7 +14,9 @@ public protocol SettingBasePointCellDelegate: AnyObject {
 
     func hideActionButton()
 
-    func validateAddress(completion: MKLocalSearchCompletion?)
+    func setCoordinate(completion: MKLocalSearchCompletion?, complete: @escaping (CLLocationCoordinate2D?) -> Void)
+
+    func setCoordinateFromInputHistory(inputHistory: InputHistoryEntity)
 
     func setYourLocation(location: CLLocation)
 

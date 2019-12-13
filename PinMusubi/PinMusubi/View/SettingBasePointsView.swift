@@ -136,34 +136,50 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
         delegate?.showSearchCompleterView(inputEditingCell: inputEditingCell)
     }
 
-    /// 住所の入力チェック
-    /// - Parameter address: 住所の入力情報
-    public func validateAddress(completion: MKLocalSearchCompletion?) {
+    /// 位置情報の設定
+    /// - Parameters:
+    ///   - completion: オートコンプリートから選択した位置情報
+    ///   - complete: 完了ハンドラ
+    public func setCoordinate(completion: MKLocalSearchCompletion?, complete: @escaping (CLLocationCoordinate2D?) -> Void) {
         guard let targetCell = editingCell else { return }
         guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
         if let completion = completion {
-            presenter?.validateAddress(completion: completion) { coordinate, status in
-                if status == .success {
+            presenter?.getAddress(completion: completion) { coordinate in
+                if let coordinate = coordinate {
                     targetCell.setAddress(outputAddress: completion.title)
-                    targetCell.setAddressStatus(addressValidationStatus: status)
-                    self.canDoneSettingList[indexPath.row] = status
+                    targetCell.setAddressStatus(addressValidationStatus: .success)
+                    self.canDoneSettingList[indexPath.row] = .success
                     self.settingPoints[indexPath.row].address = completion.title + ", " + completion.subtitle
                     self.settingPoints[indexPath.row].latitude = coordinate.latitude
                     self.settingPoints[indexPath.row].longitude = coordinate.longitude
                     self.setActionButton()
                 } else {
                     targetCell.setAddress(outputAddress: completion.title)
-                    targetCell.setAddressStatus(addressValidationStatus: status)
+                    targetCell.setAddressStatus(addressValidationStatus: .error)
                     self.canDoneSettingList[indexPath.row] = .error
                     self.setActionButton()
                 }
+                complete(coordinate)
             }
         } else {
             targetCell.setAddress(outputAddress: "")
             targetCell.setAddressStatus(addressValidationStatus: .empty)
             canDoneSettingList[indexPath.row] = .empty
             setActionButton()
+            complete(nil)
         }
+    }
+
+    public func setCoordinateFromInputHistory(inputHistory: InputHistoryEntity) {
+        guard let targetCell = editingCell else { return }
+        guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
+        targetCell.setAddress(outputAddress: inputHistory.title)
+        targetCell.setAddressStatus(addressValidationStatus: .success)
+        self.canDoneSettingList[indexPath.row] = .success
+        self.settingPoints[indexPath.row].address = inputHistory.title + ", " + inputHistory.subtitle
+        self.settingPoints[indexPath.row].latitude = inputHistory.latitude
+        self.settingPoints[indexPath.row].longitude = inputHistory.longitude
+        self.setActionButton()
     }
 
     /// 現在地を設定
