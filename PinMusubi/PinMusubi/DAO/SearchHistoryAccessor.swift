@@ -6,7 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 
 /// 検索履歴のデータアクセスクラス
@@ -53,7 +52,7 @@ public class SearchHistoryAccessor: AccessorProtcol {
                 return true
             }
         } catch {
-            print("\n--Error! FavoriteSpotAccessor#getById")
+            print("\n--Error! SearchHistoryAccessor#getById")
         }
         return false
     }
