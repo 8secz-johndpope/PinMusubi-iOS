@@ -6,7 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import CoreLocation
+import MapKit
 import XCTest
 @testable import PinMusubi
 
@@ -18,12 +18,8 @@ class SettingBasePointsModelTests: XCTestCase {
     func testGeocoding_ok_validAddress() {
         let settingBasePointsModel = SettingBasePointsModel()
         let geocodingExpectation: XCTestExpectation? = self.expectation(description: "geocoding")
-        let exampleAddress = "東京都千代田区丸の内1丁目"
-        settingBasePointsModel.geocode(address: exampleAddress) { settingPoint, status in
-            XCTAssertEqual(settingPoint.address, exampleAddress)
-            XCTAssertEqual(status, AddressValidationStatus.success)
-            print(settingPoint.latitude)
-            print(settingPoint.longitude)
+        let exampleCompletion = MKLocalSearchCompletion()
+        settingBasePointsModel.geocode(completion: exampleCompletion) { coordinate in
             geocodingExpectation?.fulfill()
         }
         self.waitForExpectations(timeout: 10, handler: nil)
@@ -32,12 +28,9 @@ class SettingBasePointsModelTests: XCTestCase {
     func testGeocoding_ng_invalidAddress() {
         let settingBasePointsModel = SettingBasePointsModel()
         let geocodingExpectation: XCTestExpectation? = self.expectation(description: "geocoding")
-        let exampleAddress = "無効な住所"
-        settingBasePointsModel.geocode(address: exampleAddress) { settingPoint, status in
-            XCTAssertEqual(settingPoint.address, "")
-            XCTAssertEqual(settingPoint.latitude, 0.0)
-            XCTAssertEqual(settingPoint.longitude, 0.0)
-            XCTAssertEqual(status, AddressValidationStatus.error)
+        let exampleCompletion = MKLocalSearchCompletion()
+        settingBasePointsModel.geocode(completion: exampleCompletion) { coordinate in
+            XCTAssertNil(coordinate)
             geocodingExpectation?.fulfill()
         }
         self.waitForExpectations(timeout: 10, handler: nil)
