@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
-		6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
-		784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
 		91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */; };
 		9107A06323A2B06000F1DD77 /* InputHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A06223A2B06000F1DD77 /* InputHistoryEntity.swift */; };
 		9107A06723A39A3500F1DD77 /* FavoriteInputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A06623A39A3500F1DD77 /* FavoriteInputWrapper.swift */; };
@@ -426,7 +424,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */,
-				6612A005B9F59CA14EB80C2C /* Pods_PinMusubiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +432,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */,
-				784935AD8A9366CD386C3FBF /* Pods_PinMusubiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,7 +878,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = naipaka;
 				TargetAttributes = {
 					9197D6442325395B00A5C558 = {
