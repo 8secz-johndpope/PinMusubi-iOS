@@ -28,6 +28,30 @@ body: The MIT License
 Cop…
 version: 20.0.1
 
+name: Crashlytics, nameSpecified: 
+body: Fabric: Copyright 20…
+version: 3.14.0
+
+name: Crashlytics, nameSpecified: 
+body: Fabric: Copyright 20…
+version: 3.14.0
+
+name: Crashlytics, nameSpecified: 
+body: Fabric: Copyright 20…
+version: 3.14.0
+
+name: Fabric, nameSpecified: 
+body: Fabric: Copyright 20…
+version: 1.10.2
+
+name: Fabric, nameSpecified: 
+body: Fabric: Copyright 20…
+version: 1.10.2
+
+name: Fabric, nameSpecified: 
+body: Fabric: Copyright 20…
+version: 1.10.2
+
 name: Firebase, nameSpecified: 
 body: Copyright 2019 Googl…
 version: 6.10.0
