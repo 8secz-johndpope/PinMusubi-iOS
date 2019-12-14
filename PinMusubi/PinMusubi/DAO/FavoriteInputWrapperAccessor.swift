@@ -22,7 +22,7 @@ public class FavoriteInputWrapperAccessor {
     }
 
     ///  登録
-    public func set(object: FavoriteInputEntity) -> Bool {
+    public func set(object: FavoriteInputEntity) {
         do {
             let realm = try Realm()
             try realm.write {
@@ -30,40 +30,35 @@ public class FavoriteInputWrapperAccessor {
                     realm.add(FavoriteInputWrapper())
                 }
                 let objects = realm.objects(FavoriteInputWrapper.self).first?.favoriteInputList
-                objects?.append(object)
+                objects?.insert(object, at: 0)
             }
-            return true
         } catch {
             print("\n--Error! FavoriteInputAccessor#set")
         }
-        return false
     }
 
     /// 削除
-    public func delete(object: FavoriteInputEntity) -> Bool {
+    public func delete(object: FavoriteInputEntity) {
         do {
             let realm = try Realm()
             try realm.write {
                 let objects = realm.objects(FavoriteInputWrapper.self).first?.favoriteInputList
-                objects?.append(object)
                 guard let index = objects?.index(of: object) else { return }
                 objects?.remove(at: index)
             }
-            return true
         } catch {
             print("\n--Error! Accessor#delete")
         }
-        return false
     }
 
     /// 順序入れ替え
-    public func replaceRow(objects: List<FavoriteInputEntity>, sourceRow: Int, destinationRow: Int) {
+    public func replaceRow(sourceRow: Int, destinationRow: Int) {
         do {
             let realm = try Realm()
             try realm.write {
-                let sourceObject = objects[sourceRow]
-                objects.remove(at: sourceRow)
-                objects.insert(sourceObject, at: destinationRow)
+                guard let sourceObject = realm.objects(FavoriteInputWrapper.self).first?.favoriteInputList[sourceRow] else { return }
+                realm.objects(FavoriteInputWrapper.self).first?.favoriteInputList.remove(at: sourceRow)
+                realm.objects(FavoriteInputWrapper.self).first?.favoriteInputList.insert(sourceObject, at: destinationRow)
             }
         } catch {
             print("\n--Error! FavoriteInputAccessor#replaceRow")

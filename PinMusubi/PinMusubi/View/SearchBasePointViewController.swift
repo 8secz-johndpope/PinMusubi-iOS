@@ -118,7 +118,7 @@ public class SearchBasePointViewController: UIViewController {
 
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude), span: span)
-            self.mapView.region = region
+            self.mapView.setRegion(region, animated: true)
         }
         backGroundView.isHidden = true
         completerScrollView.isHidden = true

@@ -10,7 +10,11 @@ import CoreLocation
 import UIKit
 
 public class RegisterBasePointViewController: UIViewController {
-    @IBOutlet private var favoriteNameTextField: UITextField!
+    @IBOutlet private var favoriteNameTextField: UITextField! {
+        didSet {
+            favoriteNameTextField.becomeFirstResponder()
+        }
+    }
 
     private var favoriteBasePoint = FavoriteInputEntity()
 
@@ -23,17 +27,15 @@ public class RegisterBasePointViewController: UIViewController {
         favoriteBasePoint.longitude = coordinate.longitude
     }
 
-    @IBAction private func registerBasePoint(_ sender: Any) {
+    @IBAction private func showFavoriteBasePointView(_ sender: Any) {
         guard let name = favoriteNameTextField.text else { return }
         if name != "" {
             favoriteBasePoint.name = name
-            if FavoriteInputModel().setFavoriteInput(favoriteInput: favoriteBasePoint) {
-                guard let navigationController = navigationController else { return }
-                let index = navigationController.viewControllers.count - 3
-                guard let favoriteBasePointVC = navigationController.viewControllers[index] as? FavoriteBasePointViewController else { return }
-                favoriteBasePointVC.reloadFavoriteBasePointTableView()
-                navigationController.popToViewController(favoriteBasePointVC, animated: true)
-            }
+            guard let navigationController = navigationController else { return }
+            let index = navigationController.viewControllers.count - 3
+            guard let favoriteBasePointVC = navigationController.viewControllers[index] as? FavoriteBasePointViewController else { return }
+            favoriteBasePointVC.registerFavoriteBasePoint(favoriteBasePoint: favoriteBasePoint)
+            navigationController.popToViewController(favoriteBasePointVC, animated: true)
         }
     }
 }

@@ -11,7 +11,11 @@ public protocol FavoriteBasePointPresenterProtocol: AnyObject {
 
     func getAllFavoriteInput()
 
-    func deleteFavoriteInput(targetFavoriteInput: FavoriteInputEntity) -> Bool
+    func registerFavoriteInput(favoriteInput: FavoriteInputEntity)
+
+    func deleteFavoriteInput(targetFavoriteInput: FavoriteInputEntity)
+
+    func replaceFavoriteInput(sourceRow: Int, destinationRow: Int)
 }
 
 public class FavoriteBasePointPresenter: FavoriteBasePointPresenterProtocol {
@@ -30,8 +34,18 @@ public class FavoriteBasePointPresenter: FavoriteBasePointPresenterProtocol {
         vc.setFavoriteInputList(favoriteInputList: favoriteInputList)
     }
 
-    public func deleteFavoriteInput(targetFavoriteInput: FavoriteInputEntity) -> Bool {
-        guard let model = model else { return false }
-        return true
+    public func registerFavoriteInput(favoriteInput: FavoriteInputEntity) {
+        guard let model = model else { return }
+        model.setFavoriteInput(favoriteInput: favoriteInput)
+    }
+
+    public func deleteFavoriteInput(targetFavoriteInput: FavoriteInputEntity) {
+        guard let model = model else { return }
+        model.deleteFavoriteInput(favoriteInput: targetFavoriteInput)
+    }
+
+    public func replaceFavoriteInput(sourceRow: Int, destinationRow: Int) {
+        guard let model = model else { return }
+        model.replaceFavoriteInput(sourceRow: sourceRow, destinationRow: destinationRow)
     }
 }

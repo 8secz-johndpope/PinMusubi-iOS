@@ -25,7 +25,7 @@
                                 <rect key="frame" x="176" y="433" width="62" height="30"/>
                                 <state key="normal" title="登録する"/>
                                 <connections>
-                                    <action selector="registerBasePoint:" destination="Gng-AS-Jcg" eventType="touchUpInside" id="8UJ-jE-4Mf"/>
+                                    <action selector="showFavoriteBasePointView:" destination="Gng-AS-Jcg" eventType="touchUpInside" id="8UJ-jE-4Mf"/>
                                 </connections>
                             </button>
                         </subviews>

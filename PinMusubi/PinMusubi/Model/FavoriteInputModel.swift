@@ -6,8 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import RealmSwift
-
 /// お気に入り地点に関するModelのProtocol
 public protocol FavoriteInputModelProtocol {
     /// コンストラクタ
@@ -17,13 +15,13 @@ public protocol FavoriteInputModelProtocol {
     func getAllFavoriteInput() -> [FavoriteInputEntity]
 
     /// お気に入り地点を登録
-    func setFavoriteInput(favoriteInput: FavoriteInputEntity) -> Bool
+    func setFavoriteInput(favoriteInput: FavoriteInputEntity)
 
     /// お気に入り地点を削除
-    func deleteFavoriteInput(favoriteInput: FavoriteInputEntity) -> Bool
+    func deleteFavoriteInput(favoriteInput: FavoriteInputEntity)
 
     /// お気に入りの順番の入れ替え
-    func replaceFavoriteInput(favoriteBasePointList: [FavoriteInputEntity], sourceRow: Int, destinationRow: Int)
+    func replaceFavoriteInput(sourceRow: Int, destinationRow: Int)
 }
 
 public class FavoriteInputModel: FavoriteInputModelProtocol {
@@ -38,19 +36,15 @@ public class FavoriteInputModel: FavoriteInputModelProtocol {
         return favoriteInputList
     }
 
-    public func setFavoriteInput(favoriteInput: FavoriteInputEntity) -> Bool {
-        return FavoriteInputWrapperAccessor().set(object: favoriteInput)
+    public func setFavoriteInput(favoriteInput: FavoriteInputEntity) {
+        FavoriteInputWrapperAccessor().set(object: favoriteInput)
     }
 
-    public func deleteFavoriteInput(favoriteInput: FavoriteInputEntity) -> Bool {
-        return FavoriteInputWrapperAccessor().delete(object: favoriteInput)
+    public func deleteFavoriteInput(favoriteInput: FavoriteInputEntity) {
+        FavoriteInputWrapperAccessor().delete(object: favoriteInput)
     }
 
-    public func replaceFavoriteInput(favoriteBasePointList: [FavoriteInputEntity], sourceRow: Int, destinationRow: Int) {
-        let favoriteInputList = List<FavoriteInputEntity>()
-        for favoriteBasePoint in favoriteBasePointList {
-            favoriteInputList.append(favoriteBasePoint)
-        }
-        FavoriteInputWrapperAccessor().replaceRow(objects: favoriteInputList, sourceRow: sourceRow, destinationRow: destinationRow)
+    public func replaceFavoriteInput(sourceRow: Int, destinationRow: Int) {
+        FavoriteInputWrapperAccessor().replaceRow(sourceRow: sourceRow, destinationRow: destinationRow)
     }
 }

@@ -11,6 +11,8 @@ import UIKit
 public class FavoriteBasePointViewController: UIViewController {
     @IBOutlet private var showRegisterBasePointViewButton: UIButton!
 
+    @IBOutlet private var changeEditModeButton: UIButton!
+
     @IBOutlet private var favoriteBasePointTableView: UITableView! {
         didSet {
             favoriteBasePointTableView.delegate = self
@@ -49,7 +51,18 @@ public class FavoriteBasePointViewController: UIViewController {
         navigationController?.show(searchBasePointVC, sender: nil)
     }
 
-    public func reloadFavoriteBasePointTableView() {
+    @IBAction private func changeEditMode(_ sender: Any) {
+        if favoriteBasePointTableView.isEditing {
+            favoriteBasePointTableView.setEditing(false, animated: true)
+            changeEditModeButton.setTitle("編集", for: .normal)
+        } else {
+            favoriteBasePointTableView.setEditing(true, animated: true)
+            changeEditModeButton.setTitle("完了", for: .normal)
+        }
+    }
+
+    public func registerFavoriteBasePoint(favoriteBasePoint: FavoriteInputEntity) {
+        presenter?.registerFavoriteInput(favoriteInput: favoriteBasePoint)
         presenter?.getAllFavoriteInput()
         favoriteBasePointTableView.reloadData()
     }
@@ -71,5 +84,26 @@ extension FavoriteBasePointViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         editingCell.delegate?.setCoordinageFromFavoriteInput(favoriteInput: favoriteBasePointList[indexPath.row])
         dismiss(animated: true, completion: nil)
+    }
+
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter?.deleteFavoriteInput(targetFavoriteInput: favoriteBasePointList[indexPath.row])
+            presenter?.getAllFavoriteInput()
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        presenter?.replaceFavoriteInput(sourceRow: sourceIndexPath.row, destinationRow: destinationIndexPath.row)
+        presenter?.getAllFavoriteInput()
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
+
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if tableView.isEditing {
+            return .delete
+        }
+        return .none
     }
 }
