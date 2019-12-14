@@ -6,6 +6,9 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
   - Cosmos (20.0.1)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
   - Firebase/AdMob (6.10.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.50)
@@ -128,6 +131,8 @@ PODS:
 
 DEPENDENCIES:
   - Cosmos
+  - Crashlytics
+  - Fabric
   - Firebase/AdMob
   - Firebase/Analytics
   - Firebase/Core
@@ -141,7 +146,7 @@ DEPENDENCIES:
   - SwiftyGif
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - BoringSSL-GRPC
     - Cosmos
     - Firebase
@@ -167,6 +172,9 @@ SPEC REPOS:
     - SDWebImage
     - SwiftLint
     - SwiftyGif
+  trunk:
+    - Crashlytics
+    - Fabric
 
 EXTERNAL SOURCES:
   Realm:
@@ -191,6 +199,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Cosmos: b47fddf2102bb48580cd3025d9ce0a5c658a65da
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 5e6b7b12bf9adb90986688edc06b156c37e109cd
   FirebaseAnalytics: 0e3ecff2c5d86070f7d4325e21f1edabfbd558dc
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
@@ -217,6 +227,6 @@ SPEC CHECKSUMS:
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   SwiftyGif: f7702483db93586a41f04f4927cd682852a2fa10
 
-PODFILE CHECKSUM: fb812bbf9026494ee43b062e1d662a93bb039622
+PODFILE CHECKSUM: 5ac34692ed8d042ba934f8af2ffdbcc79faf8001
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.8.4

@@ -18,6 +18,8 @@ target 'PinMusubi' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'SwiftyGif'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -43,6 +45,8 @@ end
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     pod 'SwiftyGif'
+    pod 'Fabric'
+    pod 'Crashlytics'
   end
 
   target 'PinMusubiUITests' do
@@ -59,6 +63,8 @@ end
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     pod 'SwiftyGif'
+    pod 'Fabric'
+    pod 'Crashlytics'
   end
 
 end
