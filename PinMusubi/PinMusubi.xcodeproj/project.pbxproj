@@ -20,8 +20,6 @@
 		9107A07323A3A61F00F1DD77 /* SearchBasePointViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9107A07223A3A61F00F1DD77 /* SearchBasePointViewController.storyboard */; };
 		9107A07523A3A81200F1DD77 /* FavoriteBasePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A07423A3A81200F1DD77 /* FavoriteBasePointViewController.swift */; };
 		9107A07723A3A82E00F1DD77 /* SearchBasePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A07623A3A82E00F1DD77 /* SearchBasePointViewController.swift */; };
-		9107A07923A3B66100F1DD77 /* RegisterBasePointViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9107A07823A3B66100F1DD77 /* RegisterBasePointViewController.storyboard */; };
-		9107A07B23A3B6D900F1DD77 /* RegisterBasePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A07A23A3B6D900F1DD77 /* RegisterBasePointViewController.swift */; };
 		9107A07D23A4156800F1DD77 /* FavoriteBasePointPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A07C23A4156800F1DD77 /* FavoriteBasePointPresenter.swift */; };
 		9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9108A7F2237848E000099B0B /* GoogleService-Info.plist */; };
 		9108A84C237AEC7F00099B0B /* SpotListAnalyticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */; };
@@ -238,8 +236,6 @@
 		9107A07223A3A61F00F1DD77 /* SearchBasePointViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchBasePointViewController.storyboard; sourceTree = "<group>"; };
 		9107A07423A3A81200F1DD77 /* FavoriteBasePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBasePointViewController.swift; sourceTree = "<group>"; };
 		9107A07623A3A82E00F1DD77 /* SearchBasePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBasePointViewController.swift; sourceTree = "<group>"; };
-		9107A07823A3B66100F1DD77 /* RegisterBasePointViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterBasePointViewController.storyboard; sourceTree = "<group>"; };
-		9107A07A23A3B6D900F1DD77 /* RegisterBasePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBasePointViewController.swift; sourceTree = "<group>"; };
 		9107A07C23A4156800F1DD77 /* FavoriteBasePointPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBasePointPresenter.swift; sourceTree = "<group>"; };
 		9108A7F2237848E000099B0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListAnalyticsEntity.swift; sourceTree = "<group>"; };
@@ -663,7 +659,6 @@
 				910EC0BF239DD6B000F0D87C /* SearchCompleterViewController.swift */,
 				9107A07423A3A81200F1DD77 /* FavoriteBasePointViewController.swift */,
 				9107A07623A3A82E00F1DD77 /* SearchBasePointViewController.swift */,
-				9107A07A23A3B6D900F1DD77 /* RegisterBasePointViewController.swift */,
 				918CF9852338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift */,
 				91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */,
 				918CF98923390ABA003DC7C8 /* PointInfomationCell.swift */,
@@ -791,7 +786,6 @@
 				910EC0BD239DD65D00F0D87C /* SearchCompleterViewController.storyboard */,
 				9107A07023A3A4DA00F1DD77 /* FavoriteBasePointViewController.storyboard */,
 				9107A07223A3A61F00F1DD77 /* SearchBasePointViewController.storyboard */,
-				9107A07823A3B66100F1DD77 /* RegisterBasePointViewController.storyboard */,
 				91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */,
 				915556F223699E9200097D73 /* SpotDetailsView.storyboard */,
 				9162288C236D21F600F009DB /* WebView.storyboard */,
@@ -943,7 +937,6 @@
 				91C64A562371BEB10046E7E7 /* MyDataCell.xib in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
 				9107A07123A3A4DA00F1DD77 /* FavoriteBasePointViewController.storyboard in Resources */,
-				9107A07923A3B66100F1DD77 /* RegisterBasePointViewController.storyboard in Resources */,
 				91B3EB522301296E00430D41 /* SearchInterestPlaceView.storyboard in Resources */,
 				91A4111E2333C16A00AF7897 /* SettingBasePointsView.xib in Resources */,
 				9166710923869BD500236FEC /* TutorialCollectionViewController.storyboard in Resources */,
@@ -1352,7 +1345,6 @@
 				91C64A542371BB0B0046E7E7 /* MyDataEntityProtocol.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
 				91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */,
-				9107A07B23A3B6D900F1DD77 /* RegisterBasePointViewController.swift in Sources */,
 				914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */,
 				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
@@ -1672,7 +1664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.1;
+				CURRENT_PROJECT_VERSION = 1.2.0;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
@@ -1681,7 +1673,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1697,7 +1689,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.1.1;
+				CURRENT_PROJECT_VERSION = 1.2.0;
 				DEVELOPMENT_TEAM = NA4GG5YL9W;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PinMusubi/Resouce/Info.plist";
@@ -1706,7 +1698,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naipaka.PinMusubiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = PinMusubiApp;

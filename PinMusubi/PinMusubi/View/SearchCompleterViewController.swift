@@ -45,7 +45,7 @@ public class SearchCompleterViewController: UIViewController {
     private var sectionCount = 0
     private var initSectionTitles = ["便利機能", "検索履歴"]
     private var editingSectionTitles = ["候補"]
-    private var utilities = ["現在地を設定", "登録地点から選ぶ"]
+    private var utilities = ["現在地を設定", "登録場所から選ぶ"]
     private var inputHistories = [InputHistoryEntity]()
     private var searchCompleter = MKLocalSearchCompleter()
     private var locationManager: CLLocationManager?

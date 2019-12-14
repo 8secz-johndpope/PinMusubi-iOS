@@ -9,9 +9,12 @@
 import UIKit
 
 public class FavoriteBasePointViewController: UIViewController {
-    @IBOutlet private var showRegisterBasePointViewButton: UIButton!
-
-    @IBOutlet private var changeEditModeButton: UIButton!
+    @IBOutlet private var showRegisterBasePointViewButton: UIButton! {
+        didSet {
+            showRegisterBasePointViewButton.backgroundColor = UIColor(hex: "FA6400")
+            showRegisterBasePointViewButton.layer.cornerRadius = 10
+        }
+    }
 
     @IBOutlet private var favoriteBasePointTableView: UITableView! {
         didSet {
@@ -28,6 +31,9 @@ public class FavoriteBasePointViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+
+        let editButtonItem = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(changeEditMode))
+        navigationItem.rightBarButtonItem = editButtonItem
 
         presenter = FavoriteBasePointPresenter(vc: self, modelType: FavoriteInputModel.self)
         presenter?.getAllFavoriteInput()
@@ -51,13 +57,16 @@ public class FavoriteBasePointViewController: UIViewController {
         navigationController?.show(searchBasePointVC, sender: nil)
     }
 
-    @IBAction private func changeEditMode(_ sender: Any) {
+    @objc
+    private func changeEditMode() {
         if favoriteBasePointTableView.isEditing {
             favoriteBasePointTableView.setEditing(false, animated: true)
-            changeEditModeButton.setTitle("編集", for: .normal)
+            let editButtonItem = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(changeEditMode))
+            navigationItem.rightBarButtonItem = editButtonItem
         } else {
             favoriteBasePointTableView.setEditing(true, animated: true)
-            changeEditModeButton.setTitle("完了", for: .normal)
+            let editButtonItem = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(changeEditMode))
+            navigationItem.rightBarButtonItem = editButtonItem
         }
     }
 
@@ -69,6 +78,14 @@ public class FavoriteBasePointViewController: UIViewController {
 }
 
 extension FavoriteBasePointViewController: UITableViewDataSource {
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "登録場所一覧"
+    }
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoriteBasePointList.count
     }

@@ -17,17 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPs-9b-ldV">
-                                <rect key="frame" x="20" y="68" width="274" height="30"/>
-                                <state key="normal" title="地点を登録する"/>
+                                <rect key="frame" x="20" y="62" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hCn-cO-3mA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="地点を登録する">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="showRegisterBasePointView:" destination="a09-Hd-7Fh" eventType="touchUpInside" id="ewD-M9-kM0"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFg-nD-IZX">
-                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                                <rect key="frame" x="0.0" y="126" width="414" height="736"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-QC-RKI">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="728"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                 </subviews>
@@ -42,36 +48,21 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="Gn4-jb-Ses"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="5Fq-af-jJH"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ItY-wS-ZQF">
-                                <rect key="frame" x="302" y="66" width="92" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="5XT-gd-1QD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="編集">
-                                    <color key="titleColor" red="0.98039215690000003" green="0.3921568627" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeEditMode:" destination="a09-Hd-7Fh" eventType="touchUpInside" id="LPE-ds-VWh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="DPs-9b-ldV" firstAttribute="leading" secondItem="TCm-I2-OVU" secondAttribute="leading" constant="20" id="9r5-ao-Q1d"/>
                             <constraint firstItem="LFg-nD-IZX" firstAttribute="bottom" secondItem="TCm-I2-OVU" secondAttribute="bottom" id="APV-lb-RG8"/>
                             <constraint firstItem="LFg-nD-IZX" firstAttribute="centerX" secondItem="5H9-qx-Lnt" secondAttribute="centerX" id="Amr-Nm-Qlf"/>
-                            <constraint firstItem="DPs-9b-ldV" firstAttribute="top" secondItem="TCm-I2-OVU" secondAttribute="top" constant="24" id="C3N-H0-U3z"/>
-                            <constraint firstItem="ItY-wS-ZQF" firstAttribute="centerY" secondItem="DPs-9b-ldV" secondAttribute="centerY" id="In7-Uu-AgY"/>
+                            <constraint firstItem="DPs-9b-ldV" firstAttribute="top" secondItem="TCm-I2-OVU" secondAttribute="top" constant="18" id="C3N-H0-U3z"/>
+                            <constraint firstItem="TCm-I2-OVU" firstAttribute="trailing" secondItem="DPs-9b-ldV" secondAttribute="trailing" constant="20" id="KkX-qI-sVt"/>
                             <constraint firstItem="LFg-nD-IZX" firstAttribute="leading" secondItem="TCm-I2-OVU" secondAttribute="leading" id="X3A-fL-Fhm"/>
-                            <constraint firstItem="TCm-I2-OVU" firstAttribute="trailing" secondItem="ItY-wS-ZQF" secondAttribute="trailing" constant="20" id="jLb-ie-naa"/>
-                            <constraint firstItem="ItY-wS-ZQF" firstAttribute="leading" secondItem="DPs-9b-ldV" secondAttribute="trailing" constant="8" id="nIS-mF-W75"/>
-                            <constraint firstItem="LFg-nD-IZX" firstAttribute="top" secondItem="DPs-9b-ldV" secondAttribute="bottom" constant="36" id="u3b-6s-rQ4"/>
+                            <constraint firstItem="DPs-9b-ldV" firstAttribute="leading" secondItem="TCm-I2-OVU" secondAttribute="leading" constant="20" id="ZnD-IC-VDp"/>
+                            <constraint firstItem="DPs-9b-ldV" firstAttribute="centerX" secondItem="5H9-qx-Lnt" secondAttribute="centerX" id="j0h-aK-sBu"/>
+                            <constraint firstItem="LFg-nD-IZX" firstAttribute="top" secondItem="DPs-9b-ldV" secondAttribute="bottom" constant="20" id="u3b-6s-rQ4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TCm-I2-OVU"/>
                     </view>
                     <connections>
-                        <outlet property="changeEditModeButton" destination="ItY-wS-ZQF" id="iex-Zf-Ki8"/>
                         <outlet property="favoriteBasePointTableView" destination="s6q-QC-RKI" id="aBG-Bc-ywD"/>
                         <outlet property="showRegisterBasePointViewButton" destination="DPs-9b-ldV" id="gAH-A5-oWl"/>
                     </connections>

@@ -58,12 +58,44 @@ public class SearchBasePointViewController: UIViewController {
         }
     }
 
+    @IBOutlet private var registerBasePointBackgroundView: UIView! {
+        didSet {
+            registerBasePointBackgroundView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+            registerBasePointBackgroundView.isHidden = true
+        }
+    }
+
+    @IBOutlet private var registerBasePointView: UIView! {
+        didSet {
+            registerBasePointView.layer.cornerRadius = 10
+        }
+    }
+
+    @IBOutlet private var registerBasePointButton: UIButton! {
+        didSet {
+            registerBasePointButton.backgroundColor = UIColor(hex: "FA6400")
+            registerBasePointButton.layer.cornerRadius = 8
+        }
+    }
+    @IBOutlet private var closeRegisterBasePointViewButton: UIButton! {
+        didSet {
+            closeRegisterBasePointViewButton.layer.cornerRadius = 15
+        }
+    }
+
+    @IBOutlet private var registerNameTextField: UITextField! {
+        didSet {
+            registerNameTextField.delegate = self
+        }
+    }
+
     private var annotation: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
         return annotation
     }()
 
     private var searchCompleter = MKLocalSearchCompleter()
+    private var favoriteBasePoint = FavoriteInputEntity()
     private var selectedCoordinate = CLLocationCoordinate2D()
 
     override public func viewDidLoad() {
@@ -124,6 +156,28 @@ public class SearchBasePointViewController: UIViewController {
         completerScrollView.isHidden = true
         completerTableView.isHidden = true
     }
+
+    @IBAction private func closeRegisterBasePointView(_ sender: Any) {
+        view.endEditing(true)
+        registerBasePointBackgroundView.isHidden = true
+    }
+
+    @IBAction private func registerBasePoint(_ sender: Any) {
+        guard let name = registerNameTextField.text else { return }
+        if name != "" {
+            favoriteBasePoint.name = name
+            favoriteBasePoint.latitude = selectedCoordinate.latitude
+            favoriteBasePoint.longitude = selectedCoordinate.longitude
+            guard let navigationController = navigationController else { return }
+            guard let favoriteBasePointVC = navigationController.viewControllers[1] as? FavoriteBasePointViewController else { return }
+            favoriteBasePointVC.registerFavoriteBasePoint(favoriteBasePoint: favoriteBasePoint)
+            navigationController.popToViewController(favoriteBasePointVC, animated: true)
+        }
+    }
+
+    @IBAction private func didTapView(_ sender: Any) {
+        view.endEditing(true)
+    }
 }
 
 extension SearchBasePointViewController: MKMapViewDelegate {
@@ -150,16 +204,16 @@ extension SearchBasePointViewController: MKMapViewDelegate {
     }
 
     public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let registerBasePointView = UIStoryboard(name: "RegisterBasePointViewController", bundle: nil)
-        guard let registerBasePointVC = registerBasePointView.instantiateInitialViewController() as? RegisterBasePointViewController else { return }
-        registerBasePointVC.setCoordinate(coordinate: selectedCoordinate)
-        navigationController?.show(registerBasePointVC, sender: nil)
+        registerBasePointBackgroundView.isHidden = false
+        registerNameTextField.becomeFirstResponder()
     }
 }
 
 extension SearchBasePointViewController: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if addressTextField.text != "" && !searchCompleter.results.isEmpty {
+        if textField == addressTextField
+            && addressTextField.text != ""
+            && !searchCompleter.results.isEmpty {
             setCompletion(completion: searchCompleter.results[0])
         } else {
             view.endEditing(true)
@@ -190,6 +244,7 @@ extension SearchBasePointViewController: UITableViewDataSource {
 extension SearchBasePointViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         view.endEditing(true)
+        addressTextField.text = searchCompleter.results[indexPath.row].title
         setCompletion(completion: searchCompleter.results[indexPath.row])
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
