@@ -63,6 +63,7 @@ public class SearchInterestPlaceViewController: UIViewController {
             configureBottomAdMobView()
         }
         showTutorialView()
+        checkCurrentVersion()
     }
 
     private func configureTopAdMobView() {
@@ -100,7 +101,32 @@ public class SearchInterestPlaceViewController: UIViewController {
             present(tutorialVC, animated: true, completion: nil)
 
             UserDefaults.standard.set(true, forKey: "firstLaunch")
+
+            if let latestVersion: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+                UserDefaults.standard.set(latestVersion, forKey: "currentVersion")
+            }
         }
+    }
+
+    private func checkCurrentVersion() {
+        if let latestVersion: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+            if let currentVersion = UserDefaults.standard.value(forKey: "currentVersion") as? String {
+                if currentVersion != latestVersion {
+                    UserDefaults.standard.set(latestVersion, forKey: "currentVersion")
+                    showVersionInfoView()
+                }
+            } else {
+                UserDefaults.standard.set(latestVersion, forKey: "currentVersion")
+                showVersionInfoView()
+            }
+        }
+    }
+
+    private func showVersionInfoView() {
+        let versionInfoSV = UIStoryboard(name: "VersionInfoViewController", bundle: nil)
+        guard let versionInfoVC = versionInfoSV.instantiateInitialViewController() as? VersionInfoViewController else { return }
+        versionInfoVC.modalTransitionStyle = .crossDissolve
+        present(versionInfoVC, animated: true, completion: nil)
     }
 }
 

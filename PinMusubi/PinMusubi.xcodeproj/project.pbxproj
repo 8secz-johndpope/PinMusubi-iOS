@@ -21,6 +21,8 @@
 		9107A07523A3A81200F1DD77 /* FavoriteBasePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A07423A3A81200F1DD77 /* FavoriteBasePointViewController.swift */; };
 		9107A07723A3A82E00F1DD77 /* SearchBasePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A07623A3A82E00F1DD77 /* SearchBasePointViewController.swift */; };
 		9107A07D23A4156800F1DD77 /* FavoriteBasePointPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A07C23A4156800F1DD77 /* FavoriteBasePointPresenter.swift */; };
+		9107A07F23A5323200F1DD77 /* VersionInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9107A07E23A5323200F1DD77 /* VersionInfoViewController.storyboard */; };
+		9107A08123A5359200F1DD77 /* VersionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A08023A5359200F1DD77 /* VersionInfoViewController.swift */; };
 		9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9108A7F2237848E000099B0B /* GoogleService-Info.plist */; };
 		9108A84C237AEC7F00099B0B /* SpotListAnalyticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */; };
 		9108A84E237F584800099B0B /* AdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108A84D237F584800099B0B /* AdEntity.swift */; };
@@ -237,6 +239,8 @@
 		9107A07423A3A81200F1DD77 /* FavoriteBasePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBasePointViewController.swift; sourceTree = "<group>"; };
 		9107A07623A3A82E00F1DD77 /* SearchBasePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBasePointViewController.swift; sourceTree = "<group>"; };
 		9107A07C23A4156800F1DD77 /* FavoriteBasePointPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBasePointPresenter.swift; sourceTree = "<group>"; };
+		9107A07E23A5323200F1DD77 /* VersionInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VersionInfoViewController.storyboard; sourceTree = "<group>"; };
+		9107A08023A5359200F1DD77 /* VersionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoViewController.swift; sourceTree = "<group>"; };
 		9108A7F2237848E000099B0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListAnalyticsEntity.swift; sourceTree = "<group>"; };
 		9108A84D237F584800099B0B /* AdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdEntity.swift; sourceTree = "<group>"; };
@@ -704,6 +708,7 @@
 				9166710E2386B76A00236FEC /* TutorialHeaderView.swift */,
 				916671102386B78E00236FEC /* TutorialFooterView.swift */,
 				916671142386BCC700236FEC /* TutorialFooterDelegate.swift */,
+				9107A08023A5359200F1DD77 /* VersionInfoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -797,6 +802,7 @@
 				91EEA80D2378095200824BBB /* CreditListViewController.storyboard */,
 				91EEA81323780A3E00824BBB /* ContactFormViewController.storyboard */,
 				9166710823869BD500236FEC /* TutorialCollectionViewController.storyboard */,
+				9107A07E23A5323200F1DD77 /* VersionInfoViewController.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -961,6 +967,7 @@
 				91C05BD2236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard in Resources */,
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
 				916E9541238C05180090FB0A /* Tutorial4.jpeg in Resources */,
+				9107A07F23A5323200F1DD77 /* VersionInfoViewController.storyboard in Resources */,
 				915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
 				91D1CAB52376657D0066F644 /* TravelTimePanelViewController.xib in Resources */,
@@ -1374,6 +1381,7 @@
 				914455C32384206400AE7E06 /* LeisureModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				914455C92384397600AE7E06 /* LeisureSpotPresenter.swift in Sources */,
+				9107A08123A5359200F1DD77 /* VersionInfoViewController.swift in Sources */,
 				91D1907F2368157600B0329A /* RestaurantSpotPresenter.swift in Sources */,
 				9107A07723A3A82E00F1DD77 /* SearchBasePointViewController.swift in Sources */,
 				91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */,
