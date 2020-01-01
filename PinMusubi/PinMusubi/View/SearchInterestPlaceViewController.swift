@@ -342,6 +342,10 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
         }
     }
 
+    public func showShareActivity(activityVC: UIActivityViewController) {
+        present(activityVC, animated: true, completion: nil)
+    }
+
     public func showTransportationGuideWebPage(webVCInstance: WebViewController) {
         present(webVCInstance, animated: true, completion: nil)
     }

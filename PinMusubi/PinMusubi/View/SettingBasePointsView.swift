@@ -146,10 +146,13 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
         if let completion = completion {
             presenter?.getAddress(completion: completion) { coordinate in
                 if let coordinate = coordinate {
+                    if targetCell.isEmptyPointNameTextField() {
+                        self.settingPoints[indexPath.row].name = completion.title
+                    }
                     targetCell.setAddress(outputAddress: completion.title)
                     targetCell.setAddressStatus(addressValidationStatus: .success)
                     self.canDoneSettingList[indexPath.row] = .success
-                    self.settingPoints[indexPath.row].address = completion.title + ", " + completion.subtitle
+                    self.settingPoints[indexPath.row].address = completion.title
                     self.settingPoints[indexPath.row].latitude = coordinate.latitude
                     self.settingPoints[indexPath.row].longitude = coordinate.longitude
                     self.setActionButton()
@@ -173,10 +176,13 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
     public func setCoordinateFromInputHistory(inputHistory: InputHistoryEntity) {
         guard let targetCell = editingCell else { return }
         guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
+        if targetCell.isEmptyPointNameTextField() {
+            self.settingPoints[indexPath.row].name = inputHistory.title
+        }
         targetCell.setAddress(outputAddress: inputHistory.title)
         targetCell.setAddressStatus(addressValidationStatus: .success)
         self.canDoneSettingList[indexPath.row] = .success
-        self.settingPoints[indexPath.row].address = inputHistory.title + ", " + inputHistory.subtitle
+        self.settingPoints[indexPath.row].address = inputHistory.title
         self.settingPoints[indexPath.row].latitude = inputHistory.latitude
         self.settingPoints[indexPath.row].longitude = inputHistory.longitude
         self.setActionButton()
@@ -185,6 +191,9 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
     public func setCoordinageFromFavoriteInput(favoriteInput: FavoriteInputEntity) {
         guard let targetCell = editingCell else { return }
         guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
+        if targetCell.isEmptyPointNameTextField() {
+            self.settingPoints[indexPath.row].name = favoriteInput.name
+        }
         targetCell.setAddress(outputAddress: favoriteInput.name)
         targetCell.setAddressStatus(addressValidationStatus: .success)
         self.canDoneSettingList[indexPath.row] = .success
@@ -199,6 +208,9 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
     public func setYourLocation(location: CLLocation) {
         guard let targetCell = editingCell else { return }
         guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
+        if targetCell.isEmptyPointNameTextField() {
+            self.settingPoints[indexPath.row].name = "現在地"
+        }
         targetCell.setAddressStatus(addressValidationStatus: .success)
         canDoneSettingList[indexPath.row] = .success
         settingPoints[indexPath.row].address = "現在地"
@@ -248,9 +260,6 @@ extension SettingBasePointsView: SettingBasePointActionCellDelegate {
 
     /// 設定完了ボタン押下
     public func doneSetting() {
-        for index in 0...settingPoints.count - 1 where settingPoints[index].name == "" {
-            settingPoints[index].name = settingPoints[index].address
-        }
         presenter?.setPointsOnMapView(settingPoints: settingPoints)
     }
 }
