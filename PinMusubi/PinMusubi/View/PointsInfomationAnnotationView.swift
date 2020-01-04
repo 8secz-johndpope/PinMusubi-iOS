@@ -113,9 +113,7 @@ public class PointsInfomationAnnotationView: UIView {
 
     /// TODO: アクションシートをいい感じにする
     private func showShareActivity(dynamicLink: URL) {
-        let shareTitle = "中間地点付近のいい感じの場所をシェア！"
-        guard let shareImage = UIImage(named: "PinMusu") else { return }
-        let activityItems = [shareTitle, dynamicLink, shareImage] as [Any]
+        let activityItems = [dynamicLink] as [Any]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         delegate?.showShareActivity(activityVC: activityVC)
     }

@@ -43,10 +43,11 @@ public class DynamicLinksManager {
         linkBuilder?.iOSParameters?.appStoreID = "1489074206"
 
         linkBuilder?.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
-        linkBuilder?.socialMetaTagParameters?.title = "スポット地点の共有"
-        linkBuilder?.socialMetaTagParameters?.descriptionText = "中間地点付近で良さげな場所はここだ！"
+        linkBuilder?.socialMetaTagParameters?.title = "良さげな場所をシェア！"
 
-        linkBuilder?.navigationInfoParameters?.isForcedRedirectEnabled = true
+        let navigationInfoParameters = DynamicLinkNavigationInfoParameters()
+        navigationInfoParameters.isForcedRedirectEnabled = true
+        linkBuilder?.navigationInfoParameters = navigationInfoParameters
 
         linkBuilder?.shorten { url, _, error in
             guard let url = url, error == nil else { return }
