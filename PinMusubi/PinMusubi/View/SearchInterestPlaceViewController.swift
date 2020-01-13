@@ -128,6 +128,10 @@ public class SearchInterestPlaceViewController: UIViewController {
         versionInfoVC.modalTransitionStyle = .crossDissolve
         present(versionInfoVC, animated: true, completion: nil)
     }
+
+    internal func moveFloatingPanel(position: FloatingPanelPosition) {
+        floatingPanelController.move(to: position, animated: true)
+    }
 }
 
 /// MapViewに関するDelegate
@@ -241,6 +245,10 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
         }
         return scale
     }
+
+    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        searchMapView.selectAnnotation(annotation, animated: true)
+    }
 }
 
 /// モーダルに関するDelegateメソッド
@@ -340,6 +348,10 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
             )
             showSpotListView(settingPoints: settingPoints, interestPoint: halfwayPoint)
         }
+    }
+
+    public func showShareActivity(activityVC: UIActivityViewController) {
+        present(activityVC, animated: true, completion: nil)
     }
 
     public func showTransportationGuideWebPage(webVCInstance: WebViewController) {

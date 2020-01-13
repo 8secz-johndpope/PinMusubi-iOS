@@ -106,6 +106,15 @@ public class SettingBasePointCell: UITableViewCell {
         return addressTextField.text ?? ""
     }
 
+    public func isEmptyPointNameTextField() -> Bool {
+        guard let name = pointNameTextField.text else { return true }
+        return name.isEmpty
+    }
+
+    public func setName(name: String) {
+        pointNameTextField.text = name
+    }
+
     public func setAddress(outputAddress: String) {
         addressTextField.text = outputAddress
     }
