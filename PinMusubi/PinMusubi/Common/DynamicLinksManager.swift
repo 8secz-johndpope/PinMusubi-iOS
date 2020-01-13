@@ -46,7 +46,6 @@ public class DynamicLinksManager {
         linkBuilder?.socialMetaTagParameters?.title = "良さげな場所をシェア！"
 
         let navigationInfoParameters = DynamicLinkNavigationInfoParameters()
-        navigationInfoParameters.isForcedRedirectEnabled = true
         linkBuilder?.navigationInfoParameters = navigationInfoParameters
 
         linkBuilder?.shorten { url, _, error in

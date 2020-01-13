@@ -22,7 +22,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLIconFile</key>
-			<string>PInMusubi_AppStore</string>
+			<string>PinMusubi_AppStore</string>
 			<key>CFBundleURLName</key>
 			<string>PinMusubi</string>
 			<key>CFBundleURLSchemes</key>
