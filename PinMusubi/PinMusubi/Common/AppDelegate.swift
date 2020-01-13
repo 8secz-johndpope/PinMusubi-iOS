@@ -42,7 +42,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    /// アプリがインストールされていない時にURLから飛んできた時の処理
+    /// アプリがインストールされている時にURLから飛んできた時の処理
     public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard let webpageURL = userActivity.webpageURL else { return false }
         let handled = DynamicLinks.dynamicLinks().handleUniversalLink(webpageURL) { dynamiclink, _ in
@@ -81,9 +81,13 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
 
             settingPoints.append(settingPoint)
         }
-        /// TODO:  Mapにピンを設定する
-        if let searchInterestPlaceVC = window?.rootViewController as? SearchInterestPlaceViewController {
-            searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: pinPoint)
+
+        /// シェアされた場所をマップに表示
+        if let tabVC = window?.rootViewController as? UITabBarController {
+            tabVC.selectedIndex = 1
+            if let searchInterestPlaceVC = tabVC.selectedViewController as? SearchInterestPlaceViewController {
+                searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: pinPoint)
+            }
         }
     }
 

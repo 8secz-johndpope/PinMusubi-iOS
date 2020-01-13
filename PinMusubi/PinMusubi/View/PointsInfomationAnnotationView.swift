@@ -111,7 +111,6 @@ public class PointsInfomationAnnotationView: UIView {
         feedbackGenerator.selectionChanged()
     }
 
-    /// TODO: アクションシートをいい感じにする
     private func showShareActivity(dynamicLink: URL) {
         let activityItems = [dynamicLink] as [Any]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
