@@ -87,6 +87,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
             tabVC.selectedIndex = 1
             if let searchInterestPlaceVC = tabVC.selectedViewController as? SearchInterestPlaceViewController {
                 searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: pinPoint)
+                searchInterestPlaceVC.moveFloatingPanel(position: .tip)
             }
         }
     }

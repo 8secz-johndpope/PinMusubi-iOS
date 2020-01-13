@@ -128,6 +128,10 @@ public class SearchInterestPlaceViewController: UIViewController {
         versionInfoVC.modalTransitionStyle = .crossDissolve
         present(versionInfoVC, animated: true, completion: nil)
     }
+
+    internal func moveFloatingPanel(position: FloatingPanelPosition) {
+        floatingPanelController.move(to: position, animated: true)
+    }
 }
 
 /// MapViewに関するDelegate
