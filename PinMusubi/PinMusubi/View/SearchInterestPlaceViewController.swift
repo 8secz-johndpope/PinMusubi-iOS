@@ -245,6 +245,10 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
         }
         return scale
     }
+
+    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        searchMapView.selectAnnotation(annotation, animated: true)
+    }
 }
 
 /// モーダルに関するDelegateメソッド
