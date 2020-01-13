@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,28 +14,11 @@
             <rect key="frame" x="0.0" y="0.0" width="282" height="167"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vd-4D-8Ox">
-                    <rect key="frame" x="0.0" y="129" width="282" height="38"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スポットを検索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ve-bA-s38">
-                            <rect key="frame" x="87.333333333333343" y="10" width="107.33333333333334" height="18"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstItem="1ve-bA-s38" firstAttribute="centerX" secondItem="9vd-4D-8Ox" secondAttribute="centerX" id="MRj-rl-UOc"/>
-                        <constraint firstItem="1ve-bA-s38" firstAttribute="centerY" secondItem="9vd-4D-8Ox" secondAttribute="centerY" id="jDo-Dc-ayb"/>
-                        <constraint firstAttribute="height" constant="38" id="zNo-Nj-soY"/>
-                    </constraints>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCC-TX-amt">
                     <rect key="frame" x="0.0" y="34" width="282" height="81"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" canCancelContentTouches="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qfx-Bj-Lbv">
-                            <rect key="frame" x="0.0" y="0.0" width="282" height="81"/>
+                            <rect key="frame" x="0.0" y="0.0" width="282" height="71"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </tableView>
                     </subviews>
@@ -69,19 +52,53 @@
                         <action selector="didChangeSegmentedControl:" destination="iN0-l3-epB" eventType="valueChanged" id="Jjs-1p-nuo"/>
                     </connections>
                 </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6g-52-868">
+                    <rect key="frame" x="141" y="129" width="0.0" height="38"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="4Fv-nC-6UO"/>
+                        <constraint firstAttribute="width" id="UMH-Vp-p5n"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FR5-Yx-a0j">
+                    <rect key="frame" x="0.0" y="129" width="136" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="4uc-Iq-zrS"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="didTapShowSpotListButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="tlS-WS-s7c"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2M-iR-O0s">
+                    <rect key="frame" x="146" y="129" width="136" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="jhU-un-E7l"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="didTapShareButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="yS4-5j-Gri"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="KIR-fE-ZYj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="75" id="0m4-a8-zy0"/>
                 <constraint firstItem="gGD-ZQ-iIM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0rN-ma-OMm"/>
-                <constraint firstAttribute="bottom" secondItem="9vd-4D-8Ox" secondAttribute="bottom" id="Ccq-po-iBu"/>
+                <constraint firstItem="W6g-52-868" firstAttribute="leading" secondItem="FR5-Yx-a0j" secondAttribute="trailing" constant="5" id="28K-6R-hdQ"/>
+                <constraint firstItem="FR5-Yx-a0j" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6m1-MW-kxX"/>
+                <constraint firstItem="n2M-iR-O0s" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="7Ct-wf-LiJ"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="top" secondItem="gGD-ZQ-iIM" secondAttribute="bottom" constant="13" id="GNK-pT-G7q"/>
                 <constraint firstItem="KIR-fE-ZYj" firstAttribute="centerY" secondItem="gGD-ZQ-iIM" secondAttribute="centerY" id="GPj-Oh-IeR"/>
                 <constraint firstItem="gGD-ZQ-iIM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="KEB-fQ-Mpv"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="leading" secondItem="gGD-ZQ-iIM" secondAttribute="leading" id="KYf-2a-zL4"/>
-                <constraint firstItem="xCC-TX-amt" firstAttribute="trailing" secondItem="9vd-4D-8Ox" secondAttribute="trailing" id="S33-d1-LWL"/>
-                <constraint firstItem="9vd-4D-8Ox" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YR4-gG-LhA"/>
-                <constraint firstItem="9vd-4D-8Ox" firstAttribute="top" secondItem="xCC-TX-amt" secondAttribute="bottom" constant="14" id="g5t-x2-fxc"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9vd-4D-8Ox" secondAttribute="trailing" id="pRR-aj-QXh"/>
+                <constraint firstItem="W6g-52-868" firstAttribute="top" secondItem="xCC-TX-amt" secondAttribute="bottom" constant="14" id="Knb-lr-JFB"/>
+                <constraint firstAttribute="bottom" secondItem="W6g-52-868" secondAttribute="bottom" id="XGe-gw-ebu"/>
+                <constraint firstItem="xCC-TX-amt" firstAttribute="top" secondItem="KIR-fE-ZYj" secondAttribute="bottom" constant="5.3333333333333357" id="YSt-u5-wdd"/>
+                <constraint firstItem="n2M-iR-O0s" firstAttribute="leading" secondItem="W6g-52-868" secondAttribute="trailing" constant="5" id="cj3-wK-cIz"/>
+                <constraint firstItem="W6g-52-868" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="drA-6R-muG"/>
+                <constraint firstItem="xCC-TX-amt" firstAttribute="centerX" secondItem="W6g-52-868" secondAttribute="centerX" id="wtH-71-07I"/>
+                <constraint firstItem="FR5-Yx-a0j" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="x4D-wK-3b5"/>
+                <constraint firstAttribute="trailing" secondItem="n2M-iR-O0s" secondAttribute="trailing" id="zHh-aQ-yaY"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -90,7 +107,8 @@
             <connections>
                 <outlet property="pointsInfoScrollView" destination="xCC-TX-amt" id="ode-rq-BGR"/>
                 <outlet property="pointsInfoTableView" destination="qfx-Bj-Lbv" id="Liw-wI-dTn"/>
-                <outlet property="showSpotListButton" destination="9vd-4D-8Ox" id="i9g-Z6-0gD"/>
+                <outlet property="shareButton" destination="n2M-iR-O0s" id="PGc-a0-Q1A"/>
+                <outlet property="showSpotListButton" destination="FR5-Yx-a0j" id="IZH-UA-cuQ"/>
                 <outlet property="transportationSegmentedControl" destination="KIR-fE-ZYj" id="g4F-Ve-Hgp"/>
             </connections>
             <point key="canvasLocation" x="146.37681159420291" y="105.46875"/>

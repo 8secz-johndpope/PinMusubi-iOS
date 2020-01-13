@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import CoreLocation
 import Firebase
 import RealmSwift
 import UIKit
@@ -15,8 +16,6 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
     public var window: UIWindow?
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-
         // TabBar
         if let tabVC = window?.rootViewController as? UITabBarController {
             tabVC.selectedIndex = 1
@@ -41,6 +40,77 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["5a5d77ef1e172802b323f5433e396dbe"]
 
         return true
+    }
+
+    /// アプリがインストールされている時にURLから飛んできた時の処理
+    public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        guard let webpageURL = userActivity.webpageURL else { return false }
+        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(webpageURL) { dynamiclink, _ in
+            guard let link = dynamiclink?.url else { return }
+            self.setParameter(deepLink: link)
+        }
+        return handled
+    }
+
+    private func setParameter(deepLink: URL) {
+        var pinPoint = CLLocationCoordinate2D()
+        var settingPoints = [SettingPointEntity]()
+
+        guard let settingPointsCountString = deepLink.queryValue(for: "settingPointsCount") else { return }
+        guard let pinPointLatString = deepLink.queryValue(for: "pinPointLat") else { return }
+        guard let pinPointLngString = deepLink.queryValue(for: "pinPointLng") else { return }
+
+        guard let settingPointsCount = Int(settingPointsCountString) else { return }
+        guard let pinPointLat = CLLocationDegrees(pinPointLatString) else { return }
+        guard let pinPointLng = CLLocationDegrees(pinPointLngString) else { return }
+
+        pinPoint = CLLocationCoordinate2D(latitude: pinPointLat, longitude: pinPointLng)
+
+        for index in 0...settingPointsCount - 1 {
+            let settingPoint = SettingPointEntity()
+
+            guard let settingPointName = deepLink.queryValue(for: "settingPointName\(index)") else { return }
+            guard let settingPointLatString = deepLink.queryValue(for: "settingPointLat\(index)") else { return }
+            guard let settingPointLngString = deepLink.queryValue(for: "settingPointLng\(index)") else { return }
+            guard let settingPointLat = CLLocationDegrees(settingPointLatString) else { return }
+            guard let settingPointLng = CLLocationDegrees(settingPointLngString) else { return }
+
+            settingPoint.name = settingPointName
+            settingPoint.latitude = settingPointLat
+            settingPoint.longitude = settingPointLng
+
+            settingPoints.append(settingPoint)
+        }
+
+        /// シェアされた場所をマップに表示
+        if let tabVC = window?.rootViewController as? UITabBarController {
+            tabVC.selectedIndex = 1
+            if let searchInterestPlaceVC = tabVC.selectedViewController as? SearchInterestPlaceViewController {
+                searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: pinPoint)
+                searchInterestPlaceVC.moveFloatingPanel(position: .tip)
+            }
+        }
+    }
+
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+        return application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: ""
+        )
+    }
+
+    /// アプリがインストールされていない時にURLから飛んできた時の処理
+    public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+            guard let link = dynamicLink.url else { return false }
+            print("🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️")
+            print("アプリがインストールされていない")
+            print(link)
+            return true
+        }
+        return false
     }
 
     public func applicationWillResignActive(_ application: UIApplication) {

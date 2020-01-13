@@ -20,6 +20,7 @@ target 'PinMusubi' do
   pod 'SwiftyGif'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Firebase/DynamicLinks'
 
   post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -47,6 +48,7 @@ end
     pod 'SwiftyGif'
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'Firebase/DynamicLinks'
   end
 
   target 'PinMusubiUITests' do
@@ -65,6 +67,7 @@ end
     pod 'SwiftyGif'
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'Firebase/DynamicLinks'
   end
 
 end
