@@ -175,7 +175,6 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             renderer.lineWidth = 3
             renderer.strokeColor = ColorDefinition.settingPointColors[lineColorIndex % 10]
             renderer.alpha = 0.9
-            lineColorIndex += 1
 
         case is MKCircle:
             renderer = MKCircleRenderer(overlay: overlay)
@@ -183,7 +182,6 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             renderer.strokeColor = UIColor.white
             renderer.fillColor = ColorDefinition.settingPointColors[circleColorIndex % 10]
             renderer.alpha = 0.8
-            circleColorIndex += 1
 
         default:
             renderer = MKPolylineRenderer(overlay: overlay)
@@ -191,20 +189,21 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
         return renderer
     }
 
-    /// 縮尺変更時、円の大きさを変更
-    /// - Parameter mapView: searchMapView
-    public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+    /// 地図の表示範囲変更後
+    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        searchMapView.selectAnnotation(annotation, animated: true)
         // 初期化
         searchMapView.removeOverlays(circles)
-        circles = [MKCircle]()
+        circles.removeAll()
         // 円形を描写
         circleColorIndex = 0
         let scale = mapView.region.span.latitudeDelta
         for settingPoint in settingPoints {
             let settingPointLocation = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
-            let circle = MKCircle(center: settingPointLocation, radius: scale * 2_000)
+            let circle = MKCircle(center: settingPointLocation, radius: scale * 1_000)
             circles.append(circle)
             searchMapView.addOverlay(circle)
+            circleColorIndex += 1
         }
     }
 
@@ -214,7 +213,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
     public func setLine(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
         // overlayの初期化
         searchMapView.removeOverlays(lines)
-        lines = [MKPolyline]()
+        lines.removeAll()
         // 線を描写
         lineColorIndex = 0
         for settingPoint in settingPoints {
@@ -222,6 +221,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             let line = MKPolyline(coordinates: [centerPoint, settingPointLocation], count: 2)
             lines.append(line)
             searchMapView.addOverlay(line)
+            lineColorIndex += 1
         }
     }
 
@@ -244,10 +244,6 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
             scale = maxScale
         }
         return scale
-    }
-
-    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        searchMapView.selectAnnotation(annotation, animated: true)
     }
 }
 
@@ -305,11 +301,9 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
         // Overlayの初期化
         searchMapView.removeOverlays(circles)
         searchMapView.removeOverlays(lines)
-        circles = [MKCircle]()
-        lines = [MKPolyline]()
+        circles.removeAll()
+        lines.removeAll()
 
-        // 地図上に線のマークを設定
-        setLine(settingPoints: settingPoints, centerPoint: halfwayPoint)
         // 縮尺の取得
         let scale = getScale(settingPoints: settingPoints, centerPoint: halfwayPoint)
         // 地図の表示領域の設定
@@ -317,6 +311,9 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
         let region = MKCoordinateRegion(center: halfwayPoint, span: span)
         searchMapView.setRegion(region, animated: true)
         pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
+
+        // 地図上に線のマークを設定
+        setLine(settingPoints: settingPoints, centerPoint: halfwayPoint)
 
         // パラメータ初期化
         dragPinTimes = 0
