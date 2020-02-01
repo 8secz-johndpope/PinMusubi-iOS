@@ -63,7 +63,8 @@ public class WebViewController: UIViewController {
     public func setSpot(spot: SpotEntityProtocol) {
         self.spot = spot
         if let shop = spot as? Shop {
-            requestUrlString = shop.urls.pcUrl
+            guard let affiliateURLString = KeyManager().getValue(key: "HOT PEPPER Affiliate URL") as? String else { return }
+            requestUrlString = affiliateURLString + shop.urls.pcUrl
             shareTitle = shop.name
         } else if let hotels = spot as? Hotels {
             guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
