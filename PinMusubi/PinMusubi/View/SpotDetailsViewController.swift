@@ -118,6 +118,7 @@ public class SpotDetailsViewController: UIViewController {
         guard let spotBaseInfoView = UINib(nibName: "SpotBaseInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? SpotBaseInfoView else { return }
         spotBaseInfoView.configureLabel(spot: shop)
         baseInfoView.addSubview(spotBaseInfoView)
+        showWebPageLabel.text = "Webで詳しく見る・予約する"
     }
 
     private func configureHotel(hotels: Hotels) {
@@ -139,6 +140,7 @@ public class SpotDetailsViewController: UIViewController {
         guard let spotBaseInfoView = UINib(nibName: "SpotBaseInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? SpotBaseInfoView else { return }
         spotBaseInfoView.configureLabel(spot: hotels)
         baseInfoView.addSubview(spotBaseInfoView)
+        showWebPageLabel.text = "Webで詳しく見る・予約する"
     }
 
     private func configureLeisure(leisure: Feature) {
@@ -161,7 +163,7 @@ public class SpotDetailsViewController: UIViewController {
         guard let spotBaseInfoView = UINib(nibName: "SpotBaseInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? SpotBaseInfoView else { return }
         spotBaseInfoView.configureLabel(spot: leisure)
         baseInfoView.addSubview(spotBaseInfoView)
-        showWebPageLabel.text = "Webで調べてみる"
+        showWebPageLabel.text = "Webで詳しく調べてみる"
     }
 
     private func configureStation(station: Station) {
