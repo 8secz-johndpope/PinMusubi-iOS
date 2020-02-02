@@ -224,7 +224,9 @@ extension SettingBasePointsView: SettingBasePointCellDelegate {
     public func setPointName(name: String) {
         guard let targetCell = editingCell else { return }
         guard let indexPath = settingBasePointsTableView.indexPath(for: targetCell) else { return }
-        settingPoints[indexPath.row].name = name
+        if !name.isEmpty {
+            settingPoints[indexPath.row].name = name
+        }
         setActionButton()
     }
 }

@@ -69,13 +69,21 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         for index in 0...settingPointsCount - 1 {
             let settingPoint = SettingPointEntity()
 
-            guard let settingPointName = deepLink.queryValue(for: "settingPointName\(index)") else { return }
             guard let settingPointLatString = deepLink.queryValue(for: "settingPointLat\(index)") else { return }
             guard let settingPointLngString = deepLink.queryValue(for: "settingPointLng\(index)") else { return }
             guard let settingPointLat = CLLocationDegrees(settingPointLatString) else { return }
             guard let settingPointLng = CLLocationDegrees(settingPointLngString) else { return }
 
-            settingPoint.name = settingPointName
+            // なぜかsettingPointNameがnilになる時があるので、応急処置としてnilだった場合は緯度経度から場所名を取得するようにする。
+            // settingPointNameはインスタンス生成された時点でnilは許容しないはずなのに。
+            if let settingPointName = deepLink.queryValue(for: "settingPointName\(index)") {
+                settingPoint.name = settingPointName
+            } else {
+                SearchInterestPlaceModel().getAddress(point: CLLocationCoordinate2D(latitude: settingPointLat, longitude: settingPointLng)) { address, _ in
+                    settingPoint.name = address
+                }
+            }
+
             settingPoint.latitude = settingPointLat
             settingPoint.longitude = settingPointLng
 
