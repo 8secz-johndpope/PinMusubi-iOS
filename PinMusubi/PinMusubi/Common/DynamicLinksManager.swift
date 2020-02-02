@@ -24,7 +24,7 @@ public class DynamicLinksManager {
         ]
 
         for index in 0...settingPoints.count - 1 {
-            urlComponents.queryItems?.append(URLQueryItem(name: "settingPointName\(index)", value: settingPoints[index].name))
+            urlComponents.queryItems?.append(URLQueryItem(name: "settingPointName\(index)", value: "\(settingPoints[index].name)"))
             urlComponents.queryItems?.append(URLQueryItem(name: "settingPointLat\(index)", value: "\(settingPoints[index].latitude)"))
             urlComponents.queryItems?.append(URLQueryItem(name: "settingPointLng\(index)", value: "\(settingPoints[index].longitude)"))
         }

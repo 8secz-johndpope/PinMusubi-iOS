@@ -6,6 +6,7 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
+import FirebaseAnalytics
 import MapKit
 import UIKit
 
@@ -95,6 +96,7 @@ public class PointsInfomationAnnotationView: UIView {
     }
 
     @IBAction private func didTapShareButton(_ sender: Any) {
+        Analytics.logEvent("tap_share_button", parameters: [:])
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
         feedbackGenerator.impactOccurred()
         let dynamicLinkManager = DynamicLinksManager()
