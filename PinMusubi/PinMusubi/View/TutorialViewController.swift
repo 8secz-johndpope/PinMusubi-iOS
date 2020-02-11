@@ -195,7 +195,8 @@ internal class TutorialViewController: UIViewController {
         view.addSubview(closeButton)
 
         closeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        closeButton.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.7).isActive = true
+        closeButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        closeButton.widthAnchor.constraint(equalToConstant: 230).isActive = true
         closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
     }
 
