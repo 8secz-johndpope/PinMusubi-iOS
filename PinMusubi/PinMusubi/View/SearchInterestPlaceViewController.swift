@@ -95,10 +95,9 @@ public class SearchInterestPlaceViewController: UIViewController {
 
     private func showTutorialView() {
         if (UserDefaults.standard.value(forKey: "firstLaunch") as? Bool) == nil {
-            let tutorialSV = UIStoryboard(name: "TutorialCollectionViewController", bundle: nil)
-            guard let tutorialVC = tutorialSV.instantiateInitialViewController() as? TutorialCollectionViewController else { return }
-            tutorialVC.modalPresentationStyle = .fullScreen
-            present(tutorialVC, animated: true, completion: nil)
+            let tutorialPageVC = TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
+            tutorialPageVC.modalPresentationStyle = .fullScreen
+            present(tutorialPageVC, animated: true, completion: nil)
 
             UserDefaults.standard.set(true, forKey: "firstLaunch")
 

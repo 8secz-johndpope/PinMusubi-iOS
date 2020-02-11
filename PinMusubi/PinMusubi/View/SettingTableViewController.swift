@@ -67,9 +67,9 @@ public class SettingTableViewController: UITableViewController {
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCellTitle = cellTitles[indexPath.section][indexPath.row]
         if selectedCellTitle == tutorialTitle {
-            let tutorialSV = UIStoryboard(name: "TutorialCollectionViewController", bundle: nil)
-            guard let tutorialVC = tutorialSV.instantiateInitialViewController() as? TutorialCollectionViewController else { return }
-            present(tutorialVC, animated: true, completion: nil)
+            let tutorialPageVC = TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
+            tutorialPageVC.modalPresentationStyle = .fullScreen
+            present(tutorialPageVC, animated: true, completion: nil)
         } else if selectedCellTitle == creditTitle {
             let creditListSV = UIStoryboard(name: "CreditListViewController", bundle: nil)
             guard let creditListVC = creditListSV.instantiateInitialViewController() as? CreditListViewController else { return }
