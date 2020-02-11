@@ -130,9 +130,13 @@ public class SpotDetailsViewController: UIViewController {
         valueImageView.image = UIImage(named: "Star")
         if let reviewAverage = hotels.hotel[0].hotelBasicInfo?.reviewAverage {
             valueLabel.text = "レビュー評価：" + String(reviewAverage)
+        } else {
+            valueLabel.text = "レビュー評価：なし"
         }
         if let nearestStation = hotels.hotel[0].hotelBasicInfo?.nearestStation {
             categoryLabel.text = nearestStation + "駅近く"
+        } else {
+            categoryLabel.text = "最寄駅情報なし"
         }
         directionLabel.text = hotels.hotel[0].hotelBasicInfo?.hotelSpecial
 
@@ -156,6 +160,8 @@ public class SpotDetailsViewController: UIViewController {
         valueImageView.image = UIImage(named: "Station")
         if !leisure.property.station.isEmpty {
             valueLabel.text = "最寄り駅：" + leisure.property.station[0].name + "駅"
+        } else {
+            valueLabel.text = "最寄り駅：情報なし"
         }
         categoryLabel.text = leisure.property.genre[0].name
         directionLabel.text = leisure.property.catchCopy
@@ -172,12 +178,10 @@ public class SpotDetailsViewController: UIViewController {
         nameLabel.text = station.name + "駅"
         var prevStation = "なし"
         var nextStation = "なし"
-        if station.prev != nil {
-            guard let prev = station.prev else { return }
+        if let prev = station.prev {
             prevStation = prev
         }
-        if station.next != nil {
-            guard let next = station.next else { return }
+        if let next = station.next {
             nextStation = next
         }
         valueImageView.image = UIImage(named: "Station")
