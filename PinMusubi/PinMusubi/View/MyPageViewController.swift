@@ -127,8 +127,13 @@ extension MyPageViewController: MyPageCollectionViewCellDelegate {
         NotificationCenter.default.post(name: Notification.doneSettingNotification, object: nil)
         if let historyData = myData as? SearchHistoryEntity {
             var settingPoints = [SettingPointEntity]()
-            for settingPoint in historyData.settingPointEntityList {
-                settingPoints.append(settingPoint)
+            historyData.settingPointEntityList.forEach {
+                let newSettingPoint = SettingPointEntity()
+                newSettingPoint.name = $0.name
+                newSettingPoint.address = $0.address
+                newSettingPoint.latitude = $0.latitude
+                newSettingPoint.longitude = $0.longitude
+                settingPoints.append(newSettingPoint)
             }
             let historyPoint = CLLocationCoordinate2D(latitude: historyData.halfwayPointLatitude, longitude: historyData.halfwayPointLongitude)
             searchInterestPlaceVC.setPin(settingPoints: settingPoints, halfwayPoint: historyPoint)

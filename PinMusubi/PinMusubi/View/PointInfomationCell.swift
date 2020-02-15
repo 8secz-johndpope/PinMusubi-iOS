@@ -10,12 +10,13 @@ import MapKit
 import UIKit
 
 /// マップ上の地点間の情報を表示するTableViewのカスタムセル
-public class PointInfomationCell: UITableViewCell {
+internal class PointInfomationCell: UITableViewCell {
     @IBOutlet private var pointNameLabel: UILabel!
 
     @IBOutlet private var transferTimeLabel: UILabel! {
         didSet {
             transferTimeLabel.text = "計測中..."
+            transferTimeLabel.isHidden = false
         }
     }
 
@@ -27,13 +28,15 @@ public class PointInfomationCell: UITableViewCell {
                 transportationGuideButton.backgroundColor = .white
             }
             transportationGuideButton.tintColor = UIColor(hex: "FA6400")
-            transportationGuideButton.layer.borderColor = UIColor(hex: "FA6400").cgColor
+            transportationGuideButton.layer.borderColor = UIColor.lightGray.cgColor
             transportationGuideButton.layer.borderWidth = 1.0
             transportationGuideButton.layer.cornerRadius = 8
             transportationGuideButton.layer.shadowOpacity = 0.5
             transportationGuideButton.layer.shadowRadius = 3
             transportationGuideButton.layer.shadowColor = UIColor.gray.cgColor
             transportationGuideButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+            transportationGuideButton.isHidden = true
+            transportationGuideButton.isEnabled = false
         }
     }
 
@@ -51,46 +54,49 @@ public class PointInfomationCell: UITableViewCell {
 
     @IBOutlet private var pinImage: UIImageView!
 
-    private var transportationGuideURLString = ""
-    private var fromStationName = ""
-    private var toStationName = ""
+    private var pointInfomation: PointInfomationEntity?
 
-    private var presenter: PointsInfomationPresenterProrocol?
+    internal weak var delegate: PointInfomationCellDelegate?
 
-    public weak var delegate: PointInfomationCellDelegate?
-
-    override public func awakeFromNib() {
+    override internal func awakeFromNib() {
         super.awakeFromNib()
-
-        presenter = PointsInfomationPresenter(view: self, modelType: PointsInfomationModel.self)
     }
 
     /// セルが選択された時の処理
     /// - Parameter selected: 選択されたかどうか
     /// - Parameter animated: アニメーションの有無
-    override public func setSelected(_ selected: Bool, animated: Bool) {
+    override internal func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
     }
 
+    internal func initPointInfomation() {
+        pointInfomation = nil
+        transferTimeLabel.text = "計測中..."
+        transportationGuideButton.isEnabled = false
+        transportationGuideButton.layer.borderColor = UIColor.lightGray.cgColor
+    }
+
+    internal func setPointInfomation(pointName: String, row: Int) {
+        pointNameLabel.text = pointName
+        setPinImage(row: row)
+    }
+
+    internal func setTransportationInformation(pointInfomation: PointInfomationEntity) {
+        self.pointInfomation = pointInfomation
+        setTravelTime(transferTime: pointInfomation.travelTime)
+        setEnabledTransferGuidButton(status: pointInfomation.transferGuideResponseStatus)
+    }
+
     /// ピン画像を設定
     /// - Parameter row: 行番号
-    public func setPinImage(row: Int) {
+    private func setPinImage(row: Int) {
         imageBackgroundView.backgroundColor = ColorDefinition.underViewColorsOnModal[row]
         guard let settingPinImage = UIImage(named: "PinOnModal" + String(row)) else { return }
         pinImage.image = settingPinImage
     }
 
-    /// ラベルの設定処理
-    /// - Parameter pointName: 地点名
-    /// - Parameter transferTime: 移動時間
-    public func setPointInfo(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, row: Int) {
-        pointNameLabel.text = settingPoint.name
-        presenter?.getTransferTime(settingPoint: settingPoint, pinPoint: pinPoint)
-        presenter?.getTransportationGuide(settingPoint: settingPoint, pinPoint: pinPoint)
-    }
-
-    public func setTransferTime(transferTime: Int) {
+    private func setTravelTime(transferTime: Int) {
         if transferTime == -1 {
             transferTimeLabel.text = "計測不可"
         } else if transferTime / 60 == 0 {
@@ -100,22 +106,17 @@ public class PointInfomationCell: UITableViewCell {
         }
     }
 
-    public func setTransportationGuideURLString(urlString: String, fromStationName: String, toStationName: String, status: ResponseStatus) {
+    private func setEnabledTransferGuidButton(status: ResponseStatus) {
         if status == .success {
-            DispatchQueue.main.async {
-                self.transportationGuideURLString = urlString
-                self.transportationGuideButton.isEnabled = true
-                self.fromStationName = fromStationName
-                self.toStationName = toStationName
-            }
+            transportationGuideButton.isEnabled = true
+            transportationGuideButton.layer.borderColor = UIColor(hex: "FA6400").cgColor
         } else {
-            DispatchQueue.main.async {
-                self.transportationGuideButton.isEnabled = false
-            }
+            transportationGuideButton.isEnabled = false
+            transportationGuideButton.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
 
-    public func changeTranspotation(selectedSegmentIndex: Int) {
+    internal func changeTranspotation(selectedSegmentIndex: Int) {
         switch selectedSegmentIndex {
         case 0:
             transferTimeLabel.isHidden = false
@@ -129,10 +130,12 @@ public class PointInfomationCell: UITableViewCell {
             break
         }
     }
+
     @IBAction private func didTapTransportationGuideButton(_ sender: Any) {
         let webView = UIStoryboard(name: "WebView", bundle: nil)
         guard let webVC = webView.instantiateInitialViewController() as? WebViewController else { return }
-        webVC.setTransportationGuideInfo(urlString: transportationGuideURLString, fromStation: fromStationName, toStation: toStationName)
+        guard let pointInfomation = pointInfomation else { return }
+        webVC.setTransportationGuideInfo(urlString: pointInfomation.transferGuideURLString, fromStation: pointInfomation.fromStationName, toStation: pointInfomation.toStationName)
         delegate?.sendWebVCInstance(webVCInstance: webVC)
     }
 }
