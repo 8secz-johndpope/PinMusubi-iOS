@@ -86,7 +86,7 @@ internal class TutorialViewController: UIViewController {
 
     private func setBackgroundMovie(pageType: PageType) {
         // Bundle Resourcesからsample.mp4を読み込んで再生
-        guard let path = Bundle.main.path(forResource: pageType.rawValue, ofType: "mov") else { return }
+        guard let path = Bundle.main.path(forResource: pageType.rawValue, ofType: "mp4") else { return }
         let player = AVPlayer(url: URL(fileURLWithPath: path))
 
         player.play()
