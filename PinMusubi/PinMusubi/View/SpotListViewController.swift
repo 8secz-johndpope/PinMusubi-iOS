@@ -14,10 +14,10 @@ import UIKit
 public class SpotListViewController: UIViewController {
     @IBOutlet private var segmentedControl: UISegmentedControl! {
         didSet {
-            segmentedControl.setTitle("飲食", forSegmentAt: 0)
-            segmentedControl.setTitle("宿泊", forSegmentAt: 1)
-            segmentedControl.setTitle("レジャー", forSegmentAt: 2)
-            segmentedControl.setTitle("駅・バス停", forSegmentAt: 3)
+            spotTypeList?.forEach {
+                guard let index = spotTypeList?.firstIndex(of: $0) else { return }
+                segmentedControl.setTitle($0.rawValue, forSegmentAt: index)
+            }
             if #available(iOS 13.0, *) {
                 segmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
             } else {
@@ -69,18 +69,43 @@ public class SpotListViewController: UIViewController {
     }
 
     private var flowLayout: CustomFlowLayout?
+    private var loadingView = LoadingView()
     private var isChangeSegmentedControl: Bool = true
+    private var allSpotList: [[SpotEntityProtocol]]?
+    private var spotTypeList: [SpotType]?
     private var settingPoints: [SettingPointEntity]?
     private var interestPoint: CLLocationCoordinate2D?
     private var favoriteButtonViewIsHidden = false
     private var spotListAnalytics = SpotListAnalyticsEntity()
+    private var presenter: SpotListPresenterProtocol?
 
     public weak var delegate: SpotListViewDelegate?
 
     public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D, address: String) {
         self.settingPoints = settingPoints
         self.interestPoint = interestPoint
+
         navigationItem.title = address
+
+        presenter = SpotListPresenter(view: self)
+        spotTypeList = [.restaurant, .hotel, .leisure, .transportation]
+        guard let presenter = presenter, let spotTypeList = spotTypeList else { return }
+        presenter.presentAllSpotList(pinPoint: interestPoint, spotTypeList: spotTypeList)
+
+        configureLoadingView()
+    }
+
+    private func configureLoadingView() {
+        guard let loadingView = UINib(nibName: "LoadingView", bundle: nil).instantiate(withOwner: LoadingView.self, options: nil).first as? LoadingView else { return }
+        loadingView.frame = view.bounds
+        self.loadingView = loadingView
+        view.addSubview(loadingView)
+    }
+
+    internal func setAllSpotList(allSpotList: [[SpotEntityProtocol]]) {
+        self.allSpotList = allSpotList
+        loadingView.removeFromSuperview()
+        collectionView.reloadData()
     }
 
     public func configureFavoriteButton() {
@@ -91,8 +116,6 @@ public class SpotListViewController: UIViewController {
         isChangeSegmentedControl = false
         let selectedIndex = segmentedControl.selectedSegmentIndex
         flowLayout?.slideView(selectedSegmentIndex: selectedIndex)
-        let feedbackGenerator = UISelectionFeedbackGenerator()
-        feedbackGenerator.selectionChanged()
     }
 
     @IBAction private func closeSpotListView(_ sender: Any) {
@@ -148,26 +171,9 @@ extension SpotListViewController: UICollectionViewDataSource {
             as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
         cell.delegate = self
 
-        switch indexPath.row {
-        case 0:
-            cell.configre(spotType: .restaurant)
-
-        case 1:
-            cell.configre(spotType: .hotel)
-
-        case 2:
-            cell.configre(spotType: .leisure)
-
-        case 3:
-            cell.configre(spotType: .transportation)
-
-        default:
-            break
+        if let settingPoints = settingPoints, let spotType = spotTypeList?[indexPath.row], let allSpotList = allSpotList {
+            cell.setSpotList(settingPoints: settingPoints, spotType: spotType, spotList: allSpotList[indexPath.row])
         }
-
-        guard let settingPoints = settingPoints else { return cell }
-        guard let interestPoint = interestPoint else { return cell }
-        cell.setSpotList(settingPoints: settingPoints, interestPoint: interestPoint)
         return cell
     }
 }
@@ -257,4 +263,12 @@ extension SpotListViewController: FavoriteRegisterModalViewDoneDelegate {
     public func showDoneRegisterView() {
         delegate?.showDoneRegisterView()
     }
+}
+
+/// スポットの形式
+public enum SpotType: String {
+    case restaurant = "飲食"
+    case hotel = "宿泊"
+    case leisure = "レジャー"
+    case transportation = "駅・バス停"
 }

@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-public class TravelTimePanelCell: UITableViewCell {
+internal class TravelTimePanelCell: UITableViewCell {
     @IBOutlet private var panelView: UIView! {
         didSet {
             panelView.layer.cornerRadius = 15
@@ -64,19 +64,19 @@ public class TravelTimePanelCell: UITableViewCell {
 
     private var presenter: TravelTimePanelPresenterProtcol?
 
-    public weak var delegate: TravelTimePanelCellDelegate?
+    internal weak var delegate: TravelTimePanelCellDelegate?
 
-    override public func awakeFromNib() {
+    override internal func awakeFromNib() {
         super.awakeFromNib()
         presenter = TravelTimePanelPresenter(view: self, modelType: TravelTimeModel.self)
     }
 
-    override public func setSelected(_ selected: Bool, animated: Bool) {
+    override internal func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .none
     }
 
-    public func configureContents(row: Int, settingPoint: SettingPointEntity, spotPoint: CLLocationCoordinate2D) {
+    internal func configureContents(row: Int, settingPoint: SettingPointEntity, spotPoint: CLLocationCoordinate2D) {
         panelView.layer.borderColor = ColorDefinition.settingPointColors[row].cgColor
         tagView.backgroundColor = ColorDefinition.settingPointColors[row]
         settingNameLabel.text = settingPoint.name
@@ -86,7 +86,7 @@ public class TravelTimePanelCell: UITableViewCell {
         presenter?.getTransportationGuide(settingPoint: settingPoint, pinPoint: spotPoint)
     }
 
-    public func setWalkingTime(walkingTime: Int) {
+    internal func setWalkingTime(walkingTime: Int) {
         if walkingTime == -1 {
             walkingTimeLabel.text = "計測不可"
         } else if walkingTime == -2 {
@@ -98,7 +98,7 @@ public class TravelTimePanelCell: UITableViewCell {
         }
     }
 
-    public func setDrivingTime(drivingTime: Int) {
+    internal func setDrivingTime(drivingTime: Int) {
         if drivingTime == -1 {
             drivingTimeLabel.text = "計測不可"
         } else if drivingTime == -2 {
@@ -110,7 +110,7 @@ public class TravelTimePanelCell: UITableViewCell {
         }
     }
 
-    public func setTransportationGuide(urlString: String, fromStationName: String, toStationName: String, status: ResponseStatus) {
+    internal func setTransportationGuide(urlString: String, fromStationName: String, toStationName: String, status: ResponseStatus) {
         if status == .success {
             DispatchQueue.main.async {
                 self.transportationGuideURLString = urlString

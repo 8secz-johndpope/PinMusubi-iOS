@@ -149,8 +149,13 @@ extension MyDetailsDataViewController: MyDetailsDataActionViewDelegate {
             )
 
             var settingPoints = [SettingPointEntity]()
-            for settingPoint in favoriteData.settingPointEntityList {
-                settingPoints.append(settingPoint)
+            favoriteData.settingPointEntityList.forEach {
+                let newSettingPoint = SettingPointEntity()
+                newSettingPoint.name = $0.name
+                newSettingPoint.address = $0.address
+                newSettingPoint.latitude = $0.latitude
+                newSettingPoint.longitude = $0.longitude
+                settingPoints.append(newSettingPoint)
             }
             let favoritePoint = CLLocationCoordinate2D(latitude: favoriteData.latitude, longitude: favoriteData.longitude)
 

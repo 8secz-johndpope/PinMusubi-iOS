@@ -8,31 +8,15 @@
 
 import CoreLocation
 
-/// ホテル情報を取得するModelのProtcol
-public protocol LeisureModelProtocol {
-    /// コンストラクタ
-    init()
-
-    /// ホテル情報を取得
-    /// - Parameter pinPoint: ピンの位置情報
-    /// - Parameter completion: 完了ハンドラ
-    func fetchLeisureList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([Feature], ResponseStatus) -> Void)
-}
-
-/// ホテル情報を取得するModel
-public class LeisureModel: LeisureModelProtocol {
+internal class LeisureModel: SpotModelProtocol {
     private var appid = ""
 
-    /// コンストラクタ
-    public required init() {
+    internal required init() {
         guard let appid = KeyManager().getValue(key: "Yolp API Key") as? String else { return }
         self.appid = appid
     }
 
-    /// レジャー情報を取得
-    /// - Parameter pinPoint: ピンの位置情報
-    /// - Parameter completion: 完了ハンドラ
-    public func fetchLeisureList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([Feature], ResponseStatus) -> Void) {
+    internal func fetchSpotList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
         let url = "https://map.yahooapis.jp/search/local/V1/localSearch"
         guard var urlComponents = URLComponents(string: url) else { return }
         urlComponents.queryItems = [
@@ -49,7 +33,7 @@ public class LeisureModel: LeisureModelProtocol {
         ]
         guard let urlRequest = urlComponents.url else { return }
 
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
             guard let jsonData = data else { return }
             do {
                 let leisureInfo = try JSONDecoder().decode(LeisureEntity.self, from: jsonData)
@@ -57,10 +41,9 @@ public class LeisureModel: LeisureModelProtocol {
                 for feature in leisureInfo.feature where !feature.property.genre[0].code.contains("0304") {
                     features.append(feature)
                 }
-                completion(features, .success)
+                completion(features, .leisure)
             } catch {
-                print(error)
-                completion([], .error)
+                completion([], .leisure)
             }
         }
         task.resume()
