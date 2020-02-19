@@ -11,7 +11,7 @@ import MapKit
 import UIKit
 
 /// マップ上の地点間の情報を表示するビュー
-public class PointsInfomationAnnotationView: UIView {
+internal class PointsInfomationAnnotationView: UIView {
     @IBOutlet private var pointsInfoScrollView: UIScrollView! {
         didSet {
             let screenSize = UIScreen.main.bounds.size
@@ -74,17 +74,29 @@ public class PointsInfomationAnnotationView: UIView {
         }
     }
 
+    private var presenter: PointsInfomationPresenterProrocol?
     private var settingPoints = [SettingPointEntity]()
     private var pinPoint = CLLocationCoordinate2D()
+    private var pointInfomationList = [PointInfomationEntity]()
 
-    public weak var delegate: PointInfomationAnnotationViewDelegate?
+    internal weak var delegate: PointInfomationAnnotationViewDelegate?
 
     /// 地点情報の設定処理
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    public func setPointInfo(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D) {
+    internal func setPointInfo(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D) {
         self.settingPoints = settingPoints
         self.pinPoint = pinPoint
+
+        pointInfomationList = [PointInfomationEntity]()
+        pointsInfoTableView.reloadData()
+
+        presenter = PointsInfomationPresenter(view: self, modelType: PointsInfomationModel.self)
+        presenter?.presentPointInfomationList(settingPoints: settingPoints, pinPoint: pinPoint)
+    }
+
+    internal func setPointInfomationList(pointInfomationList: [PointInfomationEntity]) {
+        self.pointInfomationList = pointInfomationList
         pointsInfoTableView.reloadData()
     }
 
@@ -103,41 +115,43 @@ public class PointsInfomationAnnotationView: UIView {
         dynamicLinkManager.createShareLink(settingPoints: settingPoints, pinPoint: pinPoint)
         dynamicLinkManager.createDynamicLink { dynamicLink in
             guard let dynamicLink = dynamicLink else { return }
-            self.showShareActivity(dynamicLink: dynamicLink)
+            let activityItems = [dynamicLink] as [Any]
+            let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+            self.delegate?.showShareActivity(activityVC: activityVC)
         }
     }
 
     @IBAction private func didChangeSegmentedControl(_ sender: Any) {
         pointsInfoTableView.reloadData()
-        let feedbackGenerator = UISelectionFeedbackGenerator()
-        feedbackGenerator.selectionChanged()
-    }
-
-    private func showShareActivity(dynamicLink: URL) {
-        let activityItems = [dynamicLink] as [Any]
-        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        delegate?.showShareActivity(activityVC: activityVC)
     }
 }
 
 /// TableViewに関するDelegateメソッド
 extension PointsInfomationAnnotationView: UITableViewDelegate, UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingPoints.count
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PointInfomationCell") as? PointInfomationCell else { return UITableViewCell() }
-        cell.setPointInfo(settingPoint: settingPoints[indexPath.row], pinPoint: pinPoint, row: indexPath.row)
-        cell.setPinImage(row: indexPath.row)
-        cell.changeTranspotation(selectedSegmentIndex: transportationSegmentedControl.selectedSegmentIndex)
         cell.delegate = self
+        cell.setPointInfomation(pointName: settingPoints[row].name, row: row)
+        cell.changeTranspotation(selectedSegmentIndex: transportationSegmentedControl.selectedSegmentIndex)
+
+        if pointInfomationList.isEmpty {
+            cell.initPointInfomation()
+        } else {
+            cell.setTransportationInformation(pointInfomation: pointInfomationList[row])
+        }
+
         return cell
     }
 }
 
 extension PointsInfomationAnnotationView: PointInfomationCellDelegate {
-    public func sendWebVCInstance(webVCInstance: WebViewController) {
+    internal func sendWebVCInstance(webVCInstance: WebViewController) {
         delegate?.showTransportationGuideWebPage(webVCInstance: webVCInstance)
     }
 }

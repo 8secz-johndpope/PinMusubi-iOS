@@ -8,34 +8,18 @@
 
 import CoreLocation
 
-/// ホテル情報を取得するModelのProtcol
-public protocol HotelModelProtocol {
-    /// コンストラクタ
-    init()
-
-    /// ホテル情報を取得
-    /// - Parameter pinPoint: ピンの位置情報
-    /// - Parameter completion: 完了ハンドラ
-    func fetchHotelList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([Hotels], ResponseStatus) -> Void)
-}
-
-/// ホテル情報を取得するModel
-public class HotelModel: HotelModelProtocol {
+internal class HotelModel: SpotModelProtocol {
     private var applicationId = ""
     private var affiliateId = ""
 
-    /// コンストラクタ
-    public required init() {
+    internal required init() {
         guard let applicationId = KeyManager().getValue(key: "Rakuten API Key") as? String else { return }
         guard let affiliateId = KeyManager().getValue(key: "Rakuten Affiliate Id") as? String else { return }
         self.applicationId = applicationId
         self.affiliateId = affiliateId
     }
 
-    /// ホテル情報を取得
-    /// - Parameter pinPoint: ピンの位置情報
-    /// - Parameter completion: 完了ハンドラ
-    public func fetchHotelList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([Hotels], ResponseStatus) -> Void) {
+    internal func fetchSpotList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
         let url = "https://app.rakuten.co.jp/services/api/Travel/SimpleHotelSearch/20170426"
         guard var urlComponents = URLComponents(string: url) else { return }
         urlComponents.queryItems = [
@@ -51,14 +35,13 @@ public class HotelModel: HotelModelProtocol {
         ]
         guard let urlRequest = urlComponents.url else { return }
 
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
             guard let jsonData = data else { return }
             do {
                 let hotelInfo = try JSONDecoder().decode(HotelEntity.self, from: jsonData)
-                completion(hotelInfo.hotels, .success)
+                completion(hotelInfo.hotels, .hotel)
             } catch {
-                print(error)
-                completion([], .error)
+                completion([], .hotel)
             }
         }
         task.resume()

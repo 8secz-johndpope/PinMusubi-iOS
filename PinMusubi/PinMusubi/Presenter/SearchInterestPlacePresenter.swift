@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-public protocol SearchInterestPlacePresenterProtocol: AnyObject {
+internal protocol SearchInterestPlacePresenterProtocol: AnyObject {
     init(vc: SearchInterestPlaceViewController, modelType model: SearchInterestPlaceModelProtocol.Type)
 
     func setSearchHistrory(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) -> Bool
@@ -16,21 +16,21 @@ public protocol SearchInterestPlacePresenterProtocol: AnyObject {
     func getAddress(interestPoint: CLLocationCoordinate2D, complete: @escaping (String) -> Void)
 }
 
-public class SearchInterestPlacePresenter: SearchInterestPlacePresenterProtocol {
+internal class SearchInterestPlacePresenter: SearchInterestPlacePresenterProtocol {
     private weak var vc: SearchInterestPlaceViewController?
     private let model: SearchInterestPlaceModelProtocol?
 
-    public required init(vc: SearchInterestPlaceViewController, modelType model: SearchInterestPlaceModelProtocol.Type) {
+    internal required init(vc: SearchInterestPlaceViewController, modelType model: SearchInterestPlaceModelProtocol.Type) {
         self.vc = vc
         self.model = model.init()
     }
 
-    public func setSearchHistrory(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) -> Bool {
+    internal func setSearchHistrory(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D) -> Bool {
         guard let model = model else { return false }
         return  model.setSearchHistory(settingPoints: settingPoints, interestPoint: interestPoint)
     }
 
-    public func getAddress(interestPoint: CLLocationCoordinate2D, complete: @escaping (String) -> Void) {
+    internal func getAddress(interestPoint: CLLocationCoordinate2D, complete: @escaping (String) -> Void) {
         guard let model = model else { return }
         model.getAddress(point: interestPoint) { address, _ in
             complete(address)

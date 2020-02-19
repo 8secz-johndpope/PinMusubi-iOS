@@ -13,7 +13,7 @@ import MapKit
 import UIKit
 
 /// 興味のある場所を探すView
-public class SearchInterestPlaceViewController: UIViewController {
+internal class SearchInterestPlaceViewController: UIViewController {
     @IBOutlet private var searchMapView: MKMapView! {
         didSet {
             searchMapView.delegate = self
@@ -34,9 +34,9 @@ public class SearchInterestPlaceViewController: UIViewController {
     private var topAdMobView: GADBannerView?
     private var bottomAdMobView: GADBannerView?
 
-    public var presenter: SearchInterestPlacePresenterProtocol?
+    internal var presenter: SearchInterestPlacePresenterProtocol?
 
-    override public func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
 
         presenter = SearchInterestPlacePresenter(vc: self, modelType: SearchInterestPlaceModel.self)
@@ -57,7 +57,7 @@ public class SearchInterestPlaceViewController: UIViewController {
         registerTextFieldNotification()
     }
 
-    override public func viewWillLayoutSubviews() {
+    override internal func viewWillLayoutSubviews() {
         if topAdMobView == nil || bottomAdMobView == nil {
             configureTopAdMobView()
             configureBottomAdMobView()
@@ -140,7 +140,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
     /// - Parameter view: view
     /// - Parameter newState: newState
     /// - Parameter oldState: oldState
-    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+    internal func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
         if newState == .ending {
             guard let relesePoint = view.annotation?.coordinate else { return }
             self.halfwayPoint = relesePoint
@@ -153,12 +153,11 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
     /// アノテーションの設定
     /// - Parameter mapView: searchMapView
     /// - Parameter annotation: annotation
-    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "halfwayPoint")
         pinAnnotationView.isDraggable = true
         pinAnnotationView.canShowCallout = true
         pinAnnotationView.detailCalloutAccessoryView = pointsInfomationAnnotationView
-        pointsInfomationAnnotationView?.setPointInfo(settingPoints: settingPoints, pinPoint: halfwayPoint)
         pointsInfomationAnnotationView?.delegate = self
         return pinAnnotationView
     }
@@ -166,7 +165,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
     /// overlayを追加するイベント発生時に行うoverlayの設定
     /// - Parameter mapView: searchMapView
     /// - Parameter overlay: overlay(MKPolyline or MKCircle)
-    public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    internal func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer: MKOverlayPathRenderer
         switch overlay {
         case is MKPolyline:
@@ -189,7 +188,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
     }
 
     /// 地図の表示範囲変更後
-    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    internal func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         searchMapView.selectAnnotation(annotation, animated: true)
         // 初期化
         searchMapView.removeOverlays(circles)
@@ -209,7 +208,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
     /// 地点間に線を描写
     /// - Parameter settingPoints: 設定地点
     /// - Parameter centerPoint: 中心となる地点
-    public func setLine(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
+    internal func setLine(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) {
         // overlayの初期化
         searchMapView.removeOverlays(lines)
         lines.removeAll()
@@ -227,7 +226,7 @@ extension SearchInterestPlaceViewController: MKMapViewDelegate {
     /// 縮尺を取得
     /// - Parameter settingPoints: 設定地点
     /// - Parameter centerPoint: 中心となる地点
-    public func getScale(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) -> CLLocationDegrees {
+    internal func getScale(settingPoints: [SettingPointEntity], centerPoint: CLLocationCoordinate2D) -> CLLocationDegrees {
         var maxDistance = 0.0
         let centerPointLocation = CLLocation(latitude: centerPoint.latitude, longitude: centerPoint.longitude)
         for settingPoint in settingPoints {
@@ -251,19 +250,19 @@ extension SearchInterestPlaceViewController: FloatingPanelControllerDelegate {
     /// モーダルの設定
     /// - Parameter vc: FloatingPanelController
     /// - Parameter newCollection: UITraitCollection
-    public func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
+    internal func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
         return CustomFloatingPanelLayout()
     }
 
     /// モーダルをドラッグ時、キーボードを下げる
     /// - Parameter vc: FloatingPanelController
-    public func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
+    internal func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
         topAdMobView?.isHidden = true
         bottomAdMobView?.isHidden = true
         view.endEditing(true)
     }
 
-    public func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
+    internal func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         switch vc.position {
         case .tip:
             topAdMobView?.isHidden = true
@@ -288,7 +287,7 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
     /// マップにピンを設定
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter halfwayPoint: 中間地点情報
-    public func setPin(settingPoints: [SettingPointEntity], halfwayPoint: CLLocationCoordinate2D) {
+    internal func setPin(settingPoints: [SettingPointEntity], halfwayPoint: CLLocationCoordinate2D) {
         // クラス変数に代入
         self.settingPoints = settingPoints
         self.halfwayPoint = halfwayPoint
@@ -318,11 +317,11 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
         dragPinTimes = 0
     }
 
-    public func moveModalToFull() {
+    internal func moveModalToFull() {
         floatingPanelController.move(to: .full, animated: true)
     }
 
-    public func showSearchCompleterView(inputEditingCell: SettingBasePointCell) {
+    internal func showSearchCompleterView(inputEditingCell: SettingBasePointCell) {
         let searchCompleterSV = UIStoryboard(name: "SearchCompleterViewController", bundle: nil)
         guard let searchCompleterNC = searchCompleterSV.instantiateInitialViewController() as? SearchCompleterNavigationController else { return }
         guard let searchCompleterVC = searchCompleterNC.topViewController as? SearchCompleterViewController else { return }
@@ -332,7 +331,7 @@ extension SearchInterestPlaceViewController: SettingBasePointsViewDelegate {
 }
 
 extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelegate {
-    public func searchSpotList() {
+    internal func searchSpotList() {
         guard let presenter = presenter else { return }
         if presenter.setSearchHistrory(settingPoints: settingPoints, interestPoint: halfwayPoint) {
             Analytics.logEvent(
@@ -346,11 +345,11 @@ extension SearchInterestPlaceViewController: PointInfomationAnnotationViewDelega
         }
     }
 
-    public func showShareActivity(activityVC: UIActivityViewController) {
+    internal func showShareActivity(activityVC: UIActivityViewController) {
         present(activityVC, animated: true, completion: nil)
     }
 
-    public func showTransportationGuideWebPage(webVCInstance: WebViewController) {
+    internal func showTransportationGuideWebPage(webVCInstance: WebViewController) {
         present(webVCInstance, animated: true, completion: nil)
     }
 }
@@ -369,11 +368,11 @@ extension SearchInterestPlaceViewController: SpotListViewDelegate {
         }
     }
 
-    public func closeSpotListView() {
+    internal func closeSpotListView() {
         spotListNC?.dismiss(animated: true, completion: nil)
     }
 
-    public func showDoneRegisterView() {
+    internal func showDoneRegisterView() {
         floatingPanelController.move(to: .tip, animated: true)
         spotListNC?.dismiss(animated: true, completion: {
             let doneRegisterSV = UIStoryboard(name: "DoneRegisterViewController", bundle: nil)
@@ -387,9 +386,9 @@ extension SearchInterestPlaceViewController: SpotListViewDelegate {
 }
 
 /// 通知設定
-public extension SearchInterestPlaceViewController {
+internal extension SearchInterestPlaceViewController {
     /// 通知登録
-    func registerTextFieldNotification() {
+    private func registerTextFieldNotification() {
         // 通知センターの取得
         let notification = NotificationCenter.default
         // キーボード登場通知の設定
@@ -411,20 +410,20 @@ public extension SearchInterestPlaceViewController {
     /// キーボード登場時にmodalの高さを制御
     /// - Parameter notification: 通知設定
     @objc
-    func willShowKeyboard(_ notification: Notification) {
+    private func willShowKeyboard(_ notification: Notification) {
         floatingPanelController.move(to: .full, animated: true)
     }
 
     /// 完了ボタン押下時にmodalの高さを制御
     /// - Parameter notification: 通知設定
     @objc
-    func tappedDoneSettingView(_ notification: Notification) {
+    private func tappedDoneSettingView(_ notification: Notification) {
         floatingPanelController.move(to: .tip, animated: true)
     }
 }
 
 extension SearchInterestPlaceViewController: UIViewControllerTransitioningDelegate {
-    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+    internal func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return DoneRegisterPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

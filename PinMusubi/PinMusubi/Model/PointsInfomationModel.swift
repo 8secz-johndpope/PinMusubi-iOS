@@ -9,7 +9,7 @@
 import MapKit
 
 /// マップ上の地点間の情報を処理するモデルのプロトコル
-public protocol PointsInfomationModelProtocol {
+internal protocol PointsInfomationModelProtocol {
     /// コンストラクタ
     init()
 
@@ -25,11 +25,11 @@ public protocol PointsInfomationModelProtocol {
 }
 
 /// マップ上の地点間の情報を処理するモデル
-public class PointsInfomationModel: PointsInfomationModelProtocol {
+internal class PointsInfomationModel: PointsInfomationModelProtocol {
     private var ekispertKey = ""
 
     /// コンストラクタ
-    public required init() {
+    internal required init() {
         guard let key = KeyManager().getValue(key: "Ekispert API Key") as? String else { return }
         self.ekispertKey = key
     }
@@ -38,7 +38,7 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
     /// - Parameter settingPoint: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
     /// - Parameter complete: 完了ハンドラ
-    public func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (Int) -> Void) {
+    internal func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (Int) -> Void) {
         // PlaceMarkに出発地と目的地の座標を設定
         let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
         let fromPlace = MKPlacemark(coordinate: fromCoordinate, addressDictionary: nil)
@@ -66,41 +66,42 @@ public class PointsInfomationModel: PointsInfomationModelProtocol {
         }
     }
 
-    public func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String, ResponseStatus) -> Void) {
+    internal func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String, ResponseStatus) -> Void) {
         let fromPoint = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
         let toPoint = pinPoint
 
         var fromStation = ""
         var toStation = ""
+        let stationModel = TransportationModel()
 
-        let stationModel = StationModel()
-        stationModel.fetchStationList(pinPoint: fromPoint) { fromStations, status in
-            if status == .success && !fromStations.isEmpty {
-                self.fetchCorrectStationName(stationName: fromStations[0].name, point: fromPoint) { fromStationName, status in
-                    if status == .success {
-                        fromStation = fromStationName
-                        stationModel.fetchStationList(pinPoint: toPoint) { toStations, status in
-                            if status == .success && !toStations.isEmpty {
-                                self.fetchCorrectStationName(stationName: toStations[0].name, point: toPoint) { toStationName, status in
-                                    if status == .success {
-                                        toStation = toStationName
-                                        self.fetchTransferGuide(fromStation: fromStation, toStation: toStation) { urlString, status in
-                                            complete(urlString, fromStation, toStation, status)
-                                        }
-                                    } else {
-                                        complete("ピンの近くの駅が見つかりませんでした。", fromStation, toStation, .error)
-                                    }
-                                }
-                            } else {
-                                complete("ピンの近くの駅が見つかりませんでした。", fromStation, toStation, .error)
-                            }
-                        }
-                    } else {
-                        complete("「\(settingPoint.name)」近くの駅が見つかりませんでした。", fromStation, toStation, .error)
-                    }
+        let dispatchGroup = DispatchGroup()
+        let dispatchQueue = DispatchQueue(label: "transportationGuideQueue", attributes: .concurrent)
+
+        dispatchGroup.enter()
+        dispatchQueue.async(group: dispatchGroup) { [weak self] in
+            stationModel.fetchStationList(pinPoint: fromPoint) {
+                guard let fromStationList = $0 as? [Station], !fromStationList.isEmpty else { return }
+                self?.fetchCorrectStationName(stationName: fromStationList[0].name, point: fromPoint) {
+                    fromStation = $1 == .success ? $0 : ""
+                    dispatchGroup.leave()
                 }
-            } else {
-                complete("「\(settingPoint.name)」近くの駅が見つかりませんでした。", fromStation, toStation, .error)
+            }
+        }
+
+        dispatchGroup.enter()
+        dispatchQueue.async(group: dispatchGroup) { [weak self] in
+            stationModel.fetchStationList(pinPoint: toPoint) {
+                guard let toStationList = $0 as? [Station], !toStationList.isEmpty else { return }
+                self?.fetchCorrectStationName(stationName: toStationList[0].name, point: toPoint) {
+                    toStation = $1 == .success ? $0 : ""
+                    dispatchGroup.leave()
+                }
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.fetchTransferGuide(fromStation: fromStation, toStation: toStation) {
+                complete($0, fromStation, toStation, $1)
             }
         }
     }
