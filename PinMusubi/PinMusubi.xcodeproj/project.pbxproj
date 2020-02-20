@@ -496,17 +496,12 @@
 			path = gif;
 			sourceTree = "<group>";
 		};
-		915A44A6232E2A7D006A6891 /* DAO */ = {
+		915A44A6232E2A7D006A6891 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */,
-				91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */,
-				915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */,
-				915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */,
-				9170D3D423A26B0600977DB7 /* InputHistoryAccessor.swift */,
-				9107A06C23A39C5E00F1DD77 /* FavoriteInputWrapperAccessor.swift */,
+				9170F14823FE741E002FB702 /* Accessor */,
 			);
-			path = DAO;
+			path = DB;
 			sourceTree = "<group>";
 		};
 		915A44AF232F316A006A6891 /* DAO */ = {
@@ -527,6 +522,19 @@
 				9170F14123F9B7DD002FB702 /* spot.mp4 */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		9170F14823FE741E002FB702 /* Accessor */ = {
+			isa = PBXGroup;
+			children = (
+				915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */,
+				91D7FED223703F3C00520CAD /* FavoriteSpotAccessor.swift */,
+				915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */,
+				915A44AD232E530E006A6891 /* SearchHistoryAccessor.swift */,
+				9170D3D423A26B0600977DB7 /* InputHistoryAccessor.swift */,
+				9107A06C23A39C5E00F1DD77 /* FavoriteInputWrapperAccessor.swift */,
+			);
+			path = Accessor;
 			sourceTree = "<group>";
 		};
 		9197D63E23250D2400A5C558 /* Entity */ = {
@@ -640,7 +648,7 @@
 				9107A08523AAEAED00F1DD77 /* PinMusubi.entitlements */,
 				91B3EB612301326600430D41 /* Common */,
 				9197D63E23250D2400A5C558 /* Entity */,
-				915A44A6232E2A7D006A6891 /* DAO */,
+				915A44A6232E2A7D006A6891 /* DB */,
 				91B3EB602301325100430D41 /* Model */,
 				91B3EB5E2301322200430D41 /* View */,
 				91B3EB5F2301323800430D41 /* Presenter */,
