@@ -12,7 +12,7 @@ struct HotpepperResults<Item: Decodable>: Decodable {
     let resultsAvailable: Int?
     let resultsReturned: String?
     let resultsStart: Int?
-    let items: [Item]?
+    let shop: [Item]?
     let error: HotpepperError?
 
     enum CodingKeys: String, CodingKey {
@@ -20,7 +20,7 @@ struct HotpepperResults<Item: Decodable>: Decodable {
         case resultsAvailable = "results_available"
         case resultsReturned = "results_returned"
         case resultsStart = "results_start"
-        case items = "shop"
+        case shop
         case error
     }
 }

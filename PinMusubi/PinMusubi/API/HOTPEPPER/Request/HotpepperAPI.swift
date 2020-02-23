@@ -9,7 +9,7 @@
 import Foundation
 
 enum HotpepperAPI {
-    struct SearchGourmet: HotpepperRequest {
+    struct GourmetSearch: HotpepperRequest {
         let keyword: String?
         let id: String?
         let latitude: String?

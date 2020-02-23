@@ -115,6 +115,18 @@
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
 		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
 		919E6F2024017F6000CF8161 /* HotpepperClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F1F24017F6000CF8161 /* HotpepperClientTests.swift */; };
+		919E6F2624022EF800CF8161 /* RakutenTravelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F2524022EF800CF8161 /* RakutenTravelResponse.swift */; };
+		919E6F282402327E00CF8161 /* RakutenTravelPagingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F272402327E00CF8161 /* RakutenTravelPagingInfo.swift */; };
+		919E6F2C2402338A00CF8161 /* RakutenTravelHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F2B2402338A00CF8161 /* RakutenTravelHotel.swift */; };
+		919E6F2E2402349E00CF8161 /* RakutenTravelHotelBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F2D2402349E00CF8161 /* RakutenTravelHotelBasicInfo.swift */; };
+		919E6F302402352200CF8161 /* RakutenTravelHotelRatingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F2F2402352200CF8161 /* RakutenTravelHotelRatingInfo.swift */; };
+		919E6F322402375A00CF8161 /* RakutenTravelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F312402375A00CF8161 /* RakutenTravelAPI.swift */; };
+		919E6F342402376E00CF8161 /* RakutenTravelAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F332402376E00CF8161 /* RakutenTravelAPIError.swift */; };
+		919E6F36240237F600CF8161 /* RakutenTravelClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F35240237F600CF8161 /* RakutenTravelClientError.swift */; };
+		919E6F382402383C00CF8161 /* RakutenTravelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F372402383C00CF8161 /* RakutenTravelRequest.swift */; };
+		919E6F3A2402410500CF8161 /* RakutenTravelRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F392402410500CF8161 /* RakutenTravelRequestParameter.swift */; };
+		919E6F3C2402427100CF8161 /* RakutenTravelClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F3B2402427100CF8161 /* RakutenTravelClient.swift */; };
+		919E6F3E2402467900CF8161 /* RakutenTravelClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F3D2402467900CF8161 /* RakutenTravelClientTests.swift */; };
 		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
@@ -356,6 +368,18 @@
 		9197D6572325396900A5C558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9197D65E23253ADB00A5C558 /* SettingBasePointsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModelTests.swift; sourceTree = "<group>"; };
 		919E6F1F24017F6000CF8161 /* HotpepperClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClientTests.swift; sourceTree = "<group>"; };
+		919E6F2524022EF800CF8161 /* RakutenTravelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelResponse.swift; sourceTree = "<group>"; };
+		919E6F272402327E00CF8161 /* RakutenTravelPagingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelPagingInfo.swift; sourceTree = "<group>"; };
+		919E6F2B2402338A00CF8161 /* RakutenTravelHotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelHotel.swift; sourceTree = "<group>"; };
+		919E6F2D2402349E00CF8161 /* RakutenTravelHotelBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelHotelBasicInfo.swift; sourceTree = "<group>"; };
+		919E6F2F2402352200CF8161 /* RakutenTravelHotelRatingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelHotelRatingInfo.swift; sourceTree = "<group>"; };
+		919E6F312402375A00CF8161 /* RakutenTravelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelAPI.swift; sourceTree = "<group>"; };
+		919E6F332402376E00CF8161 /* RakutenTravelAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelAPIError.swift; sourceTree = "<group>"; };
+		919E6F35240237F600CF8161 /* RakutenTravelClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelClientError.swift; sourceTree = "<group>"; };
+		919E6F372402383C00CF8161 /* RakutenTravelRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelRequest.swift; sourceTree = "<group>"; };
+		919E6F392402410500CF8161 /* RakutenTravelRequestParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelRequestParameter.swift; sourceTree = "<group>"; };
+		919E6F3B2402427100CF8161 /* RakutenTravelClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelClient.swift; sourceTree = "<group>"; };
+		919E6F3D2402467900CF8161 /* RakutenTravelClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelClientTests.swift; sourceTree = "<group>"; };
 		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -578,9 +602,10 @@
 		9170F14923FE77C4002FB702 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				9170F14A23FE9F27002FB702 /* HOTPEPPER */,
+				919E6F212402269F00CF8161 /* RakutenTravel */,
 				9170F14E23FEA04E002FB702 /* HTTPMethod.swift */,
 				911C60EA240169F3005EC42B /* APIResult.swift */,
-				9170F14A23FE9F27002FB702 /* HOTPEPPER */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -588,10 +613,10 @@
 		9170F14A23FE9F27002FB702 /* HOTPEPPER */ = {
 			isa = PBXGroup;
 			children = (
-				911C60EC24016A5E005EC42B /* HotpepperClient.swift */,
 				9170F14B23FE9FB9002FB702 /* Request */,
 				9170F14C23FE9FD2002FB702 /* Response */,
 				9170F14D23FE9FEB002FB702 /* Error */,
+				911C60EC24016A5E005EC42B /* HotpepperClient.swift */,
 			);
 			path = HOTPEPPER;
 			sourceTree = "<group>";
@@ -697,9 +722,68 @@
 		919E6F1E24017EF900CF8161 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				919E6F1F24017F6000CF8161 /* HotpepperClientTests.swift */,
+				919E6F3F2402468600CF8161 /* HOTPEPPER */,
+				919E6F402402469900CF8161 /* RakutenTravel */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		919E6F212402269F00CF8161 /* RakutenTravel */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F22240228B700CF8161 /* Request */,
+				919E6F23240228C200CF8161 /* Response */,
+				919E6F24240228CC00CF8161 /* Error */,
+				919E6F3B2402427100CF8161 /* RakutenTravelClient.swift */,
+			);
+			path = RakutenTravel;
+			sourceTree = "<group>";
+		};
+		919E6F22240228B700CF8161 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F372402383C00CF8161 /* RakutenTravelRequest.swift */,
+				919E6F312402375A00CF8161 /* RakutenTravelAPI.swift */,
+				919E6F392402410500CF8161 /* RakutenTravelRequestParameter.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		919E6F23240228C200CF8161 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F2524022EF800CF8161 /* RakutenTravelResponse.swift */,
+				919E6F272402327E00CF8161 /* RakutenTravelPagingInfo.swift */,
+				919E6F2B2402338A00CF8161 /* RakutenTravelHotel.swift */,
+				919E6F2D2402349E00CF8161 /* RakutenTravelHotelBasicInfo.swift */,
+				919E6F2F2402352200CF8161 /* RakutenTravelHotelRatingInfo.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		919E6F24240228CC00CF8161 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F332402376E00CF8161 /* RakutenTravelAPIError.swift */,
+				919E6F35240237F600CF8161 /* RakutenTravelClientError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		919E6F3F2402468600CF8161 /* HOTPEPPER */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F1F24017F6000CF8161 /* HotpepperClientTests.swift */,
+			);
+			path = HOTPEPPER;
+			sourceTree = "<group>";
+		};
+		919E6F402402469900CF8161 /* RakutenTravel */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F3D2402467900CF8161 /* RakutenTravelClientTests.swift */,
+			);
+			path = RakutenTravel;
 			sourceTree = "<group>";
 		};
 		91A4111A2333C09400AF7897 /* xib */ = {
@@ -1332,6 +1416,7 @@
 				911B88B92395EF8C0030708E /* HotelModelTests.swift in Sources */,
 				911B88BA2395EF8C0030708E /* LeisureModelTests.swift in Sources */,
 				911B88BB2395EF8C0030708E /* StationModelTests.swift in Sources */,
+				919E6F3E2402467900CF8161 /* RakutenTravelClientTests.swift in Sources */,
 				911B88BC2395EF8C0030708E /* BusStopTests.swift in Sources */,
 				911B88B22395EF770030708E /* PinMusubiTests.swift in Sources */,
 			);
@@ -1350,6 +1435,9 @@
 				911B88C02396A0250030708E /* SettingBasePointsViewAdDelegate.swift in Sources */,
 				91A411172332764300AF7897 /* SettingBasePointsView.swift in Sources */,
 				91C05BD6236F2675006F8A5A /* FavoriteRegisterPresentationController.swift in Sources */,
+				919E6F2624022EF800CF8161 /* RakutenTravelResponse.swift in Sources */,
+				919E6F36240237F600CF8161 /* RakutenTravelClientError.swift in Sources */,
+				919E6F3C2402427100CF8161 /* RakutenTravelClient.swift in Sources */,
 				915556F7236AEEE300097D73 /* SpotDetailsViewController.swift in Sources */,
 				91A411232335066700AF7897 /* SettingBasePointCell.swift in Sources */,
 				9162288B236CF6CE00F009DB /* TravelTimeModel.swift in Sources */,
@@ -1369,6 +1457,7 @@
 				9170F15323FEAD45002FB702 /* HotpepperShop.swift in Sources */,
 				91C64A4E2371AB2B0046E7E7 /* SettingViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
+				919E6F382402383C00CF8161 /* RakutenTravelRequest.swift in Sources */,
 				91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */,
 				91D554B423F264D500B06467 /* TutorialViewController.swift in Sources */,
 				91D1CAB02376563B0066F644 /* MyDetailsDataHeaderViewController.swift in Sources */,
@@ -1376,9 +1465,11 @@
 				91D7FED52370404000520CAD /* FavoriteSpotModel.swift in Sources */,
 				91D7FEDC237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift in Sources */,
 				91D7FED12370348500520CAD /* FavoriteSpotEntity.swift in Sources */,
+				919E6F282402327E00CF8161 /* RakutenTravelPagingInfo.swift in Sources */,
 				9107A06F23A3A25700F1DD77 /* FavoriteInputModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				91EEA8022377941E00824BBB /* MyDetailsDataActionViewDelegate.swift in Sources */,
+				919E6F2E2402349E00CF8161 /* RakutenTravelHotelBasicInfo.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
 				9170D3D923A272E800977DB7 /* SearchCompleterPresenter.swift in Sources */,
 				91C64A522371B8920046E7E7 /* MyPageCollectionViewCell.swift in Sources */,
@@ -1393,6 +1484,7 @@
 				9170F15B23FEB985002FB702 /* HotpepperGenre.swift in Sources */,
 				9163A5DA236C860200612E06 /* TravelTimePanelCell.swift in Sources */,
 				9170F15123FEA615002FB702 /* HotpepperResponse.swift in Sources */,
+				919E6F2C2402338A00CF8161 /* RakutenTravelHotel.swift in Sources */,
 				9107A06D23A39C5E00F1DD77 /* FavoriteInputWrapperAccessor.swift in Sources */,
 				91EEA8062377A7B900824BBB /* EmptyView.swift in Sources */,
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
@@ -1422,10 +1514,12 @@
 				91D190832368485A00B0329A /* UIImageView+Extension.swift in Sources */,
 				91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */,
 				9116C908238598B20026513D /* LoadingView.swift in Sources */,
+				919E6F3A2402410500CF8161 /* RakutenTravelRequestParameter.swift in Sources */,
 				91EEA810237809AA00824BBB /* CreditListViewController.swift in Sources */,
 				914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */,
 				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
 				911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */,
+				919E6F342402376E00CF8161 /* RakutenTravelAPIError.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
 				91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */,
 				9170F13C23F91069002FB702 /* TransportationModel.swift in Sources */,
@@ -1437,6 +1531,7 @@
 				91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */,
 				91EEA8082377E75400824BBB /* SettingTableViewController.swift in Sources */,
 				9107A06723A39A3500F1DD77 /* FavoriteInputWrapper.swift in Sources */,
+				919E6F302402352200CF8161 /* RakutenTravelHotelRatingInfo.swift in Sources */,
 				91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */,
 				91EEA817237825AD00824BBB /* CreditViewController.swift in Sources */,
 				9170F13823F9001D002FB702 /* SpotListPresenter.swift in Sources */,
@@ -1466,6 +1561,7 @@
 				91C64A4C2371AB1D0046E7E7 /* MyPageViewController.swift in Sources */,
 				9170F13623F7E71B002FB702 /* PointInfomationEntity.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
+				919E6F322402375A00CF8161 /* RakutenTravelAPI.swift in Sources */,
 				9107A08E23ADBDF000F1DD77 /* URL+Extension.swift in Sources */,
 				91D1CABC23769F3B0066F644 /* MyDetailsDataActionViewController.swift in Sources */,
 				91C05BD4236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift in Sources */,

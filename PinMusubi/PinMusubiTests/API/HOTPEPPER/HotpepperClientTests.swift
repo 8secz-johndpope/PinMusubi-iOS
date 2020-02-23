@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Foundation
 @testable import PinMusubi
 
 class HotpepperClientTests: XCTestCase {
@@ -15,10 +14,10 @@ class HotpepperClientTests: XCTestCase {
         super.setUp()
     }
     
-    func testFetchShop_ok() {
+    func testGourmetSearch_ok() {
         let fetchExpectation: XCTestExpectation? = expectation(description: "testFetchShop_ok")
         let client = HotpepperClient()
-        let request = HotpepperAPI.SearchGourmet(
+        let request = HotpepperAPI.GourmetSearch(
             keyword: nil,
             id: nil,
             latitude: "37.912027",
@@ -32,7 +31,7 @@ class HotpepperClientTests: XCTestCase {
             switch result {
             case let .success(response):
                 XCTAssertNil(response.results.error)
-                XCTAssertNotNil(response.results.items)
+                XCTAssertNotNil(response.results.shop)
             case let .failure(error):
                 print(error)
                 XCTAssertNil(error)
@@ -42,10 +41,10 @@ class HotpepperClientTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
-    func testFetchShop_parameterError() {
+    func testGourmetSearch_parameterError() {
         let fetchExpectation: XCTestExpectation? = expectation(description: "testFetchShop_parameterError")
         let client = HotpepperClient()
-        let request = HotpepperAPI.SearchGourmet(
+        let request = HotpepperAPI.GourmetSearch(
             keyword: nil,
             id: nil,
             latitude: nil,
@@ -58,37 +57,12 @@ class HotpepperClientTests: XCTestCase {
         client.send(request: request) { result in
             switch result {
             case let .success(response):
-                XCTAssertNil(response.results.items)
+                XCTAssertNil(response.results.shop)
                 XCTAssertNotNil(response.results.error)
                 guard let error = response.results.error else { return }
                 print(error.message)
             case let .failure(error):
                 print(error)
-            }
-            fetchExpectation?.fulfill()
-        }
-        waitForExpectations(timeout: 10, handler: nil)
-    }
-    
-    func testFetchShop_connectionError() {
-        let fetchExpectation: XCTestExpectation? = expectation(description: "testFetchShop_connectionError")
-        let client = HotpepperClient()
-        let request = HotpepperAPI.SearchGourmet(
-            keyword: nil,
-            id: nil,
-            latitude: nil,
-            longitude: nil,
-            range: HotpepperRequestParameter.Range.range3000.rawValue,
-            order: nil,
-            count: HotpepperRequestParameter.Count.count100.rawValue
-        )
-        
-        client.send(request: request) { result in
-            switch result {
-            case .success(_): break
-                
-            case let .failure(error):
-                XCTAssertNotNil(error)
             }
             fetchExpectation?.fulfill()
         }
