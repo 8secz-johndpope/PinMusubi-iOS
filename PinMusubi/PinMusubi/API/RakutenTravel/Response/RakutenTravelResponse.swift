@@ -8,6 +8,6 @@
 
 // MARK: - RakutenTravelResponse
 struct RakutenTravelResponse<Item: Decodable>: Decodable {
-    let pagingInfo: PagingInfo
+    let pagingInfo: PagingInfo?
     let hotels: [[Item]]
 }

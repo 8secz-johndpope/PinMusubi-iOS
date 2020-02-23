@@ -21,4 +21,16 @@ enum RakutenTravelRequestParameter {
         case daiyoku
         case onsen
     }
+
+    enum HotelThumbnailSize: String, CaseIterable {
+        case small = "1"
+        case middle = "2"
+        case large = "3"
+    }
+
+    enum ResponseType: String, CaseIterable {
+        case small
+        case middle
+        case large
+    }
 }

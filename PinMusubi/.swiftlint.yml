@@ -138,7 +138,7 @@ function_body_length:
 - 200   # error
 
 type_name:
-  min_length: 3
+  min_length: 2
   max_length: 40
 
 identifier_name:

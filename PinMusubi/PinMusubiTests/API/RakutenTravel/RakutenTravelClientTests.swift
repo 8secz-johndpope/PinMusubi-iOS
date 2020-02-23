@@ -67,4 +67,30 @@ class RakutenTravelClientTests: XCTestCase {
         }
         waitForExpectations(timeout: 10, handler: nil)
     }
+    
+    func testHotelDetailSearch_ok() {
+        let fetchExpectation: XCTestExpectation? = expectation(description: "testHotelDetailSearch_ok")
+        let client = RakutenTravelClient()
+        let request = RakutenTravelAPI.HotelDetailSearch(
+            hotelNo: "137869",
+            hotelThumbnailSize: RakutenTravelRequestParameter.HotelThumbnailSize.middle.rawValue,
+            responseType: RakutenTravelRequestParameter.ResponseType.large.rawValue
+        )
+        
+        client.send(request: request) { result in
+            switch result {
+            case let .success(response):
+                XCTAssertNotNil(response.hotels)
+                
+                for hotel in response.hotels {
+                    print(hotel)
+                }
+            case let .failure(error):
+                print(error)
+                XCTAssertNil(error)
+            }
+            fetchExpectation?.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
 }
