@@ -1,5 +1,5 @@
 //
-//  RakutenTravelClient.swift
+//  YOLPClient.swift
 //  PinMusubi
 //
 //  Created by rMac on 2020/02/23.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-class RakutenTravelClient {
+class YOLPClient {
     private let session: URLSession = {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
         return session
     }()
 
-    func send<Request: RakutenTravelRequest>(
+    func send<Request: YOLPRequest>(
         request: Request,
-        completion: @escaping (APIResult<Request.Response, RakutenTravelClientError>) -> Void
+        completion: @escaping (APIResult<Request.Response, YOLPClientError>) -> Void
     ) {
         let urlRequest = request.buildURLRequest()
         let task = session.dataTask(with: urlRequest) { data, response, error in
@@ -29,7 +29,7 @@ class RakutenTravelClient {
                 do {
                     let response = try request.response(from: data, urlResponse: response)
                     completion(APIResult(value: response))
-                } catch let error as RakutenTravelAPIError {
+                } catch let error as YOLPAPIError {
                     completion(APIResult(error: .apiError(error)))
                 } catch {
                     completion(APIResult(error: .responseParseError(error)))

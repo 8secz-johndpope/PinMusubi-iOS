@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
-		43EFCCC88BEF1B5A3EDECB60 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
 		91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */; };
 		9107A06323A2B06000F1DD77 /* InputHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A06223A2B06000F1DD77 /* InputHistoryEntity.swift */; };
 		9107A06723A39A3500F1DD77 /* FavoriteInputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A06623A39A3500F1DD77 /* FavoriteInputWrapper.swift */; };
@@ -127,6 +126,22 @@
 		919E6F3A2402410500CF8161 /* RakutenTravelRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F392402410500CF8161 /* RakutenTravelRequestParameter.swift */; };
 		919E6F3C2402427100CF8161 /* RakutenTravelClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F3B2402427100CF8161 /* RakutenTravelClient.swift */; };
 		919E6F3E2402467900CF8161 /* RakutenTravelClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F3D2402467900CF8161 /* RakutenTravelClientTests.swift */; };
+		919E6F472402595A00CF8161 /* YOLPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F462402595A00CF8161 /* YOLPResponse.swift */; };
+		919E6F4924025A2900CF8161 /* YOLPResultInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F4824025A2900CF8161 /* YOLPResultInfo.swift */; };
+		919E6F4B24025AE400CF8161 /* YOLPFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F4A24025AE400CF8161 /* YOLPFeature.swift */; };
+		919E6F4D24025B5D00CF8161 /* YOLPGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F4C24025B5D00CF8161 /* YOLPGeometry.swift */; };
+		919E6F4F24025B8E00CF8161 /* YOLPProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F4E24025B8E00CF8161 /* YOLPProperty.swift */; };
+		919E6F5124025C1500CF8161 /* YOLPCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F5024025C1500CF8161 /* YOLPCountry.swift */; };
+		919E6F5324025C3700CF8161 /* YOLPGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F5224025C3700CF8161 /* YOLPGenre.swift */; };
+		919E6F5524025C6A00CF8161 /* YOLPStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F5424025C6A00CF8161 /* YOLPStation.swift */; };
+		919E6F5724025CBC00CF8161 /* YOLPCoupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F5624025CBC00CF8161 /* YOLPCoupon.swift */; };
+		919E6F5924025E1200CF8161 /* YOLPAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F5824025E1200CF8161 /* YOLPAPIError.swift */; };
+		919E6F5B24025ECC00CF8161 /* YOLPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F5A24025ECC00CF8161 /* YOLPClientError.swift */; };
+		919E6F5D24025F0900CF8161 /* YOLPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F5C24025F0900CF8161 /* YOLPRequest.swift */; };
+		919E6F5F24025FC900CF8161 /* YOLPAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F5E24025FC900CF8161 /* YOLPAPI.swift */; };
+		919E6F612402657100CF8161 /* YOLPRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F602402657100CF8161 /* YOLPRequestParameter.swift */; };
+		919E6F6324026AC900CF8161 /* YOLPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F6224026AC900CF8161 /* YOLPClient.swift */; };
+		919E6F6624026C1D00CF8161 /* YOLPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F6524026C1C00CF8161 /* YOLPClientTests.swift */; };
 		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
@@ -213,7 +228,6 @@
 		91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF7531236D24F80051ACCB /* WebViewController.swift */; };
 		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
-		DE2FCA1B266A5330646B9750 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
 		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
 /* End PBXBuildFile section */
 
@@ -380,6 +394,22 @@
 		919E6F392402410500CF8161 /* RakutenTravelRequestParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelRequestParameter.swift; sourceTree = "<group>"; };
 		919E6F3B2402427100CF8161 /* RakutenTravelClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelClient.swift; sourceTree = "<group>"; };
 		919E6F3D2402467900CF8161 /* RakutenTravelClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenTravelClientTests.swift; sourceTree = "<group>"; };
+		919E6F462402595A00CF8161 /* YOLPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPResponse.swift; sourceTree = "<group>"; };
+		919E6F4824025A2900CF8161 /* YOLPResultInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPResultInfo.swift; sourceTree = "<group>"; };
+		919E6F4A24025AE400CF8161 /* YOLPFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPFeature.swift; sourceTree = "<group>"; };
+		919E6F4C24025B5D00CF8161 /* YOLPGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPGeometry.swift; sourceTree = "<group>"; };
+		919E6F4E24025B8E00CF8161 /* YOLPProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPProperty.swift; sourceTree = "<group>"; };
+		919E6F5024025C1500CF8161 /* YOLPCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPCountry.swift; sourceTree = "<group>"; };
+		919E6F5224025C3700CF8161 /* YOLPGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPGenre.swift; sourceTree = "<group>"; };
+		919E6F5424025C6A00CF8161 /* YOLPStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPStation.swift; sourceTree = "<group>"; };
+		919E6F5624025CBC00CF8161 /* YOLPCoupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPCoupon.swift; sourceTree = "<group>"; };
+		919E6F5824025E1200CF8161 /* YOLPAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPAPIError.swift; sourceTree = "<group>"; };
+		919E6F5A24025ECC00CF8161 /* YOLPClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPClientError.swift; sourceTree = "<group>"; };
+		919E6F5C24025F0900CF8161 /* YOLPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPRequest.swift; sourceTree = "<group>"; };
+		919E6F5E24025FC900CF8161 /* YOLPAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPAPI.swift; sourceTree = "<group>"; };
+		919E6F602402657100CF8161 /* YOLPRequestParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPRequestParameter.swift; sourceTree = "<group>"; };
+		919E6F6224026AC900CF8161 /* YOLPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPClient.swift; sourceTree = "<group>"; };
+		919E6F6524026C1C00CF8161 /* YOLPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPClientTests.swift; sourceTree = "<group>"; };
 		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -483,7 +513,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */,
-				DE2FCA1B266A5330646B9750 /* Pods_PinMusubiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,7 +521,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */,
-				43EFCCC88BEF1B5A3EDECB60 /* Pods_PinMusubiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +632,7 @@
 			children = (
 				9170F14A23FE9F27002FB702 /* HOTPEPPER */,
 				919E6F212402269F00CF8161 /* RakutenTravel */,
+				919E6F42240258A800CF8161 /* YOLP */,
 				9170F14E23FEA04E002FB702 /* HTTPMethod.swift */,
 				911C60EA240169F3005EC42B /* APIResult.swift */,
 			);
@@ -724,6 +753,7 @@
 			children = (
 				919E6F3F2402468600CF8161 /* HOTPEPPER */,
 				919E6F402402469900CF8161 /* RakutenTravel */,
+				919E6F6424026C0300CF8161 /* YOLP */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -784,6 +814,60 @@
 				919E6F3D2402467900CF8161 /* RakutenTravelClientTests.swift */,
 			);
 			path = RakutenTravel;
+			sourceTree = "<group>";
+		};
+		919E6F42240258A800CF8161 /* YOLP */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F45240258CE00CF8161 /* Request */,
+				919E6F44240258C700CF8161 /* Response */,
+				919E6F43240258B500CF8161 /* Error */,
+				919E6F6224026AC900CF8161 /* YOLPClient.swift */,
+			);
+			path = YOLP;
+			sourceTree = "<group>";
+		};
+		919E6F43240258B500CF8161 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F5824025E1200CF8161 /* YOLPAPIError.swift */,
+				919E6F5A24025ECC00CF8161 /* YOLPClientError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		919E6F44240258C700CF8161 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F462402595A00CF8161 /* YOLPResponse.swift */,
+				919E6F4824025A2900CF8161 /* YOLPResultInfo.swift */,
+				919E6F4A24025AE400CF8161 /* YOLPFeature.swift */,
+				919E6F4C24025B5D00CF8161 /* YOLPGeometry.swift */,
+				919E6F4E24025B8E00CF8161 /* YOLPProperty.swift */,
+				919E6F5024025C1500CF8161 /* YOLPCountry.swift */,
+				919E6F5224025C3700CF8161 /* YOLPGenre.swift */,
+				919E6F5424025C6A00CF8161 /* YOLPStation.swift */,
+				919E6F5624025CBC00CF8161 /* YOLPCoupon.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		919E6F45240258CE00CF8161 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F5C24025F0900CF8161 /* YOLPRequest.swift */,
+				919E6F5E24025FC900CF8161 /* YOLPAPI.swift */,
+				919E6F602402657100CF8161 /* YOLPRequestParameter.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		919E6F6424026C0300CF8161 /* YOLP */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F6524026C1C00CF8161 /* YOLPClientTests.swift */,
+			);
+			path = YOLP;
 			sourceTree = "<group>";
 		};
 		91A4111A2333C09400AF7897 /* xib */ = {
@@ -1410,6 +1494,7 @@
 				9107A08C23AD01B100F1DD77 /* DynamicLinksManagerTests.swift in Sources */,
 				911B88B42395EF8C0030708E /* SearchHistoryAccessorTests.swift in Sources */,
 				911B88B52395EF8C0030708E /* SearchInterestPlaceModelTests.swift in Sources */,
+				919E6F6624026C1D00CF8161 /* YOLPClientTests.swift in Sources */,
 				911B88B62395EF8C0030708E /* SettingBasePointsModelTests.swift in Sources */,
 				911B88B72395EF8C0030708E /* PointsInfomationModelTests.swift in Sources */,
 				911B88B82395EF8C0030708E /* RestaurantSpotsModelTests.swift in Sources */,
@@ -1429,9 +1514,11 @@
 				91504A8E23366F7B00F900C4 /* SettingBasePointActionCell.swift in Sources */,
 				911C60E7240143DC005EC42B /* HotpepperAPI.swift in Sources */,
 				9108A84E237F584800099B0B /* AdEntity.swift in Sources */,
+				919E6F612402657100CF8161 /* YOLPRequestParameter.swift in Sources */,
 				91D190812368331900B0329A /* SpotEntityProtocol.swift in Sources */,
 				91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */,
 				9170F13E23F98077002FB702 /* TravelTimePanelPresenter.swift in Sources */,
+				919E6F4B24025AE400CF8161 /* YOLPFeature.swift in Sources */,
 				911B88C02396A0250030708E /* SettingBasePointsViewAdDelegate.swift in Sources */,
 				91A411172332764300AF7897 /* SettingBasePointsView.swift in Sources */,
 				91C05BD6236F2675006F8A5A /* FavoriteRegisterPresentationController.swift in Sources */,
@@ -1458,6 +1545,7 @@
 				91C64A4E2371AB2B0046E7E7 /* SettingViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				919E6F382402383C00CF8161 /* RakutenTravelRequest.swift in Sources */,
+				919E6F5324025C3700CF8161 /* YOLPGenre.swift in Sources */,
 				91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */,
 				91D554B423F264D500B06467 /* TutorialViewController.swift in Sources */,
 				91D1CAB02376563B0066F644 /* MyDetailsDataHeaderViewController.swift in Sources */,
@@ -1468,6 +1556,7 @@
 				919E6F282402327E00CF8161 /* RakutenTravelPagingInfo.swift in Sources */,
 				9107A06F23A3A25700F1DD77 /* FavoriteInputModel.swift in Sources */,
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
+				919E6F6324026AC900CF8161 /* YOLPClient.swift in Sources */,
 				91EEA8022377941E00824BBB /* MyDetailsDataActionViewDelegate.swift in Sources */,
 				919E6F2E2402349E00CF8161 /* RakutenTravelHotelBasicInfo.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
@@ -1475,6 +1564,7 @@
 				91C64A522371B8920046E7E7 /* MyPageCollectionViewCell.swift in Sources */,
 				9108A84C237AEC7F00099B0B /* SpotListAnalyticsEntity.swift in Sources */,
 				91A8A1A3236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift in Sources */,
+				919E6F4F24025B8E00CF8161 /* YOLPProperty.swift in Sources */,
 				91D7FEE023718AA900520CAD /* DoneRegisterViewController.swift in Sources */,
 				915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */,
 				914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */,
@@ -1505,6 +1595,7 @@
 				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91C64A502371B4A30046E7E7 /* MyPageCollectionView.swift in Sources */,
 				9107A06923A39AEE00F1DD77 /* FavoriteInputEntity.swift in Sources */,
+				919E6F5524025C6A00CF8161 /* YOLPStation.swift in Sources */,
 				910EC0C0239DD6B000F0D87C /* SearchCompleterViewController.swift in Sources */,
 				912E0B4023999BE2008A91FA /* EkispertStationEntity.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
@@ -1512,15 +1603,20 @@
 				914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */,
 				918CC478232F91D00047BC88 /* ColorDefinition.swift in Sources */,
 				91D190832368485A00B0329A /* UIImageView+Extension.swift in Sources */,
+				919E6F472402595A00CF8161 /* YOLPResponse.swift in Sources */,
 				91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */,
+				919E6F5B24025ECC00CF8161 /* YOLPClientError.swift in Sources */,
+				919E6F5D24025F0900CF8161 /* YOLPRequest.swift in Sources */,
 				9116C908238598B20026513D /* LoadingView.swift in Sources */,
 				919E6F3A2402410500CF8161 /* RakutenTravelRequestParameter.swift in Sources */,
 				91EEA810237809AA00824BBB /* CreditListViewController.swift in Sources */,
 				914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */,
+				919E6F5724025CBC00CF8161 /* YOLPCoupon.swift in Sources */,
 				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
 				911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */,
 				919E6F342402376E00CF8161 /* RakutenTravelAPIError.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
+				919E6F4D24025B5D00CF8161 /* YOLPGeometry.swift in Sources */,
 				91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */,
 				9170F13C23F91069002FB702 /* TransportationModel.swift in Sources */,
 				914455C32384206400AE7E06 /* LeisureModel.swift in Sources */,
@@ -1533,8 +1629,10 @@
 				9107A06723A39A3500F1DD77 /* FavoriteInputWrapper.swift in Sources */,
 				919E6F302402352200CF8161 /* RakutenTravelHotelRatingInfo.swift in Sources */,
 				91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */,
+				919E6F4924025A2900CF8161 /* YOLPResultInfo.swift in Sources */,
 				91EEA817237825AD00824BBB /* CreditViewController.swift in Sources */,
 				9170F13823F9001D002FB702 /* SpotListPresenter.swift in Sources */,
+				919E6F5124025C1500CF8161 /* YOLPCountry.swift in Sources */,
 				91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */,
 				9107A08723AB5A6A00F1DD77 /* DynamicLinksManager.swift in Sources */,
 				91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */,
@@ -1542,6 +1640,7 @@
 				9170F16523FED6BC002FB702 /* HotpepperCouponUrls.swift in Sources */,
 				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
+				919E6F5924025E1200CF8161 /* YOLPAPIError.swift in Sources */,
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
 				91B5A997236715C00030909D /* CustomFlowLayout.swift in Sources */,
 				91C64A6A23764B000046E7E7 /* MyDetailsDataViewController.swift in Sources */,
@@ -1569,6 +1668,7 @@
 				9170F16323FED53E002FB702 /* HotpepperPhoto.swift in Sources */,
 				9170F15923FEB938002FB702 /* HotpepperArea.swift in Sources */,
 				91EEA81223780A2700824BBB /* ContactFormViewController.swift in Sources */,
+				919E6F5F24025FC900CF8161 /* YOLPAPI.swift in Sources */,
 				91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
