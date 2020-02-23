@@ -142,6 +142,14 @@
 		919E6F612402657100CF8161 /* YOLPRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F602402657100CF8161 /* YOLPRequestParameter.swift */; };
 		919E6F6324026AC900CF8161 /* YOLPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F6224026AC900CF8161 /* YOLPClient.swift */; };
 		919E6F6624026C1D00CF8161 /* YOLPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F6524026C1C00CF8161 /* YOLPClientTests.swift */; };
+		919E6F6C24027C9800CF8161 /* HeartRailsExpressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F6B24027C9800CF8161 /* HeartRailsExpressResponse.swift */; };
+		919E6F6E24027D3F00CF8161 /* HeartRailsExpressResponseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F6D24027D3F00CF8161 /* HeartRailsExpressResponseField.swift */; };
+		919E6F7024027D9700CF8161 /* HeartRailsExpressStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F6F24027D9700CF8161 /* HeartRailsExpressStation.swift */; };
+		919E6F7424027F2A00CF8161 /* HeartRailsExpressClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F7324027F2A00CF8161 /* HeartRailsExpressClientError.swift */; };
+		919E6F7624027F6E00CF8161 /* HeartRailsExpressRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F7524027F6E00CF8161 /* HeartRailsExpressRequest.swift */; };
+		919E6F782402805800CF8161 /* HeartRailsExpressAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F772402805800CF8161 /* HeartRailsExpressAPI.swift */; };
+		919E6F7A2402814700CF8161 /* HeartRailsExpressClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F792402814700CF8161 /* HeartRailsExpressClient.swift */; };
+		919E6F7D2402821D00CF8161 /* HeartRailsExpressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F7C2402821D00CF8161 /* HeartRailsExpressTests.swift */; };
 		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
@@ -410,6 +418,14 @@
 		919E6F602402657100CF8161 /* YOLPRequestParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPRequestParameter.swift; sourceTree = "<group>"; };
 		919E6F6224026AC900CF8161 /* YOLPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPClient.swift; sourceTree = "<group>"; };
 		919E6F6524026C1C00CF8161 /* YOLPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLPClientTests.swift; sourceTree = "<group>"; };
+		919E6F6B24027C9800CF8161 /* HeartRailsExpressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRailsExpressResponse.swift; sourceTree = "<group>"; };
+		919E6F6D24027D3F00CF8161 /* HeartRailsExpressResponseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRailsExpressResponseField.swift; sourceTree = "<group>"; };
+		919E6F6F24027D9700CF8161 /* HeartRailsExpressStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRailsExpressStation.swift; sourceTree = "<group>"; };
+		919E6F7324027F2A00CF8161 /* HeartRailsExpressClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRailsExpressClientError.swift; sourceTree = "<group>"; };
+		919E6F7524027F6E00CF8161 /* HeartRailsExpressRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRailsExpressRequest.swift; sourceTree = "<group>"; };
+		919E6F772402805800CF8161 /* HeartRailsExpressAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRailsExpressAPI.swift; sourceTree = "<group>"; };
+		919E6F792402814700CF8161 /* HeartRailsExpressClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRailsExpressClient.swift; sourceTree = "<group>"; };
+		919E6F7C2402821D00CF8161 /* HeartRailsExpressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRailsExpressTests.swift; sourceTree = "<group>"; };
 		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -633,6 +649,7 @@
 				9170F14A23FE9F27002FB702 /* HOTPEPPER */,
 				919E6F212402269F00CF8161 /* RakutenTravel */,
 				919E6F42240258A800CF8161 /* YOLP */,
+				919E6F6724027BDE00CF8161 /* HeartRailsExpress */,
 				9170F14E23FEA04E002FB702 /* HTTPMethod.swift */,
 				911C60EA240169F3005EC42B /* APIResult.swift */,
 			);
@@ -754,6 +771,7 @@
 				919E6F3F2402468600CF8161 /* HOTPEPPER */,
 				919E6F402402469900CF8161 /* RakutenTravel */,
 				919E6F6424026C0300CF8161 /* YOLP */,
+				919E6F7B240281EF00CF8161 /* HeartRailsExpress */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -868,6 +886,52 @@
 				919E6F6524026C1C00CF8161 /* YOLPClientTests.swift */,
 			);
 			path = YOLP;
+			sourceTree = "<group>";
+		};
+		919E6F6724027BDE00CF8161 /* HeartRailsExpress */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F6A24027C1900CF8161 /* Request */,
+				919E6F6924027C1300CF8161 /* Response */,
+				919E6F6824027C0C00CF8161 /* Error */,
+				919E6F792402814700CF8161 /* HeartRailsExpressClient.swift */,
+			);
+			path = HeartRailsExpress;
+			sourceTree = "<group>";
+		};
+		919E6F6824027C0C00CF8161 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F7324027F2A00CF8161 /* HeartRailsExpressClientError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		919E6F6924027C1300CF8161 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F6B24027C9800CF8161 /* HeartRailsExpressResponse.swift */,
+				919E6F6D24027D3F00CF8161 /* HeartRailsExpressResponseField.swift */,
+				919E6F6F24027D9700CF8161 /* HeartRailsExpressStation.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		919E6F6A24027C1900CF8161 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F7524027F6E00CF8161 /* HeartRailsExpressRequest.swift */,
+				919E6F772402805800CF8161 /* HeartRailsExpressAPI.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		919E6F7B240281EF00CF8161 /* HeartRailsExpress */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F7C2402821D00CF8161 /* HeartRailsExpressTests.swift */,
+			);
+			path = HeartRailsExpress;
 			sourceTree = "<group>";
 		};
 		91A4111A2333C09400AF7897 /* xib */ = {
@@ -1492,6 +1556,7 @@
 				919E6F2024017F6000CF8161 /* HotpepperClientTests.swift in Sources */,
 				911B88B32395EF8C0030708E /* SettingPointAccessorTests.swift in Sources */,
 				9107A08C23AD01B100F1DD77 /* DynamicLinksManagerTests.swift in Sources */,
+				919E6F7D2402821D00CF8161 /* HeartRailsExpressTests.swift in Sources */,
 				911B88B42395EF8C0030708E /* SearchHistoryAccessorTests.swift in Sources */,
 				911B88B52395EF8C0030708E /* SearchInterestPlaceModelTests.swift in Sources */,
 				919E6F6624026C1D00CF8161 /* YOLPClientTests.swift in Sources */,
@@ -1511,6 +1576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919E6F7024027D9700CF8161 /* HeartRailsExpressStation.swift in Sources */,
 				91504A8E23366F7B00F900C4 /* SettingBasePointActionCell.swift in Sources */,
 				911C60E7240143DC005EC42B /* HotpepperAPI.swift in Sources */,
 				9108A84E237F584800099B0B /* AdEntity.swift in Sources */,
@@ -1543,6 +1609,7 @@
 				911C60E924016705005EC42B /* HotpepperRequestParameter.swift in Sources */,
 				9170F15323FEAD45002FB702 /* HotpepperShop.swift in Sources */,
 				91C64A4E2371AB2B0046E7E7 /* SettingViewController.swift in Sources */,
+				919E6F782402805800CF8161 /* HeartRailsExpressAPI.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				919E6F382402383C00CF8161 /* RakutenTravelRequest.swift in Sources */,
 				919E6F5324025C3700CF8161 /* YOLPGenre.swift in Sources */,
@@ -1572,13 +1639,16 @@
 				91C64A582371BF290046E7E7 /* MyDataCell.swift in Sources */,
 				91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */,
 				9170F15B23FEB985002FB702 /* HotpepperGenre.swift in Sources */,
+				919E6F6E24027D3F00CF8161 /* HeartRailsExpressResponseField.swift in Sources */,
 				9163A5DA236C860200612E06 /* TravelTimePanelCell.swift in Sources */,
 				9170F15123FEA615002FB702 /* HotpepperResponse.swift in Sources */,
 				919E6F2C2402338A00CF8161 /* RakutenTravelHotel.swift in Sources */,
 				9107A06D23A39C5E00F1DD77 /* FavoriteInputWrapperAccessor.swift in Sources */,
 				91EEA8062377A7B900824BBB /* EmptyView.swift in Sources */,
+				919E6F7424027F2A00CF8161 /* HeartRailsExpressClientError.swift in Sources */,
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
 				91D7FED72370421200520CAD /* FavoriteSpotPresenter.swift in Sources */,
+				919E6F7A2402814700CF8161 /* HeartRailsExpressClient.swift in Sources */,
 				910EC0C4239E7B8E00F0D87C /* SearchCompleterNavigationController.swift in Sources */,
 				9107A07523A3A81200F1DD77 /* FavoriteBasePointViewController.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
@@ -1591,6 +1661,7 @@
 				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
 				91D1CAB42376657D0066F644 /* TravelTimePanelViewController.swift in Sources */,
+				919E6F7624027F6E00CF8161 /* HeartRailsExpressRequest.swift in Sources */,
 				9170D3D723A26F8700977DB7 /* InputHistoryModel.swift in Sources */,
 				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91C64A502371B4A30046E7E7 /* MyPageCollectionView.swift in Sources */,
@@ -1609,6 +1680,7 @@
 				919E6F5D24025F0900CF8161 /* YOLPRequest.swift in Sources */,
 				9116C908238598B20026513D /* LoadingView.swift in Sources */,
 				919E6F3A2402410500CF8161 /* RakutenTravelRequestParameter.swift in Sources */,
+				919E6F6C24027C9800CF8161 /* HeartRailsExpressResponse.swift in Sources */,
 				91EEA810237809AA00824BBB /* CreditListViewController.swift in Sources */,
 				914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */,
 				919E6F5724025CBC00CF8161 /* YOLPCoupon.swift in Sources */,

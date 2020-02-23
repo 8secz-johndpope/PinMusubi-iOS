@@ -6,7 +6,8 @@
 //  Copyright © 2020 naipaka. All rights reserved.
 //
 
-internal struct HotpepperShop: Decodable {
+// MARK: - HotpepperShop
+struct HotpepperShop: Decodable {
     let id: String
     let name: String
     let logoImage: String

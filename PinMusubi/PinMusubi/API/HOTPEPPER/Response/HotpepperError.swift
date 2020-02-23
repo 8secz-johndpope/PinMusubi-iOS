@@ -7,7 +7,7 @@
 //
 
 // MARK: - HotpepperError
-public struct HotpepperError: Decodable {
+struct HotpepperError: Decodable {
     let message: String
     let code: HotpepperErrorCode
 
