@@ -49,6 +49,12 @@
 		911B88BB2395EF8C0030708E /* StationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A97C2365846D0030909D /* StationModelTests.swift */; };
 		911B88BC2395EF8C0030708E /* BusStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A98023658D130030909D /* BusStopTests.swift */; };
 		911B88C02396A0250030708E /* SettingBasePointsViewAdDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B88BF2396A0250030708E /* SettingBasePointsViewAdDelegate.swift */; };
+		911C60E524012CD7005EC42B /* HotpepperRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60E424012CD7005EC42B /* HotpepperRequest.swift */; };
+		911C60E7240143DC005EC42B /* HotpepperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60E6240143DC005EC42B /* HotpepperAPI.swift */; };
+		911C60E924016705005EC42B /* HotpepperRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60E824016705005EC42B /* HotpepperRequestParameter.swift */; };
+		911C60EB240169F3005EC42B /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EA240169F3005EC42B /* APIResult.swift */; };
+		911C60ED24016A5E005EC42B /* HotpepperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EC24016A5E005EC42B /* HotpepperClient.swift */; };
+		911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EE24016A93005EC42B /* HotpepperClientError.swift */; };
 		912E0B3E23993D63008A91FA /* PointInfomationCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */; };
 		912E0B4023999BE2008A91FA /* EkispertStationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E0B3F23999BE2008A91FA /* EkispertStationEntity.swift */; };
 		914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BA2382AFE000AE7E06 /* HotelEntity.swift */; };
@@ -108,6 +114,7 @@
 		918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */; };
 		9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */; };
 		9197D6482325395B00A5C558 /* PinMusubiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197D6472325395B00A5C558 /* PinMusubiUITests.swift */; };
+		919E6F2024017F6000CF8161 /* HotpepperClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F1F24017F6000CF8161 /* HotpepperClientTests.swift */; };
 		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
@@ -267,6 +274,12 @@
 		9116C90A23859AED0026513D /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		911B88AA23955A0B0030708E /* TransferGuideEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferGuideEntity.swift; sourceTree = "<group>"; };
 		911B88BF2396A0250030708E /* SettingBasePointsViewAdDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewAdDelegate.swift; sourceTree = "<group>"; };
+		911C60E424012CD7005EC42B /* HotpepperRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperRequest.swift; sourceTree = "<group>"; };
+		911C60E6240143DC005EC42B /* HotpepperAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperAPI.swift; sourceTree = "<group>"; };
+		911C60E824016705005EC42B /* HotpepperRequestParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperRequestParameter.swift; sourceTree = "<group>"; };
+		911C60EA240169F3005EC42B /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		911C60EC24016A5E005EC42B /* HotpepperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClient.swift; sourceTree = "<group>"; };
+		911C60EE24016A93005EC42B /* HotpepperClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClientError.swift; sourceTree = "<group>"; };
 		912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationCellDelegate.swift; sourceTree = "<group>"; };
 		912E0B3F23999BE2008A91FA /* EkispertStationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertStationEntity.swift; sourceTree = "<group>"; };
 		914455BA2382AFE000AE7E06 /* HotelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelEntity.swift; sourceTree = "<group>"; };
@@ -342,6 +355,7 @@
 		9197D6552325396900A5C558 /* PinMusubiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMusubiTests.swift; sourceTree = "<group>"; };
 		9197D6572325396900A5C558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9197D65E23253ADB00A5C558 /* SettingBasePointsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModelTests.swift; sourceTree = "<group>"; };
+		919E6F1F24017F6000CF8161 /* HotpepperClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClientTests.swift; sourceTree = "<group>"; };
 		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -564,6 +578,8 @@
 		9170F14923FE77C4002FB702 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				9170F14E23FEA04E002FB702 /* HTTPMethod.swift */,
+				911C60EA240169F3005EC42B /* APIResult.swift */,
 				9170F14A23FE9F27002FB702 /* HOTPEPPER */,
 			);
 			path = API;
@@ -572,6 +588,7 @@
 		9170F14A23FE9F27002FB702 /* HOTPEPPER */ = {
 			isa = PBXGroup;
 			children = (
+				911C60EC24016A5E005EC42B /* HotpepperClient.swift */,
 				9170F14B23FE9FB9002FB702 /* Request */,
 				9170F14C23FE9FD2002FB702 /* Response */,
 				9170F14D23FE9FEB002FB702 /* Error */,
@@ -582,6 +599,9 @@
 		9170F14B23FE9FB9002FB702 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				911C60E424012CD7005EC42B /* HotpepperRequest.swift */,
+				911C60E6240143DC005EC42B /* HotpepperAPI.swift */,
+				911C60E824016705005EC42B /* HotpepperRequestParameter.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -607,6 +627,7 @@
 		9170F14D23FE9FEB002FB702 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				911C60EE24016A93005EC42B /* HotpepperClientError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -650,6 +671,7 @@
 			children = (
 				9107A08A23AD017D00F1DD77 /* Common */,
 				915A44AF232F316A006A6891 /* DAO */,
+				919E6F1E24017EF900CF8161 /* API */,
 				9197D65D23253A8100A5C558 /* Model */,
 				9197D6552325396900A5C558 /* PinMusubiTests.swift */,
 				9197D6572325396900A5C558 /* Info.plist */,
@@ -670,6 +692,14 @@
 				91B5A98023658D130030909D /* BusStopTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		919E6F1E24017EF900CF8161 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F1F24017F6000CF8161 /* HotpepperClientTests.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		91A4111A2333C09400AF7897 /* xib */ = {
@@ -724,7 +754,6 @@
 				9197D63E23250D2400A5C558 /* Entity */,
 				915A44A6232E2A7D006A6891 /* DB */,
 				9170F14923FE77C4002FB702 /* API */,
-				9170F14E23FEA04E002FB702 /* HTTPMethod.swift */,
 				91B3EB602301325100430D41 /* Model */,
 				91B3EB5E2301322200430D41 /* View */,
 				91B3EB5F2301323800430D41 /* Presenter */,
@@ -1292,6 +1321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919E6F2024017F6000CF8161 /* HotpepperClientTests.swift in Sources */,
 				911B88B32395EF8C0030708E /* SettingPointAccessorTests.swift in Sources */,
 				9107A08C23AD01B100F1DD77 /* DynamicLinksManagerTests.swift in Sources */,
 				911B88B42395EF8C0030708E /* SearchHistoryAccessorTests.swift in Sources */,
@@ -1312,6 +1342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91504A8E23366F7B00F900C4 /* SettingBasePointActionCell.swift in Sources */,
+				911C60E7240143DC005EC42B /* HotpepperAPI.swift in Sources */,
 				9108A84E237F584800099B0B /* AdEntity.swift in Sources */,
 				91D190812368331900B0329A /* SpotEntityProtocol.swift in Sources */,
 				91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */,
@@ -1328,10 +1359,13 @@
 				911B88AB23955A0B0030708E /* TransferGuideEntity.swift in Sources */,
 				91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */,
 				91D1CAB723768DBB0066F644 /* MyDetailsDataPresenter.swift in Sources */,
+				911C60E524012CD7005EC42B /* HotpepperRequest.swift in Sources */,
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
 				91B3EB4F2301296E00430D41 /* SearchInterestPlaceViewController.swift in Sources */,
 				91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */,
+				911C60ED24016A5E005EC42B /* HotpepperClient.swift in Sources */,
 				91C64A6023742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift in Sources */,
+				911C60E924016705005EC42B /* HotpepperRequestParameter.swift in Sources */,
 				9170F15323FEAD45002FB702 /* HotpepperShop.swift in Sources */,
 				91C64A4E2371AB2B0046E7E7 /* SettingViewController.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
@@ -1391,12 +1425,14 @@
 				91EEA810237809AA00824BBB /* CreditListViewController.swift in Sources */,
 				914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */,
 				91E439222352FE9400A3B936 /* RestaurantSpotEntity.swift in Sources */,
+				911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantSpotsModel.swift in Sources */,
 				91C64A5E2372E26F0046E7E7 /* MyDataModel.swift in Sources */,
 				9170F13C23F91069002FB702 /* TransportationModel.swift in Sources */,
 				914455C32384206400AE7E06 /* LeisureModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				9107A08123A5359200F1DD77 /* VersionInfoViewController.swift in Sources */,
+				911C60EB240169F3005EC42B /* APIResult.swift in Sources */,
 				9107A07723A3A82E00F1DD77 /* SearchBasePointViewController.swift in Sources */,
 				91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */,
 				91EEA8082377E75400824BBB /* SettingTableViewController.swift in Sources */,

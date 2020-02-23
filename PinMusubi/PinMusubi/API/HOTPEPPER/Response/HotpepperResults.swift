@@ -9,9 +9,9 @@
 // MARK: - HotpepperResults
 struct HotpepperResults<Item: Decodable>: Decodable {
     let apiVersion: String
-    let resultsAvailable: String?
+    let resultsAvailable: Int?
     let resultsReturned: String?
-    let resultsStart: String?
+    let resultsStart: Int?
     let items: [Item]?
     let error: HotpepperError?
 
@@ -20,7 +20,7 @@ struct HotpepperResults<Item: Decodable>: Decodable {
         case resultsAvailable = "results_available"
         case resultsReturned = "results_returned"
         case resultsStart = "results_start"
-        case items
+        case items = "shop"
         case error
     }
 }

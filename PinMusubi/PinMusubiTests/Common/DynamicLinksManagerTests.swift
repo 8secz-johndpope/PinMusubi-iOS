@@ -14,12 +14,12 @@ class DynamicLinksManagerTests: XCTestCase {
         super.setUp()
     }
     
-    func testCreateDynamicLink_ok() {
-        let createDynamicLinkExpectation = expectation(description: "createDynamicLink")
-        DynamicLinksManager().createDynamicLink() { url in
-            print(url ?? "取得できなかったよ")
-            createDynamicLinkExpectation.fulfill()
-        }
-        waitForExpectations(timeout: 50, handler: nil)
-    }
+//    func testCreateDynamicLink_ok() {
+//        let createDynamicLinkExpectation = expectation(description: "createDynamicLink")
+//        DynamicLinksManager().createDynamicLink() { url in
+//            print(url ?? "取得できなかったよ")
+//            createDynamicLinkExpectation.fulfill()
+//        }
+//        waitForExpectations(timeout: 50, handler: nil)
+//    }
 }

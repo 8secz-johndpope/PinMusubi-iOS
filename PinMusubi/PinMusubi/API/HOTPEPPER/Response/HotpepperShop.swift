@@ -22,7 +22,7 @@ internal struct HotpepperShop: Decodable {
     let lat: String
     let lng: String
     let genre: HotpepperGenre
-    let subGenre: HotpepperSubGenre
+    let subGenre: HotpepperSubGenre?
     let budget: HotpepperBudget
     let budgetMemo: String
     let shopCatch: String
@@ -45,14 +45,14 @@ internal struct HotpepperShop: Decodable {
     let card: String
     let nonSmoking: String
     let charter: String
-    let ktai: String
+    let ktai: String?
     let parking: String
     let barrierFree: String
     let otherMemo: String
-    let sommelier: String
-    let openAir: String
+    let sommelier: String?
+    let openAir: String?
     let show: String
-    let equipment: String
+    let equipment: String?
     let karaoke: String
     let band: String
     let tv: String
