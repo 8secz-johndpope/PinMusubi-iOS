@@ -8,28 +8,28 @@
 
 // MARK: - EkispertStationEntity
 public class EkispertStationEntity: Codable {
-    public let resultSet: EkispertResultSet
+    public let resultSet: EkispertResultSetEntity
 
     public enum CodingKeys: String, CodingKey {
         case resultSet = "ResultSet"
     }
 
-    public init(resultSet: EkispertResultSet) {
+    public init(resultSet: EkispertResultSetEntity) {
         self.resultSet = resultSet
     }
 }
 
 // MARK: - ResultSet
-public class EkispertResultSet: Codable {
+public class EkispertResultSetEntity: Codable {
     public let apiVersion, max, offset, engineVersion: String
-    public let point: Point
+    public let point: PointEntity
 
     public enum CodingKeys: String, CodingKey {
         case apiVersion, max, offset, engineVersion
         case point = "Point"
     }
 
-    public init(apiVersion: String, max: String, offset: String, engineVersion: String, point: Point) {
+    public init(apiVersion: String, max: String, offset: String, engineVersion: String, point: PointEntity) {
         self.apiVersion = apiVersion
         self.max = max
         self.offset = offset
@@ -39,8 +39,8 @@ public class EkispertResultSet: Codable {
 }
 
 // MARK: - Point
-public class Point: Codable {
-    public let station: EkispertStation
+public class PointEntity: Codable {
+    public let station: EkispertStationEntityResponse
     public let prefecture: Prefecture
     public let geoPoint: GeoPoint
 
@@ -50,7 +50,7 @@ public class Point: Codable {
         case geoPoint = "GeoPoint"
     }
 
-    public init(station: EkispertStation, prefecture: Prefecture, geoPoint: GeoPoint) {
+    public init(station: EkispertStationEntityResponse, prefecture: Prefecture, geoPoint: GeoPoint) {
         self.station = station
         self.prefecture = prefecture
         self.geoPoint = geoPoint
@@ -94,7 +94,7 @@ public class Prefecture: Codable {
 }
 
 // MARK: - Station
-public class EkispertStation: Codable {
+public class EkispertStationEntityResponse: Codable {
     public let code, name, type, yomi: String
 
     public enum CodingKeys: String, CodingKey {
@@ -128,14 +128,14 @@ public class EkispertStationsEntity: Codable {
 // MARK: - ResultSets
 public class EkispertResultSets: Codable {
     public let apiVersion, max, offset, engineVersion: String
-    public let point: [Point]
+    public let point: [PointEntity]
 
     public enum CodingKeys: String, CodingKey {
         case apiVersion, max, offset, engineVersion
         case point = "Point"
     }
 
-    public init(apiVersion: String, max: String, offset: String, engineVersion: String, point: [Point]) {
+    public init(apiVersion: String, max: String, offset: String, engineVersion: String, point: [PointEntity]) {
         self.apiVersion = apiVersion
         self.max = max
         self.offset = offset

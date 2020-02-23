@@ -157,6 +157,18 @@
 		919E6F8D2402897600CF8161 /* BusStopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F8C2402897600CF8161 /* BusStopAPI.swift */; };
 		919E6F8F24028A5900CF8161 /* BusStopClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F8E24028A5900CF8161 /* BusStopClient.swift */; };
 		919E6F9224028B9400CF8161 /* BusStopTClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F9124028B9400CF8161 /* BusStopTClientTests.swift */; };
+		919E6F982402958500CF8161 /* EkispertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F972402958500CF8161 /* EkispertResponse.swift */; };
+		919E6F9A240297C100CF8161 /* EkispertResultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F99240297C100CF8161 /* EkispertResultSet.swift */; };
+		919E6F9C240298DA00CF8161 /* EkispertPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F9B240298DA00CF8161 /* EkispertPoint.swift */; };
+		919E6F9E2402997000CF8161 /* EkispertStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F9D2402997000CF8161 /* EkispertStation.swift */; };
+		919E6FA02402DEE700CF8161 /* EkispertPrefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6F9F2402DEE700CF8161 /* EkispertPrefecture.swift */; };
+		919E6FA22402DF4D00CF8161 /* EkispertGeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FA12402DF4D00CF8161 /* EkispertGeoPoint.swift */; };
+		919E6FA42402E18800CF8161 /* EkispertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FA32402E18800CF8161 /* EkispertError.swift */; };
+		919E6FA62402EEE500CF8161 /* EkispertClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FA52402EEE500CF8161 /* EkispertClientError.swift */; };
+		919E6FA82402EF0100CF8161 /* EkispertRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FA72402EF0100CF8161 /* EkispertRequest.swift */; };
+		919E6FAA2402F17300CF8161 /* EkispertAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FA92402F17300CF8161 /* EkispertAPI.swift */; };
+		919E6FAC2402F69E00CF8161 /* EkispertClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FAB2402F69E00CF8161 /* EkispertClient.swift */; };
+		919E6FB12403045F00CF8161 /* EkispertClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FB02403045F00CF8161 /* EkispertClientTests.swift */; };
 		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
@@ -440,6 +452,18 @@
 		919E6F8C2402897600CF8161 /* BusStopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopAPI.swift; sourceTree = "<group>"; };
 		919E6F8E24028A5900CF8161 /* BusStopClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopClient.swift; sourceTree = "<group>"; };
 		919E6F9124028B9400CF8161 /* BusStopTClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopTClientTests.swift; sourceTree = "<group>"; };
+		919E6F972402958500CF8161 /* EkispertResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertResponse.swift; sourceTree = "<group>"; };
+		919E6F99240297C100CF8161 /* EkispertResultSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertResultSet.swift; sourceTree = "<group>"; };
+		919E6F9B240298DA00CF8161 /* EkispertPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertPoint.swift; sourceTree = "<group>"; };
+		919E6F9D2402997000CF8161 /* EkispertStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertStation.swift; sourceTree = "<group>"; };
+		919E6F9F2402DEE700CF8161 /* EkispertPrefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertPrefecture.swift; sourceTree = "<group>"; };
+		919E6FA12402DF4D00CF8161 /* EkispertGeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertGeoPoint.swift; sourceTree = "<group>"; };
+		919E6FA32402E18800CF8161 /* EkispertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertError.swift; sourceTree = "<group>"; };
+		919E6FA52402EEE500CF8161 /* EkispertClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertClientError.swift; sourceTree = "<group>"; };
+		919E6FA72402EF0100CF8161 /* EkispertRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertRequest.swift; sourceTree = "<group>"; };
+		919E6FA92402F17300CF8161 /* EkispertAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertAPI.swift; sourceTree = "<group>"; };
+		919E6FAB2402F69E00CF8161 /* EkispertClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertClient.swift; sourceTree = "<group>"; };
+		919E6FB02403045F00CF8161 /* EkispertClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertClientTests.swift; sourceTree = "<group>"; };
 		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -665,6 +689,7 @@
 				919E6F42240258A800CF8161 /* YOLP */,
 				919E6F6724027BDE00CF8161 /* HeartRailsExpress */,
 				919E6F7E2402850F00CF8161 /* BusStop */,
+				919E6F932402952900CF8161 /* Ekispert */,
 				9170F14E23FEA04E002FB702 /* HTTPMethod.swift */,
 				911C60EA240169F3005EC42B /* APIResult.swift */,
 			);
@@ -788,6 +813,7 @@
 				919E6F6424026C0300CF8161 /* YOLP */,
 				919E6F7B240281EF00CF8161 /* HeartRailsExpress */,
 				919E6F9024028B7300CF8161 /* BusStop */,
+				919E6FAF2403044800CF8161 /* Ekispert */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -993,6 +1019,56 @@
 				919E6F9124028B9400CF8161 /* BusStopTClientTests.swift */,
 			);
 			path = BusStop;
+			sourceTree = "<group>";
+		};
+		919E6F932402952900CF8161 /* Ekispert */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F962402957500CF8161 /* Request */,
+				919E6F952402956D00CF8161 /* Response */,
+				919E6F942402956700CF8161 /* Error */,
+				919E6FAB2402F69E00CF8161 /* EkispertClient.swift */,
+			);
+			path = Ekispert;
+			sourceTree = "<group>";
+		};
+		919E6F942402956700CF8161 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				919E6FA52402EEE500CF8161 /* EkispertClientError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		919E6F952402956D00CF8161 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				919E6F972402958500CF8161 /* EkispertResponse.swift */,
+				919E6F99240297C100CF8161 /* EkispertResultSet.swift */,
+				919E6F9B240298DA00CF8161 /* EkispertPoint.swift */,
+				919E6F9D2402997000CF8161 /* EkispertStation.swift */,
+				919E6FA12402DF4D00CF8161 /* EkispertGeoPoint.swift */,
+				919E6F9F2402DEE700CF8161 /* EkispertPrefecture.swift */,
+				919E6FA32402E18800CF8161 /* EkispertError.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		919E6F962402957500CF8161 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				919E6FA72402EF0100CF8161 /* EkispertRequest.swift */,
+				919E6FA92402F17300CF8161 /* EkispertAPI.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		919E6FAF2403044800CF8161 /* Ekispert */ = {
+			isa = PBXGroup;
+			children = (
+				919E6FB02403045F00CF8161 /* EkispertClientTests.swift */,
+			);
+			path = Ekispert;
 			sourceTree = "<group>";
 		};
 		91A4111A2333C09400AF7897 /* xib */ = {
@@ -1623,6 +1699,7 @@
 				911B88B52395EF8C0030708E /* SearchInterestPlaceModelTests.swift in Sources */,
 				919E6F6624026C1D00CF8161 /* YOLPClientTests.swift in Sources */,
 				911B88B62395EF8C0030708E /* SettingBasePointsModelTests.swift in Sources */,
+				919E6FB12403045F00CF8161 /* EkispertClientTests.swift in Sources */,
 				911B88B72395EF8C0030708E /* PointsInfomationModelTests.swift in Sources */,
 				911B88B82395EF8C0030708E /* RestaurantSpotsModelTests.swift in Sources */,
 				911B88B92395EF8C0030708E /* HotelModelTests.swift in Sources */,
@@ -1689,6 +1766,7 @@
 				915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */,
 				919E6F6324026AC900CF8161 /* YOLPClient.swift in Sources */,
 				91EEA8022377941E00824BBB /* MyDetailsDataActionViewDelegate.swift in Sources */,
+				919E6FA82402EF0100CF8161 /* EkispertRequest.swift in Sources */,
 				919E6F2E2402349E00CF8161 /* RakutenTravelHotelBasicInfo.swift in Sources */,
 				918CF98B23390ABA003DC7C8 /* PointInfomationCell.swift in Sources */,
 				9170D3D923A272E800977DB7 /* SearchCompleterPresenter.swift in Sources */,
@@ -1698,6 +1776,7 @@
 				919E6F4F24025B8E00CF8161 /* YOLPProperty.swift in Sources */,
 				91D7FEE023718AA900520CAD /* DoneRegisterViewController.swift in Sources */,
 				915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */,
+				919E6F982402958500CF8161 /* EkispertResponse.swift in Sources */,
 				914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */,
 				91B5A9792363F1AE0030909D /* KeyManager.swift in Sources */,
 				91C64A582371BF290046E7E7 /* MyDataCell.swift in Sources */,
@@ -1710,16 +1789,20 @@
 				919E6F8F24028A5900CF8161 /* BusStopClient.swift in Sources */,
 				919E6F2C2402338A00CF8161 /* RakutenTravelHotel.swift in Sources */,
 				9107A06D23A39C5E00F1DD77 /* FavoriteInputWrapperAccessor.swift in Sources */,
+				919E6F9E2402997000CF8161 /* EkispertStation.swift in Sources */,
+				919E6FAA2402F17300CF8161 /* EkispertAPI.swift in Sources */,
 				91EEA8062377A7B900824BBB /* EmptyView.swift in Sources */,
 				919E6F7424027F2A00CF8161 /* HeartRailsExpressClientError.swift in Sources */,
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
 				91D7FED72370421200520CAD /* FavoriteSpotPresenter.swift in Sources */,
+				919E6FA02402DEE700CF8161 /* EkispertPrefecture.swift in Sources */,
 				919E6F7A2402814700CF8161 /* HeartRailsExpressClient.swift in Sources */,
 				910EC0C4239E7B8E00F0D87C /* SearchCompleterNavigationController.swift in Sources */,
 				9107A07523A3A81200F1DD77 /* FavoriteBasePointViewController.swift in Sources */,
 				91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */,
 				91C64A542371BB0B0046E7E7 /* MyDataEntityProtocol.swift in Sources */,
 				915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */,
+				919E6FA42402E18800CF8161 /* EkispertError.swift in Sources */,
 				9170F15723FEB209002FB702 /* HotpepperError.swift in Sources */,
 				919E6F8D2402897600CF8161 /* BusStopAPI.swift in Sources */,
 				91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */,
@@ -1777,6 +1860,7 @@
 				9107A08723AB5A6A00F1DD77 /* DynamicLinksManager.swift in Sources */,
 				91B5A995236714640030909D /* SpotListCollectionView.swift in Sources */,
 				91D554B323F264D500B06467 /* TutorialUtil.swift in Sources */,
+				919E6F9A240297C100CF8161 /* EkispertResultSet.swift in Sources */,
 				9170F16523FED6BC002FB702 /* HotpepperCouponUrls.swift in Sources */,
 				915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */,
 				91BDCB942324B25600E4B5C4 /* SettingBasePointsModel.swift in Sources */,
@@ -1784,12 +1868,14 @@
 				915A44AE232E530E006A6891 /* SearchHistoryAccessor.swift in Sources */,
 				91B5A997236715C00030909D /* CustomFlowLayout.swift in Sources */,
 				91C64A6A23764B000046E7E7 /* MyDetailsDataViewController.swift in Sources */,
+				919E6FAC2402F69E00CF8161 /* EkispertClient.swift in Sources */,
 				915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */,
 				9170F15F23FEBA5F002FB702 /* HotpepperBudget.swift in Sources */,
 				9170F13A23F90635002FB702 /* SpotModelProtocol.swift in Sources */,
 				9170F15D23FEBA15002FB702 /* HotpepperSubGenre.swift in Sources */,
 				9170F15523FEB1B2002FB702 /* HotpepperResults.swift in Sources */,
 				912E0B3E23993D63008A91FA /* PointInfomationCellDelegate.swift in Sources */,
+				919E6F9C240298DA00CF8161 /* EkispertPoint.swift in Sources */,
 				9170D3D523A26B0600977DB7 /* InputHistoryAccessor.swift in Sources */,
 				91D554B223F264D500B06467 /* TutorialPageViewController.swift in Sources */,
 				914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */,
@@ -1800,6 +1886,7 @@
 				91C64A4C2371AB1D0046E7E7 /* MyPageViewController.swift in Sources */,
 				9170F13623F7E71B002FB702 /* PointInfomationEntity.swift in Sources */,
 				91A4110E2331BCC000AF7897 /* CustomFloatingPanelLayout.swift in Sources */,
+				919E6FA62402EEE500CF8161 /* EkispertClientError.swift in Sources */,
 				919E6F322402375A00CF8161 /* RakutenTravelAPI.swift in Sources */,
 				9107A08E23ADBDF000F1DD77 /* URL+Extension.swift in Sources */,
 				91D1CABC23769F3B0066F644 /* MyDetailsDataActionViewController.swift in Sources */,
@@ -1810,6 +1897,7 @@
 				91EEA81223780A2700824BBB /* ContactFormViewController.swift in Sources */,
 				919E6F5F24025FC900CF8161 /* YOLPAPI.swift in Sources */,
 				91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */,
+				919E6FA22402DF4D00CF8161 /* EkispertGeoPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
