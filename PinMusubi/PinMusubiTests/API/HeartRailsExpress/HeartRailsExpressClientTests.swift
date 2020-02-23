@@ -1,5 +1,5 @@
 //
-//  HeartRailsExpressTests.swift
+//  HeartRailsExpressClientTests.swift
 //  PinMusubiTests
 //
 //  Created by rMac on 2020/02/23.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import PinMusubi
 
-class HeartRailsExpressTests: XCTestCase {
+class HeartRailsExpressClientTests: XCTestCase {
     override func setUp() {
         super.setUp()
     }
