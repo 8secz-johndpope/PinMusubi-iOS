@@ -1120,6 +1120,38 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		919E6FC2240450B100CF8161 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				914D4A8A23388F8500065648 /* Notification+Extension.swift */,
+				91D190822368485A00B0329A /* UIImageView+Extension.swift */,
+				9107A08D23ADBDF000F1DD77 /* URL+Extension.swift */,
+				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
+				919E6FB224031E1500CF8161 /* MKPlacemark+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		919E6FC3240450D700CF8161 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				91A411092331AC7B00AF7897 /* TestData.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		919E6FC42404513700CF8161 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				918CC477232F91D00047BC88 /* ColorDefinition.swift */,
+				91B5A9782363F1AE0030909D /* KeyManager.swift */,
+				91B5A996236715C00030909D /* CustomFlowLayout.swift */,
+				9107A08623AB5A6A00F1DD77 /* DynamicLinksManager.swift */,
+				91D554B023F264D500B06467 /* TutorialUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		91A4111A2333C09400AF7897 /* xib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1168,7 +1200,7 @@
 			isa = PBXGroup;
 			children = (
 				9107A08523AAEAED00F1DD77 /* PinMusubi.entitlements */,
-				91B3EB612301326600430D41 /* Common */,
+				91B3EB612301326600430D41 /* Application */,
 				9197D63E23250D2400A5C558 /* Entity */,
 				915A44A6232E2A7D006A6891 /* DB */,
 				9170F14923FE77C4002FB702 /* API */,
@@ -1283,23 +1315,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		91B3EB612301326600430D41 /* Common */ = {
+		91B3EB612301326600430D41 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				919E6FC42404513700CF8161 /* Util */,
+				919E6FC2240450B100CF8161 /* Extension */,
+				919E6FC3240450D700CF8161 /* Test */,
 				91B3EB4C2301296E00430D41 /* AppDelegate.swift */,
-				918CC477232F91D00047BC88 /* ColorDefinition.swift */,
-				91A411092331AC7B00AF7897 /* TestData.swift */,
-				91B5A9782363F1AE0030909D /* KeyManager.swift */,
-				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
-				914D4A8A23388F8500065648 /* Notification+Extension.swift */,
-				91D190822368485A00B0329A /* UIImageView+Extension.swift */,
-				91B5A996236715C00030909D /* CustomFlowLayout.swift */,
-				9107A08623AB5A6A00F1DD77 /* DynamicLinksManager.swift */,
-				9107A08D23ADBDF000F1DD77 /* URL+Extension.swift */,
-				91D554B023F264D500B06467 /* TutorialUtil.swift */,
-				919E6FB224031E1500CF8161 /* MKPlacemark+Extension.swift */,
 			);
-			path = Common;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		91B3EB622301332C00430D41 /* Resouce */ = {
