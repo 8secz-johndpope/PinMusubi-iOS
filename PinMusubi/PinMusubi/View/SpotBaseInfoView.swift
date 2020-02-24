@@ -22,12 +22,12 @@ public class SpotBaseInfoView: UIView {
     @IBOutlet private var image5: UIImageView!
 
     public func configureLabel(spot: SpotEntityProtocol) {
-        if let shop = spot as? Shop {
-            addressLabel.text = shop.address
-            fromTrainLabel.text = shop.access
-            businessTimeLabel.text = shop.open
-            regularHolidayLabel.text = shop.close
-            seatCountLabel.text = shop.capacity
+        if let restaurant = spot as? RestaurantEntity {
+            addressLabel.text = restaurant.address
+            fromTrainLabel.text = restaurant.access
+            businessTimeLabel.text = restaurant.open
+            regularHolidayLabel.text = restaurant.close
+            seatCountLabel.text = restaurant.phoneNumber
         } else if let hotels = spot as? Hotels {
             if let address1 = hotels.hotel[0].hotelBasicInfo?.address1,
                 let address2 = hotels.hotel[0].hotelBasicInfo?.address2 {

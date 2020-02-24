@@ -37,9 +37,9 @@ public class SpotCell: UITableViewCell {
         adBaseView.isHidden = true
 
         switch spot {
-        case is Shop:
-            guard let shop = spot as? Shop else { return }
-            configureShop(shop: shop)
+        case is RestaurantEntity:
+            guard let restaurant = spot as? RestaurantEntity else { return }
+            configureRestaurant(restaurant: restaurant)
 
         case is Hotels :
             guard let hotels = spot as? Hotels else { return }
@@ -69,11 +69,15 @@ public class SpotCell: UITableViewCell {
         self.adBannerView = adBannerView
     }
 
-    private func configureShop(shop: Shop) {
-        title.text = shop.name
-        subTitle.text = shop.genre.name
-        guard let imageUrl = URL(string: shop.photo.pcPhoto.large) else { return }
-        catchImage.sd_setImage(with: imageUrl)
+    private func configureRestaurant(restaurant: RestaurantEntity) {
+        title.text = restaurant.name
+        subTitle.text = restaurant.category
+        if let imageURLString = restaurant.imageURLString {
+            guard let imageUrl = URL(string: imageURLString) else { return }
+            catchImage.sd_setImage(with: imageUrl)
+        } else {
+            catchImage.image = restaurant.generalImage
+        }
     }
 
     private func configureHotel(hotels: Hotels) {

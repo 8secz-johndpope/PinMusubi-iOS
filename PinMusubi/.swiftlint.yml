@@ -24,13 +24,13 @@ disabled_rules:
 - explicit_acl # internalは省略できるため
 - explicit_top_level_acl # internalは省略できるため
 - force_unwrapping # 絶対nilにならないものもあるため
+- closure_body_length # 長く書かざるを得ない場合もあるため
 
 # defaultルール以外にopt-inから採用するルール
 opt_in_rules:
 - anyobject_protocol
 - array_init
 - attributes
-- closure_body_length
 - closure_end_indentation
 - closure_spacing
 - collection_alignment
@@ -159,4 +159,12 @@ identifier_name:
     - sp
     - tv
     - gc
+    - _10
+    - _50
+    - _100
+    - _300
+    - _500
+    - _1000
+    - _2000
+    - _3000
   reporter: "xcode"

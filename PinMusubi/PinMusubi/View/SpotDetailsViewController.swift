@@ -60,12 +60,10 @@ public class SpotDetailsViewController: UIViewController {
     public func setParameter(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol) {
         self.settingPoints = settingPoints
         self.spot = spot
-        if spot is Shop {
-            guard let restaurant = spot as? Shop else { return }
-            guard let lat = CLLocationDegrees(restaurant.lat) else { return }
-            guard let lng = CLLocationDegrees(restaurant.lng) else { return }
-            spotPoint.latitude = lat
-            spotPoint.longitude = lng
+        if spot is RestaurantEntity {
+            guard let restaurant = spot as? RestaurantEntity else { return }
+            spotPoint.latitude = restaurant.latitude
+            spotPoint.longitude = restaurant.longitude
         } else if spot is Hotels {
             guard let hotels = spot as? Hotels else { return }
             guard let lat = hotels.hotel[0].hotelBasicInfo?.latitude else { return }
@@ -92,8 +90,8 @@ public class SpotDetailsViewController: UIViewController {
     }
 
     private func configureContents() {
-        if let shop = spot as? Shop {
-            configureShop(shop: shop)
+        if let restaurant = spot as? RestaurantEntity {
+            configureRestaurant(restaurant: restaurant)
         } else if let hotels = spot as? Hotels {
             configureHotel(hotels: hotels)
         } else if let leisure = spot as? Feature {
@@ -105,20 +103,25 @@ public class SpotDetailsViewController: UIViewController {
         }
     }
 
-    private func configureShop(shop: Shop) {
-        title = shop.name
-        guard let imageUrl = URL(string: shop.photo.pcPhoto.middle) else { return }
-        mainImage.sd_setImage(with: imageUrl)
-        nameLabel.text = shop.name
-        valueLabel.text = shop.budget.average
-        categoryLabel.text = shop.genre.name
-        directionLabel.text = shop.access
+    private func configureRestaurant(restaurant: RestaurantEntity) {
+        title = restaurant.name
+        nameLabel.text = restaurant.name
+        valueLabel.text = restaurant.price
+        categoryLabel.text = restaurant.category
+        directionLabel.text = restaurant.access
+        showWebPageLabel.text = "Webで詳しく見る・予約する"
 
         baseInfoMapView.removeFromSuperview()
         guard let spotBaseInfoView = UINib(nibName: "SpotBaseInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? SpotBaseInfoView else { return }
-        spotBaseInfoView.configureLabel(spot: shop)
+        spotBaseInfoView.configureLabel(spot: restaurant)
         baseInfoView.addSubview(spotBaseInfoView)
-        showWebPageLabel.text = "Webで詳しく見る・予約する"
+
+        if let imageURLString = restaurant.imageURLString {
+            guard let imageUrl = URL(string: imageURLString) else { return }
+            mainImage.sd_setImage(with: imageUrl)
+        } else {
+            mainImage.image = restaurant.generalImage
+        }
     }
 
     private func configureHotel(hotels: Hotels) {

@@ -49,23 +49,28 @@ public class WebViewController: UIViewController {
             webView.uiDelegate = self
             webView.navigationDelegate = self
 
-            guard let requestUrl = URL(string: requestUrlString) else { return }
-            let request = URLRequest(url: requestUrl)
+            var request: URLRequest
+            if let requestURL = requestURL {
+                request = URLRequest(url: requestURL)
+            } else {
+                guard let requestUrl = URL(string: requestUrlString) else { return }
+                request = URLRequest(url: requestUrl)
+            }
             webView.load(request)
         }
     }
 
     private var requestUrlString = ""
+    private var requestURL: URL?
     private var shareTitle = ""
     private var spot: SpotEntityProtocol?
     private var movePageTimes = 0
 
     public func setSpot(spot: SpotEntityProtocol) {
         self.spot = spot
-        if let shop = spot as? Shop {
-            guard let affiliateURLString = KeyManager().getValue(key: "HOT PEPPER Affiliate URL") as? String else { return }
-            requestUrlString = affiliateURLString + shop.urls.pcUrl
-            shareTitle = shop.name
+        if let restaurant = spot as? RestaurantEntity {
+            requestURL = restaurant.url
+            shareTitle = restaurant.name ?? ""
         } else if let hotels = spot as? Hotels {
             guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
             requestUrlString = hotelInformationURL
@@ -87,7 +92,7 @@ public class WebViewController: UIViewController {
         var eventQuery = ""
 
         switch spot {
-        case is Shop:
+        case is RestaurantEntity:
             eventQuery = "restaurant"
         case is Hotels:
             eventQuery = "hotel"

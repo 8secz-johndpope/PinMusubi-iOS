@@ -24,7 +24,7 @@ class HotpepperClientTests: XCTestCase {
             longitude: "139.061883",
             range: nil,
             order: nil,
-            count: HotpepperRequestParameter.Count.count100.rawValue
+            count: HotpepperRequestParameter.Count._100.rawValue
         )
         
         client.send(request: request) { result in
@@ -49,9 +49,9 @@ class HotpepperClientTests: XCTestCase {
             id: nil,
             latitude: nil,
             longitude: nil,
-            range: HotpepperRequestParameter.Range.range3000.rawValue,
+            range: HotpepperRequestParameter.Range._3000.rawValue,
             order: nil,
-            count: HotpepperRequestParameter.Count.count100.rawValue
+            count: HotpepperRequestParameter.Count._100.rawValue
         )
         
         client.send(request: request) { result in

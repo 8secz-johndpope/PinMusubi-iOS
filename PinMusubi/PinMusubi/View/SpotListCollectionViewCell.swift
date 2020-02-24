@@ -51,7 +51,7 @@ internal class SpotListCollectionViewCell: UICollectionViewCell {
         }
 
         for index in 0 ... spotList.count - 1 {
-            if index != 0 && index % 20 == 0 {
+            if index != 0 && index % 10 == 0 {
                 self.spotList.insert(AdEntity(), at: index)
             }
         }

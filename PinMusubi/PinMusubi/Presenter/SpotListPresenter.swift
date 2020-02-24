@@ -49,7 +49,7 @@ internal class SpotListPresenter: SpotListPresenterProtocol {
     internal func initModel(spotType: SpotType) -> SpotModelProtocol {
         switch spotType {
         case .restaurant:
-            return RestaurantSpotsModel()
+            return RestaurantModel()
 
         case .hotel:
             return HotelModel()

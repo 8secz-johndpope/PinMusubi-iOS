@@ -8,11 +8,11 @@
 
 enum HotpepperRequestParameter {
     enum Range: String, CaseIterable {
-        case range300 = "1"
-        case range500 = "2"
-        case range1000 = "3"
-        case range2000 = "4"
-        case range3000 = "5"
+        case _300 = "1"
+        case _500 = "2"
+        case _1000 = "3"
+        case _2000 = "4"
+        case _3000 = "5"
     }
 
     enum Order: String, CaseIterable {
@@ -23,8 +23,8 @@ enum HotpepperRequestParameter {
     }
 
     enum Count: String, CaseIterable {
-        case count10 = "10"
-        case count50 = "50"
-        case count100 = "100"
+        case _10 = "10"
+        case _50 = "50"
+        case _100 = "100"
     }
 }

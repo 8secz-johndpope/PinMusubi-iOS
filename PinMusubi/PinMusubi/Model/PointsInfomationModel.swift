@@ -9,7 +9,7 @@
 import MapKit
 
 /// マップ上の地点間の情報を処理するモデルのプロトコル
-internal protocol PointsInfomationModelProtocol {
+protocol PointsInfomationModelProtocol {
     /// コンストラクタ
     init()
 
@@ -25,20 +25,15 @@ internal protocol PointsInfomationModelProtocol {
 }
 
 /// マップ上の地点間の情報を処理するモデル
-internal class PointsInfomationModel: PointsInfomationModelProtocol {
-    private var ekispertKey = ""
-
+class PointsInfomationModel: PointsInfomationModelProtocol {
     /// コンストラクタ
-    internal required init() {
-        guard let key = KeyManager().getValue(key: "Ekispert API Key") as? String else { return }
-        self.ekispertKey = key
-    }
+    required init() {}
 
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoint: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
     /// - Parameter complete: 完了ハンドラ
-    internal func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (Int) -> Void) {
+    func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (Int) -> Void) {
         // PlaceMarkに出発地と目的地の座標を設定
         let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
         let fromPlace = MKPlacemark(coordinate: fromCoordinate, addressDictionary: nil)
@@ -66,7 +61,7 @@ internal class PointsInfomationModel: PointsInfomationModelProtocol {
         }
     }
 
-    internal func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String, ResponseStatus) -> Void) {
+    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String, ResponseStatus) -> Void) {
         let fromPoint = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
         let toPoint = pinPoint
 
@@ -107,33 +102,26 @@ internal class PointsInfomationModel: PointsInfomationModelProtocol {
     }
 
     private func fetchTransferGuide(fromStation: String, toStation: String, complete: @escaping (String, ResponseStatus) -> Void) {
-        // リクエストURL生成
-        let ekispertUrlString = "http://api.ekispert.jp/v1/json/search/course/light"
-        guard var urlComponents = URLComponents(string: ekispertUrlString) else { return }
-        urlComponents.queryItems = [
-            URLQueryItem(name: "key", value: ekispertKey),
-            URLQueryItem(name: "from", value: fromStation),
-            URLQueryItem(name: "to", value: toStation),
-            URLQueryItem(name: "contentsMode", value: "sp")
-        ]
-        guard let urlRequest = urlComponents.url else { return }
+        // 駅すぱあと for web URL生成 API
+        let client = EkispertClient()
+        let request = EkispertAPI.SearchCourse(
+            fromStation: fromStation,
+            toStation: toStation
+        )
 
-        // レスポンスJSONから乗換案内URLを取得
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-            guard let jsonData = data else { return }
-            do {
-                let transferGuide = try JSONDecoder().decode(TransferGuideEntity.self, from: jsonData)
-                if let transferGuideURLString = transferGuide.resultSet.resourceURI {
-                    complete(transferGuideURLString, .success)
-                } else if let transferGuideError = transferGuide.resultSet.error {
-                    complete(transferGuideError.message, .error)
+        client.send(request: request) { result in
+            switch result {
+            case let .success(response):
+                if let resourceURI = response.0?.resultSet.resourceURI {
+                    complete(resourceURI, .success)
+                } else if let error = response.0?.resultSet.error {
+                    complete(error.message, .error)
                 }
-            } catch {
-                complete("その他のエラー", .error)
-                print(error)
+
+            case let .failure(error):
+                complete(error.localizedDescription, .error)
             }
         }
-        task.resume()
     }
 
     private func fetchCorrectStationName(stationName: String, point: CLLocationCoordinate2D, complete: @escaping (String, ResponseStatus) -> Void) {
@@ -143,41 +131,34 @@ internal class PointsInfomationModel: PointsInfomationModelProtocol {
             correctStationName = stationName.replacingOccurrences(of: "新線", with: "")
         }
 
-        // リクエストURL生成
-        let ekispertUrlString = "http://api.ekispert.jp/v1/json/station"
-        guard var urlComponents = URLComponents(string: ekispertUrlString) else { return }
-        urlComponents.queryItems = [
-            URLQueryItem(name: "key", value: ekispertKey),
-            URLQueryItem(name: "name", value: correctStationName),
-            URLQueryItem(name: "gcs", value: "wgs84")
-        ]
-        guard let urlRequest = urlComponents.url else { return }
+        // 駅すぱあと 駅情報 API
+        let client = EkispertClient()
+        let request = EkispertAPI.SearchStation(name: correctStationName)
 
-        // レスポンスJSONから駅名を取得
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-            guard let jsonData = data else { return }
-            do {
-                let ekispertStation = try JSONDecoder().decode(EkispertStationsEntity.self, from: jsonData)
-                var comparedDiff = 1_000.0
-                for stationPoint in ekispertStation.resultSet.point {
-                    guard let pointLatitude = Double(stationPoint.geoPoint.latiD) else { return }
-                    guard let pointLongitude = Double(stationPoint.geoPoint.longiD) else { return }
-                    let diff = fabs(Double(point.latitude) - pointLatitude) + fabs(Double(point.longitude) - pointLongitude)
-                    if diff < comparedDiff {
-                        comparedDiff = diff
-                        correctStationName = stationPoint.station.name
+        client.send(request: request) { result in
+            switch result {
+            case let .success(response):
+                if let point = response.0?.resultSet.point {
+                    complete(point.station.name, .success)
+                } else if let points = response.1?.resultSet.point {
+                    var diff = 1_000.0
+                    points.forEach {
+                        if let stationLat = Double($0.geoPoint.latiD), let stationLng = Double($0.geoPoint.longiD) {
+                            let pointDiff = fabs(point.latitude - stationLat) + fabs(point.longitude - stationLng)
+                            if diff > pointDiff {
+                                correctStationName = $0.station.name
+                                diff = pointDiff
+                            }
+                        }
                     }
+                    complete(correctStationName, .success)
+                } else if let error = response.0?.resultSet.error {
+                    complete(error.message, .error)
                 }
-                complete(correctStationName, .success)
-            } catch {
-                do {
-                    let ekispertStation = try JSONDecoder().decode(EkispertStationEntity.self, from: jsonData)
-                    complete(ekispertStation.resultSet.point.station.name, .success)
-                } catch {
-                    complete("デコードエラー", .error)
-                }
+
+            case let .failure(error):
+                complete(error.localizedDescription, .error)
             }
         }
-        task.resume()
     }
 }
