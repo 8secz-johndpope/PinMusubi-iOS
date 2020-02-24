@@ -174,6 +174,7 @@
 		919E6FB92403241900CF8161 /* MapKitClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FB82403241900CF8161 /* MapKitClientTests.swift */; };
 		919E6FBC24032FA400CF8161 /* MKLocalSearchRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FBB24032FA400CF8161 /* MKLocalSearchRequestParameter.swift */; };
 		919E6FBF2403521700CF8161 /* MKLocalSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FBE2403521700CF8161 /* MKLocalSearchResponse.swift */; };
+		919E6FC12403A77B00CF8161 /* MKLocalSearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FC02403A77B00CF8161 /* MKLocalSearchCategory.swift */; };
 		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
@@ -474,6 +475,7 @@
 		919E6FB82403241900CF8161 /* MapKitClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitClientTests.swift; sourceTree = "<group>"; };
 		919E6FBB24032FA400CF8161 /* MKLocalSearchRequestParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLocalSearchRequestParameter.swift; sourceTree = "<group>"; };
 		919E6FBE2403521700CF8161 /* MKLocalSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLocalSearchResponse.swift; sourceTree = "<group>"; };
+		919E6FC02403A77B00CF8161 /* MKLocalSearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLocalSearchCategory.swift; sourceTree = "<group>"; };
 		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -1105,6 +1107,7 @@
 			isa = PBXGroup;
 			children = (
 				919E6FBB24032FA400CF8161 /* MKLocalSearchRequestParameter.swift */,
+				919E6FC02403A77B00CF8161 /* MKLocalSearchCategory.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1944,6 +1947,7 @@
 				91D1CABC23769F3B0066F644 /* MyDetailsDataActionViewController.swift in Sources */,
 				91C05BD4236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift in Sources */,
 				914455C12384186100AE7E06 /* LeisureEntity.swift in Sources */,
+				919E6FC12403A77B00CF8161 /* MKLocalSearchCategory.swift in Sources */,
 				9170F16323FED53E002FB702 /* HotpepperPhoto.swift in Sources */,
 				9170F15923FEB938002FB702 /* HotpepperArea.swift in Sources */,
 				91EEA81223780A2700824BBB /* ContactFormViewController.swift in Sources */,

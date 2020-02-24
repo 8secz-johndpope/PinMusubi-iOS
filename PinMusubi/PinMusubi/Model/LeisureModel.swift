@@ -9,11 +9,24 @@
 import CoreLocation
 
 internal class LeisureModel: SpotModelProtocol {
+    typealias Category = MKLocalSearchRequestParameter.Category.Leisure
+
+    var pinPoint: CLLocationCoordinate2D
     private var appid = ""
 
-    internal required init() {
+    init(pinPoint: CLLocationCoordinate2D) {
+        self.pinPoint = pinPoint
+
         guard let appid = KeyManager().getValue(key: "Yolp API Key") as? String else { return }
         self.appid = appid
+    }
+
+    func fetchSpotList(completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
+        completion([], .leisure)
+    }
+
+    func createSpotURL(URLString: String) -> URL? {
+        return nil
     }
 
     internal func fetchSpotList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {

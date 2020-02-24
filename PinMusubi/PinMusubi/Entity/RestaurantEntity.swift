@@ -7,13 +7,12 @@
 //
 
 import CoreLocation
-import UIKit
 
 struct RestaurantEntity: SpotEntityProtocol {
     let name: String?
     let category: String?
     let imageURLString: String?
-    let generalImage: UIImage?
+    let generalImage: String?
     let latitude: CLLocationDegrees
     let longitude: CLLocationDegrees
     let distance: Double

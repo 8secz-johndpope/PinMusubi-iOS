@@ -8,7 +8,7 @@
 
 enum MKLocalSearchRequestParameter {
     enum Category {
-        enum Restaurant: String, CaseIterable {
+        enum Restaurant: String, MKLocalSearchCategory {
             case izakaya
             case japaneseFood
             case westernFood
@@ -54,6 +54,48 @@ enum MKLocalSearchRequestParameter {
                     return "カフェ"
                 case .fastFood:
                     return "ファーストフード"
+                }
+            }
+        }
+
+        enum Hotel: String, MKLocalSearchCategory {
+            case hotel
+            case resortHotel
+            case ryokan
+
+            func inName() -> String {
+                switch self {
+                case .hotel:
+                    return "ホテル"
+                case .resortHotel:
+                    return "リゾートホテル"
+                case .ryokan:
+                    return "旅館"
+                }
+            }
+        }
+
+        enum Leisure: String, MKLocalSearchCategory {
+            case sports
+
+            func inName() -> String {
+                switch self {
+                case .sports:
+                    return "スポーツ"
+                }
+            }
+        }
+
+        enum Transportation: String, MKLocalSearchCategory {
+            case train
+            case bus
+
+            func inName() -> String {
+                switch self {
+                case .train:
+                    return "電車"
+                case .bus:
+                    return "バス"
                 }
             }
         }

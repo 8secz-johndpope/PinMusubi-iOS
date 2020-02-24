@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-struct MKLocalSearchResponse<Category> {
+struct MKLocalSearchResponse<Category: MKLocalSearchCategory> {
     let name: String?
     let category: Category?
     let latitude: CLLocationDegrees?

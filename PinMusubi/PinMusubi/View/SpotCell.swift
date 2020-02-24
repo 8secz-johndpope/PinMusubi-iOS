@@ -41,9 +41,9 @@ public class SpotCell: UITableViewCell {
             guard let restaurant = spot as? RestaurantEntity else { return }
             configureRestaurant(restaurant: restaurant)
 
-        case is Hotels :
-            guard let hotels = spot as? Hotels else { return }
-            configureHotel(hotels: hotels)
+        case is HotelEntity :
+            guard let hotel = spot as? HotelEntity else { return }
+            configureHotel(hotel: hotel)
 
         case is Feature :
             guard let leisure = spot as? Feature else { return }
@@ -73,19 +73,22 @@ public class SpotCell: UITableViewCell {
         title.text = restaurant.name
         subTitle.text = restaurant.category
         if let imageURLString = restaurant.imageURLString {
-            guard let imageUrl = URL(string: imageURLString) else { return }
-            catchImage.sd_setImage(with: imageUrl)
+            guard let imageURL = URL(string: imageURLString) else { return }
+            catchImage.sd_setImage(with: imageURL)
         } else {
-            catchImage.image = restaurant.generalImage
+            catchImage.image = UIImage(named: restaurant.generalImage ?? "")
         }
     }
 
-    private func configureHotel(hotels: Hotels) {
-        title.text = hotels.hotel[0].hotelBasicInfo?.hotelName
-        subTitle.text = hotels.hotel[0].hotelBasicInfo?.hotelSpecial
-        guard let imageUrlStr = hotels.hotel[0].hotelBasicInfo?.hotelThumbnailURL else { return }
-        guard let imageUrl = URL(string: imageUrlStr) else { return }
-        catchImage.sd_setImage(with: imageUrl)
+    private func configureHotel(hotel: HotelEntity) {
+        title.text = hotel.name
+        subTitle.text = hotel.category
+        if let imageURLString = hotel.imageURLString {
+            guard let imageURL = URL(string: imageURLString) else { return }
+            catchImage.sd_setImage(with: imageURL)
+        } else {
+            catchImage.image = UIImage(named: hotel.generalImage ?? "")
+        }
     }
 
     private func configureLeisure(leisure: Feature) {

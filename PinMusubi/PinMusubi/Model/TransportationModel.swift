@@ -8,10 +8,24 @@
 
 import CoreLocation
 
-internal class TransportationModel: SpotModelProtocol {
-    internal required init() {}
+class TransportationModel: SpotModelProtocol {
+    typealias Category = MKLocalSearchRequestParameter.Category.Transportation
 
-    internal func fetchSpotList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
+    var pinPoint: CLLocationCoordinate2D
+
+    init(pinPoint: CLLocationCoordinate2D) {
+        self.pinPoint = pinPoint
+    }
+
+    func fetchSpotList(completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
+        completion([], .transportation)
+    }
+
+    func createSpotURL(URLString: String) -> URL? {
+        return nil
+    }
+
+    func fetchSpotList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
         var transportationList = [SpotEntityProtocol]()
 
         let dispatchGroup = DispatchGroup()
@@ -42,7 +56,7 @@ internal class TransportationModel: SpotModelProtocol {
         }
     }
 
-    internal func fetchStationList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol]) -> Void) {
+    func fetchStationList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol]) -> Void) {
         let url = "http://express.heartrails.com/api/json"
         guard var urlComponents = URLComponents(string: url) else { return }
         urlComponents.queryItems = [
@@ -64,7 +78,7 @@ internal class TransportationModel: SpotModelProtocol {
         task.resume()
     }
 
-    internal func fetchBusStopList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol]) -> Void) {
+    func fetchBusStopList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol]) -> Void) {
         let url = "https://livlog.xyz/busstop/getBusStop"
         guard var urlComponents = URLComponents(string: url) else { return }
         urlComponents.queryItems = [

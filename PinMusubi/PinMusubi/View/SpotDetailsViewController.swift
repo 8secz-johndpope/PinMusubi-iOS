@@ -64,12 +64,10 @@ public class SpotDetailsViewController: UIViewController {
             guard let restaurant = spot as? RestaurantEntity else { return }
             spotPoint.latitude = restaurant.latitude
             spotPoint.longitude = restaurant.longitude
-        } else if spot is Hotels {
-            guard let hotels = spot as? Hotels else { return }
-            guard let lat = hotels.hotel[0].hotelBasicInfo?.latitude else { return }
-            guard let lng = hotels.hotel[0].hotelBasicInfo?.longitude else { return }
-            spotPoint.latitude = lat
-            spotPoint.longitude = lng
+        } else if spot is HotelEntity {
+            guard let hotel = spot as? HotelEntity else { return }
+            spotPoint.latitude = hotel.latitude
+            spotPoint.longitude = hotel.longitude
         } else if spot is Feature {
             guard let leisure = spot as? Feature else { return }
             let coordinates = leisure.geometry.coordinates
@@ -92,8 +90,8 @@ public class SpotDetailsViewController: UIViewController {
     private func configureContents() {
         if let restaurant = spot as? RestaurantEntity {
             configureRestaurant(restaurant: restaurant)
-        } else if let hotels = spot as? Hotels {
-            configureHotel(hotels: hotels)
+        } else if let hotel = spot as? HotelEntity {
+            configureHotel(hotel: hotel)
         } else if let leisure = spot as? Feature {
             configureLeisure(leisure: leisure)
         } else if let station = spot as? Station {
@@ -117,37 +115,33 @@ public class SpotDetailsViewController: UIViewController {
         baseInfoView.addSubview(spotBaseInfoView)
 
         if let imageURLString = restaurant.imageURLString {
-            guard let imageUrl = URL(string: imageURLString) else { return }
-            mainImage.sd_setImage(with: imageUrl)
+            guard let imageURL = URL(string: imageURLString) else { return }
+            mainImage.sd_setImage(with: imageURL)
         } else {
-            mainImage.image = restaurant.generalImage
+            mainImage.image = UIImage(named: restaurant.generalImage ?? "")
         }
     }
 
-    private func configureHotel(hotels: Hotels) {
-        title = hotels.hotel[0].hotelBasicInfo?.hotelName
-        guard let imageUrlStr = hotels.hotel[0].hotelBasicInfo?.hotelImageURL else { return }
-        guard let imageUrl = URL(string: imageUrlStr) else { return }
-        mainImage.sd_setImage(with: imageUrl)
-        nameLabel.text = hotels.hotel[0].hotelBasicInfo?.hotelName
+    private func configureHotel(hotel: HotelEntity) {
+        title = hotel.name
+        nameLabel.text = hotel.name
+        valueLabel.text = hotel.reviewAverage
         valueImageView.image = UIImage(named: "Star")
-        if let reviewAverage = hotels.hotel[0].hotelBasicInfo?.reviewAverage {
-            valueLabel.text = "レビュー評価：" + String(reviewAverage)
-        } else {
-            valueLabel.text = "レビュー評価：なし"
-        }
-        if let nearestStation = hotels.hotel[0].hotelBasicInfo?.nearestStation {
-            categoryLabel.text = nearestStation + "駅近く"
-        } else {
-            categoryLabel.text = "最寄駅情報なし"
-        }
-        directionLabel.text = hotels.hotel[0].hotelBasicInfo?.hotelSpecial
+        categoryLabel.text = hotel.category
+        directionLabel.text = hotel.special
+        showWebPageLabel.text = "Webで詳しく見る・予約する"
 
         baseInfoMapView.removeFromSuperview()
         guard let spotBaseInfoView = UINib(nibName: "SpotBaseInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? SpotBaseInfoView else { return }
-        spotBaseInfoView.configureLabel(spot: hotels)
+        spotBaseInfoView.configureLabel(spot: hotel)
         baseInfoView.addSubview(spotBaseInfoView)
-        showWebPageLabel.text = "Webで詳しく見る・予約する"
+
+        if let imageURLString = hotel.imageURLString {
+            guard let imageURL = URL(string: imageURLString) else { return }
+            mainImage.sd_setImage(with: imageURL)
+        } else {
+            mainImage.image = UIImage(named: hotel.generalImage ?? "")
+        }
     }
 
     private func configureLeisure(leisure: Feature) {

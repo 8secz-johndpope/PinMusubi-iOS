@@ -6,12 +6,14 @@
 //  Copyright © 2020 naipaka. All rights reserved.
 //
 
-import CoreLocation
+import MapKit
 
 protocol SpotModelProtocol {
-    init()
+    var pinPoint: CLLocationCoordinate2D { get set }
 
-    func fetchSpotList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void)
+    func fetchSpotList(completion: @escaping ([SpotEntityProtocol], SpotType) -> Void)
+
+    func createSpotURL(URLString: String) -> URL?
 }
 
 extension SpotModelProtocol {
@@ -23,6 +25,59 @@ extension SpotModelProtocol {
         let placeLocation = CLLocation(latitude: latitude, longitude: longitude)
         return placeLocation.distance(from: pinLocation)
     }
+
+    func fetchPlaces<T: MKLocalSearchCategory>(categories: [T], completion: @escaping ([MKLocalSearchResponse<T>]) -> Void) {
+        var response = [MKLocalSearchResponse<T>]()
+
+        // MKLocalSearch プレイス検索
+        let dispatchGroup = DispatchGroup()
+        let dispatchQueue = DispatchQueue(label: "fetchAllPlace", attributes: .concurrent)
+        categories.forEach { category in
+            dispatchGroup.enter()
+            dispatchQueue.async(group: dispatchGroup) {
+                let request = MKLocalSearch.Request()
+                request.naturalLanguageQuery = category.inName()
+                request.region = MKCoordinateRegion(center: self.pinPoint, latitudinalMeters: 3_000.0, longitudinalMeters: 3_000.0)
+
+                MKLocalSearchClient.search(request: request) { result in
+                    switch result {
+                    case .success(let mapItems):
+                        mapItems.forEach {
+                            response.append(
+                                MKLocalSearchResponse<T>(
+                                    name: $0.name,
+                                    category: category,
+                                    latitude: $0.placemark.coordinate.latitude,
+                                    longitude: $0.placemark.coordinate.longitude,
+                                    address: $0.placemark.title,
+                                    url: $0.url,
+                                    phoneNumber: $0.phoneNumber
+                                )
+                            )
+                        }
+
+                    case .failure(let error):
+                        print("error \(error.localizedDescription)")
+                    }
+                    dispatchGroup.leave()
+                }
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            completion(response)
+        }
+    }
+
+    // TODO: RealmからplaceIdが同じデータを取得し、DAOからMKLocalSearchResponse<Category>に入れ替える
+    //    func fetchPlace(placeId: String) -> MKLocalSearchResponse<Category> {
+    //
+    //    }
+
+    // TODO: MKLocalSearchResponse<Category>からDAOに移し替えて、Realmに登録
+    //    func setPlace(response: MKLocalSearchResponse<Category>) {
+    //
+    //    }
 }
 
 enum ResponseStatus {

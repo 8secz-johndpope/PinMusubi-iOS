@@ -8,20 +8,20 @@
 
 import CoreLocation
 
-internal protocol SpotListPresenterProtocol {
+protocol SpotListPresenterProtocol {
     init(view: SpotListViewController)
 
     func presentAllSpotList(pinPoint: CLLocationCoordinate2D, spotTypeList: [SpotType])
 }
 
-internal class SpotListPresenter: SpotListPresenterProtocol {
+class SpotListPresenter: SpotListPresenterProtocol {
     private weak var view: SpotListViewController?
 
-    internal required init(view: SpotListViewController) {
+    required init(view: SpotListViewController) {
         self.view = view
     }
 
-    internal func presentAllSpotList(pinPoint: CLLocationCoordinate2D, spotTypeList: [SpotType]) {
+    func presentAllSpotList(pinPoint: CLLocationCoordinate2D, spotTypeList: [SpotType]) {
         guard let view = view else { return }
         var spotList = [[SpotEntityProtocol]]()
 
@@ -32,8 +32,8 @@ internal class SpotListPresenter: SpotListPresenterProtocol {
             spotList.append([SpotEntityProtocol]())
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) {
-                let model = self.initModel(spotType: spotType)
-                model.fetchSpotList(pinPoint: pinPoint) {
+                let model = self.initModel(pinPoint: pinPoint, spotType: spotType)
+                model.fetchSpotList {
                     guard let index = spotTypeList.firstIndex(of: $1) else { return }
                     spotList[index] = $0
                     dispatchGroup.leave()
@@ -46,19 +46,19 @@ internal class SpotListPresenter: SpotListPresenterProtocol {
         }
     }
 
-    internal func initModel(spotType: SpotType) -> SpotModelProtocol {
+    func initModel(pinPoint: CLLocationCoordinate2D, spotType: SpotType) -> SpotModelProtocol {
         switch spotType {
         case .restaurant:
-            return RestaurantModel()
+            return RestaurantModel(pinPoint: pinPoint)
 
         case .hotel:
-            return HotelModel()
+            return HotelModel(pinPoint: pinPoint)
 
         case .leisure:
-            return LeisureModel()
+            return LeisureModel(pinPoint: pinPoint)
 
         case .transportation:
-            return TransportationModel()
+            return TransportationModel(pinPoint: pinPoint)
         }
     }
 }

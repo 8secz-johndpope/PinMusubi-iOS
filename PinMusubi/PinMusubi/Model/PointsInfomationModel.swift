@@ -67,7 +67,7 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
 
         var fromStation = ""
         var toStation = ""
-        let stationModel = TransportationModel()
+        let stationModel = TransportationModel(pinPoint: pinPoint)
 
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "transportationGuideQueue", attributes: .concurrent)

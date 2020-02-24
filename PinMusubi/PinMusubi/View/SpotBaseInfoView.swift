@@ -28,17 +28,12 @@ public class SpotBaseInfoView: UIView {
             businessTimeLabel.text = restaurant.open
             regularHolidayLabel.text = restaurant.close
             seatCountLabel.text = restaurant.phoneNumber
-        } else if let hotels = spot as? Hotels {
-            if let address1 = hotels.hotel[0].hotelBasicInfo?.address1,
-                let address2 = hotels.hotel[0].hotelBasicInfo?.address2 {
-                addressLabel.text = address1 + address2
-            }
-            fromTrainLabel.text = hotels.hotel[0].hotelBasicInfo?.access
-            businessTimeLabel.text = hotels.hotel[0].hotelBasicInfo?.telephoneNo
-            regularHolidayLabel.text = hotels.hotel[0].hotelBasicInfo?.parkingInformation
-            if let reviewCount = hotels.hotel[0].hotelBasicInfo?.reviewCount {
-                seatCountLabel.text = "レビュー数：" + String(reviewCount)
-            }
+        } else if let hotel = spot as? HotelEntity {
+            addressLabel.text = hotel.address
+            fromTrainLabel.text = hotel.access
+            businessTimeLabel.text = hotel.phoneNumber
+            regularHolidayLabel.text = hotel.special
+            seatCountLabel.text = hotel.reviewAverage
 
             image3.image = UIImage(named: "MinPhone")
             image4.image = UIImage(named: "MinParking")

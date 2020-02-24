@@ -71,11 +71,9 @@ public class WebViewController: UIViewController {
         if let restaurant = spot as? RestaurantEntity {
             requestURL = restaurant.url
             shareTitle = restaurant.name ?? ""
-        } else if let hotels = spot as? Hotels {
-            guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
-            requestUrlString = hotelInformationURL
-            guard let hotelName = hotels.hotel[0].hotelBasicInfo?.hotelName else { return }
-            shareTitle = hotelName
+        } else if let hotel = spot as? HotelEntity {
+            requestURL = hotel.url
+            shareTitle = hotel.name ?? ""
         } else if let leisure = spot as? Feature {
             guard let searchUrl = ("https://www.google.com/search?q=" + leisure.name).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
             requestUrlString = searchUrl
@@ -94,7 +92,7 @@ public class WebViewController: UIViewController {
         switch spot {
         case is RestaurantEntity:
             eventQuery = "restaurant"
-        case is Hotels:
+        case is HotelEntity:
             eventQuery = "hotel"
         case is Feature:
             eventQuery = "leisure"
