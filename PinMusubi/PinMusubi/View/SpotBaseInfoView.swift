@@ -38,14 +38,12 @@ public class SpotBaseInfoView: UIView {
             image3.image = UIImage(named: "MinPhone")
             image4.image = UIImage(named: "MinParking")
             image5.image = UIImage(named: "MinStar")
-        } else if let leisure = spot as? Feature {
-            addressLabel.text = leisure.property.address
-            if !leisure.property.station.isEmpty {
-                fromTrainLabel.text = leisure.property.station[0].railway
-                regularHolidayLabel.text = "最寄り駅から徒歩" + leisure.property.station[0].time + "分"
-            }
-            businessTimeLabel.text = leisure.property.tel1
-            seatCountLabel.text = leisure.featureDescription
+        } else if let leisure = spot as? LeisureEntity {
+            addressLabel.text = leisure.address
+            fromTrainLabel.text = leisure.nearStation
+            regularHolidayLabel.text = "\(leisure.distance / 1_000) km"
+            businessTimeLabel.text = leisure.phoneNumber
+            seatCountLabel.text = leisure.description
 
             image3.image = UIImage(named: "MinPhone")
             image4.image = UIImage(named: "MinWalking")

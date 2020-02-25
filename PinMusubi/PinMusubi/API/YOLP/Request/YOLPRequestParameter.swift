@@ -39,9 +39,7 @@ enum YOLPRequestParameter {
             case gameCenter = "0302"    // 麻雀、ゲームセンター
             case leisure = "0303"   // レジャー、趣味
             case entertainment = "0305"   // エンタメ、映画館、美術館
-            case traffic = "0306"   // 交通、レンタカー
             case travel = "0307"    // 旅行サービス
-            case pachinko = "0308"  // パチンコ、パチスロ
         }
     }
 }

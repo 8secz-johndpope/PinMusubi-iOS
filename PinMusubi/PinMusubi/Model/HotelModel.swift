@@ -6,7 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 class HotelModel: SpotModelProtocol {
@@ -103,14 +102,18 @@ class HotelModel: SpotModelProtocol {
         return URL(string: URLString)
     }
 
-    private func fetchSimpleHotels(completion: @escaping ([[RakutenTravelHotel]]) -> Void) {
+    private func fetchSimpleHotels(
+        searchRadius: String? = RakutenTravelRequestParameter.SearchRadius.range3000.rawValue,
+        squeezeCondition: String? = nil,
+        completion: @escaping ([[RakutenTravelHotel]]) -> Void
+    ) {
         // Rakuten Travel Simple Hotel Search API
         let client = RakutenTravelClient()
         let request = RakutenTravelAPI.SimpleHotelSearch(
             latitude: String(pinPoint.latitude),
             longitude: String(pinPoint.longitude),
-            searchRadius: RakutenTravelRequestParameter.SearchRadius.range3000.rawValue,
-            squeezeCondition: nil
+            searchRadius: searchRadius,
+            squeezeCondition: squeezeCondition
         )
 
         client.send(request: request) { result in
@@ -125,13 +128,18 @@ class HotelModel: SpotModelProtocol {
         }
     }
 
-    private func fetchSimpleHotelByNo(hotelNo: String, completion: @escaping (RakutenTravelHotel?) -> Void) {
+    private func fetchSimpleHotelByNo(
+        hotelNo: String,
+        hotelThumbnailSize: String? = RakutenTravelRequestParameter.HotelThumbnailSize.middle.rawValue,
+        responseType: String? = RakutenTravelRequestParameter.ResponseType.large.rawValue,
+        completion: @escaping (RakutenTravelHotel?) -> Void
+    ) {
         // Rakuten Travel Hotel Detail Search API
         let client = RakutenTravelClient()
         let request = RakutenTravelAPI.HotelDetailSearch(
             hotelNo: hotelNo,
-            hotelThumbnailSize: RakutenTravelRequestParameter.HotelThumbnailSize.middle.rawValue,
-            responseType: RakutenTravelRequestParameter.ResponseType.large.rawValue
+            hotelThumbnailSize: hotelThumbnailSize,
+            responseType: responseType
         )
 
         client.send(request: request) { result in

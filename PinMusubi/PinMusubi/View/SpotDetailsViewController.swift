@@ -68,14 +68,10 @@ public class SpotDetailsViewController: UIViewController {
             guard let hotel = spot as? HotelEntity else { return }
             spotPoint.latitude = hotel.latitude
             spotPoint.longitude = hotel.longitude
-        } else if spot is Feature {
-            guard let leisure = spot as? Feature else { return }
-            let coordinates = leisure.geometry.coordinates
-            let coordinateArray = coordinates.components(separatedBy: ",")
-            guard let lat = CLLocationDegrees(coordinateArray[1]) else { return }
-            guard let lng = CLLocationDegrees(coordinateArray[0]) else { return }
-            spotPoint.latitude = lat
-            spotPoint.longitude = lng
+        } else if spot is LeisureEntity {
+            guard let leisure = spot as? LeisureEntity else { return }
+            spotPoint.latitude = leisure.latitude
+            spotPoint.longitude = leisure.longitude
         } else if spot is Station {
             guard let station = spot as? Station else { return }
             spotPoint.latitude = station.lat
@@ -92,7 +88,7 @@ public class SpotDetailsViewController: UIViewController {
             configureRestaurant(restaurant: restaurant)
         } else if let hotel = spot as? HotelEntity {
             configureHotel(hotel: hotel)
-        } else if let leisure = spot as? Feature {
+        } else if let leisure = spot as? LeisureEntity {
             configureLeisure(leisure: leisure)
         } else if let station = spot as? Station {
             configureStation(station: station)
@@ -144,29 +140,37 @@ public class SpotDetailsViewController: UIViewController {
         }
     }
 
-    private func configureLeisure(leisure: Feature) {
+    private func configureLeisure(leisure: LeisureEntity) {
         title = leisure.name
-        guard let imageUrlStr = leisure.property.leadImage else { return }
-        if imageUrlStr.contains("1.jpg") || imageUrlStr.contains("loco_image") || imageUrlStr.contains("photo_image1-thumb") || imageUrlStr.contains("top.jpg") {
-            mainImage.image = UIImage(named: "NoImage")
-        } else {
-            guard let imageUrl = URL(string: imageUrlStr) else { return }
-            mainImage.sd_setImage(with: imageUrl)
-        }
         nameLabel.text = leisure.name
         valueImageView.image = UIImage(named: "Station")
-        if !leisure.property.station.isEmpty {
-            valueLabel.text = "最寄り駅：" + leisure.property.station[0].name + "駅"
+        if let nearStation = leisure.nearStation {
+            valueLabel.text = "最寄り駅：\(nearStation)駅"
         } else {
             valueLabel.text = "最寄り駅：情報なし"
         }
-        categoryLabel.text = leisure.property.genre[0].name
-        directionLabel.text = leisure.property.catchCopy
+        categoryLabel.text = leisure.category
+        directionLabel.text = leisure.description
+        showWebPageLabel.text = "Webで詳しく調べてみる"
+
         baseInfoMapView.removeFromSuperview()
         guard let spotBaseInfoView = UINib(nibName: "SpotBaseInfoView", bundle: nil).instantiate(withOwner: self, options: nil).first as? SpotBaseInfoView else { return }
         spotBaseInfoView.configureLabel(spot: leisure)
         baseInfoView.addSubview(spotBaseInfoView)
-        showWebPageLabel.text = "Webで詳しく調べてみる"
+
+        if let imageURLString = leisure.imageURLString {
+            if imageURLString.contains("1.jpg") ||
+                imageURLString.contains("loco_image") ||
+                imageURLString.contains("photo_image1-thumb") ||
+                imageURLString.contains("top.jpg") {
+                mainImage.image = UIImage(named: "holiday")
+            } else {
+                guard let imageURL = URL(string: imageURLString) else { return }
+                mainImage.sd_setImage(with: imageURL)
+            }
+        } else {
+            mainImage.image = UIImage(named: leisure.generalImage ?? "holiday")
+        }
     }
 
     private func configureStation(station: Station) {

@@ -12,7 +12,7 @@ struct YOLPStation: Decodable {
     let name: String
     let railway, exit, exitID: String?
     let distance, time: String?
-    let geometry: Geometry?
+    let geometry: YOLPGeometry?
 
     enum CodingKeys: String, CodingKey {
         case id = "Id"

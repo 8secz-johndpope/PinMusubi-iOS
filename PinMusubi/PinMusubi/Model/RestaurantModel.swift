@@ -6,7 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 class RestaurantModel: SpotModelProtocol {
@@ -99,29 +98,33 @@ class RestaurantModel: SpotModelProtocol {
         return URL(string: "\(affiliateURLString)\(URLString)")
     }
 
-    private func fetchGourmetShops(id: String? = nil, completion: @escaping ([HotpepperShop]) -> Void) {
+    private func fetchGourmetShops(
+        keyword: String? = nil,
+        id: String? = nil,
+        order: String? = nil,
+        range: String? = HotpepperRequestParameter.Range._3000.rawValue,
+        count: String? = HotpepperRequestParameter.Count._50.rawValue,
+        completion: @escaping ([HotpepperShop]) -> Void
+    ) {
         // HOTPEPPER グルメサーチ API
         let client = HotpepperClient()
         let request = HotpepperAPI.GourmetSearch(
-            keyword: nil,
+            keyword: keyword,
             id: id,
             latitude: String(pinPoint.latitude),
             longitude: String(pinPoint.longitude),
-            range: HotpepperRequestParameter.Range._3000.rawValue,
-            order: nil,
-            count: HotpepperRequestParameter.Count._50.rawValue
+            range: range,
+            order: order,
+            count: count
         )
 
         client.send(request: request) { result in
             switch result {
             case let .success(response):
-                if let shop = response.results.shop {
-                    completion(shop)
-                } else {
-                    completion([])
-                }
+                completion(response.results.shop ?? [])
 
-            case .failure(_):
+            case let .failure(error):
+                print("error \(error.localizedDescription)")
                 completion([])
             }
         }

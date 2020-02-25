@@ -77,11 +77,29 @@ enum MKLocalSearchRequestParameter {
 
         enum Leisure: String, MKLocalSearchCategory {
             case sports
+            case gameCenter
+            case amusementPark
+            case museum
+            case aquarium
+            case park
+            case zoo
 
             func inName() -> String {
                 switch self {
                 case .sports:
                     return "スポーツ"
+                case .gameCenter:
+                    return "ゲームセンター"
+                case .amusementPark:
+                    return "遊園地"
+                case .museum:
+                    return "博物館　美術館"
+                case .aquarium:
+                    return "水族館"
+                case .park:
+                    return "公園"
+                case .zoo:
+                    return "動物園"
                 }
             }
         }

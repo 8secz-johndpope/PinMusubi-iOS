@@ -45,8 +45,8 @@ public class SpotCell: UITableViewCell {
             guard let hotel = spot as? HotelEntity else { return }
             configureHotel(hotel: hotel)
 
-        case is Feature :
-            guard let leisure = spot as? Feature else { return }
+        case is LeisureEntity :
+            guard let leisure = spot as? LeisureEntity else { return }
             configureLeisure(leisure: leisure)
 
         case is Station :
@@ -91,15 +91,21 @@ public class SpotCell: UITableViewCell {
         }
     }
 
-    private func configureLeisure(leisure: Feature) {
+    private func configureLeisure(leisure: LeisureEntity) {
         title.text = leisure.name
-        subTitle.text = leisure.property.genre[0].name
-        guard let imageUrlStr = leisure.property.leadImage else { return }
-        if imageUrlStr.contains("1.jpg") || imageUrlStr.contains("loco_image") || imageUrlStr.contains("photo_image1-thumb") || imageUrlStr.contains("top.jpg") {
-            catchImage.image = UIImage(named: "NoImage")
+        subTitle.text = leisure.category
+        if let imageURLString = leisure.imageURLString {
+            if imageURLString.contains("1.jpg") ||
+                imageURLString.contains("loco_image") ||
+                imageURLString.contains("photo_image1-thumb") ||
+                imageURLString.contains("top.jpg") {
+                catchImage.image = UIImage(named: "holiday")
+            } else {
+                guard let imageURL = URL(string: imageURLString) else { return }
+                catchImage.sd_setImage(with: imageURL)
+            }
         } else {
-            guard let imageUrl = URL(string: imageUrlStr) else { return }
-            catchImage.sd_setImage(with: imageUrl)
+            catchImage.image = UIImage(named: leisure.generalImage ?? "holiday")
         }
     }
 
