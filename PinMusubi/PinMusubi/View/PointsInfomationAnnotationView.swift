@@ -142,7 +142,7 @@ extension PointsInfomationAnnotationView: UITableViewDelegate, UITableViewDataSo
 
         if pointInfomationList.isEmpty {
             cell.initPointInfomation()
-        } else {
+        } else if pointInfomationList.count > row {
             cell.setTransportationInformation(pointInfomation: pointInfomationList[row])
         }
 
