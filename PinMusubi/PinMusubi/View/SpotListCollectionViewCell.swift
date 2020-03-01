@@ -109,8 +109,10 @@ extension SpotListCollectionViewCell: UITableViewDataSource {
         guard let adBannerView = adBannerView else { return cell }
         cell.initialize()
         cell.selectionStyle = .none
-        cell.configure(spot: spotList[indexPath.row])
         cell.addAd(adBannerView: adBannerView)
+        if spotList.count > indexPath.row {
+            cell.configure(spot: spotList[indexPath.row])
+        }
         return cell
     }
 }

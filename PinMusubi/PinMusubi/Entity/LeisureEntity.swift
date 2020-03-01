@@ -15,7 +15,7 @@ struct LeisureEntity: SpotEntityProtocol {
     let generalImage: String?
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
-    let distance: Double
+    var distance: Double
     let address: String?
     let nearStation: String?
     let phoneNumber: String?

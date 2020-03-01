@@ -21,7 +21,7 @@ class RestaurantModel: SpotModelProtocol {
         var restaurantList = [RestaurantEntity]()
 
         let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "fetchRestaurantList", attributes: .concurrent)
+        let dispatchQueue = DispatchQueue(label: "fetchRestaurantList")
 
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) {
@@ -63,7 +63,7 @@ class RestaurantModel: SpotModelProtocol {
                     restaurantList.append(
                         RestaurantEntity(
                             name: $0.name,
-                            category: $0.category.inName(),
+                            category: $0.category.getDisplayName(),
                             imageURLString: nil,
                             generalImage: $0.category.rawValue,
                             latitude: $0.latitude,
@@ -88,8 +88,9 @@ class RestaurantModel: SpotModelProtocol {
         }
 
         dispatchGroup.notify(queue: .main) {
-            let sortedRestaurantList = restaurantList.sorted(by: { $0.distance < $1.distance })
-            completion(sortedRestaurantList, .restaurant)
+            let filteredList = restaurantList.filter { $0.distance < region }
+            let sortedList = filteredList.sorted(by: { $0.distance < $1.distance })
+            completion(sortedList, .restaurant)
         }
     }
 

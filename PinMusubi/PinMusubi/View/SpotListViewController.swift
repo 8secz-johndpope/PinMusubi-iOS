@@ -90,7 +90,7 @@ public class SpotListViewController: UIViewController {
         presenter = SpotListPresenter(view: self)
         spotTypeList = [.restaurant, .hotel, .leisure, .transportation]
         guard let presenter = presenter, let spotTypeList = spotTypeList else { return }
-        presenter.presentAllSpotList(pinPoint: interestPoint, spotTypeList: spotTypeList, region: 1_000)
+        presenter.presentAllSpotList(pinPoint: interestPoint, spotTypeList: spotTypeList, region: 3_000)
 
         configureLoadingView()
     }

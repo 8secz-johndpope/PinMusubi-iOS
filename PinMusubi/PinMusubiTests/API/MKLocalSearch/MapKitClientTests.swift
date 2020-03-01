@@ -88,4 +88,21 @@ class MKLocalSearchClientTests: XCTestCase {
         
         waitForExpectations(timeout: 100, handler: nil)
     }
+    
+    func testSearchPlace_overview() {
+        let fetchExpectation: XCTestExpectation? = expectation(description: "testSearchPlace_ok")
+        
+        let point = CLLocationCoordinate2D(latitude: 35.6598051, longitude: 139.7036661)
+        let model = TransportationModel(pinPoint: point)
+        
+        model.fetchSpotList(region: 1000) { list, type in
+            list.forEach {
+                print("🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️")
+                print($0.name)
+                print($0.distance)
+            }
+            fetchExpectation?.fulfill()
+        }
+        waitForExpectations(timeout: 100, handler: nil)
+    }
 }

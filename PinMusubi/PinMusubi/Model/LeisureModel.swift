@@ -21,7 +21,7 @@ class LeisureModel: SpotModelProtocol {
         var leisureList = [LeisureEntity]()
 
         let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "fetchLeisureList", attributes: .concurrent)
+        let dispatchQueue = DispatchQueue(label: "fetchLeisureList")
 
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) {
@@ -59,7 +59,7 @@ class LeisureModel: SpotModelProtocol {
                     leisureList.append(
                         LeisureEntity(
                             name: $0.name,
-                            category: $0.category.inName(),
+                            category: $0.category.getDisplayName(),
                             imageURLString: nil,
                             generalImage: $0.category.rawValue,
                             latitude: $0.latitude,
@@ -82,8 +82,9 @@ class LeisureModel: SpotModelProtocol {
         }
 
         dispatchGroup.notify(queue: .main) {
-            let sortedLeisureList = leisureList.sorted(by: { $0.distance < $1.distance })
-            completion(sortedLeisureList, .leisure)
+            let filteredList = leisureList.filter { $0.distance < region }
+            let sortedList = filteredList.sorted(by: { $0.distance < $1.distance })
+            completion(sortedList, .leisure)
         }
     }
 

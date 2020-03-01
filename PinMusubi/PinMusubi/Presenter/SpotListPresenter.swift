@@ -26,7 +26,7 @@ class SpotListPresenter: SpotListPresenterProtocol {
         var spotList = [[SpotEntityProtocol]]()
 
         let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "spotListQueue", attributes: .concurrent)
+        let dispatchQueue = DispatchQueue(label: "spotListQueue")
 
         spotTypeList.forEach { spotType in
             spotList.append([SpotEntityProtocol]())

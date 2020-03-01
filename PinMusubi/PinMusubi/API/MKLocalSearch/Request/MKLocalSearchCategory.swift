@@ -7,5 +7,6 @@
 //
 
 protocol MKLocalSearchCategory: CaseIterable {
-    func inName() -> String
+    func getSearchName() -> String
+    func getDisplayName() -> String
 }

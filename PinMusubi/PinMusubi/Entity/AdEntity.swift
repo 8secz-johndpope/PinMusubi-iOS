@@ -13,4 +13,5 @@ struct AdEntity: SpotEntityProtocol {
     var category: String = "Ad"
     var latitude: CLLocationDegrees = 0.0
     var longitude: CLLocationDegrees = 0.0
+    var distance: Double = 0.0
 }

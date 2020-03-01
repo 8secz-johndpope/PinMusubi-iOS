@@ -21,7 +21,7 @@ class TransportationModel: SpotModelProtocol {
         var transportationList = [TransportationEntity]()
 
         let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "fetchTrasportationList", attributes: .concurrent)
+        let dispatchQueue = DispatchQueue(label: "fetchTrasportationList")
 
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) {
@@ -30,7 +30,7 @@ class TransportationModel: SpotModelProtocol {
                     transportationList.append(
                         TransportationEntity(
                             name: $0.name,
-                            category: $0.category.inName(),
+                            category: $0.category.getDisplayName(),
                             image: $0.category.rawValue,
                             latitude: $0.latitude,
                             longitude: $0.longitude,
@@ -49,8 +49,9 @@ class TransportationModel: SpotModelProtocol {
         }
 
         dispatchGroup.notify(queue: .main) {
-            let sortedTransportationList = transportationList.sorted(by: { $0.distance < $1.distance })
-            completion(sortedTransportationList, .transportation)
+            let filteredList = transportationList.filter { $0.distance < region }
+            let sortedList = filteredList.sorted(by: { $0.distance < $1.distance })
+            completion(sortedList, .transportation)
         }
     }
 

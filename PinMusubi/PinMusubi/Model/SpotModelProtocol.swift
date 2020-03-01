@@ -31,12 +31,12 @@ extension SpotModelProtocol {
 
         // MKLocalSearch プレイス検索
         let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "fetchAllPlace", attributes: .concurrent)
+        let dispatchQueue = DispatchQueue(label: "fetchAllPlace")
         categories.forEach { category in
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) {
                 let request = MKLocalSearch.Request()
-                request.naturalLanguageQuery = category.inName()
+                request.naturalLanguageQuery = category.getSearchName()
                 request.region = MKCoordinateRegion(center: self.pinPoint, latitudinalMeters: region, longitudinalMeters: region)
 
                 MKLocalSearchClient.search(request: request) { result in

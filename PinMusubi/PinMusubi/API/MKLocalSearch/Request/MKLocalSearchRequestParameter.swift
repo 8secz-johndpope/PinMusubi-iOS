@@ -9,47 +9,60 @@
 enum MKLocalSearchRequestParameter {
     enum Category {
         enum Restaurant: String, MKLocalSearchCategory {
-            case izakaya
             case japaneseFood
             case westernFood
-            case italian
-            case french
-            case chinese
-            case yakiniku
+            case italianFood
+            case frenchCuisine
+            case chineseCuisine
             case koreanCuisine
-            case ethnic
+            case ethnicFood
             case bar
-            case ramen
-            case okonomiyaki
             case cafe
             case fastFood
 
-            func inName() -> String {
+            func getSearchName() -> String {
                 switch self {
-                case .izakaya:
-                    return "居酒屋"
+                case .japaneseFood:
+                    return "Japanese food"
+                case .westernFood:
+                    return "Western food"
+                case .italianFood:
+                    return "Italian food"
+                case .frenchCuisine:
+                    return "French cuisine"
+                case .chineseCuisine:
+                    return "Chinese cuisine"
+                case .koreanCuisine:
+                    return "Korean cuisine"
+                case .ethnicFood:
+                    return "Ethnic food"
+                case .bar:
+                    return "Bar"
+                case .cafe:
+                    return "Cafe"
+                case .fastFood:
+                    return "Fast food"
+                }
+            }
+
+            func getDisplayName() -> String {
+                switch self {
                 case .japaneseFood:
                     return "和食"
                 case .westernFood:
                     return "洋食"
-                case .italian:
+                case .italianFood:
                     return "イタリアン"
-                case .french:
+                case .frenchCuisine:
                     return "フレンチ"
-                case .chinese:
+                case .chineseCuisine:
                     return "中華"
-                case .yakiniku:
-                    return "焼肉"
                 case .koreanCuisine:
                     return "韓国料理"
-                case .ethnic:
+                case .ethnicFood:
                     return "エスニック料理"
                 case .bar:
                     return "バー"
-                case .ramen:
-                    return "ラーメン"
-                case .okonomiyaki:
-                    return "お好み焼き"
                 case .cafe:
                     return "カフェ"
                 case .fastFood:
@@ -61,35 +74,50 @@ enum MKLocalSearchRequestParameter {
         enum Hotel: String, MKLocalSearchCategory {
             case hotel
             case resortHotel
-            case ryokan
 
-            func inName() -> String {
+            func getSearchName() -> String {
+                switch self {
+                case .hotel:
+                    return "Hotel"
+                case .resortHotel:
+                    return "Resort hotel"
+                }
+            }
+
+            func getDisplayName() -> String {
                 switch self {
                 case .hotel:
                     return "ホテル"
                 case .resortHotel:
                     return "リゾートホテル"
-                case .ryokan:
-                    return "旅館"
                 }
             }
         }
 
         enum Leisure: String, MKLocalSearchCategory {
-            case sports
-            case gameCenter
             case amusementPark
             case museum
             case aquarium
             case park
             case zoo
 
-            func inName() -> String {
+            func getSearchName() -> String {
                 switch self {
-                case .sports:
-                    return "スポーツ"
-                case .gameCenter:
-                    return "ゲームセンター"
+                case .amusementPark:
+                    return "Amusement park"
+                case .museum:
+                    return "museum"
+                case .aquarium:
+                    return "Aquarium"
+                case .park:
+                    return "Park"
+                case .zoo:
+                    return "Zoo"
+                }
+            }
+
+            func getDisplayName() -> String {
+                switch self {
                 case .amusementPark:
                     return "遊園地"
                 case .museum:
@@ -108,7 +136,16 @@ enum MKLocalSearchRequestParameter {
             case station
             case busStop
 
-            func inName() -> String {
+            func getSearchName() -> String {
+                switch self {
+                case .station:
+                    return "Station"
+                case .busStop:
+                    return "Bus stop"
+                }
+            }
+
+            func getDisplayName() -> String {
                 switch self {
                 case .station:
                     return "駅"

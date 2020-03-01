@@ -21,7 +21,7 @@ class HotelModel: SpotModelProtocol {
         var hotelList = [HotelEntity]()
 
         let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "fetchHotelList", attributes: .concurrent)
+        let dispatchQueue = DispatchQueue(label: "fetchHotelList")
 
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) {
@@ -31,7 +31,7 @@ class HotelModel: SpotModelProtocol {
                     hotelList.append(
                         HotelEntity(
                             name: hotel.hotelName,
-                            category: Category.hotel.inName(),
+                            category: Category.hotel.getDisplayName(),
                             thumbnailURLString: hotel.hotelThumbnailURL,
                             imageURLString: hotel.hotelImageURL,
                             generalImage: nil,
@@ -66,7 +66,7 @@ class HotelModel: SpotModelProtocol {
                     hotelList.append(
                         HotelEntity(
                             name: $0.name,
-                            category: $0.category.inName(),
+                            category: $0.category.getDisplayName(),
                             thumbnailURLString: nil,
                             imageURLString: nil,
                             generalImage: $0.category.rawValue,
@@ -93,8 +93,9 @@ class HotelModel: SpotModelProtocol {
         }
 
         dispatchGroup.notify(queue: .main) {
-            let sortedHotelList = hotelList.sorted(by: { $0.distance < $1.distance })
-            completion(sortedHotelList, .hotel)
+            let filteredList = hotelList.filter { $0.distance < region }
+            let sortedList = filteredList.sorted(by: { $0.distance < $1.distance })
+            completion(sortedList, .hotel)
         }
     }
 

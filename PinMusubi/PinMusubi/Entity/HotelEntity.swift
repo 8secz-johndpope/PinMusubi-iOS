@@ -16,7 +16,7 @@ struct HotelEntity: SpotEntityProtocol {
     let generalImage: String?
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
-    let distance: Double
+    var distance: Double
     let reviewAverage: String?
     let special: String?
     let access: String?

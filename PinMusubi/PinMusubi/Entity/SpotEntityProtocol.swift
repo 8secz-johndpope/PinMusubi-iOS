@@ -16,9 +16,12 @@ public protocol SpotEntityProtocol {
     /// スポットのカテゴリー
     var category: String { get }
 
-    /// スポットの経度
+    /// スポットの緯度
     var latitude: CLLocationDegrees { get }
 
-    /// スポットの緯度
+    /// スポットの経度
     var longitude: CLLocationDegrees { get }
+
+    /// スポットまでの距離
+    var distance: Double { get }
 }

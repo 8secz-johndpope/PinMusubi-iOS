@@ -14,7 +14,7 @@ struct TransportationEntity: SpotEntityProtocol {
     let image: String
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
-    let distance: Double
+    var distance: Double
     let address: String?
     let url: URL?
 }

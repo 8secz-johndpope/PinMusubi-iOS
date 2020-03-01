@@ -77,7 +77,7 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
                 latitude: fromPoint.latitude,
                 longitude: fromPoint.longitude
             ) {
-                self?.fetchCorrectStationName(stationName: $0[0].name, point: fromPoint) {
+                self?.fetchCorrectStationName(stationName: $0.first?.name ?? "", point: fromPoint) {
                     fromStation = $1 == .success ? $0 : ""
                     dispatchGroup.leave()
                 }
@@ -90,7 +90,7 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
                 latitude: toPoint.latitude,
                 longitude: toPoint.longitude
             ) {
-                self?.fetchCorrectStationName(stationName: $0[0].name, point: toPoint) {
+                self?.fetchCorrectStationName(stationName: $0.first?.name ?? "", point: toPoint) {
                     toStation = $1 == .success ? $0 : ""
                     dispatchGroup.leave()
                 }

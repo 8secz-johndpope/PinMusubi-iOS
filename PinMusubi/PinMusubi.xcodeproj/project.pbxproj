@@ -1100,8 +1100,8 @@
 		919E6FBA24032F2900CF8161 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				919E6FBB24032FA400CF8161 /* MKLocalSearchRequestParameter.swift */,
 				919E6FC02403A77B00CF8161 /* MKLocalSearchCategory.swift */,
+				919E6FBB24032FA400CF8161 /* MKLocalSearchRequestParameter.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";

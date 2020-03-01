@@ -15,7 +15,7 @@ struct RestaurantEntity: SpotEntityProtocol {
     let generalImage: String?
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
-    let distance: Double
+    var distance: Double
     let price: String?
     let access: String?
     let address: String?
