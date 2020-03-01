@@ -70,10 +70,10 @@ public class WebViewController: UIViewController {
         self.spot = spot
         if let restaurant = spot as? RestaurantEntity {
             requestURL = restaurant.url
-            shareTitle = restaurant.name ?? ""
+            shareTitle = restaurant.name
         } else if let hotel = spot as? HotelEntity {
             requestURL = hotel.url
-            shareTitle = hotel.name ?? ""
+            shareTitle = hotel.name
         } else if let leisure = spot as? LeisureEntity {
             guard let searchUrl = ("https://www.google.com/search?q=" + leisure.name).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
             requestUrlString = searchUrl

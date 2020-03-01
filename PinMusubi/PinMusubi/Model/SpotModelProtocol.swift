@@ -11,7 +11,7 @@ import MapKit
 protocol SpotModelProtocol {
     var pinPoint: CLLocationCoordinate2D { get set }
 
-    func fetchSpotList(completion: @escaping ([SpotEntityProtocol], SpotType) -> Void)
+    func fetchSpotList(region: Double, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void)
 
     func createSpotURL(URLString: String) -> URL?
 }
@@ -26,7 +26,7 @@ extension SpotModelProtocol {
         return placeLocation.distance(from: pinLocation)
     }
 
-    func fetchPlaces<T: MKLocalSearchCategory>(categories: [T], completion: @escaping ([MKLocalSearchResponse<T>]) -> Void) {
+    func fetchPlaces<T: MKLocalSearchCategory>(categories: [T], region: Double, completion: @escaping ([MKLocalSearchResponse<T>]) -> Void) {
         var response = [MKLocalSearchResponse<T>]()
 
         // MKLocalSearch プレイス検索
@@ -37,7 +37,7 @@ extension SpotModelProtocol {
             dispatchQueue.async(group: dispatchGroup) {
                 let request = MKLocalSearch.Request()
                 request.naturalLanguageQuery = category.inName()
-                request.region = MKCoordinateRegion(center: self.pinPoint, latitudinalMeters: 3_000.0, longitudinalMeters: 3_000.0)
+                request.region = MKCoordinateRegion(center: self.pinPoint, latitudinalMeters: region, longitudinalMeters: region)
 
                 MKLocalSearchClient.search(request: request) { result in
                     switch result {
@@ -45,7 +45,7 @@ extension SpotModelProtocol {
                         mapItems.forEach {
                             response.append(
                                 MKLocalSearchResponse<T>(
-                                    name: $0.name,
+                                    name: $0.name ?? "",
                                     category: category,
                                     latitude: $0.placemark.coordinate.latitude,
                                     longitude: $0.placemark.coordinate.longitude,

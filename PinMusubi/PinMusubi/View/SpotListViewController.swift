@@ -90,7 +90,7 @@ public class SpotListViewController: UIViewController {
         presenter = SpotListPresenter(view: self)
         spotTypeList = [.restaurant, .hotel, .leisure, .transportation]
         guard let presenter = presenter, let spotTypeList = spotTypeList else { return }
-        presenter.presentAllSpotList(pinPoint: interestPoint, spotTypeList: spotTypeList)
+        presenter.presentAllSpotList(pinPoint: interestPoint, spotTypeList: spotTypeList, region: 1_000)
 
         configureLoadingView()
     }
@@ -270,5 +270,5 @@ public enum SpotType: String {
     case restaurant = "飲食"
     case hotel = "宿泊"
     case leisure = "レジャー"
-    case transportation = "駅・バス停"
+    case transportation = "交通機関"
 }

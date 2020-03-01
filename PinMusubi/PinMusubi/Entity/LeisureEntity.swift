@@ -9,12 +9,12 @@
 import CoreLocation
 
 struct LeisureEntity: SpotEntityProtocol {
-    let name: String
-    let category: String?
+    var name: String
+    var category: String
     let imageURLString: String?
     let generalImage: String?
-    let latitude: CLLocationDegrees
-    let longitude: CLLocationDegrees
+    var latitude: CLLocationDegrees
+    var longitude: CLLocationDegrees
     let distance: Double
     let address: String?
     let nearStation: String?

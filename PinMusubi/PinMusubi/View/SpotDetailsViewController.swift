@@ -72,14 +72,10 @@ public class SpotDetailsViewController: UIViewController {
             guard let leisure = spot as? LeisureEntity else { return }
             spotPoint.latitude = leisure.latitude
             spotPoint.longitude = leisure.longitude
-        } else if spot is Station {
-            guard let station = spot as? Station else { return }
-            spotPoint.latitude = station.lat
-            spotPoint.longitude = station.lng
-        } else if spot is BusStopEntity {
-            guard let busStop = spot as? BusStopEntity else { return }
-            spotPoint.longitude = busStop.location[0]
-            spotPoint.latitude = busStop.location[1]
+        } else if spot is TransportationEntity {
+            guard let transportation = spot as? TransportationEntity else { return }
+            spotPoint.latitude = transportation.latitude
+            spotPoint.longitude = transportation.longitude
         }
     }
 
@@ -90,10 +86,8 @@ public class SpotDetailsViewController: UIViewController {
             configureHotel(hotel: hotel)
         } else if let leisure = spot as? LeisureEntity {
             configureLeisure(leisure: leisure)
-        } else if let station = spot as? Station {
-            configureStation(station: station)
-        } else if let busStop = spot as? BusStopEntity {
-            configureBusStop(busStop: busStop)
+        } else if let transportation = spot as? TransportationEntity {
+            configureTransportation(transportation: transportation)
         }
     }
 
@@ -143,7 +137,7 @@ public class SpotDetailsViewController: UIViewController {
     private func configureLeisure(leisure: LeisureEntity) {
         title = leisure.name
         nameLabel.text = leisure.name
-        valueImageView.image = UIImage(named: "Station")
+        valueImageView.image = UIImage(named: "StationIcon")
         if let nearStation = leisure.nearStation {
             valueLabel.text = "最寄り駅：\(nearStation)駅"
         } else {
@@ -173,57 +167,33 @@ public class SpotDetailsViewController: UIViewController {
         }
     }
 
-    private func configureStation(station: Station) {
-        title = station.name + "駅"
-        mainImage.image = UIImage(named: "Train")
-        nameLabel.text = station.name + "駅"
-        var prevStation = "なし"
-        var nextStation = "なし"
-        if let prev = station.prev {
-            prevStation = prev
-        }
-        if let next = station.next {
-            nextStation = next
-        }
-        valueImageView.image = UIImage(named: "Station")
-        valueLabel.text = "前の駅：" + prevStation + "駅" + " / " + "次の駅：" + nextStation + "駅"
-        categoryLabel.text = station.prefecture + "県"
-        directionLabel.text = station.line
-        showWebPageButtonView.isHidden = true
-    }
-
-    private func configureBusStop(busStop: BusStopEntity) {
-        title = busStop.busStopName
-        mainImage.image = UIImage(named: "Bus")
-        nameLabel.text = busStop.busStopName + "バス停"
-        valueImageView.isHidden = true
-        valueLabel.text = ""
-        categoryLabel.text = busStop.busLineName
-        directionLabel.text = busStop.busOperationCompany
+    private func configureTransportation(transportation: TransportationEntity) {
+        title = transportation.name
+        mainImage.image = UIImage(named: transportation.image)
+        nameLabel.text = transportation.name
+        valueImageView.image = UIImage(named: "StationIcon")
+        valueLabel.text = transportation.address
+        categoryLabel.text = transportation.category
+        directionLabel.text = "距離：\(transportation.distance)m"
         showWebPageButtonView.isHidden = true
     }
 
     private func configureMap() {
+        guard let latitude = spot?.latitude, let longitude = spot?.longitude else { return }
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+
         // region
         var region: MKCoordinateRegion = baseInfoMapView.region
         region.span.latitudeDelta = 0.001
         region.span.longitudeDelta = 0.001
+        region.center = coordinate
 
         // annotation
         let spotPointAnnotation = MKPointAnnotation()
-        if let station = spot as? Station {
-            let stationCoordinate = CLLocationCoordinate2D(latitude: station.lat, longitude: station.lng)
-            spotPointAnnotation.coordinate = stationCoordinate
-            spotPointAnnotation.title = station.name
-            spotPointAnnotation.subtitle = station.line
-            region.center = stationCoordinate
-        } else if let busStation = spot as? BusStopEntity {
-            let busStationCoodinate = CLLocationCoordinate2D(latitude: busStation.location[1], longitude: busStation.location[0])
-            spotPointAnnotation.coordinate = busStationCoodinate
-            spotPointAnnotation.title = busStation.busStopName
-            spotPointAnnotation.subtitle = busStation.busLineName
-            region.center = busStationCoodinate
-        }
+        spotPointAnnotation.coordinate = coordinate
+        spotPointAnnotation.title = spot?.name
+        spotPointAnnotation.subtitle = spot?.category
+
         baseInfoMapView.setRegion(region, animated: false)
         baseInfoMapView.addAnnotation(spotPointAnnotation)
     }

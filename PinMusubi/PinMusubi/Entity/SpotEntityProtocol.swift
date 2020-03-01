@@ -6,5 +6,19 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-/// スポットのエンティティプロトコル
-public protocol SpotEntityProtocol {}
+import CoreLocation
+
+/// スポットのプロトコル
+public protocol SpotEntityProtocol {
+    /// スポットの名前
+    var name: String { get }
+
+    /// スポットのカテゴリー
+    var category: String { get }
+
+    /// スポットの経度
+    var latitude: CLLocationDegrees { get }
+
+    /// スポットの緯度
+    var longitude: CLLocationDegrees { get }
+}

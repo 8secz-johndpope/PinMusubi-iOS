@@ -18,16 +18,19 @@ class BusStopTClientTests: XCTestCase {
         let fetchExpectation: XCTestExpectation? = expectation(description: "testGetBusStop_ok")
         let client = BusStopClient()
         let request = BusStopAPI.GetBusStop(
-            latitude: "37.912027",
-            longitude: "139.061883"
+            latitude: "35.6598051",
+            longitude: "139.7036661"
         )
         
         client.send(request: request) { result in
             switch result {
             case let .success(response):
                 XCTAssertNotNil(response)
-                
-                response.forEach { print($0) }
+
+                response.forEach {
+                    print("🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️")
+                    print($0)
+                }
             case let .failure(error):
                 print(error)
                 XCTAssertNil(error)

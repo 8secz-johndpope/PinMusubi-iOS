@@ -17,7 +17,7 @@ class HotelModel: SpotModelProtocol {
         self.pinPoint = pinPoint
     }
 
-    func fetchSpotList(completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
+    func fetchSpotList(region: Double, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
         var hotelList = [HotelEntity]()
 
         let dispatchGroup = DispatchGroup()
@@ -61,17 +61,17 @@ class HotelModel: SpotModelProtocol {
 
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) {
-            self.fetchPlaces(categories: Category.allCases) {
+            self.fetchPlaces(categories: Category.allCases, region: region) {
                 $0.forEach {
                     hotelList.append(
                         HotelEntity(
                             name: $0.name,
-                            category: $0.category?.inName(),
+                            category: $0.category.inName(),
                             thumbnailURLString: nil,
                             imageURLString: nil,
-                            generalImage: $0.category?.rawValue,
-                            latitude: $0.latitude!,
-                            longitude: $0.longitude!,
+                            generalImage: $0.category.rawValue,
+                            latitude: $0.latitude,
+                            longitude: $0.longitude,
                             distance: self.getDitance(
                                 pinPoint: self.pinPoint,
                                 latitude: $0.latitude,

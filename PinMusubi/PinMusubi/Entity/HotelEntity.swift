@@ -9,13 +9,13 @@
 import CoreLocation
 
 struct HotelEntity: SpotEntityProtocol {
-    let name: String?
-    let category: String?
+    var name: String
+    var category: String
     let thumbnailURLString: String?
     let imageURLString: String?
     let generalImage: String?
-    let latitude: CLLocationDegrees
-    let longitude: CLLocationDegrees
+    var latitude: CLLocationDegrees
+    var longitude: CLLocationDegrees
     let distance: Double
     let reviewAverage: String?
     let special: String?

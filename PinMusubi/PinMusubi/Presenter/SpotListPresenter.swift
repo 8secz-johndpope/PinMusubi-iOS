@@ -11,7 +11,7 @@ import CoreLocation
 protocol SpotListPresenterProtocol {
     init(view: SpotListViewController)
 
-    func presentAllSpotList(pinPoint: CLLocationCoordinate2D, spotTypeList: [SpotType])
+    func presentAllSpotList(pinPoint: CLLocationCoordinate2D, spotTypeList: [SpotType], region: Double)
 }
 
 class SpotListPresenter: SpotListPresenterProtocol {
@@ -21,7 +21,7 @@ class SpotListPresenter: SpotListPresenterProtocol {
         self.view = view
     }
 
-    func presentAllSpotList(pinPoint: CLLocationCoordinate2D, spotTypeList: [SpotType]) {
+    func presentAllSpotList(pinPoint: CLLocationCoordinate2D, spotTypeList: [SpotType], region: Double) {
         guard let view = view else { return }
         var spotList = [[SpotEntityProtocol]]()
 
@@ -33,7 +33,7 @@ class SpotListPresenter: SpotListPresenterProtocol {
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) {
                 let model = self.initModel(pinPoint: pinPoint, spotType: spotType)
-                model.fetchSpotList {
+                model.fetchSpotList(region: region) {
                     guard let index = spotTypeList.firstIndex(of: $1) else { return }
                     spotList[index] = $0
                     dispatchGroup.leave()

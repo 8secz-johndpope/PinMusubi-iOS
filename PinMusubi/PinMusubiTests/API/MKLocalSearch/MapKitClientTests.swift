@@ -19,8 +19,8 @@ class MKLocalSearchClientTests: XCTestCase {
         let fetchExpectation: XCTestExpectation? = expectation(description: "testSearchPlace_ok")
         let coordinate = CLLocationCoordinate2DMake(35.6598051, 139.7036661) // 渋谷ヒカリエ
         let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "bar"
-        request.region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 3_000.0, longitudinalMeters: 3_000.0)
+        request.naturalLanguageQuery = "電車"
+        request.region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000.0, longitudinalMeters: 1000.0)
 
         MKLocalSearchClient.search(request: request) { result in
             switch result {

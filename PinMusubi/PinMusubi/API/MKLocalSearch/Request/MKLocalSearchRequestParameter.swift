@@ -105,15 +105,15 @@ enum MKLocalSearchRequestParameter {
         }
 
         enum Transportation: String, MKLocalSearchCategory {
-            case train
-            case bus
+            case station
+            case busStop
 
             func inName() -> String {
                 switch self {
-                case .train:
-                    return "電車"
-                case .bus:
-                    return "バス"
+                case .station:
+                    return "駅"
+                case .busStop:
+                    return "バス停"
                 }
             }
         }

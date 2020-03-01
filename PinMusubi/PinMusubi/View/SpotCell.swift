@@ -49,13 +49,9 @@ public class SpotCell: UITableViewCell {
             guard let leisure = spot as? LeisureEntity else { return }
             configureLeisure(leisure: leisure)
 
-        case is Station :
-            guard let station = spot as? Station else { return }
-            configureStation(station: station)
-
-        case is BusStopEntity :
-            guard let busStop = spot as? BusStopEntity else { return }
-            configureBusStop(busStop: busStop)
+        case is TransportationEntity :
+            guard let transportation = spot as? TransportationEntity else { return }
+            configureTransportation(transportation: transportation)
 
         default:
             adBaseView.isHidden = false
@@ -109,15 +105,9 @@ public class SpotCell: UITableViewCell {
         }
     }
 
-    private func configureStation(station: Station) {
-        title.text = station.name + "駅"
-        subTitle.text = station.line
-        catchImage.image = UIImage(named: "Train")
-    }
-
-    private func configureBusStop(busStop: BusStopEntity) {
-        title.text = busStop.busStopName
-        subTitle.text = busStop.busLineName
-        catchImage.image = UIImage(named: "Bus")
+    private func configureTransportation(transportation: TransportationEntity) {
+        title.text = transportation.name
+        subTitle.text = transportation.category
+        catchImage.image = UIImage(named: transportation.image)
     }
 }

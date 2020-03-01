@@ -55,7 +55,6 @@
 		911C60ED24016A5E005EC42B /* HotpepperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EC24016A5E005EC42B /* HotpepperClient.swift */; };
 		911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EE24016A93005EC42B /* HotpepperClientError.swift */; };
 		912E0B3E23993D63008A91FA /* PointInfomationCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */; };
-		912E0B4023999BE2008A91FA /* EkispertStationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E0B3F23999BE2008A91FA /* EkispertStationEntity.swift */; };
 		914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BA2382AFE000AE7E06 /* HotelEntity.swift */; };
 		914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BC2382C8C600AE7E06 /* HotelModel.swift */; };
 		914455C12384186100AE7E06 /* LeisureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C02384186000AE7E06 /* LeisureEntity.swift */; };
@@ -245,8 +244,6 @@
 		91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */; };
 		91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */; };
 		91E439222352FE9400A3B936 /* RestaurantEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantEntity.swift */; };
-		91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439232355FB9700A3B936 /* BusStopEntity.swift */; };
-		91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439252355FE3C00A3B936 /* StationEntity.swift */; };
 		91E4392A2361DFE500A3B936 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439292361DFE500A3B936 /* RestaurantModel.swift */; };
 		91EEA8022377941E00824BBB /* MyDetailsDataActionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8012377941E00824BBB /* MyDetailsDataActionViewDelegate.swift */; };
 		91EEA8042377A79B00824BBB /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA8032377A79B00824BBB /* EmptyView.xib */; };
@@ -260,6 +257,7 @@
 		91EEA818237825AD00824BBB /* CreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA816237825AD00824BBB /* CreditViewController.xib */; };
 		91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF7531236D24F80051ACCB /* WebViewController.swift */; };
 		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
+		91FCFCFB240BA29A00920BCC /* TransportationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FCFCFA240BA29A00920BCC /* TransportationEntity.swift */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
 		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
 /* End PBXBuildFile section */
@@ -340,7 +338,6 @@
 		911C60EC24016A5E005EC42B /* HotpepperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClient.swift; sourceTree = "<group>"; };
 		911C60EE24016A93005EC42B /* HotpepperClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClientError.swift; sourceTree = "<group>"; };
 		912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationCellDelegate.swift; sourceTree = "<group>"; };
-		912E0B3F23999BE2008A91FA /* EkispertStationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkispertStationEntity.swift; sourceTree = "<group>"; };
 		914455BA2382AFE000AE7E06 /* HotelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelEntity.swift; sourceTree = "<group>"; };
 		914455BC2382C8C600AE7E06 /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
 		914455BE2382CC9200AE7E06 /* HotelModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModelTests.swift; sourceTree = "<group>"; };
@@ -556,8 +553,6 @@
 		91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterPresentationController.swift; sourceTree = "<group>"; };
 		91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterViewDelegate.swift; sourceTree = "<group>"; };
 		91E439212352FE9400A3B936 /* RestaurantEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantEntity.swift; sourceTree = "<group>"; };
-		91E439232355FB9700A3B936 /* BusStopEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEntity.swift; sourceTree = "<group>"; };
-		91E439252355FE3C00A3B936 /* StationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationEntity.swift; sourceTree = "<group>"; };
 		91E439292361DFE500A3B936 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		91EEA8012377941E00824BBB /* MyDetailsDataActionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsDataActionViewDelegate.swift; sourceTree = "<group>"; };
 		91EEA8032377A79B00824BBB /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
@@ -571,6 +566,7 @@
 		91EEA816237825AD00824BBB /* CreditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditViewController.xib; sourceTree = "<group>"; };
 		91EF7531236D24F80051ACCB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		91F4EB152336038D005C9EED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		91FCFCFA240BA29A00920BCC /* TransportationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -767,9 +763,7 @@
 				91E439212352FE9400A3B936 /* RestaurantEntity.swift */,
 				914455BA2382AFE000AE7E06 /* HotelEntity.swift */,
 				914455C02384186000AE7E06 /* LeisureEntity.swift */,
-				91E439252355FE3C00A3B936 /* StationEntity.swift */,
-				912E0B3F23999BE2008A91FA /* EkispertStationEntity.swift */,
-				91E439232355FB9700A3B936 /* BusStopEntity.swift */,
+				91FCFCFA240BA29A00920BCC /* TransportationEntity.swift */,
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
 				9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */,
 				9108A84D237F584800099B0B /* AdEntity.swift */,
@@ -1814,7 +1808,6 @@
 				9197D64023250D4E00A5C558 /* SettingPointEntity.swift in Sources */,
 				9107A06323A2B06000F1DD77 /* InputHistoryEntity.swift in Sources */,
 				911B88AB23955A0B0030708E /* TransferGuideEntity.swift in Sources */,
-				91E439262355FE3C00A3B936 /* StationEntity.swift in Sources */,
 				91D1CAB723768DBB0066F644 /* MyDetailsDataPresenter.swift in Sources */,
 				911C60E524012CD7005EC42B /* HotpepperRequest.swift in Sources */,
 				918CF9862338FB6A003DC7C8 /* PointsInfomationAnnotationView.swift in Sources */,
@@ -1869,6 +1862,7 @@
 				919E6F9E2402997000CF8161 /* EkispertStation.swift in Sources */,
 				919E6FBF2403521700CF8161 /* MKLocalSearchResponse.swift in Sources */,
 				919E6FAA2402F17300CF8161 /* EkispertAPI.swift in Sources */,
+				91FCFCFB240BA29A00920BCC /* TransportationEntity.swift in Sources */,
 				91EEA8062377A7B900824BBB /* EmptyView.swift in Sources */,
 				919E6F7424027F2A00CF8161 /* HeartRailsExpressClientError.swift in Sources */,
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
@@ -1896,7 +1890,6 @@
 				9107A06923A39AEE00F1DD77 /* FavoriteInputEntity.swift in Sources */,
 				919E6F5524025C6A00CF8161 /* YOLPStation.swift in Sources */,
 				910EC0C0239DD6B000F0D87C /* SearchCompleterViewController.swift in Sources */,
-				912E0B4023999BE2008A91FA /* EkispertStationEntity.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */,
 				914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */,
@@ -1976,7 +1969,6 @@
 				9170F15923FEB938002FB702 /* HotpepperArea.swift in Sources */,
 				91EEA81223780A2700824BBB /* ContactFormViewController.swift in Sources */,
 				919E6F5F24025FC900CF8161 /* YOLPAPI.swift in Sources */,
-				91E439242355FB9700A3B936 /* BusStopEntity.swift in Sources */,
 				919E6FA22402DF4D00CF8161 /* EkispertGeoPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

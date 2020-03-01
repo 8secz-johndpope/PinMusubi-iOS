@@ -6,4 +6,11 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-public struct AdEntity: SpotEntityProtocol {}
+import CoreLocation
+
+struct AdEntity: SpotEntityProtocol {
+    var name: String = "Ad"
+    var category: String = "Ad"
+    var latitude: CLLocationDegrees = 0.0
+    var longitude: CLLocationDegrees = 0.0
+}

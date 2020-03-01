@@ -17,7 +17,7 @@ class LeisureModel: SpotModelProtocol {
         self.pinPoint = pinPoint
     }
 
-    func fetchSpotList(completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
+    func fetchSpotList(region: Double, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
         var leisureList = [LeisureEntity]()
 
         let dispatchGroup = DispatchGroup()
@@ -30,7 +30,7 @@ class LeisureModel: SpotModelProtocol {
                     leisureList.append(
                         LeisureEntity(
                             name: $0.name,
-                            category: $0.property.genre.first?.name,
+                            category: $0.property.genre[0].name,
                             imageURLString: $0.property.leadImage,
                             generalImage: nil,
                             latitude: self.getCoordinate(coordinates: $0.geometry.coordinates).0,
@@ -54,16 +54,16 @@ class LeisureModel: SpotModelProtocol {
 
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) {
-            self.fetchPlaces(categories: Category.allCases) {
+            self.fetchPlaces(categories: Category.allCases, region: region) {
                 $0.forEach {
                     leisureList.append(
                         LeisureEntity(
-                            name: $0.name ?? "",
-                            category: $0.category?.inName(),
+                            name: $0.name,
+                            category: $0.category.inName(),
                             imageURLString: nil,
-                            generalImage: $0.category?.rawValue,
-                            latitude: $0.latitude!,
-                            longitude: $0.longitude!,
+                            generalImage: $0.category.rawValue,
+                            latitude: $0.latitude,
+                            longitude: $0.longitude,
                             distance: self.getDitance(
                                 pinPoint: self.pinPoint,
                                 latitude: $0.latitude,

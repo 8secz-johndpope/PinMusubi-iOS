@@ -9,10 +9,10 @@
 import CoreLocation
 
 struct MKLocalSearchResponse<Category: MKLocalSearchCategory> {
-    let name: String?
-    let category: Category?
-    let latitude: CLLocationDegrees?
-    let longitude: CLLocationDegrees?
+    let name: String
+    let category: Category
+    let latitude: CLLocationDegrees
+    let longitude: CLLocationDegrees
     let address: String?
     let url: URL?
     let phoneNumber: String?

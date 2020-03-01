@@ -67,16 +67,17 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
 
         var fromStation = ""
         var toStation = ""
-        let stationModel = TransportationModel(pinPoint: pinPoint)
 
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "transportationGuideQueue", attributes: .concurrent)
 
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) { [weak self] in
-            stationModel.fetchStationList(pinPoint: fromPoint) {
-                guard let fromStationList = $0 as? [Station], !fromStationList.isEmpty else { return }
-                self?.fetchCorrectStationName(stationName: fromStationList[0].name, point: fromPoint) {
+            self?.fetchStationList(
+                latitude: fromPoint.latitude,
+                longitude: fromPoint.longitude
+            ) {
+                self?.fetchCorrectStationName(stationName: $0[0].name, point: fromPoint) {
                     fromStation = $1 == .success ? $0 : ""
                     dispatchGroup.leave()
                 }
@@ -85,9 +86,11 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
 
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) { [weak self] in
-            stationModel.fetchStationList(pinPoint: toPoint) {
-                guard let toStationList = $0 as? [Station], !toStationList.isEmpty else { return }
-                self?.fetchCorrectStationName(stationName: toStationList[0].name, point: toPoint) {
+            self?.fetchStationList(
+                latitude: toPoint.latitude,
+                longitude: toPoint.longitude
+            ) {
+                self?.fetchCorrectStationName(stationName: $0[0].name, point: toPoint) {
                     toStation = $1 == .success ? $0 : ""
                     dispatchGroup.leave()
                 }
@@ -97,6 +100,26 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
         dispatchGroup.notify(queue: .main) { [weak self] in
             self?.fetchTransferGuide(fromStation: fromStation, toStation: toStation) {
                 complete($0, fromStation, toStation, $1)
+            }
+        }
+    }
+
+    private func fetchStationList(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping ([HeartRailsExpressStation]) -> Void) {
+        // Heart Rails Express API
+        let client = HeartRailsExpressClient()
+        let request = HeartRailsExpressAPI.GetStations(
+            latitude: String(latitude),
+            longitude: String(longitude)
+        )
+
+        client.send(request: request) { result in
+            switch result {
+            case let .success(response):
+                completion(response.response.station ?? [])
+
+            case let .failure(error):
+                print("error \(error.localizedDescription)")
+                completion([])
             }
         }
     }
