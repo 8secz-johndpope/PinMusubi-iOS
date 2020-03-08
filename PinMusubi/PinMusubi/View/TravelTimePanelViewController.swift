@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-public class TravelTimePanelViewController: UIViewController {
+class TravelTimePanelViewController: UIViewController {
     @IBOutlet private var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -44,11 +44,11 @@ public class TravelTimePanelViewController: UIViewController {
 extension TravelTimePanelViewController: UITableViewDelegate {}
 
 extension TravelTimePanelViewController: UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellCount
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTimePanelCell") as? TravelTimePanelCell else { return TravelTimePanelCell() }
         if let favoriteData = myData as? FavoriteSpotEntity {
             let settingPoint = favoriteData.settingPointEntityList[indexPath.row]
@@ -61,7 +61,7 @@ extension TravelTimePanelViewController: UITableViewDataSource {
 }
 
 extension TravelTimePanelViewController: TravelTimePanelCellDelegate {
-    public func showWebPage(webVCInstance: WebViewController) {
-        present(webVCInstance, animated: true, completion: nil)
+    func showTransportationInfomation(instance: TransportationInfomationViewController) {
+        present(instance, animated: true, completion: nil)
     }
 }

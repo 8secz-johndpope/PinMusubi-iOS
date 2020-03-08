@@ -10,7 +10,7 @@ import MapKit
 import UIKit
 
 /// マップ上の地点間の情報を表示するTableViewのカスタムセル
-internal class PointInfomationCell: UITableViewCell {
+class PointInfomationCell: UITableViewCell {
     @IBOutlet private var pointNameLabel: UILabel!
 
     @IBOutlet private var transferTimeLabel: UILabel! {
@@ -56,33 +56,33 @@ internal class PointInfomationCell: UITableViewCell {
 
     private var pointInfomation: PointInfomationEntity?
 
-    internal weak var delegate: PointInfomationCellDelegate?
+    weak var delegate: PointInfomationCellDelegate?
 
-    override internal func awakeFromNib() {
+    override  func awakeFromNib() {
         super.awakeFromNib()
     }
 
     /// セルが選択された時の処理
     /// - Parameter selected: 選択されたかどうか
     /// - Parameter animated: アニメーションの有無
-    override internal func setSelected(_ selected: Bool, animated: Bool) {
+    override  func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
     }
 
-    internal func initPointInfomation() {
+    func initPointInfomation() {
         pointInfomation = nil
         transferTimeLabel.text = "計測中..."
         transportationGuideButton.isEnabled = false
         transportationGuideButton.layer.borderColor = UIColor.lightGray.cgColor
     }
 
-    internal func setPointInfomation(pointName: String, row: Int) {
+    func setPointInfomation(pointName: String, row: Int) {
         pointNameLabel.text = pointName
         setPinImage(row: row)
     }
 
-    internal func setTransportationInformation(pointInfomation: PointInfomationEntity) {
+    func setTransportationInformation(pointInfomation: PointInfomationEntity) {
         self.pointInfomation = pointInfomation
         setTravelTime(transferTime: pointInfomation.travelTime)
         setEnabledTransferGuidButton(status: pointInfomation.transferGuideResponseStatus)
@@ -116,7 +116,7 @@ internal class PointInfomationCell: UITableViewCell {
         }
     }
 
-    internal func changeTranspotation(selectedSegmentIndex: Int) {
+    func changeTranspotation(selectedSegmentIndex: Int) {
         switch selectedSegmentIndex {
         case 0:
             transferTimeLabel.isHidden = false
@@ -132,10 +132,10 @@ internal class PointInfomationCell: UITableViewCell {
     }
 
     @IBAction private func didTapTransportationGuideButton(_ sender: Any) {
-        let webView = UIStoryboard(name: "WebView", bundle: nil)
-        guard let webVC = webView.instantiateInitialViewController() as? WebViewController else { return }
+        let transportationInfomation = UIStoryboard(name: "TransportationInfomationViewController", bundle: nil)
+        guard let transportationInfomationVC = transportationInfomation.instantiateInitialViewController() as? TransportationInfomationViewController else { return }
         guard let pointInfomation = pointInfomation else { return }
-        webVC.setTransportationGuideInfo(urlString: pointInfomation.transferGuideURLString, fromStation: pointInfomation.fromStationName, toStation: pointInfomation.toStationName)
-        delegate?.sendWebVCInstance(webVCInstance: webVC)
+        transportationInfomationVC.setTransportationGuideInfo(urlString: pointInfomation.transferGuideURLString, fromStation: pointInfomation.fromStationName, toStation: pointInfomation.toStationName)
+        delegate?.sendInstance(instance: transportationInfomationVC)
     }
 }

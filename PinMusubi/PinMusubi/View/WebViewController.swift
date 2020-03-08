@@ -11,7 +11,7 @@ import SDWebImage
 import UIKit
 import WebKit
 
-public class WebViewController: UIViewController {
+class WebViewController: UIViewController {
     @IBOutlet private var chevronLeftButton: UIBarButtonItem! {
         didSet {
             if #available(iOS 13.0, *) {
@@ -49,60 +49,22 @@ public class WebViewController: UIViewController {
             webView.uiDelegate = self
             webView.navigationDelegate = self
 
-            guard let requestUrl = URL(string: requestUrlString) else { return }
-            let request = URLRequest(url: requestUrl)
+            var request: URLRequest
+            guard let requestURL = spot?.url else { return }
+            request = URLRequest(url: requestURL)
             webView.load(request)
         }
     }
 
-    private var requestUrlString = ""
     private var shareTitle = ""
-    private var spot: SpotEntityProtocol?
-    private var movePageTimes = 0
+    private var spot: SpotEntity?
 
-    public func setSpot(spot: SpotEntityProtocol) {
+    func setSpot(spot: SpotEntity) {
         self.spot = spot
-        if let shop = spot as? Shop {
-            guard let affiliateURLString = KeyManager().getValue(key: "HOT PEPPER Affiliate URL") as? String else { return }
-            requestUrlString = affiliateURLString + shop.urls.pcUrl
-            shareTitle = shop.name
-        } else if let hotels = spot as? Hotels {
-            guard let hotelInformationURL = hotels.hotel[0].hotelBasicInfo?.hotelInformationURL else { return }
-            requestUrlString = hotelInformationURL
-            guard let hotelName = hotels.hotel[0].hotelBasicInfo?.hotelName else { return }
-            shareTitle = hotelName
-        } else if let leisure = spot as? Feature {
-            guard let searchUrl = ("https://www.google.com/search?q=" + leisure.name).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-            requestUrlString = searchUrl
-            shareTitle = leisure.name
-        }
-    }
-
-    public func setTransportationGuideInfo(urlString: String, fromStation: String, toStation: String) {
-        requestUrlString = urlString
-        shareTitle = "\(fromStation)駅から\(toStation)駅までの乗換案内"
+        shareTitle = spot.name
     }
 
     @IBAction private func didTapBackViewButton(_ sender: Any) {
-        var eventQuery = ""
-
-        switch spot {
-        case is Shop:
-            eventQuery = "restaurant"
-        case is Hotels:
-            eventQuery = "hotel"
-        case is Feature:
-            eventQuery = "leisure"
-        default:
-            break
-        }
-
-        Analytics.logEvent(
-            "close_web_page_of_" + eventQuery,
-            parameters: [
-                "times_of_move_page": movePageTimes as NSObject
-            ]
-        )
         navigationController?.popViewController(animated: true)
     }
 
@@ -119,7 +81,8 @@ public class WebViewController: UIViewController {
     }
 
     @IBAction private func didTapActionButton(_ sender: Any) {
-        let shareWebsite = URL(string: requestUrlString)
+        guard let url = spot?.url else { return }
+        let shareWebsite = url
         let activityItems = [shareTitle, shareWebsite as Any] as [Any]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
@@ -132,7 +95,7 @@ public class WebViewController: UIViewController {
 }
 
 extension WebViewController: WKUIDelegate, WKNavigationDelegate {
-    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation) {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation) {
         if webView.canGoBack {
             chevronLeftButton.tintColor = UIColor.systemBlue
         } else {
@@ -143,10 +106,9 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate {
         } else {
             chevronRightButton.tintColor = UIColor.lightGray
         }
-        movePageTimes += 1
     }
 
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation) {
         title = webView.title
     }
 }

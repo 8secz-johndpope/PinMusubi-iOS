@@ -11,7 +11,7 @@ import MapKit
 import UIKit
 
 /// マップ上の地点間の情報を表示するビュー
-internal class PointsInfomationAnnotationView: UIView {
+class PointsInfomationAnnotationView: UIView {
     @IBOutlet private var pointsInfoScrollView: UIScrollView! {
         didSet {
             let screenSize = UIScreen.main.bounds.size
@@ -79,12 +79,12 @@ internal class PointsInfomationAnnotationView: UIView {
     private var pinPoint = CLLocationCoordinate2D()
     private var pointInfomationList = [PointInfomationEntity]()
 
-    internal weak var delegate: PointInfomationAnnotationViewDelegate?
+    weak var delegate: PointInfomationAnnotationViewDelegate?
 
     /// 地点情報の設定処理
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    internal func setPointInfo(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D) {
+    func setPointInfo(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D) {
         self.settingPoints = settingPoints
         self.pinPoint = pinPoint
 
@@ -95,7 +95,7 @@ internal class PointsInfomationAnnotationView: UIView {
         presenter?.presentPointInfomationList(settingPoints: settingPoints, pinPoint: pinPoint)
     }
 
-    internal func setPointInfomationList(pointInfomationList: [PointInfomationEntity]) {
+    func setPointInfomationList(pointInfomationList: [PointInfomationEntity]) {
         self.pointInfomationList = pointInfomationList
         pointsInfoTableView.reloadData()
     }
@@ -128,11 +128,11 @@ internal class PointsInfomationAnnotationView: UIView {
 
 /// TableViewに関するDelegateメソッド
 extension PointsInfomationAnnotationView: UITableViewDelegate, UITableViewDataSource {
-    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingPoints.count
     }
 
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PointInfomationCell") as? PointInfomationCell else { return UITableViewCell() }
@@ -142,7 +142,7 @@ extension PointsInfomationAnnotationView: UITableViewDelegate, UITableViewDataSo
 
         if pointInfomationList.isEmpty {
             cell.initPointInfomation()
-        } else {
+        } else if pointInfomationList.count > row {
             cell.setTransportationInformation(pointInfomation: pointInfomationList[row])
         }
 
@@ -151,7 +151,7 @@ extension PointsInfomationAnnotationView: UITableViewDelegate, UITableViewDataSo
 }
 
 extension PointsInfomationAnnotationView: PointInfomationCellDelegate {
-    internal func sendWebVCInstance(webVCInstance: WebViewController) {
-        delegate?.showTransportationGuideWebPage(webVCInstance: webVCInstance)
+    func sendInstance(instance: TransportationInfomationViewController) {
+        delegate?.showTransportationInfomation(instance: instance)
     }
 }

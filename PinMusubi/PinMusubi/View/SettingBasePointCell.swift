@@ -18,20 +18,6 @@ public class SettingBasePointCell: UITableViewCell {
         }
     }
 
-    @IBOutlet private var pointNameTextField: UITextField! {
-        didSet {
-            pointNameTextField.delegate = self
-            pointNameTextField.borderStyle = .none
-            pointNameTextField.placeholder = "例）太郎君の家"
-        }
-    }
-
-    @IBOutlet private var pointNameView: UIView! {
-        didSet {
-            pointNameView.layer.cornerRadius = 4
-        }
-    }
-
     @IBOutlet private var addressView: UIView! {
         didSet {
             addressView.layer.cornerRadius = 4
@@ -66,7 +52,6 @@ public class SettingBasePointCell: UITableViewCell {
 
     /// セル削除時、セルの状態をリセット
     public func clearTextField() {
-        pointNameTextField.text = ""
         addressTextField.text = ""
         addressStatusImage.image = nil
     }
@@ -106,15 +91,6 @@ public class SettingBasePointCell: UITableViewCell {
         return addressTextField.text ?? ""
     }
 
-    public func isEmptyPointNameTextField() -> Bool {
-        guard let name = pointNameTextField.text else { return true }
-        return name.isEmpty
-    }
-
-    public func setName(name: String) {
-        pointNameTextField.text = name
-    }
-
     public func setAddress(outputAddress: String) {
         addressTextField.text = outputAddress
     }
@@ -144,11 +120,9 @@ extension SettingBasePointCell: UITextFieldDelegate {
     /// - Parameter textField: 対象のtextField
     /// - Parameter reason: 編集終了結果
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        if textField == pointNameTextField {
-            guard let pointName = textField.text else { return }
-            guard let delegate = delegate else { return }
-            delegate.setPointName(name: pointName)
-        }
+        guard let pointName = textField.text else { return }
+        guard let delegate = delegate else { return }
+        delegate.setPointName(name: pointName)
     }
 
     /// 改行される前

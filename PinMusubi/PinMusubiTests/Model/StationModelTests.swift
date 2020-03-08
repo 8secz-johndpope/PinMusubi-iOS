@@ -15,20 +15,20 @@ class StationModelTests: XCTestCase {
         super.setUp()
     }
     
-    func testFetchStationList_ok() {
-        let stationModel = StationModel()
-        let fetchExpectation: XCTestExpectation? = self.expectation(description: "fetchStationList")
-        var examplePinPoint = CLLocationCoordinate2D()
-        examplePinPoint.latitude = 35.689738
-        examplePinPoint.longitude = 139.700391
-        stationModel.fetchStationList(pinPoint: examplePinPoint, completion: { stations, status in
-            XCTAssertEqual(status, ResponseStatus.success)
-            for station in stations {
-                print("😆😆😆😆😆😆😆😆😆😆😆😆")
-                print(station)
-            }
-            fetchExpectation?.fulfill()
-        })
-        self.waitForExpectations(timeout: 10, handler: nil)
-    }
+//    func testFetchStationList_ok() {
+//        let stationModel = StationModel()
+//        let fetchExpectation: XCTestExpectation? = self.expectation(description: "fetchStationList")
+//        var examplePinPoint = CLLocationCoordinate2D()
+//        examplePinPoint.latitude = 35.689738
+//        examplePinPoint.longitude = 139.700391
+//        stationModel.fetchStationList(pinPoint: examplePinPoint, completion: { stations, status in
+//            XCTAssertEqual(status, ResponseStatus.success)
+//            for station in stations {
+//                print("😆😆😆😆😆😆😆😆😆😆😆😆")
+//                print(station)
+//            }
+//            fetchExpectation?.fulfill()
+//        })
+//        self.waitForExpectations(timeout: 10, handler: nil)
+//    }
 }

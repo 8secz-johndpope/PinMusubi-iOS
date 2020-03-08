@@ -6,4 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-public struct AdEntity: SpotEntityProtocol {}
+import CoreLocation
+
+struct AdEntity: SpotEntityProtocol {}

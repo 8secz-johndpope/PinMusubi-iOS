@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="kdx-9P-PGf" customClass="SpotMapView" customModule="PinMusubi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="384"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf9-7U-onn">
+                    <rect key="frame" x="20" y="10" width="374" height="364"/>
+                    <subviews>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WKl-95-gD1">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="364"/>
+                        </mapView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="WKl-95-gD1" secondAttribute="trailing" id="B88-o9-Yeg"/>
+                        <constraint firstItem="WKl-95-gD1" firstAttribute="leading" secondItem="Kf9-7U-onn" secondAttribute="leading" id="JW3-iK-Ulr"/>
+                        <constraint firstItem="WKl-95-gD1" firstAttribute="top" secondItem="Kf9-7U-onn" secondAttribute="top" id="Mxu-it-LiJ"/>
+                        <constraint firstAttribute="bottom" secondItem="WKl-95-gD1" secondAttribute="bottom" id="k2X-Sb-Jmb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="i2P-AS-Do3" firstAttribute="trailing" secondItem="Kf9-7U-onn" secondAttribute="trailing" constant="20" id="DCJ-S9-2mF"/>
+                <constraint firstItem="Kf9-7U-onn" firstAttribute="top" secondItem="i2P-AS-Do3" secondAttribute="top" constant="10" id="eRy-qh-kgw"/>
+                <constraint firstItem="Kf9-7U-onn" firstAttribute="leading" secondItem="i2P-AS-Do3" secondAttribute="leading" constant="20" id="fCD-Uo-SoM"/>
+                <constraint firstItem="i2P-AS-Do3" firstAttribute="bottom" secondItem="Kf9-7U-onn" secondAttribute="bottom" constant="10" id="qgL-9C-xGJ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="i2P-AS-Do3"/>
+            <connections>
+                <outlet property="backgraoundView" destination="Kf9-7U-onn" id="gaN-tL-tdJ"/>
+                <outlet property="mapView" destination="WKl-95-gD1" id="Qmv-19-rBf"/>
+            </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="-102.54872563718142"/>
+        </view>
+    </objects>
+</document>

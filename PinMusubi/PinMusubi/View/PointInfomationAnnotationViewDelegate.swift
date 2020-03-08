@@ -8,10 +8,10 @@
 
 import UIKit
 
-public protocol PointInfomationAnnotationViewDelegate: AnyObject {
+protocol PointInfomationAnnotationViewDelegate: AnyObject {
     func searchSpotList()
 
     func showShareActivity(activityVC: UIActivityViewController)
 
-    func showTransportationGuideWebPage(webVCInstance: WebViewController)
+    func showTransportationInfomation(instance: TransportationInfomationViewController)
 }

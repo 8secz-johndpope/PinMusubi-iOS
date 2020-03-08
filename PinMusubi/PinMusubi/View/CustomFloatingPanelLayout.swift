@@ -19,7 +19,7 @@ public class CustomFloatingPanelLayout: FloatingPanelLayout {
     public func insetFor(position: FloatingPanelPosition) -> CGFloat? {
         switch position {
         case .full: return 50.0 // A top inset from safe area
-        case .half: return 220.0 // A bottom inset from the safe area
+        case .half: return 240.0 // A bottom inset from the safe area
         case .tip: return 60.0 // A bottom inset from the safe area
         default: return nil
         }
