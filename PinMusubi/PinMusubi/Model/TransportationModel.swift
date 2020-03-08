@@ -17,8 +17,8 @@ class TransportationModel: SpotModelProtocol {
         self.pinPoint = pinPoint
     }
 
-    func fetchSpotList(region: Double, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
-        var transportationList = [TransportationEntity]()
+    func fetchSpotList(region: Double, completion: @escaping ([SpotEntity], SpotType) -> Void) {
+        var transportationList = [SpotEntity]()
 
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchTrasportationList")
@@ -28,10 +28,10 @@ class TransportationModel: SpotModelProtocol {
             self.fetchPlaces(categories: Category.allCases, region: region) {
                 $0.forEach {
                     transportationList.append(
-                        TransportationEntity(
+                        SpotEntity(
                             name: $0.name,
                             category: $0.category.getDisplayName(),
-                            image: $0.category.rawValue,
+                            generalImageName: $0.category.rawValue,
                             latitude: $0.latitude,
                             longitude: $0.longitude,
                             distance: self.getDitance(
@@ -40,6 +40,7 @@ class TransportationModel: SpotModelProtocol {
                                 longitude: $0.longitude
                             ),
                             address: $0.address,
+                            phoneNumber: $0.phoneNumber,
                             url: $0.url
                         )
                     )

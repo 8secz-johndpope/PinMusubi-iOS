@@ -17,8 +17,8 @@ class LeisureModel: SpotModelProtocol {
         self.pinPoint = pinPoint
     }
 
-    func fetchSpotList(region: Double, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
-        var leisureList = [LeisureEntity]()
+    func fetchSpotList(region: Double, completion: @escaping ([SpotEntity], SpotType) -> Void) {
+        var leisureList = [SpotEntity]()
 
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchLeisureList")
@@ -28,11 +28,10 @@ class LeisureModel: SpotModelProtocol {
             self.fetchLeisureList {
                 $0.forEach {
                     leisureList.append(
-                        LeisureEntity(
+                        SpotEntity(
                             name: $0.name,
                             category: $0.property.genre[0].name,
-                            imageURLString: $0.property.leadImage,
-                            generalImage: nil,
+                            generalImageName: $0.property.leadImage,
                             latitude: self.getCoordinate(coordinates: $0.geometry.coordinates).0,
                             longitude: self.getCoordinate(coordinates: $0.geometry.coordinates).1,
                             distance: self.getDitance(
@@ -41,10 +40,8 @@ class LeisureModel: SpotModelProtocol {
                                 longitude: self.getCoordinate(coordinates: $0.geometry.coordinates).1
                             ),
                             address: $0.property.address,
-                            nearStation: $0.property.station.first?.name,
                             phoneNumber: $0.property.tel1,
-                            description: $0.featureDescription,
-                            url: nil
+                            spotInfomation: $0
                         )
                     )
                 }
@@ -57,11 +54,10 @@ class LeisureModel: SpotModelProtocol {
             self.fetchPlaces(categories: Category.allCases, region: region) {
                 $0.forEach {
                     leisureList.append(
-                        LeisureEntity(
+                        SpotEntity(
                             name: $0.name,
                             category: $0.category.getDisplayName(),
-                            imageURLString: nil,
-                            generalImage: $0.category.rawValue,
+                            generalImageName: $0.category.rawValue,
                             latitude: $0.latitude,
                             longitude: $0.longitude,
                             distance: self.getDitance(
@@ -70,9 +66,7 @@ class LeisureModel: SpotModelProtocol {
                                 longitude: $0.longitude
                             ),
                             address: $0.address,
-                            nearStation: nil,
                             phoneNumber: $0.phoneNumber,
-                            description: nil,
                             url: $0.url
                         )
                     )

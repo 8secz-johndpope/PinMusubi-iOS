@@ -6,6 +6,6 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-public protocol PointInfomationCellDelegate: AnyObject {
+protocol PointInfomationCellDelegate: AnyObject {
     func sendWebVCInstance(webVCInstance: WebViewController)
 }

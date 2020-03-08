@@ -7,7 +7,7 @@
 //
 
 // MARK: - YOLPFeature
-struct YOLPFeature: Decodable {
+struct YOLPFeature: Decodable, SpotInfomationProtocol {
     let id, gid, name: String
     let geometry: YOLPGeometry
     let category: [String]

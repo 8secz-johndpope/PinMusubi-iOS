@@ -39,6 +39,13 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["5a5d77ef1e172802b323f5433e396dbe"]
 
+        // NavigationBar
+        if #available(iOS 13.0, *) {
+            UINavigationBar.appearance().tintColor = UIColor.label
+        } else {
+            UINavigationBar.appearance().tintColor = UIColor.darkText
+        }
+
         return true
     }
 

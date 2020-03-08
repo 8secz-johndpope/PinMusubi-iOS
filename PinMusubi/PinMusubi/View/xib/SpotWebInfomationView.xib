@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SpotWebInfomationView" customModule="PinMusubi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHA-q9-WyK">
+                    <rect key="frame" x="50" y="10" width="314" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="QEi-MG-fdp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="Label"/>
+                    <connections>
+                        <action selector="didTapMoveWebViewButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="KOd-P0-nca"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zHA-q9-WyK" secondAttribute="trailing" constant="50" id="DLs-V2-Qvr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zHA-q9-WyK" secondAttribute="bottom" constant="10" id="GrT-qF-dsg"/>
+                <constraint firstItem="zHA-q9-WyK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OFD-7N-l8K"/>
+                <constraint firstItem="zHA-q9-WyK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nXr-Su-Yq6"/>
+                <constraint firstItem="zHA-q9-WyK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="wcJ-MR-kAu"/>
+                <constraint firstItem="zHA-q9-WyK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="z8y-Ni-jJi"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="moveWebViewButton" destination="zHA-q9-WyK" id="qw7-Ko-7vU"/>
+            </connections>
+            <point key="canvasLocation" x="140.80000000000001" y="-253.67316341829087"/>
+        </view>
+    </objects>
+</document>

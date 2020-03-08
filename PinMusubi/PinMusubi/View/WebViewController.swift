@@ -11,7 +11,7 @@ import SDWebImage
 import UIKit
 import WebKit
 
-public class WebViewController: UIViewController {
+class WebViewController: UIViewController {
     @IBOutlet private var chevronLeftButton: UIBarButtonItem! {
         didSet {
             if #available(iOS 13.0, *) {
@@ -50,7 +50,7 @@ public class WebViewController: UIViewController {
             webView.navigationDelegate = self
 
             var request: URLRequest
-            if let requestURL = requestURL {
+            if let requestURL = spot?.url {
                 request = URLRequest(url: requestURL)
             } else {
                 guard let requestUrl = URL(string: requestUrlString) else { return }
@@ -61,51 +61,20 @@ public class WebViewController: UIViewController {
     }
 
     private var requestUrlString = ""
-    private var requestURL: URL?
     private var shareTitle = ""
-    private var spot: SpotEntityProtocol?
-    private var movePageTimes = 0
+    private var spot: SpotEntity?
 
-    public func setSpot(spot: SpotEntityProtocol) {
+    func setSpot(spot: SpotEntity) {
         self.spot = spot
-        if let restaurant = spot as? RestaurantEntity {
-            requestURL = restaurant.url
-            shareTitle = restaurant.name
-        } else if let hotel = spot as? HotelEntity {
-            requestURL = hotel.url
-            shareTitle = hotel.name
-        } else if let leisure = spot as? LeisureEntity {
-            guard let searchUrl = ("https://www.google.com/search?q=" + leisure.name).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-            requestUrlString = searchUrl
-            shareTitle = leisure.name
-        }
+        shareTitle = spot.name
     }
 
-    public func setTransportationGuideInfo(urlString: String, fromStation: String, toStation: String) {
+    func setTransportationGuideInfo(urlString: String, fromStation: String, toStation: String) {
         requestUrlString = urlString
         shareTitle = "\(fromStation)駅から\(toStation)駅までの乗換案内"
     }
 
     @IBAction private func didTapBackViewButton(_ sender: Any) {
-        var eventQuery = ""
-
-        switch spot {
-        case is RestaurantEntity:
-            eventQuery = "restaurant"
-        case is HotelEntity:
-            eventQuery = "hotel"
-        case is LeisureEntity:
-            eventQuery = "leisure"
-        default:
-            break
-        }
-
-        Analytics.logEvent(
-            "close_web_page_of_" + eventQuery,
-            parameters: [
-                "times_of_move_page": movePageTimes as NSObject
-            ]
-        )
         navigationController?.popViewController(animated: true)
     }
 
@@ -135,7 +104,7 @@ public class WebViewController: UIViewController {
 }
 
 extension WebViewController: WKUIDelegate, WKNavigationDelegate {
-    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation) {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation) {
         if webView.canGoBack {
             chevronLeftButton.tintColor = UIColor.systemBlue
         } else {
@@ -146,10 +115,9 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate {
         } else {
             chevronRightButton.tintColor = UIColor.lightGray
         }
-        movePageTimes += 1
     }
 
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation) {
         title = webView.title
     }
 }

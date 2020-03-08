@@ -11,7 +11,7 @@ import MapKit
 protocol SpotModelProtocol {
     var pinPoint: CLLocationCoordinate2D { get set }
 
-    func fetchSpotList(region: Double, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void)
+    func fetchSpotList(region: Double, completion: @escaping ([SpotEntity], SpotType) -> Void)
 
     func createSpotURL(URLString: String) -> URL?
 }
@@ -68,16 +68,6 @@ extension SpotModelProtocol {
             completion(response)
         }
     }
-
-    // TODO: RealmからplaceIdが同じデータを取得し、DAOからMKLocalSearchResponse<Category>に入れ替える
-    //    func fetchPlace(placeId: String) -> MKLocalSearchResponse<Category> {
-    //
-    //    }
-
-    // TODO: MKLocalSearchResponse<Category>からDAOに移し替えて、Realmに登録
-    //    func setPlace(response: MKLocalSearchResponse<Category>) {
-    //
-    //    }
 }
 
 enum ResponseStatus {

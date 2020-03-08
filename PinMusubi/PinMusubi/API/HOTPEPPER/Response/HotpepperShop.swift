@@ -7,7 +7,7 @@
 //
 
 // MARK: - HotpepperShop
-struct HotpepperShop: Decodable {
+struct HotpepperShop: Decodable, SpotInfomationProtocol {
     let id: String
     let name: String
     let logoImage: String

@@ -55,14 +55,21 @@
 		911C60ED24016A5E005EC42B /* HotpepperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EC24016A5E005EC42B /* HotpepperClient.swift */; };
 		911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EE24016A93005EC42B /* HotpepperClientError.swift */; };
 		912E0B3E23993D63008A91FA /* PointInfomationCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */; };
-		914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BA2382AFE000AE7E06 /* HotelEntity.swift */; };
 		914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BC2382C8C600AE7E06 /* HotelModel.swift */; };
-		914455C12384186100AE7E06 /* LeisureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C02384186000AE7E06 /* LeisureEntity.swift */; };
 		914455C32384206400AE7E06 /* LeisureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C22384206400AE7E06 /* LeisureModel.swift */; };
 		914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
 		914D4A852337CD8C00065648 /* SettingBasePointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */; };
 		914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */; };
 		914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A8A23388F8500065648 /* Notification+Extension.swift */; };
+		914DE927240D355600BF743D /* SpotMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE926240D355600BF743D /* SpotMainView.swift */; };
+		914DE929240D36F700BF743D /* SpotWebInfomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE928240D36F700BF743D /* SpotWebInfomationView.swift */; };
+		914DE92B240D3A0A00BF743D /* SpotMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE92A240D3A0A00BF743D /* SpotMapView.swift */; };
+		914DE92D240D3EB000BF743D /* SpotInfomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE92C240D3EB000BF743D /* SpotInfomationView.swift */; };
+		914DE92F240D3EC000BF743D /* SpotInfomationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE92E240D3EC000BF743D /* SpotInfomationCell.swift */; };
+		914DE931240FB47300BF743D /* SpotInfomationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE930240FB47300BF743D /* SpotInfomationProtocol.swift */; };
+		914DE933240FB5ED00BF743D /* SpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE932240FB5ED00BF743D /* SpotEntity.swift */; };
+		914DE935240FC06100BF743D /* SpotDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE934240FC06100BF743D /* SpotDetailViewDelegate.swift */; };
+		914DE9372413B5C100BF743D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DE9362413B5C100BF743D /* UIViewController+Extension.swift */; };
 		914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */; };
 		914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F49EE233B89C90005C316 /* PointsInfomationModel.swift */; };
 		91504A7A2336226B00F900C4 /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A792336226B00F900C4 /* FloatingPanel.framework */; };
@@ -71,8 +78,6 @@
 		915511CE2340D678004F820D /* SettingBasePointCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */; };
 		915511D323463458004F820D /* SearchInterestPlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511D223463458004F820D /* SearchInterestPlaceModel.swift */; };
 		915511D52347815B004F820D /* SearchInterestPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */; };
-		915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915556F223699E9200097D73 /* SpotDetailsView.storyboard */; };
-		915556F7236AEEE300097D73 /* SpotDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */; };
 		915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */; };
 		915A44A8232E2A9E006A6891 /* AccessorProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */; };
 		915A44AC232E52F4006A6891 /* SettingPointAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */; };
@@ -218,7 +223,6 @@
 		91C64A6A23764B000046E7E7 /* MyDetailsDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C64A6923764B000046E7E7 /* MyDetailsDataViewController.swift */; };
 		91C8E9F52348C752004A644D /* PointInfomationAnnotationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8E9F42348C752004A644D /* PointInfomationAnnotationViewDelegate.swift */; };
 		91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */; };
-		91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */; };
 		91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D1907A2367F33B00B0329A /* SpotCell.xib */; };
 		91D1907D2368073700B0329A /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1907C2368073700B0329A /* SpotCell.swift */; };
 		91D190812368331900B0329A /* SpotEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D190802368331900B0329A /* SpotEntityProtocol.swift */; };
@@ -243,7 +247,6 @@
 		91D7FEE023718AA900520CAD /* DoneRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */; };
 		91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */; };
 		91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */; };
-		91E439222352FE9400A3B936 /* RestaurantEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439212352FE9400A3B936 /* RestaurantEntity.swift */; };
 		91E4392A2361DFE500A3B936 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439292361DFE500A3B936 /* RestaurantModel.swift */; };
 		91EEA8022377941E00824BBB /* MyDetailsDataActionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8012377941E00824BBB /* MyDetailsDataActionViewDelegate.swift */; };
 		91EEA8042377A79B00824BBB /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA8032377A79B00824BBB /* EmptyView.xib */; };
@@ -257,7 +260,13 @@
 		91EEA818237825AD00824BBB /* CreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA816237825AD00824BBB /* CreditViewController.xib */; };
 		91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF7531236D24F80051ACCB /* WebViewController.swift */; };
 		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
-		91FCFCFB240BA29A00920BCC /* TransportationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FCFCFA240BA29A00920BCC /* TransportationEntity.swift */; };
+		91FCFCFD240D283700920BCC /* SpotDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFCFC240D283700920BCC /* SpotDetailViewController.storyboard */; };
+		91FCFCFF240D2B8600920BCC /* SpotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FCFCFE240D2B8600920BCC /* SpotDetailViewController.swift */; };
+		91FCFD01240D2D2400920BCC /* SpotMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFD00240D2D2400920BCC /* SpotMainView.xib */; };
+		91FCFD03240D2F2B00920BCC /* SpotInfomationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFD02240D2F2B00920BCC /* SpotInfomationView.xib */; };
+		91FCFD05240D306E00920BCC /* SpotInfomationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFD04240D306E00920BCC /* SpotInfomationCell.xib */; };
+		91FCFD07240D330300920BCC /* SpotWebInfomationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFD06240D330300920BCC /* SpotWebInfomationView.xib */; };
+		91FCFD09240D348300920BCC /* SpotMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFD08240D348300920BCC /* SpotMapView.xib */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
 		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
 /* End PBXBuildFile section */
@@ -338,16 +347,23 @@
 		911C60EC24016A5E005EC42B /* HotpepperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClient.swift; sourceTree = "<group>"; };
 		911C60EE24016A93005EC42B /* HotpepperClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClientError.swift; sourceTree = "<group>"; };
 		912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationCellDelegate.swift; sourceTree = "<group>"; };
-		914455BA2382AFE000AE7E06 /* HotelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelEntity.swift; sourceTree = "<group>"; };
 		914455BC2382C8C600AE7E06 /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
 		914455BE2382CC9200AE7E06 /* HotelModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModelTests.swift; sourceTree = "<group>"; };
-		914455C02384186000AE7E06 /* LeisureEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureEntity.swift; sourceTree = "<group>"; };
 		914455C22384206400AE7E06 /* LeisureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureModel.swift; sourceTree = "<group>"; };
 		914455C4238426F900AE7E06 /* LeisureModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureModelTests.swift; sourceTree = "<group>"; };
 		914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointActionCellDelegate.swift; sourceTree = "<group>"; };
 		914D4A842337CD8C00065648 /* SettingBasePointsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsPresenter.swift; sourceTree = "<group>"; };
 		914D4A88233853E800065648 /* SettingBasePointsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsViewDelegate.swift; sourceTree = "<group>"; };
 		914D4A8A23388F8500065648 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		914DE926240D355600BF743D /* SpotMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMainView.swift; sourceTree = "<group>"; };
+		914DE928240D36F700BF743D /* SpotWebInfomationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotWebInfomationView.swift; sourceTree = "<group>"; };
+		914DE92A240D3A0A00BF743D /* SpotMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMapView.swift; sourceTree = "<group>"; };
+		914DE92C240D3EB000BF743D /* SpotInfomationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotInfomationView.swift; sourceTree = "<group>"; };
+		914DE92E240D3EC000BF743D /* SpotInfomationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotInfomationCell.swift; sourceTree = "<group>"; };
+		914DE930240FB47300BF743D /* SpotInfomationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotInfomationProtocol.swift; sourceTree = "<group>"; };
+		914DE932240FB5ED00BF743D /* SpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotEntity.swift; sourceTree = "<group>"; };
+		914DE934240FC06100BF743D /* SpotDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailViewDelegate.swift; sourceTree = "<group>"; };
+		914DE9362413B5C100BF743D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		914F49EC233B899D0005C316 /* PointsInfomationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationPresenter.swift; sourceTree = "<group>"; };
 		914F49EE233B89C90005C316 /* PointsInfomationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfomationModel.swift; sourceTree = "<group>"; };
 		91504A4923361CF500F900C4 /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -362,8 +378,6 @@
 		915511CD2340D678004F820D /* SettingBasePointCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointCellDelegate.swift; sourceTree = "<group>"; };
 		915511D223463458004F820D /* SearchInterestPlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterestPlaceModel.swift; sourceTree = "<group>"; };
 		915511D42347815B004F820D /* SearchInterestPlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterestPlacePresenter.swift; sourceTree = "<group>"; };
-		915556F223699E9200097D73 /* SpotDetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpotDetailsView.storyboard; sourceTree = "<group>"; };
-		915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailsViewController.swift; sourceTree = "<group>"; };
 		915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryEntity.swift; sourceTree = "<group>"; };
 		915A44A7232E2A9E006A6891 /* AccessorProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorProtcol.swift; sourceTree = "<group>"; };
 		915A44AB232E52F4006A6891 /* SettingPointAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPointAccessor.swift; sourceTree = "<group>"; };
@@ -527,7 +541,6 @@
 		91D08A69236D65B0005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		91D08A6A236D65B1005AD5DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchInterestPlaceView.strings; sourceTree = "<group>"; };
 		91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotBaseInfoView.xib; sourceTree = "<group>"; };
-		91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotBaseInfoView.swift; sourceTree = "<group>"; };
 		91D1907A2367F33B00B0329A /* SpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotCell.xib; sourceTree = "<group>"; };
 		91D1907C2368073700B0329A /* SpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
 		91D190802368331900B0329A /* SpotEntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotEntityProtocol.swift; sourceTree = "<group>"; };
@@ -552,7 +565,6 @@
 		91D7FEDF23718AA900520CAD /* DoneRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterViewController.swift; sourceTree = "<group>"; };
 		91D7FEE123718D4300520CAD /* DoneRegisterPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterPresentationController.swift; sourceTree = "<group>"; };
 		91D7FEE323719BFF00520CAD /* DoneRegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneRegisterViewDelegate.swift; sourceTree = "<group>"; };
-		91E439212352FE9400A3B936 /* RestaurantEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantEntity.swift; sourceTree = "<group>"; };
 		91E439292361DFE500A3B936 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		91EEA8012377941E00824BBB /* MyDetailsDataActionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsDataActionViewDelegate.swift; sourceTree = "<group>"; };
 		91EEA8032377A79B00824BBB /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
@@ -566,7 +578,13 @@
 		91EEA816237825AD00824BBB /* CreditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditViewController.xib; sourceTree = "<group>"; };
 		91EF7531236D24F80051ACCB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		91F4EB152336038D005C9EED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		91FCFCFA240BA29A00920BCC /* TransportationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationEntity.swift; sourceTree = "<group>"; };
+		91FCFCFC240D283700920BCC /* SpotDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpotDetailViewController.storyboard; sourceTree = "<group>"; };
+		91FCFCFE240D2B8600920BCC /* SpotDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailViewController.swift; sourceTree = "<group>"; };
+		91FCFD00240D2D2400920BCC /* SpotMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotMainView.xib; sourceTree = "<group>"; };
+		91FCFD02240D2F2B00920BCC /* SpotInfomationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotInfomationView.xib; sourceTree = "<group>"; };
+		91FCFD04240D306E00920BCC /* SpotInfomationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotInfomationCell.xib; sourceTree = "<group>"; };
+		91FCFD06240D330300920BCC /* SpotWebInfomationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotWebInfomationView.xib; sourceTree = "<group>"; };
+		91FCFD08240D348300920BCC /* SpotMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotMapView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -760,10 +778,8 @@
 				915A44A4232E2063006A6891 /* SearchHistoryEntity.swift */,
 				911B88AA23955A0B0030708E /* TransferGuideEntity.swift */,
 				91D190802368331900B0329A /* SpotEntityProtocol.swift */,
-				91E439212352FE9400A3B936 /* RestaurantEntity.swift */,
-				914455BA2382AFE000AE7E06 /* HotelEntity.swift */,
-				914455C02384186000AE7E06 /* LeisureEntity.swift */,
-				91FCFCFA240BA29A00920BCC /* TransportationEntity.swift */,
+				914DE930240FB47300BF743D /* SpotInfomationProtocol.swift */,
+				914DE932240FB5ED00BF743D /* SpotEntity.swift */,
 				9197D63F23250D4E00A5C558 /* SettingPointEntity.swift */,
 				9108A84B237AEC7F00099B0B /* SpotListAnalyticsEntity.swift */,
 				9108A84D237F584800099B0B /* AdEntity.swift */,
@@ -1122,6 +1138,7 @@
 				9107A08D23ADBDF000F1DD77 /* URL+Extension.swift */,
 				91F4EB152336038D005C9EED /* UIColor+Extension.swift */,
 				919E6FB224031E1500CF8161 /* MKPlacemark+Extension.swift */,
+				914DE9362413B5C100BF743D /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1155,6 +1172,11 @@
 				918CF9872338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib */,
 				918CF98A23390ABA003DC7C8 /* PointInfomationCell.xib */,
 				91D1907A2367F33B00B0329A /* SpotCell.xib */,
+				91FCFD00240D2D2400920BCC /* SpotMainView.xib */,
+				91FCFD06240D330300920BCC /* SpotWebInfomationView.xib */,
+				91FCFD02240D2F2B00920BCC /* SpotInfomationView.xib */,
+				91FCFD04240D306E00920BCC /* SpotInfomationCell.xib */,
+				91FCFD08240D348300920BCC /* SpotMapView.xib */,
 				91D08A6B236DA7B6005AD5DD /* SpotBaseInfoView.xib */,
 				91D1CAB32376657D0066F644 /* TravelTimePanelViewController.xib */,
 				91A8A1A4236C825500903354 /* TravelTimePanelCell.xib */,
@@ -1236,8 +1258,13 @@
 				91B5A9982367165C0030909D /* SpotListCollectionViewCell.swift */,
 				91A8A1A2236AF8F000903354 /* SpotListCollectionViewCellDelegate.swift */,
 				91D1907C2368073700B0329A /* SpotCell.swift */,
-				915556F6236AEEE300097D73 /* SpotDetailsViewController.swift */,
-				91D08A6D236DA93D005AD5DD /* SpotBaseInfoView.swift */,
+				91FCFCFE240D2B8600920BCC /* SpotDetailViewController.swift */,
+				914DE934240FC06100BF743D /* SpotDetailViewDelegate.swift */,
+				914DE926240D355600BF743D /* SpotMainView.swift */,
+				914DE928240D36F700BF743D /* SpotWebInfomationView.swift */,
+				914DE92C240D3EB000BF743D /* SpotInfomationView.swift */,
+				914DE92E240D3EC000BF743D /* SpotInfomationCell.swift */,
+				914DE92A240D3A0A00BF743D /* SpotMapView.swift */,
 				91D1CAB22376657D0066F644 /* TravelTimePanelViewController.swift */,
 				9163A5D9236C860200612E06 /* TravelTimePanelCell.swift */,
 				910EC0BB239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift */,
@@ -1344,7 +1371,7 @@
 				9107A07023A3A4DA00F1DD77 /* FavoriteBasePointViewController.storyboard */,
 				9107A07223A3A61F00F1DD77 /* SearchBasePointViewController.storyboard */,
 				91B5A9882365B8BF0030909D /* SpotListViewController.storyboard */,
-				915556F223699E9200097D73 /* SpotDetailsView.storyboard */,
+				91FCFCFC240D283700920BCC /* SpotDetailViewController.storyboard */,
 				9162288C236D21F600F009DB /* WebView.storyboard */,
 				91C05BD1236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard */,
 				91D7FEDD23718A8200520CAD /* DoneRegisterViewController.storyboard */,
@@ -1503,7 +1530,9 @@
 				91A4111E2333C16A00AF7897 /* SettingBasePointsView.xib in Resources */,
 				91C64A482371A7B60046E7E7 /* MyPageView.storyboard in Resources */,
 				91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */,
+				91FCFD09240D348300920BCC /* SpotMapView.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
+				91FCFD07240D330300920BCC /* SpotWebInfomationView.xib in Resources */,
 				91EEA81423780A3E00824BBB /* ContactFormViewController.storyboard in Resources */,
 				91EEA818237825AD00824BBB /* CreditViewController.xib in Resources */,
 				91A8A1A5236C825500903354 /* TravelTimePanelCell.xib in Resources */,
@@ -1517,17 +1546,20 @@
 				918CF98C23390ABA003DC7C8 /* PointInfomationCell.xib in Resources */,
 				9107A07323A3A61F00F1DD77 /* SearchBasePointViewController.storyboard in Resources */,
 				91C05BD2236F255F006F8A5A /* FavoriteRegisterModalViewController.storyboard in Resources */,
+				91FCFD03240D2F2B00920BCC /* SpotInfomationView.xib in Resources */,
 				9162288D236D21F600F009DB /* WebView.storyboard in Resources */,
 				9107A07F23A5323200F1DD77 /* VersionInfoViewController.storyboard in Resources */,
-				915556F323699E9200097D73 /* SpotDetailsView.storyboard in Resources */,
 				91B5A9772363EF090030909D /* apiKey.plist in Resources */,
 				91D1CAB52376657D0066F644 /* TravelTimePanelViewController.xib in Resources */,
 				91D7FEDE23718A8200520CAD /* DoneRegisterViewController.storyboard in Resources */,
 				91D08A6C236DA7B6005AD5DD /* SpotBaseInfoView.xib in Resources */,
 				91EEA8042377A79B00824BBB /* EmptyView.xib in Resources */,
+				91FCFCFD240D283700920BCC /* SpotDetailViewController.storyboard in Resources */,
 				9107A08923ACF2DE00F1DD77 /* PinMusubi_AppStore.png in Resources */,
 				9116C906238596B60026513D /* LoadingView.xib in Resources */,
 				91D1CAB9237691D70066F644 /* MyDetailsDataViewController.storyboard in Resources */,
+				91FCFD05240D306E00920BCC /* SpotInfomationCell.xib in Resources */,
+				91FCFD01240D2D2400920BCC /* SpotMainView.xib in Resources */,
 				91D1907B2367F33B00B0329A /* SpotCell.xib in Resources */,
 				91B5A9892365B8BF0030909D /* SpotListViewController.storyboard in Resources */,
 			);
@@ -1801,7 +1833,6 @@
 				919E6FB324031E1500CF8161 /* MKPlacemark+Extension.swift in Sources */,
 				919E6F36240237F600CF8161 /* RakutenTravelClientError.swift in Sources */,
 				919E6F3C2402427100CF8161 /* RakutenTravelClient.swift in Sources */,
-				915556F7236AEEE300097D73 /* SpotDetailsViewController.swift in Sources */,
 				91A411232335066700AF7897 /* SettingBasePointCell.swift in Sources */,
 				9162288B236CF6CE00F009DB /* TravelTimeModel.swift in Sources */,
 				914F49ED233B899D0005C316 /* PointsInfomationPresenter.swift in Sources */,
@@ -1815,12 +1846,14 @@
 				91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */,
 				911C60ED24016A5E005EC42B /* HotpepperClient.swift in Sources */,
 				91C64A6023742DDC0046E7E7 /* MyPageCollectionViewCellDelegate.swift in Sources */,
+				914DE931240FB47300BF743D /* SpotInfomationProtocol.swift in Sources */,
 				911C60E924016705005EC42B /* HotpepperRequestParameter.swift in Sources */,
 				9170F15323FEAD45002FB702 /* HotpepperShop.swift in Sources */,
 				91C64A4E2371AB2B0046E7E7 /* SettingViewController.swift in Sources */,
 				919E6F782402805800CF8161 /* HeartRailsExpressAPI.swift in Sources */,
 				914F49EF233B89C90005C316 /* PointsInfomationModel.swift in Sources */,
 				919E6FBC24032FA400CF8161 /* MKLocalSearchRequestParameter.swift in Sources */,
+				91FCFCFF240D2B8600920BCC /* SpotDetailViewController.swift in Sources */,
 				919E6F382402383C00CF8161 /* RakutenTravelRequest.swift in Sources */,
 				919E6F5324025C3700CF8161 /* YOLPGenre.swift in Sources */,
 				91D7FED323703F3C00520CAD /* FavoriteSpotAccessor.swift in Sources */,
@@ -1828,6 +1861,7 @@
 				919E6F852402878700CF8161 /* BusStopAPIError.swift in Sources */,
 				91D1CAB02376563B0066F644 /* MyDetailsDataHeaderViewController.swift in Sources */,
 				9107A07D23A4156800F1DD77 /* FavoriteBasePointPresenter.swift in Sources */,
+				914DE92F240D3EC000BF743D /* SpotInfomationCell.swift in Sources */,
 				91D7FED52370404000520CAD /* FavoriteSpotModel.swift in Sources */,
 				91D7FEDC237069C600520CAD /* FavoriteRegisterModalViewDoneDelegate.swift in Sources */,
 				91D7FED12370348500520CAD /* FavoriteSpotEntity.swift in Sources */,
@@ -1862,10 +1896,10 @@
 				919E6F9E2402997000CF8161 /* EkispertStation.swift in Sources */,
 				919E6FBF2403521700CF8161 /* MKLocalSearchResponse.swift in Sources */,
 				919E6FAA2402F17300CF8161 /* EkispertAPI.swift in Sources */,
-				91FCFCFB240BA29A00920BCC /* TransportationEntity.swift in Sources */,
 				91EEA8062377A7B900824BBB /* EmptyView.swift in Sources */,
 				919E6F7424027F2A00CF8161 /* HeartRailsExpressClientError.swift in Sources */,
 				91B5A99B2367EAC60030909D /* SpotListViewDelegate.swift in Sources */,
+				914DE927240D355600BF743D /* SpotMainView.swift in Sources */,
 				91D7FED72370421200520CAD /* FavoriteSpotPresenter.swift in Sources */,
 				919E6FA02402DEE700CF8161 /* EkispertPrefecture.swift in Sources */,
 				919E6F7A2402814700CF8161 /* HeartRailsExpressClient.swift in Sources */,
@@ -1877,18 +1911,20 @@
 				919E6FA42402E18800CF8161 /* EkispertError.swift in Sources */,
 				9170F15723FEB209002FB702 /* HotpepperError.swift in Sources */,
 				919E6F8D2402897600CF8161 /* BusStopAPI.swift in Sources */,
-				91D08A6E236DA93D005AD5DD /* SpotBaseInfoView.swift in Sources */,
 				9170F16123FECB6B002FB702 /* HotpepperUrls.swift in Sources */,
 				914D4A89233853E800065648 /* SettingBasePointsViewDelegate.swift in Sources */,
 				91B5A98D2365C2000030909D /* SpotListViewController.swift in Sources */,
 				91B3EB4D2301296E00430D41 /* AppDelegate.swift in Sources */,
 				91D1CAB42376657D0066F644 /* TravelTimePanelViewController.swift in Sources */,
+				914DE935240FC06100BF743D /* SpotDetailViewDelegate.swift in Sources */,
 				919E6F7624027F6E00CF8161 /* HeartRailsExpressRequest.swift in Sources */,
 				9170D3D723A26F8700977DB7 /* InputHistoryModel.swift in Sources */,
 				91B5A9912365DA740030909D /* SpotListNavigationController.swift in Sources */,
 				91C64A502371B4A30046E7E7 /* MyPageCollectionView.swift in Sources */,
+				914DE92B240D3A0A00BF743D /* SpotMapView.swift in Sources */,
 				9107A06923A39AEE00F1DD77 /* FavoriteInputEntity.swift in Sources */,
 				919E6F5524025C6A00CF8161 /* YOLPStation.swift in Sources */,
+				914DE92D240D3EB000BF743D /* SpotInfomationView.swift in Sources */,
 				910EC0C0239DD6B000F0D87C /* SearchCompleterViewController.swift in Sources */,
 				91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */,
 				91B5A9992367165C0030909D /* SpotListCollectionViewCell.swift in Sources */,
@@ -1898,14 +1934,13 @@
 				919E6F472402595A00CF8161 /* YOLPResponse.swift in Sources */,
 				91D7FEE223718D4300520CAD /* DoneRegisterPresentationController.swift in Sources */,
 				919E6F5B24025ECC00CF8161 /* YOLPClientError.swift in Sources */,
+				914DE929240D36F700BF743D /* SpotWebInfomationView.swift in Sources */,
 				919E6F5D24025F0900CF8161 /* YOLPRequest.swift in Sources */,
 				9116C908238598B20026513D /* LoadingView.swift in Sources */,
 				919E6F3A2402410500CF8161 /* RakutenTravelRequestParameter.swift in Sources */,
 				919E6F6C24027C9800CF8161 /* HeartRailsExpressResponse.swift in Sources */,
 				91EEA810237809AA00824BBB /* CreditListViewController.swift in Sources */,
-				914455BB2382AFE000AE7E06 /* HotelEntity.swift in Sources */,
 				919E6F5724025CBC00CF8161 /* YOLPCoupon.swift in Sources */,
-				91E439222352FE9400A3B936 /* RestaurantEntity.swift in Sources */,
 				911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */,
 				919E6F342402376E00CF8161 /* RakutenTravelAPIError.swift in Sources */,
 				91E4392A2361DFE500A3B936 /* RestaurantModel.swift in Sources */,
@@ -1917,8 +1952,10 @@
 				914455C32384206400AE7E06 /* LeisureModel.swift in Sources */,
 				915A44A5232E2063006A6891 /* SearchHistoryEntity.swift in Sources */,
 				9107A08123A5359200F1DD77 /* VersionInfoViewController.swift in Sources */,
+				914DE933240FB5ED00BF743D /* SpotEntity.swift in Sources */,
 				911C60EB240169F3005EC42B /* APIResult.swift in Sources */,
 				9107A07723A3A82E00F1DD77 /* SearchBasePointViewController.swift in Sources */,
+				914DE9372413B5C100BF743D /* UIViewController+Extension.swift in Sources */,
 				91C64A5C2372E0F90046E7E7 /* MyDataPresenter.swift in Sources */,
 				91EEA8082377E75400824BBB /* SettingTableViewController.swift in Sources */,
 				9107A06723A39A3500F1DD77 /* FavoriteInputWrapper.swift in Sources */,
@@ -1963,7 +2000,6 @@
 				9107A08E23ADBDF000F1DD77 /* URL+Extension.swift in Sources */,
 				91D1CABC23769F3B0066F644 /* MyDetailsDataActionViewController.swift in Sources */,
 				91C05BD4236F25CC006F8A5A /* FavoriteRegisterModalViewController.swift in Sources */,
-				914455C12384186100AE7E06 /* LeisureEntity.swift in Sources */,
 				919E6FC12403A77B00CF8161 /* MKLocalSearchCategory.swift in Sources */,
 				9170F16323FED53E002FB702 /* HotpepperPhoto.swift in Sources */,
 				9170F15923FEB938002FB702 /* HotpepperArea.swift in Sources */,

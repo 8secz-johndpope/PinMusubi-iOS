@@ -8,10 +8,4 @@
 
 import CoreLocation
 
-struct AdEntity: SpotEntityProtocol {
-    var name: String = "Ad"
-    var category: String = "Ad"
-    var latitude: CLLocationDegrees = 0.0
-    var longitude: CLLocationDegrees = 0.0
-    var distance: Double = 0.0
-}
+struct AdEntity: SpotEntityProtocol {}

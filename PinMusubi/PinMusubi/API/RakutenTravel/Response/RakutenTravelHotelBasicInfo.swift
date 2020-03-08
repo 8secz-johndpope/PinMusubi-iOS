@@ -7,7 +7,7 @@
 //
 
 // MARK: - RakutenTravelHotelBasicInfo
-struct RakutenTravelHotelBasicInfo: Decodable {
+struct RakutenTravelHotelBasicInfo: Decodable, SpotInfomationProtocol {
     let hotelNo: Int
     let hotelName: String
     let hotelInformationURL, planListURL, dpPlanListURL, reviewURL: String?

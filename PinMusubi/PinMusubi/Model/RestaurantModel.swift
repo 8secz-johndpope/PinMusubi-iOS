@@ -17,8 +17,8 @@ class RestaurantModel: SpotModelProtocol {
         self.pinPoint = pinPoint
     }
 
-    func fetchSpotList(region: Double, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
-        var restaurantList = [RestaurantEntity]()
+    func fetchSpotList(region: Double, completion: @escaping ([SpotEntity], SpotType) -> Void) {
+        var restaurantList = [SpotEntity]()
 
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchRestaurantList")
@@ -28,11 +28,10 @@ class RestaurantModel: SpotModelProtocol {
             self.fetchGourmetShops {
                 $0.forEach {
                     restaurantList.append(
-                        RestaurantEntity(
+                        SpotEntity(
                             name: $0.name,
                             category: $0.genre.name,
-                            imageURLString: $0.photo.pc.m,
-                            generalImage: nil,
+                            imageURLString: $0.photo.pc.l,
                             latitude: CLLocationDegrees($0.lat)!,
                             longitude: CLLocationDegrees($0.lng)!,
                             distance: self.getDitance(
@@ -40,15 +39,11 @@ class RestaurantModel: SpotModelProtocol {
                                 latitude: CLLocationDegrees($0.lat),
                                 longitude: CLLocationDegrees($0.lng)
                             ),
-                            price: $0.budget.average,
-                            access: $0.access,
                             address: $0.address,
-                            open: $0.open,
-                            close: $0.close,
-                            phoneNumber: nil,
                             url: self.createSpotURL(
                                 URLString: $0.urls.pc
-                            )
+                            ),
+                            spotInfomation: $0
                         )
                     )
                 }
@@ -61,11 +56,10 @@ class RestaurantModel: SpotModelProtocol {
             self.fetchPlaces(categories: Category.allCases, region: region) {
                 $0.forEach {
                     restaurantList.append(
-                        RestaurantEntity(
+                        SpotEntity(
                             name: $0.name,
                             category: $0.category.getDisplayName(),
-                            imageURLString: nil,
-                            generalImage: $0.category.rawValue,
+                            generalImageName: $0.category.rawValue,
                             latitude: $0.latitude,
                             longitude: $0.longitude,
                             distance: self.getDitance(
@@ -73,11 +67,7 @@ class RestaurantModel: SpotModelProtocol {
                                 latitude: $0.latitude,
                                 longitude: $0.longitude
                             ),
-                            price: nil,
-                            access: nil,
                             address: $0.address,
-                            open: nil,
-                            close: nil,
                             phoneNumber: $0.phoneNumber,
                             url: $0.url
                         )

@@ -10,7 +10,7 @@ import GoogleMobileAds
 import SDWebImage
 import UIKit
 
-public class SpotCell: UITableViewCell {
+class SpotCell: UITableViewCell {
     @IBOutlet private var imageBackView: UIView! {
         didSet {
             imageBackView?.layer.cornerRadius = 10
@@ -29,85 +29,41 @@ public class SpotCell: UITableViewCell {
 
     private var adBannerView: GADBannerView?
 
-    public func initialize() {
-        catchImage.image = nil
-    }
-
-    public func configure(spot: SpotEntityProtocol) {
+    func configure(spot: SpotEntityProtocol) {
         adBaseView.isHidden = true
 
-        switch spot {
-        case is RestaurantEntity:
-            guard let restaurant = spot as? RestaurantEntity else { return }
-            configureRestaurant(restaurant: restaurant)
-
-        case is HotelEntity :
-            guard let hotel = spot as? HotelEntity else { return }
-            configureHotel(hotel: hotel)
-
-        case is LeisureEntity :
-            guard let leisure = spot as? LeisureEntity else { return }
-            configureLeisure(leisure: leisure)
-
-        case is TransportationEntity :
-            guard let transportation = spot as? TransportationEntity else { return }
-            configureTransportation(transportation: transportation)
-
-        default:
+        if let spot = spot as? SpotEntity {
+            title.text = spot.name
+            subTitle.text = spot.category
+            if let imageURLString = spot.imageURLString {
+                if imageURLString.contains("1.jpg") ||
+                    imageURLString.contains("loco_image") ||
+                    imageURLString.contains("photo_image1-thumb") ||
+                    imageURLString.contains("top.jpg") {
+                    catchImage.image = UIImage(named: "holiday")
+                    imageBackView.backgroundColor = UIColor(hex: "FCFFE1")
+                } else {
+                    guard let imageURL = URL(string: imageURLString) else { return }
+                    catchImage.sd_setImage(with: imageURL)
+                    if #available(iOS 13.0, *) {
+                        imageBackView?.backgroundColor = UIColor.systemBackground
+                    } else {
+                        imageBackView?.backgroundColor = UIColor.white
+                    }
+                }
+            } else {
+                catchImage.image = UIImage(named: spot.generalImageName ?? "holiday")
+                imageBackView.backgroundColor = UIColor(hex: "FCFFE1")
+            }
+        } else {
             adBaseView.isHidden = false
             guard let adBannerView = adBannerView else { return }
             adBaseView.addSubview(adBannerView)
         }
     }
 
-    public func addAd(adBannerView: GADBannerView) {
+    func addAd(adBannerView: GADBannerView) {
         adBannerView.frame.size = CGSize(width: frame.width, height: frame.height)
         self.adBannerView = adBannerView
-    }
-
-    private func configureRestaurant(restaurant: RestaurantEntity) {
-        title.text = restaurant.name
-        subTitle.text = restaurant.category
-        if let imageURLString = restaurant.imageURLString {
-            guard let imageURL = URL(string: imageURLString) else { return }
-            catchImage.sd_setImage(with: imageURL)
-        } else {
-            catchImage.image = UIImage(named: restaurant.generalImage ?? "")
-        }
-    }
-
-    private func configureHotel(hotel: HotelEntity) {
-        title.text = hotel.name
-        subTitle.text = hotel.category
-        if let imageURLString = hotel.imageURLString {
-            guard let imageURL = URL(string: imageURLString) else { return }
-            catchImage.sd_setImage(with: imageURL)
-        } else {
-            catchImage.image = UIImage(named: hotel.generalImage ?? "")
-        }
-    }
-
-    private func configureLeisure(leisure: LeisureEntity) {
-        title.text = leisure.name
-        subTitle.text = leisure.category
-        if let imageURLString = leisure.imageURLString {
-            if imageURLString.contains("1.jpg") ||
-                imageURLString.contains("loco_image") ||
-                imageURLString.contains("photo_image1-thumb") ||
-                imageURLString.contains("top.jpg") {
-                catchImage.image = UIImage(named: "holiday")
-            } else {
-                guard let imageURL = URL(string: imageURLString) else { return }
-                catchImage.sd_setImage(with: imageURL)
-            }
-        } else {
-            catchImage.image = UIImage(named: leisure.generalImage ?? "holiday")
-        }
-    }
-
-    private func configureTransportation(transportation: TransportationEntity) {
-        title.text = transportation.name
-        subTitle.text = transportation.category
-        catchImage.image = UIImage(named: transportation.image)
     }
 }

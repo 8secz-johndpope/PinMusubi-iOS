@@ -17,8 +17,8 @@ class HotelModel: SpotModelProtocol {
         self.pinPoint = pinPoint
     }
 
-    func fetchSpotList(region: Double, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
-        var hotelList = [HotelEntity]()
+    func fetchSpotList(region: Double, completion: @escaping ([ SpotEntity], SpotType) -> Void) {
+        var hotelList = [SpotEntity]()
 
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchHotelList")
@@ -29,12 +29,10 @@ class HotelModel: SpotModelProtocol {
                 $0.forEach {
                     guard let hotel = $0.first?.hotelBasicInfo else { return }
                     hotelList.append(
-                        HotelEntity(
+                        SpotEntity(
                             name: hotel.hotelName,
                             category: Category.hotel.getDisplayName(),
-                            thumbnailURLString: hotel.hotelThumbnailURL,
                             imageURLString: hotel.hotelImageURL,
-                            generalImage: nil,
                             latitude: hotel.latitude,
                             longitude: hotel.longitude,
                             distance: self.getDitance(
@@ -42,16 +40,12 @@ class HotelModel: SpotModelProtocol {
                                 latitude: hotel.latitude,
                                 longitude: hotel.longitude
                             ),
-                            reviewAverage: self.setReviewAverage(
-                                reviewAverage: hotel.reviewAverage
-                            ),
-                            special: hotel.hotelSpecial,
-                            access: hotel.access,
                             address: hotel.address1 + hotel.address2,
                             phoneNumber: hotel.telephoneNo,
                             url: self.createSpotURL(
                                 URLString: hotel.hotelInformationURL ?? ""
-                            )
+                            ),
+                            spotInfomation: hotel
                         )
                     )
                 }
@@ -64,12 +58,10 @@ class HotelModel: SpotModelProtocol {
             self.fetchPlaces(categories: Category.allCases, region: region) {
                 $0.forEach {
                     hotelList.append(
-                        HotelEntity(
+                        SpotEntity(
                             name: $0.name,
                             category: $0.category.getDisplayName(),
-                            thumbnailURLString: nil,
-                            imageURLString: nil,
-                            generalImage: $0.category.rawValue,
+                            generalImageName: $0.category.rawValue,
                             latitude: $0.latitude,
                             longitude: $0.longitude,
                             distance: self.getDitance(
@@ -77,11 +69,6 @@ class HotelModel: SpotModelProtocol {
                                 latitude: $0.latitude,
                                 longitude: $0.longitude
                             ),
-                            reviewAverage: self.setReviewAverage(
-                                reviewAverage: nil
-                            ),
-                            special: nil,
-                            access: nil,
                             address: $0.address,
                             phoneNumber: $0.phoneNumber,
                             url: $0.url

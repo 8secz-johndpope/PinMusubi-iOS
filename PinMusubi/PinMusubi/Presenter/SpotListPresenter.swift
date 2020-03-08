@@ -23,13 +23,13 @@ class SpotListPresenter: SpotListPresenterProtocol {
 
     func presentAllSpotList(pinPoint: CLLocationCoordinate2D, spotTypeList: [SpotType], region: Double) {
         guard let view = view else { return }
-        var spotList = [[SpotEntityProtocol]]()
+        var spotList = [[SpotEntity]]()
 
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "spotListQueue")
 
         spotTypeList.forEach { spotType in
-            spotList.append([SpotEntityProtocol]())
+            spotList.append([SpotEntity]())
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) {
                 let model = self.initModel(pinPoint: pinPoint, spotType: spotType)

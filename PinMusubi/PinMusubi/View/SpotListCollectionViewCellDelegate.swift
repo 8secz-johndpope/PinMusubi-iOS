@@ -9,9 +9,9 @@
 import GoogleMobileAds
 
 /// spotListを表示するCollectionCellのDelegate
-public protocol SpotListCollectionViewCellDelegate: AnyObject {
+protocol SpotListCollectionViewCellDelegate: AnyObject {
     /// スポット詳細画面を表示
-    func showSpotDetailsView(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol)
+    func showSpotDetailsView(settingPoints: [SettingPointEntity], spot: SpotEntity)
     /// スポットの数を設定
     func setNumOfSpot(num: Int, spotType: SpotType)
     /// スポットタップ時のスポットタイプを設定
