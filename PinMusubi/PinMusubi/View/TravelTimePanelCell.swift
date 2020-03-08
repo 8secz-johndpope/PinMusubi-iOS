@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-internal class TravelTimePanelCell: UITableViewCell {
+class TravelTimePanelCell: UITableViewCell {
     @IBOutlet private var panelView: UIView! {
         didSet {
             panelView.layer.cornerRadius = 15
@@ -64,19 +64,19 @@ internal class TravelTimePanelCell: UITableViewCell {
 
     private var presenter: TravelTimePanelPresenterProtcol?
 
-    internal weak var delegate: TravelTimePanelCellDelegate?
+    weak var delegate: TravelTimePanelCellDelegate?
 
-    override internal func awakeFromNib() {
+    override  func awakeFromNib() {
         super.awakeFromNib()
         presenter = TravelTimePanelPresenter(view: self, modelType: TravelTimeModel.self)
     }
 
-    override internal func setSelected(_ selected: Bool, animated: Bool) {
+    override  func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .none
     }
 
-    internal func configureContents(row: Int, settingPoint: SettingPointEntity, spotPoint: CLLocationCoordinate2D) {
+    func configureContents(row: Int, settingPoint: SettingPointEntity, spotPoint: CLLocationCoordinate2D) {
         panelView.layer.borderColor = ColorDefinition.settingPointColors[row].cgColor
         tagView.backgroundColor = ColorDefinition.settingPointColors[row]
         settingNameLabel.text = settingPoint.name
@@ -86,7 +86,7 @@ internal class TravelTimePanelCell: UITableViewCell {
         presenter?.getTransportationGuide(settingPoint: settingPoint, pinPoint: spotPoint)
     }
 
-    internal func setWalkingTime(walkingTime: Int) {
+    func setWalkingTime(walkingTime: Int) {
         if walkingTime == -1 {
             walkingTimeLabel.text = "計測不可"
         } else if walkingTime == -2 {
@@ -98,7 +98,7 @@ internal class TravelTimePanelCell: UITableViewCell {
         }
     }
 
-    internal func setDrivingTime(drivingTime: Int) {
+    func setDrivingTime(drivingTime: Int) {
         if drivingTime == -1 {
             drivingTimeLabel.text = "計測不可"
         } else if drivingTime == -2 {
@@ -110,25 +110,27 @@ internal class TravelTimePanelCell: UITableViewCell {
         }
     }
 
-    internal func setTransportationGuide(urlString: String, fromStationName: String, toStationName: String, status: ResponseStatus) {
+    func setTransportationGuide(urlString: String, fromStationName: String, toStationName: String, status: ResponseStatus) {
         if status == .success {
             DispatchQueue.main.async {
                 self.transportationGuideURLString = urlString
                 self.transportationGuideButton.isEnabled = true
                 self.fromStationName = fromStationName
                 self.toStationName = toStationName
+                self.transportationGuideButton.layer.borderColor = UIColor(hex: "FA6400").cgColor
             }
         } else {
             DispatchQueue.main.async {
                 self.transportationGuideButton.isEnabled = false
+                self.transportationGuideButton.layer.borderColor = UIColor.lightGray.cgColor
             }
         }
     }
 
     @IBAction private func didTapTransportationGuideButton(_ sender: Any) {
-        let webView = UIStoryboard(name: "WebView", bundle: nil)
-        guard let webVC = webView.instantiateInitialViewController() as? WebViewController else { return }
-        webVC.setTransportationGuideInfo(urlString: transportationGuideURLString, fromStation: fromStationName, toStation: toStationName)
-        delegate?.showWebPage(webVCInstance: webVC)
+        let transportationInfomation = UIStoryboard(name: "TransportationInfomationViewController", bundle: nil)
+        guard let transportationInfomationVC = transportationInfomation.instantiateInitialViewController() as? TransportationInfomationViewController else { return }
+        transportationInfomationVC.setTransportationGuideInfo(urlString: transportationGuideURLString, fromStation: fromStationName, toStation: toStationName)
+        delegate?.showTransportationInfomation(instance: transportationInfomationVC)
     }
 }

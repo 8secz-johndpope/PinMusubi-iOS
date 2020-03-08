@@ -50,28 +50,18 @@ class WebViewController: UIViewController {
             webView.navigationDelegate = self
 
             var request: URLRequest
-            if let requestURL = spot?.url {
-                request = URLRequest(url: requestURL)
-            } else {
-                guard let requestUrl = URL(string: requestUrlString) else { return }
-                request = URLRequest(url: requestUrl)
-            }
+            guard let requestURL = spot?.url else { return }
+            request = URLRequest(url: requestURL)
             webView.load(request)
         }
     }
 
-    private var requestUrlString = ""
     private var shareTitle = ""
     private var spot: SpotEntity?
 
     func setSpot(spot: SpotEntity) {
         self.spot = spot
         shareTitle = spot.name
-    }
-
-    func setTransportationGuideInfo(urlString: String, fromStation: String, toStation: String) {
-        requestUrlString = urlString
-        shareTitle = "\(fromStation)駅から\(toStation)駅までの乗換案内"
     }
 
     @IBAction private func didTapBackViewButton(_ sender: Any) {
@@ -91,7 +81,8 @@ class WebViewController: UIViewController {
     }
 
     @IBAction private func didTapActionButton(_ sender: Any) {
-        let shareWebsite = URL(string: requestUrlString)
+        guard let url = spot?.url else { return }
+        let shareWebsite = url
         let activityItems = [shareTitle, shareWebsite as Any] as [Any]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)

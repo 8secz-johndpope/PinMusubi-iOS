@@ -7,5 +7,5 @@
 //
 
 protocol PointInfomationCellDelegate: AnyObject {
-    func sendWebVCInstance(webVCInstance: WebViewController)
+    func sendInstance(instance: TransportationInfomationViewController)
 }

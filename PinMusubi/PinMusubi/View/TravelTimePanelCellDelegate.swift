@@ -7,5 +7,5 @@
 //
 
 protocol TravelTimePanelCellDelegate: AnyObject {
-    func showWebPage(webVCInstance: WebViewController)
+    func showTransportationInfomation(instance: TransportationInfomationViewController)
 }

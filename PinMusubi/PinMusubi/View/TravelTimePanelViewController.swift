@@ -61,7 +61,7 @@ extension TravelTimePanelViewController: UITableViewDataSource {
 }
 
 extension TravelTimePanelViewController: TravelTimePanelCellDelegate {
-    func showWebPage(webVCInstance: WebViewController) {
-        present(webVCInstance, animated: true, completion: nil)
+    func showTransportationInfomation(instance: TransportationInfomationViewController) {
+        present(instance, animated: true, completion: nil)
     }
 }
