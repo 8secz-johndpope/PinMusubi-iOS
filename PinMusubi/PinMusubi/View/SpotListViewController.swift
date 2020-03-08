@@ -11,7 +11,7 @@ import GoogleMobileAds
 import MapKit
 import UIKit
 
-public class SpotListViewController: UIViewController {
+class SpotListViewController: UIViewController {
     @IBOutlet private var segmentedControl: UISegmentedControl! {
         didSet {
             spotTypeList?.forEach {
@@ -71,7 +71,7 @@ public class SpotListViewController: UIViewController {
     private var flowLayout: CustomFlowLayout?
     private var loadingView = LoadingView()
     private var isChangeSegmentedControl: Bool = true
-    private var allSpotList: [[SpotEntityProtocol]]?
+    private var allSpotList: [[SpotEntity]]?
     private var spotTypeList: [SpotType]?
     private var settingPoints: [SettingPointEntity]?
     private var interestPoint: CLLocationCoordinate2D?
@@ -81,16 +81,25 @@ public class SpotListViewController: UIViewController {
 
     public weak var delegate: SpotListViewDelegate?
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureLargeTitle()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
     public func setParameter(settingPoints: [SettingPointEntity], interestPoint: CLLocationCoordinate2D, address: String) {
         self.settingPoints = settingPoints
         self.interestPoint = interestPoint
 
-        navigationItem.title = address
+        title = address
 
         presenter = SpotListPresenter(view: self)
         spotTypeList = [.restaurant, .hotel, .leisure, .transportation]
         guard let presenter = presenter, let spotTypeList = spotTypeList else { return }
-        presenter.presentAllSpotList(pinPoint: interestPoint, spotTypeList: spotTypeList)
+        presenter.presentAllSpotList(pinPoint: interestPoint, spotTypeList: spotTypeList, region: 3_000)
 
         configureLoadingView()
     }
@@ -102,13 +111,13 @@ public class SpotListViewController: UIViewController {
         view.addSubview(loadingView)
     }
 
-    internal func setAllSpotList(allSpotList: [[SpotEntityProtocol]]) {
+    func setAllSpotList(allSpotList: [[SpotEntity]]) {
         self.allSpotList = allSpotList
         loadingView.removeFromSuperview()
         collectionView.reloadData()
     }
 
-    public func configureFavoriteButton() {
+    func configureFavoriteButton() {
         favoriteButtonViewIsHidden = true
     }
 
@@ -161,11 +170,11 @@ public class SpotListViewController: UIViewController {
 extension SpotListViewController: UICollectionViewDelegate {}
 
 extension SpotListViewController: UICollectionViewDataSource {
-    public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return segmentedControl.numberOfSegments
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         flowLayout = collectionView.collectionViewLayout as? CustomFlowLayout
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SpotListCollectionViewCell", for: indexPath)
             as? SpotListCollectionViewCell else { return SpotListCollectionViewCell() }
@@ -179,13 +188,13 @@ extension SpotListViewController: UICollectionViewDataSource {
 }
 
 extension SpotListViewController: UICollectionViewDelegateFlowLayout {
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let collectionView = scrollView as? UICollectionView
         (collectionView?.collectionViewLayout as? CustomFlowLayout)?.prepareForPaging()
         isChangeSegmentedControl = true
     }
 
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isChangeSegmentedControl {
             let offSet = scrollView.contentOffset.x
             let collectionWidth = scrollView.bounds.width + 10
@@ -203,17 +212,17 @@ extension SpotListViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
 }
 
 extension SpotListViewController: SpotListCollectionViewCellDelegate {
-    public func showSpotDetailsView(settingPoints: [SettingPointEntity], spot: SpotEntityProtocol) {
-        let spotDetailsView = UIStoryboard(name: "SpotDetailsView", bundle: nil)
-        guard let spotDetailsVC = spotDetailsView.instantiateInitialViewController() as? SpotDetailsViewController else { return }
-        spotDetailsVC.setParameter(settingPoints: settingPoints, spot: spot)
-        navigationController?.show(spotDetailsVC, sender: nil)
+    func showSpotDetailsView(settingPoints: [SettingPointEntity], spot: SpotEntity) {
+        let spotDetail = UIStoryboard(name: "SpotDetailViewController", bundle: nil)
+        guard let spotDetailVC = spotDetail.instantiateInitialViewController() as? SpotDetailViewController else { return }
+        spotDetailVC.setup(spot: spot)
+        navigationController?.show(spotDetailVC, sender: nil)
     }
 
     public func setNumOfSpot(num: Int, spotType: SpotType) {
@@ -270,5 +279,5 @@ public enum SpotType: String {
     case restaurant = "飲食"
     case hotel = "宿泊"
     case leisure = "レジャー"
-    case transportation = "駅・バス停"
+    case transportation = "交通機関"
 }

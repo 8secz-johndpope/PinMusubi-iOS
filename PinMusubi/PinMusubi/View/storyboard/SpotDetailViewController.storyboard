@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a5N-oc-HoU">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="oQY-rj-UhR">
+            <objects>
+                <viewController id="a5N-oc-HoU" customClass="SpotDetailViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0UN-8y-DT1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="seN-Ip-ZAa">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tuK-jZ-gbP">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="623" id="JJK-wx-C2Q"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Skf-18-aoi" firstAttribute="trailing" secondItem="tuK-jZ-gbP" secondAttribute="trailing" id="GP8-gQ-3nQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="tuK-jZ-gbP" secondAttribute="bottom" id="MNa-49-2Cs"/>
+                                    <constraint firstItem="tuK-jZ-gbP" firstAttribute="leading" secondItem="Skf-18-aoi" secondAttribute="leading" id="ORd-KH-EbR"/>
+                                    <constraint firstItem="tuK-jZ-gbP" firstAttribute="centerX" secondItem="seN-Ip-ZAa" secondAttribute="centerX" id="cjq-7O-APi"/>
+                                    <constraint firstItem="tuK-jZ-gbP" firstAttribute="top" secondItem="Skf-18-aoi" secondAttribute="top" id="fdl-Pw-jAP"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Skf-18-aoi"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="RNA-3M-xxx"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="seN-Ip-ZAa" firstAttribute="leading" secondItem="neN-tE-hsF" secondAttribute="leading" id="0SS-1x-CPk"/>
+                            <constraint firstItem="seN-Ip-ZAa" firstAttribute="top" secondItem="neN-tE-hsF" secondAttribute="top" id="7pz-Jp-leS"/>
+                            <constraint firstItem="seN-Ip-ZAa" firstAttribute="centerX" secondItem="0UN-8y-DT1" secondAttribute="centerX" id="P2c-gF-unx"/>
+                            <constraint firstItem="seN-Ip-ZAa" firstAttribute="bottom" secondItem="neN-tE-hsF" secondAttribute="bottom" id="RaY-iu-6NI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="neN-tE-hsF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="nCH-HX-xbk"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="stackView" destination="tuK-jZ-gbP" id="f3L-CR-NJu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TMe-2b-jDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.80000000000001" y="112.89355322338831"/>
+        </scene>
+    </scenes>
+</document>

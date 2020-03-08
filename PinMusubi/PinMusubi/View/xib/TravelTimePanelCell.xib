@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,7 +87,7 @@
                                 <action selector="didTapTransportationGuideButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="qh7-31-1Tv"/>
                             </connections>
                         </button>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrainIcon2" translatesAutoresizingMaskIntoConstraints="NO" id="svc-Y6-CiU">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="svc-Y6-CiU">
                             <rect key="frame" x="162" y="77" width="18" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="MHp-5E-oX9"/>
@@ -149,7 +149,7 @@
     </objects>
     <resources>
         <image name="CarIcon" width="30" height="30"/>
-        <image name="TrainIcon2" width="25" height="25"/>
+        <image name="TrainIcon" width="25" height="25"/>
         <image name="Walking" width="26" height="26"/>
     </resources>
 </document>

@@ -6,5 +6,4 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-/// スポットのエンティティプロトコル
-public protocol SpotEntityProtocol {}
+protocol SpotEntityProtocol {}

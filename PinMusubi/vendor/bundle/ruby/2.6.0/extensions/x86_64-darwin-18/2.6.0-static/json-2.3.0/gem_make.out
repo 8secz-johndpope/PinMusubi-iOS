@@ -1,0 +1,13 @@
+current directory: /Users/rMac/iOSApplication/myApp/PinMusubi-iOS/PinMusubi/vendor/bundle/ruby/2.6.0/gems/json-2.3.0/ext/json
+/Users/rMac/.rbenv/versions/2.6.1/bin/ruby -I /Users/rMac/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20200222-54413-1plwtf6.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rMac/iOSApplication/myApp/PinMusubi-iOS/PinMusubi/vendor/bundle/ruby/2.6.0/gems/json-2.3.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/rMac/iOSApplication/myApp/PinMusubi-iOS/PinMusubi/vendor/bundle/ruby/2.6.0/gems/json-2.3.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/rMac/iOSApplication/myApp/PinMusubi-iOS/PinMusubi/vendor/bundle/ruby/2.6.0/gems/json-2.3.0/ext/json
+make "DESTDIR=" install

@@ -51,7 +51,7 @@ internal class SpotListCollectionViewCell: UICollectionViewCell {
         }
 
         for index in 0 ... spotList.count - 1 {
-            if index != 0 && index % 20 == 0 {
+            if index != 0 && index % 10 == 0 {
                 self.spotList.insert(AdEntity(), at: index)
             }
         }
@@ -89,9 +89,9 @@ internal class SpotListCollectionViewCell: UICollectionViewCell {
 
 extension SpotListCollectionViewCell: UITableViewDelegate {
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let spotType = spotType, !(spotList[indexPath.row] is AdEntity) else { return }
+        guard let spotType = spotType, let spot = spotList[indexPath.row] as? SpotEntity else { return }
         delegate?.setSpotTypeOfTappedSpot(spotType: spotType)
-        delegate?.showSpotDetailsView(settingPoints: settingPoints, spot: spotList[indexPath.row])
+        delegate?.showSpotDetailsView(settingPoints: settingPoints, spot: spot)
     }
 
     internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -107,10 +107,11 @@ extension SpotListCollectionViewCell: UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SpotCell", for: indexPath) as? SpotCell else { return SpotCell() }
         guard let adBannerView = adBannerView else { return cell }
-        cell.initialize()
         cell.selectionStyle = .none
-        cell.configure(spot: spotList[indexPath.row])
         cell.addAd(adBannerView: adBannerView)
+        if spotList.count > indexPath.row {
+            cell.configure(spot: spotList[indexPath.row])
+        }
         return cell
     }
 }

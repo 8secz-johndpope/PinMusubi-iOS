@@ -6,46 +6,127 @@
 //  Copyright © 2019 naipaka. All rights reserved.
 //
 
-import CoreLocation
+import MapKit
 
-internal class LeisureModel: SpotModelProtocol {
-    private var appid = ""
+class LeisureModel: SpotModelProtocol {
+    typealias Category = MKLocalSearchRequestParameter.Category.Leisure
 
-    internal required init() {
-        guard let appid = KeyManager().getValue(key: "Yolp API Key") as? String else { return }
-        self.appid = appid
+    var pinPoint: CLLocationCoordinate2D
+
+    init(pinPoint: CLLocationCoordinate2D) {
+        self.pinPoint = pinPoint
     }
 
-    internal func fetchSpotList(pinPoint: CLLocationCoordinate2D, completion: @escaping ([SpotEntityProtocol], SpotType) -> Void) {
-        let url = "https://map.yahooapis.jp/search/local/V1/localSearch"
-        guard var urlComponents = URLComponents(string: url) else { return }
-        urlComponents.queryItems = [
-            URLQueryItem(name: "appid", value: appid),
-            URLQueryItem(name: "lat", value: "\(pinPoint.latitude)"),
-            URLQueryItem(name: "lon", value: "\(pinPoint.longitude)"),
-            URLQueryItem(name: "gc", value: "0301,0302,0303,0305,0307,0308"),
-            URLQueryItem(name: "dist", value: "20"),
-            URLQueryItem(name: "results", value: "100"),
-            URLQueryItem(name: "sort", value: "geo"),
-            URLQueryItem(name: "image", value: "true"),
-            URLQueryItem(name: "device", value: "mobile"),
-            URLQueryItem(name: "output", value: "json")
-        ]
-        guard let urlRequest = urlComponents.url else { return }
+    func fetchSpotList(region: Double, completion: @escaping ([SpotEntity], SpotType) -> Void) {
+        var leisureList = [SpotEntity]()
 
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
-            guard let jsonData = data else { return }
-            do {
-                let leisureInfo = try JSONDecoder().decode(LeisureEntity.self, from: jsonData)
-                var features = [Feature]()
-                for feature in leisureInfo.feature where !feature.property.genre[0].code.contains("0304") {
-                    features.append(feature)
+        let dispatchGroup = DispatchGroup()
+        let dispatchQueue = DispatchQueue(label: "fetchLeisureList")
+
+        dispatchGroup.enter()
+        dispatchQueue.async(group: dispatchGroup) {
+            self.fetchLeisureList {
+                $0.forEach {
+                    leisureList.append(
+                        SpotEntity(
+                            name: $0.name,
+                            category: $0.property.genre[0].name,
+                            generalImageName: $0.property.leadImage,
+                            latitude: self.getCoordinate(coordinates: $0.geometry.coordinates).0,
+                            longitude: self.getCoordinate(coordinates: $0.geometry.coordinates).1,
+                            distance: self.getDitance(
+                                pinPoint: self.pinPoint,
+                                latitude: self.getCoordinate(coordinates: $0.geometry.coordinates).0,
+                                longitude: self.getCoordinate(coordinates: $0.geometry.coordinates).1
+                            ),
+                            address: $0.property.address,
+                            phoneNumber: $0.property.tel1,
+                            spotInfomation: $0
+                        )
+                    )
                 }
-                completion(features, .leisure)
-            } catch {
-                completion([], .leisure)
+                dispatchGroup.leave()
             }
         }
-        task.resume()
+
+        dispatchGroup.enter()
+        dispatchQueue.async(group: dispatchGroup) {
+            self.fetchPlaces(categories: Category.allCases, region: region) {
+                $0.forEach {
+                    leisureList.append(
+                        SpotEntity(
+                            name: $0.name,
+                            category: $0.category.getDisplayName(),
+                            generalImageName: $0.category.rawValue,
+                            latitude: $0.latitude,
+                            longitude: $0.longitude,
+                            distance: self.getDitance(
+                                pinPoint: self.pinPoint,
+                                latitude: $0.latitude,
+                                longitude: $0.longitude
+                            ),
+                            address: $0.address,
+                            phoneNumber: $0.phoneNumber,
+                            url: $0.url
+                        )
+                    )
+                }
+                dispatchGroup.leave()
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            let filteredList = leisureList.filter { $0.distance < region }
+            let sortedList = filteredList.sorted(by: { $0.distance < $1.distance })
+            completion(sortedList, .leisure)
+        }
+    }
+
+    func createSpotURL(URLString: String) -> URL? {
+        return URL(string: URLString)
+    }
+
+    private func fetchLeisureList(
+        query: String? = nil,
+        id: String? =  nil,
+        sort: String? =  YOLPRequestParameter.Sort.geo.rawValue,
+        results: String? =  YOLPRequestParameter.Results.result50.rawValue,
+        dist: String? =  YOLPRequestParameter.Dist.dist3000.rawValue,
+        gc: String? =  YOLPRequestParameter.GC.Leisure.allCases.reduce("") { $0 + "," + $1.rawValue },
+        completion: @escaping ([YOLPFeature]) -> Void
+    ) {
+        // YOLP Local Search API
+        let client = YOLPClient()
+        let request = YOLPAPI.LocalSearch(
+            query: query,
+            id: id,
+            sort: sort,
+            results: results,
+            latitude: String(pinPoint.latitude),
+            longitude: String(pinPoint.longitude),
+            dist: dist,
+            gc: gc
+        )
+
+        client.send(request: request) { result in
+            switch result {
+            case let .success(response):
+                completion(response.feature ?? [])
+
+            case let .failure(error):
+                print("error \(error.localizedDescription)")
+                completion([])
+            }
+        }
+    }
+
+    private func getCoordinate(coordinates: String) -> (CLLocationDegrees, CLLocationDegrees) {
+        let coordinateArray = coordinates.components(separatedBy: ",")
+        if let latitude = CLLocationDegrees(coordinateArray[1]),
+            let longitude = CLLocationDegrees(coordinateArray[0]) {
+            return (latitude, longitude)
+        } else {
+            return (0.0, 0.0)
+        }
     }
 }
