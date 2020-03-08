@@ -114,6 +114,7 @@ internal class TutorialViewController: UIViewController {
     }
 
     private func setDescriptionView(pageType: PageType) {
+        // descriptionView
         let descriptionView = UIView()
         descriptionView.frame = view.frame
         descriptionView.backgroundColor = .orange
@@ -125,6 +126,7 @@ internal class TutorialViewController: UIViewController {
         descriptionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         descriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
+        // titleLabel
         let titleLabel = UILabel()
         titleLabel.frame = view.frame
         titleLabel.text = TutorialUtil.shared.getTutorialText(pageType: pageType).0
@@ -139,12 +141,13 @@ internal class TutorialViewController: UIViewController {
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 20).isActive = true
 
+        // descriptionLabel
         let descriptionLabel = UILabel()
         descriptionLabel.frame = view.frame
         descriptionLabel.text = TutorialUtil.shared.getTutorialText(pageType: pageType).1
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = .white
-        descriptionLabel.font = .systemFont(ofSize: 16)
+        descriptionLabel.font = .boldSystemFont(ofSize: 16)
         descriptionLabel.adjustsFontSizeToFitWidth = true
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionView.addSubview(descriptionLabel)
