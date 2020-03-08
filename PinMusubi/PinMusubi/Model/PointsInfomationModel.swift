@@ -72,12 +72,12 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
         let dispatchQueue = DispatchQueue(label: "transportationGuideQueue", attributes: .concurrent)
 
         dispatchGroup.enter()
-        dispatchQueue.async(group: dispatchGroup) { [weak self] in
-            self?.fetchStationList(
+        dispatchQueue.async(group: dispatchGroup) {
+            self.fetchStationList(
                 latitude: fromPoint.latitude,
                 longitude: fromPoint.longitude
             ) {
-                self?.fetchCorrectStationName(stationName: $0.first?.name ?? "", point: fromPoint) {
+                self.fetchCorrectStationName(stationName: $0.first?.name ?? "", point: fromPoint) {
                     fromStation = $1 == .success ? $0 : ""
                     dispatchGroup.leave()
                 }
@@ -85,20 +85,20 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
         }
 
         dispatchGroup.enter()
-        dispatchQueue.async(group: dispatchGroup) { [weak self] in
-            self?.fetchStationList(
+        dispatchQueue.async(group: dispatchGroup) {
+            self.fetchStationList(
                 latitude: toPoint.latitude,
                 longitude: toPoint.longitude
             ) {
-                self?.fetchCorrectStationName(stationName: $0.first?.name ?? "", point: toPoint) {
+                self.fetchCorrectStationName(stationName: $0.first?.name ?? "", point: toPoint) {
                     toStation = $1 == .success ? $0 : ""
                     dispatchGroup.leave()
                 }
             }
         }
 
-        dispatchGroup.notify(queue: .main) { [weak self] in
-            self?.fetchTransferGuide(fromStation: fromStation, toStation: toStation) {
+        dispatchGroup.notify(queue: .main) {
+            self.fetchTransferGuide(fromStation: fromStation, toStation: toStation) {
                 complete($0, fromStation, toStation, $1)
             }
         }

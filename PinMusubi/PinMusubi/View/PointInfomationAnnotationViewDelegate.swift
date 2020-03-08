@@ -13,5 +13,5 @@ protocol PointInfomationAnnotationViewDelegate: AnyObject {
 
     func showShareActivity(activityVC: UIActivityViewController)
 
-    func showTransportationGuideWebPage(webVCInstance: WebViewController)
+    func showTransportationInfomation(instance: TransportationInfomationViewController)
 }

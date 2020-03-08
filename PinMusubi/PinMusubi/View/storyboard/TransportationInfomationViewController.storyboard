@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hrn-wg-A8R">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Transportation Infomation View Controller-->
+        <scene sceneID="klZ-L8-PFd">
+            <objects>
+                <viewController id="hrn-wg-A8R" customClass="TransportationInfomationViewController" customModule="PinMusubi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hed-pq-OYa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzW-Wj-fRC">
+                                <rect key="frame" x="16" y="20" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="Bds-Ja-qCT"/>
+                                    <constraint firstAttribute="height" constant="26" id="Qfi-wO-cmm"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="CloseButton"/>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="hrn-wg-A8R" eventType="touchUpInside" id="WPO-fw-4VX"/>
+                                </connections>
+                            </button>
+                            <wkWebView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daE-MK-Old">
+                                <rect key="frame" x="0.0" y="54" width="375" height="613"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rge-Tc-qQ5">
+                                <rect key="frame" x="62" y="20" width="251" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="daE-MK-Old" firstAttribute="leading" secondItem="AQl-RR-Bjb" secondAttribute="leading" id="1BF-AP-HSS"/>
+                            <constraint firstItem="rge-Tc-qQ5" firstAttribute="centerY" secondItem="RzW-Wj-fRC" secondAttribute="centerY" id="61k-Vc-a1s"/>
+                            <constraint firstItem="RzW-Wj-fRC" firstAttribute="top" secondItem="AQl-RR-Bjb" secondAttribute="top" constant="20" id="Cvs-eh-SnM"/>
+                            <constraint firstItem="daE-MK-Old" firstAttribute="bottom" secondItem="AQl-RR-Bjb" secondAttribute="bottom" id="K1T-VV-5R0"/>
+                            <constraint firstItem="rge-Tc-qQ5" firstAttribute="centerX" secondItem="hed-pq-OYa" secondAttribute="centerX" id="Nj7-5x-qAa"/>
+                            <constraint firstItem="daE-MK-Old" firstAttribute="top" secondItem="RzW-Wj-fRC" secondAttribute="bottom" constant="8" id="Njg-4m-OX8"/>
+                            <constraint firstItem="daE-MK-Old" firstAttribute="trailing" secondItem="AQl-RR-Bjb" secondAttribute="trailing" id="ZXV-c5-fan"/>
+                            <constraint firstItem="rge-Tc-qQ5" firstAttribute="leading" secondItem="RzW-Wj-fRC" secondAttribute="trailing" constant="20" id="eV1-5N-la1"/>
+                            <constraint firstItem="RzW-Wj-fRC" firstAttribute="leading" secondItem="AQl-RR-Bjb" secondAttribute="leading" constant="16" id="i0e-f1-nJ1"/>
+                            <constraint firstItem="rge-Tc-qQ5" firstAttribute="top" secondItem="AQl-RR-Bjb" secondAttribute="top" constant="20" id="ruQ-YF-3mz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AQl-RR-Bjb"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="rge-Tc-qQ5" id="sfF-0T-Tvl"/>
+                        <outlet property="webView" destination="daE-MK-Old" id="rLx-gF-F0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ENV-Ho-3aY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106.40000000000001" y="73.313343328335833"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CloseButton" width="25" height="25"/>
+    </resources>
+</document>
