@@ -31,7 +31,7 @@ class LeisureModel: SpotModelProtocol {
                         SpotEntity(
                             name: $0.name,
                             category: $0.property.genre[0].name,
-                            generalImageName: $0.property.leadImage,
+                            imageURLString: $0.property.leadImage,
                             latitude: self.getCoordinate(coordinates: $0.geometry.coordinates).0,
                             longitude: self.getCoordinate(coordinates: $0.geometry.coordinates).1,
                             distance: self.getDitance(
