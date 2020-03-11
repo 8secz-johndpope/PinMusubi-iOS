@@ -11,14 +11,14 @@ struct RakutenTravelHotelBasicInfo: Decodable, SpotInfomationProtocol {
     let hotelNo: Int
     let hotelName: String
     let hotelInformationURL, planListURL, dpPlanListURL, reviewURL: String?
-    let hotelKanaName, hotelSpecial: String
+    let hotelKanaName, hotelSpecial: String?
     let hotelMinCharge: Int?
     let latitude, longitude: Double
     let postalCode, address1, address2, telephoneNo: String
     let faxNo, access, parkingInformation, nearestStation: String?
     let hotelImageURL, hotelThumbnailURL: String
     let roomImageURL, roomThumbnailURL: String?
-    let hotelMapImageURL: String
+    let hotelMapImageURL: String?
     let reviewCount: Int?
     let reviewAverage: Double?
     let userReview: String?
