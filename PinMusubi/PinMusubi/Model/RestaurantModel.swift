@@ -32,8 +32,8 @@ class RestaurantModel: SpotModelProtocol {
                             name: $0.name,
                             category: $0.genre.name,
                             imageURLString: $0.photo.pc.l,
-                            latitude: CLLocationDegrees($0.lat)!,
-                            longitude: CLLocationDegrees($0.lng)!,
+                            latitude: CLLocationDegrees($0.lat),
+                            longitude: CLLocationDegrees($0.lng),
                             distance: self.getDitance(
                                 pinPoint: self.pinPoint,
                                 latitude: CLLocationDegrees($0.lat),
