@@ -102,7 +102,7 @@ class PointInfomationCell: UITableViewCell {
         }
 
         if transferTime == -1 {
-            transferTimeLabel.text = "計測不可"
+            transferTimeLabel.text = "計測エラー"
         } else if transferTime / 60 == 0 {
             transferTimeLabel.text = String(transferTime) + "分"
         } else {

@@ -88,7 +88,7 @@ class TravelTimePanelCell: UITableViewCell {
 
     func setWalkingTime(walkingTime: Int) {
         if walkingTime == -1 {
-            walkingTimeLabel.text = "計測不可"
+            walkingTimeLabel.text = "計測エラー"
         } else if walkingTime == -2 {
             walkingTimeLabel.text = "経路なし"
         } else if walkingTime / 60 == 0 {
@@ -100,7 +100,7 @@ class TravelTimePanelCell: UITableViewCell {
 
     func setDrivingTime(drivingTime: Int) {
         if drivingTime == -1 {
-            drivingTimeLabel.text = "計測不可"
+            drivingTimeLabel.text = "計測エラー"
         } else if drivingTime == -2 {
             drivingTimeLabel.text = "経路なし"
         } else if drivingTime / 60 == 0 {
