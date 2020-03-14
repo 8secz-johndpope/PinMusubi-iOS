@@ -21,7 +21,7 @@ protocol PointsInfomationModelProtocol {
     /// 乗換案内情報URLの文字列を取得
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String, ResponseStatus) -> Void)
+    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String) -> Void)
 }
 
 /// マップ上の地点間の情報を処理するモデル
@@ -61,7 +61,7 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
         }
     }
 
-    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String, ResponseStatus) -> Void) {
+    func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, complete: @escaping (String, String, String) -> Void) {
         let fromPoint = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
         let toPoint = pinPoint
 
@@ -99,7 +99,7 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
 
         dispatchGroup.notify(queue: .main) {
             self.fetchTransferGuide(fromStation: fromStation, toStation: toStation) {
-                complete($0, fromStation, toStation, $1)
+                complete($0, fromStation, toStation)
             }
         }
     }
@@ -124,7 +124,7 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
         }
     }
 
-    private func fetchTransferGuide(fromStation: String, toStation: String, complete: @escaping (String, ResponseStatus) -> Void) {
+    private func fetchTransferGuide(fromStation: String, toStation: String, complete: @escaping (String) -> Void) {
         // 駅すぱあと for web URL生成 API
         let client = EkispertClient()
         let request = EkispertAPI.SearchCourse(
@@ -136,13 +136,13 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
             switch result {
             case let .success(response):
                 if let resourceURI = response.0?.resultSet.resourceURI {
-                    complete(resourceURI, .success)
-                } else if let error = response.0?.resultSet.error {
-                    complete(error.message, .error)
+                    complete(resourceURI)
+                } else {
+                    complete("")
                 }
 
-            case let .failure(error):
-                complete(error.localizedDescription, .error)
+            case .failure(_):
+                complete("")
             }
         }
     }

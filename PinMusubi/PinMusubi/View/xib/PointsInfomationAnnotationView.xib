@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,16 +42,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KIR-fE-ZYj">
-                    <rect key="frame" x="150.66666666666666" y="-2.6666666666666661" width="130.99999999999997" height="32.333333333333329"/>
-                    <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
-                    </segments>
-                    <connections>
-                        <action selector="didChangeSegmentedControl:" destination="iN0-l3-epB" eventType="valueChanged" id="Jjs-1p-nuo"/>
-                    </connections>
-                </segmentedControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6g-52-868">
                     <rect key="frame" x="141" y="129" width="0.0" height="38"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -80,20 +70,30 @@
                         <action selector="didTapShareButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="yS4-5j-Gri"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwm-Mh-02f">
+                    <rect key="frame" x="216" y="0.0" width="50" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="7HZ-1l-417"/>
+                        <constraint firstAttribute="height" constant="26" id="9Fs-Wv-9I4"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="didTapTransportationButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="VcR-0M-ckE"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="KIR-fE-ZYj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="75" id="0m4-a8-zy0"/>
                 <constraint firstItem="gGD-ZQ-iIM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0rN-ma-OMm"/>
                 <constraint firstItem="W6g-52-868" firstAttribute="leading" secondItem="FR5-Yx-a0j" secondAttribute="trailing" constant="5" id="28K-6R-hdQ"/>
                 <constraint firstItem="FR5-Yx-a0j" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6m1-MW-kxX"/>
                 <constraint firstItem="n2M-iR-O0s" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="7Ct-wf-LiJ"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="top" secondItem="gGD-ZQ-iIM" secondAttribute="bottom" constant="13" id="GNK-pT-G7q"/>
-                <constraint firstItem="KIR-fE-ZYj" firstAttribute="centerY" secondItem="gGD-ZQ-iIM" secondAttribute="centerY" id="GPj-Oh-IeR"/>
+                <constraint firstAttribute="trailing" secondItem="Uwm-Mh-02f" secondAttribute="trailing" constant="16" id="JJA-G3-GU5"/>
                 <constraint firstItem="gGD-ZQ-iIM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="KEB-fQ-Mpv"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="leading" secondItem="gGD-ZQ-iIM" secondAttribute="leading" id="KYf-2a-zL4"/>
                 <constraint firstItem="W6g-52-868" firstAttribute="top" secondItem="xCC-TX-amt" secondAttribute="bottom" constant="14" id="Knb-lr-JFB"/>
+                <constraint firstItem="Uwm-Mh-02f" firstAttribute="centerY" secondItem="gGD-ZQ-iIM" secondAttribute="centerY" id="SgU-7e-GQn"/>
                 <constraint firstAttribute="bottom" secondItem="W6g-52-868" secondAttribute="bottom" id="XGe-gw-ebu"/>
-                <constraint firstItem="xCC-TX-amt" firstAttribute="top" secondItem="KIR-fE-ZYj" secondAttribute="bottom" constant="5.3333333333333357" id="YSt-u5-wdd"/>
                 <constraint firstItem="n2M-iR-O0s" firstAttribute="leading" secondItem="W6g-52-868" secondAttribute="trailing" constant="5" id="cj3-wK-cIz"/>
                 <constraint firstItem="W6g-52-868" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="drA-6R-muG"/>
                 <constraint firstItem="xCC-TX-amt" firstAttribute="centerX" secondItem="W6g-52-868" secondAttribute="centerX" id="wtH-71-07I"/>
@@ -109,7 +109,8 @@
                 <outlet property="pointsInfoTableView" destination="qfx-Bj-Lbv" id="Liw-wI-dTn"/>
                 <outlet property="shareButton" destination="n2M-iR-O0s" id="PGc-a0-Q1A"/>
                 <outlet property="showSpotListButton" destination="FR5-Yx-a0j" id="IZH-UA-cuQ"/>
-                <outlet property="transportationSegmentedControl" destination="KIR-fE-ZYj" id="g4F-Ve-Hgp"/>
+                <outlet property="titleLabel" destination="gGD-ZQ-iIM" id="cWb-OC-OqP"/>
+                <outlet property="transportationButton" destination="Uwm-Mh-02f" id="KBW-9X-x1i"/>
             </connections>
             <point key="canvasLocation" x="146.37681159420291" y="105.46875"/>
         </view>

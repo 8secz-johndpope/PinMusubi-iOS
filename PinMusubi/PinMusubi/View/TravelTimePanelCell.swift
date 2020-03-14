@@ -110,8 +110,8 @@ class TravelTimePanelCell: UITableViewCell {
         }
     }
 
-    func setTransportationGuide(urlString: String, fromStationName: String, toStationName: String, status: ResponseStatus) {
-        if status == .success {
+    func setTransportationGuide(urlString: String, fromStationName: String, toStationName: String) {
+        if urlString != "" {
             DispatchQueue.main.async {
                 self.transportationGuideURLString = urlString
                 self.transportationGuideButton.isEnabled = true
