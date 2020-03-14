@@ -64,7 +64,7 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
         self.settingPoints.forEach { settingPoint in
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) {
-                self.model?.calculateTransferTime(settingPoint: settingPoint, pinPoint: self.pinPoint) {
+                self.model?.calculateTransferTime(settingPoint: settingPoint, pinPoint: self.pinPoint, transportation: self.transportation) {
                     transportationTime.append($0)
                     dispatchGroup.leave()
                 }
@@ -100,7 +100,7 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
                     self.pointInfomationList[index].carTime = transportationTime[index]
 
                 case .train:
-                    self.pointInfomationList[index].bicycleTime = transportationTime[index]
+                    self.pointInfomationList[index].walkTime = transportationTime[index]
                 }
             }
             self.view?.setPointInfomationList(pointInfomationList: self.pointInfomationList)
@@ -133,7 +133,7 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
             self.settingPoints.forEach { settingPoint in
                 dispatchGroup.enter()
                 dispatchQueue.async(group: dispatchGroup) {
-                    self.model?.calculateTransferTime(settingPoint: settingPoint, pinPoint: self.pinPoint) {
+                    self.model?.calculateTransferTime(settingPoint: settingPoint, pinPoint: self.pinPoint, transportation: self.transportation) {
                         transportationTime.append($0)
                         dispatchGroup.leave()
                     }
