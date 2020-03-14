@@ -250,6 +250,7 @@
 		91E4392A2361DFE500A3B936 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E439292361DFE500A3B936 /* RestaurantModel.swift */; };
 		91EA9ECF2414D28400B82CF6 /* TransportationInfomationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91EA9ECE2414D28400B82CF6 /* TransportationInfomationViewController.storyboard */; };
 		91EA9ED12414D3CA00B82CF6 /* TransportationInfomationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA9ED02414D3CA00B82CF6 /* TransportationInfomationViewController.swift */; };
+		91EA9ED52416628E00B82CF6 /* Transportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA9ED42416628E00B82CF6 /* Transportation.swift */; };
 		91EEA8022377941E00824BBB /* MyDetailsDataActionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8012377941E00824BBB /* MyDetailsDataActionViewDelegate.swift */; };
 		91EEA8042377A79B00824BBB /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA8032377A79B00824BBB /* EmptyView.xib */; };
 		91EEA8062377A7B900824BBB /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8052377A7B900824BBB /* EmptyView.swift */; };
@@ -570,6 +571,7 @@
 		91E439292361DFE500A3B936 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		91EA9ECE2414D28400B82CF6 /* TransportationInfomationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TransportationInfomationViewController.storyboard; sourceTree = "<group>"; };
 		91EA9ED02414D3CA00B82CF6 /* TransportationInfomationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationInfomationViewController.swift; sourceTree = "<group>"; };
+		91EA9ED42416628E00B82CF6 /* Transportation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transportation.swift; sourceTree = "<group>"; };
 		91EEA8012377941E00824BBB /* MyDetailsDataActionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsDataActionViewDelegate.swift; sourceTree = "<group>"; };
 		91EEA8032377A79B00824BBB /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		91EEA8052377A7B900824BBB /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 				9107A06823A39AEE00F1DD77 /* FavoriteInputEntity.swift */,
 				9107A06623A39A3500F1DD77 /* FavoriteInputWrapper.swift */,
 				9170F13523F7E71B002FB702 /* PointInfomationEntity.swift */,
+				91EA9ED42416628E00B82CF6 /* Transportation.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1910,6 +1913,7 @@
 				91D7FED72370421200520CAD /* FavoriteSpotPresenter.swift in Sources */,
 				91EA9ED12414D3CA00B82CF6 /* TransportationInfomationViewController.swift in Sources */,
 				919E6FA02402DEE700CF8161 /* EkispertPrefecture.swift in Sources */,
+				91EA9ED52416628E00B82CF6 /* Transportation.swift in Sources */,
 				919E6F7A2402814700CF8161 /* HeartRailsExpressClient.swift in Sources */,
 				910EC0C4239E7B8E00F0D87C /* SearchCompleterNavigationController.swift in Sources */,
 				9107A07523A3A81200F1DD77 /* FavoriteBasePointViewController.swift in Sources */,

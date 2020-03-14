@@ -62,8 +62,8 @@ internal class TravelTimePanelPresenter: TravelTimePanelPresenterProtcol {
     internal func getTransportationGuide(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D) {
         guard let view = view else { return }
         let pointsInfomation = PointsInfomationModel()
-        pointsInfomation.getTransportationGuide(settingPoint: settingPoint, pinPoint: pinPoint) { urlString, fromStationName, toStationName, status in
-            view.setTransportationGuide(urlString: urlString, fromStationName: fromStationName, toStationName: toStationName, status: status)
+        pointsInfomation.getTransportationGuide(settingPoint: settingPoint, pinPoint: pinPoint) { urlString, fromStationName, toStationName in
+            view.setTransportationGuide(urlString: urlString, fromStationName: fromStationName, toStationName: toStationName)
         }
     }
 }

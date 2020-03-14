@@ -12,6 +12,12 @@ import UIKit
 
 /// マップ上の地点間の情報を表示するビュー
 class PointsInfomationAnnotationView: UIView {
+    @IBOutlet private var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
+        }
+    }
+
     @IBOutlet private var pointsInfoScrollView: UIScrollView! {
         didSet {
             let screenSize = UIScreen.main.bounds.size
@@ -56,21 +62,17 @@ class PointsInfomationAnnotationView: UIView {
         }
     }
 
-    @IBOutlet private var transportationSegmentedControl: UISegmentedControl! {
+    @IBOutlet private var transportationButton: UIButton! {
         didSet {
-            transportationSegmentedControl.setTitle("車", forSegmentAt: 0)
-            transportationSegmentedControl.setTitle("電車", forSegmentAt: 1)
-            transportationSegmentedControl.setWidth(50, forSegmentAt: 0)
-            transportationSegmentedControl.setWidth(50, forSegmentAt: 1)
-            if #available(iOS 13.0, *) {
-                transportationSegmentedControl.selectedSegmentTintColor = UIColor(hex: "FA6400")
-            } else {
-                transportationSegmentedControl.tintColor = UIColor(hex: "FA6400")
-            }
-            transportationSegmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
-            transportationSegmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor(hex: "FA6400")], for: .normal)
-            transportationSegmentedControl.layer.borderColor = UIColor(hex: "FA6400").cgColor
-            transportationSegmentedControl.layer.borderWidth = 1.0
+            transportationButton.backgroundColor = UIColor(hex: "26AA52")
+            transportationButton.layer.cornerRadius = 8
+            transportationButton.layer.shadowOpacity = 0.5
+            transportationButton.layer.shadowRadius = 3
+            transportationButton.layer.shadowColor = UIColor.lightGray.cgColor
+            transportationButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+            transportationButton.titleLabel?.font = .systemFont(ofSize: 15.0)
+            transportationButton.setTitleColor(.white, for: .normal)
+            transportationButton.setTitle("切替", for: .normal)
         }
     }
 
@@ -78,6 +80,8 @@ class PointsInfomationAnnotationView: UIView {
     private var settingPoints = [SettingPointEntity]()
     private var pinPoint = CLLocationCoordinate2D()
     private var pointInfomationList = [PointInfomationEntity]()
+    private var baseText = "各地点からの移動時間"
+    private var selectedTransportation = Transportation.walk
 
     weak var delegate: PointInfomationAnnotationViewDelegate?
 
@@ -91,8 +95,11 @@ class PointsInfomationAnnotationView: UIView {
         pointInfomationList = [PointInfomationEntity]()
         pointsInfoTableView.reloadData()
 
-        presenter = PointsInfomationPresenter(view: self, modelType: PointsInfomationModel.self)
-        presenter?.presentPointInfomationList(settingPoints: settingPoints, pinPoint: pinPoint)
+        if presenter == nil {
+            presenter = PointsInfomationPresenter(view: self, modelType: PointsInfomationModel.self)
+        }
+
+        presenter?.presentPointInfomationList(settingPoints: settingPoints, pinPoint: pinPoint, pointInfomationList: [PointInfomationEntity](), transportation: selectedTransportation)
     }
 
     func setPointInfomationList(pointInfomationList: [PointInfomationEntity]) {
@@ -121,7 +128,34 @@ class PointsInfomationAnnotationView: UIView {
         }
     }
 
-    @IBAction private func didChangeSegmentedControl(_ sender: Any) {
+    @IBAction private func didTapTransportationButton(_ sender: Any) {
+        switch titleLabel.text {
+        case "\(baseText)(\(Transportation.walk.rawValue))":
+            titleLabel.text = "\(baseText)(\(Transportation.bicycle.rawValue))"
+            selectedTransportation = Transportation.bicycle
+
+        case "\(baseText)(\(Transportation.bicycle.rawValue))" :
+            titleLabel.text = "\(baseText)(\(Transportation.car.rawValue))"
+            selectedTransportation = Transportation.car
+
+        case "\(baseText)(\(Transportation.car.rawValue))" :
+            titleLabel.text = "\(baseText)(\(Transportation.train.rawValue))"
+            selectedTransportation = Transportation.train
+
+        case "\(baseText)(\(Transportation.train.rawValue))" :
+            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
+            selectedTransportation = Transportation.walk
+
+        case .none:
+            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
+            selectedTransportation = Transportation.walk
+
+        case .some(_):
+            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
+            selectedTransportation = Transportation.walk
+        }
+
+        presenter?.presentPointInfomationList(settingPoints: settingPoints, pinPoint: pinPoint, pointInfomationList: pointInfomationList, transportation: selectedTransportation)
         pointsInfoTableView.reloadData()
     }
 }
@@ -138,13 +172,13 @@ extension PointsInfomationAnnotationView: UITableViewDelegate, UITableViewDataSo
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PointInfomationCell") as? PointInfomationCell else { return UITableViewCell() }
         cell.delegate = self
         cell.setPointInfomation(pointName: settingPoints[row].name, row: row)
-        cell.changeTranspotation(selectedSegmentIndex: transportationSegmentedControl.selectedSegmentIndex)
 
         if pointInfomationList.isEmpty {
             cell.initPointInfomation()
         } else if pointInfomationList.count > row {
             cell.setTransportationInformation(pointInfomation: pointInfomationList[row])
         }
+        cell.replaceTranspotation(transportation: selectedTransportation)
 
         return cell
     }
