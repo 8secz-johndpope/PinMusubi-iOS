@@ -18,27 +18,11 @@ class PointInfomationEntity {
     var carTime: Int?
 
     /// 乗換案内ページのURL文字列
-    var transferGuideURLString: String
+    var transferGuideURLString: String = ""
 
     /// 出発駅
-    var fromStationName: String
+    var fromStationName: String = ""
 
     /// 到着駅
-    var toStationName: String
-
-    init(
-        transferGuideURLString: String,
-        fromStationName: String,
-        toStationName: String,
-        walkTime: Int? = nil,
-        bicycleTime: Int? = nil,
-        carTime: Int? = nil
-    ) {
-        self.transferGuideURLString = transferGuideURLString
-        self.fromStationName = fromStationName
-        self.toStationName = toStationName
-        self.walkTime = walkTime
-        self.bicycleTime = bicycleTime
-        self.carTime = carTime
-    }
+    var toStationName: String = ""
 }

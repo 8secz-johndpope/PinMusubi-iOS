@@ -26,88 +26,48 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
     private weak var view: PointsInfomationAnnotationView?
     private let model: PointsInfomationModelProtocol?
 
-    private var settingPoints = [SettingPointEntity]()
-    private var pinPoint = CLLocationCoordinate2D()
-    private var pointInfomationList = [PointInfomationEntity]()
-    private var transportation = Transportation.walk
-
     /// コンストラクタ
     required init(view: PointsInfomationAnnotationView, modelType model: PointsInfomationModelProtocol.Type) {
         self.view = view
         self.model = model.init()
     }
 
-    func presentPointInfomationList(
-        settingPoints: [SettingPointEntity],
-        pinPoint: CLLocationCoordinate2D,
-        pointInfomationList: [PointInfomationEntity],
-        transportation: Transportation
-    ) {
-        self.settingPoints = settingPoints
-        self.pinPoint = pinPoint
-        self.pointInfomationList = pointInfomationList
-        self.transportation = transportation
-
+    func presentPointInfomationList(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D, pointInfomationList: [PointInfomationEntity], transportation: Transportation) {
         if pointInfomationList.isEmpty {
-            fetchPointInfomation()
+            fetchPointInfomation(settingPoints: settingPoints, pinPoint: pinPoint, transportation: transportation)
         } else {
-            addPointInfomation()
+            addPointInfomation(settingPoints: settingPoints, pinPoint: pinPoint, pointInfomationList: pointInfomationList, transportation: transportation)
         }
     }
 
-    private func fetchPointInfomation() {
-        var transportationTime = [Int]()
+    private func fetchPointInfomation(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D, transportation: Transportation) {
+        var pointInfomationList = [PointInfomationEntity]()
 
         let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "fetchPointInfomation", attributes: .concurrent)
+        let dispatchQueue = DispatchQueue(label: "fetchPointInfomation")
 
-        self.settingPoints.forEach { settingPoint in
+        for index in 0...settingPoints.count - 1 {
+            pointInfomationList.append(PointInfomationEntity())
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) {
-                self.model?.calculateTransferTime(settingPoint: settingPoint, pinPoint: self.pinPoint, transportation: self.transportation) {
-                    transportationTime.append($0)
-                    dispatchGroup.leave()
+                self.model?.calculateTransferTime(settingPoint: settingPoints[index], pinPoint: pinPoint, transportation: transportation) { transportationTime in
+                    self.model?.getTransportationGuide(settingPoint: settingPoints[index], pinPoint: pinPoint) { transferGuideURLString, fromStationName, toStationName in
+                        pointInfomationList[index].transferGuideURLString = transferGuideURLString
+                        pointInfomationList[index].fromStationName = fromStationName
+                        pointInfomationList[index].toStationName = toStationName
+                        self.setTransportationTime(pointInfomation: pointInfomationList[index], transportation: transportation, transportationTime: transportationTime)
+                        dispatchGroup.leave()
+                    }
                 }
             }
-        }
 
-        self.settingPoints.forEach { settingPoint in
-            dispatchGroup.enter()
-            dispatchQueue.async(group: dispatchGroup) {
-                self.model?.getTransportationGuide(settingPoint: settingPoint, pinPoint: self.pinPoint) { transferGuideURLString, fromStationName, toStationName in
-                    self.pointInfomationList.append(
-                        PointInfomationEntity(
-                            transferGuideURLString: transferGuideURLString,
-                            fromStationName: fromStationName,
-                            toStationName: toStationName
-                        )
-                    )
-                    dispatchGroup.leave()
-                }
+            dispatchGroup.notify(queue: .main) {
+                self.view?.setPointInfomationList(pointInfomationList: pointInfomationList)
             }
-        }
-
-        dispatchGroup.notify(queue: .main) {
-            for index in 0...self.settingPoints.count - 1 {
-                switch self.transportation {
-                case .walk:
-                    self.pointInfomationList[index].walkTime = transportationTime[index]
-
-                case .bicycle:
-                    self.pointInfomationList[index].bicycleTime = transportationTime[index]
-
-                case .car:
-                    self.pointInfomationList[index].carTime = transportationTime[index]
-
-                case .train:
-                    self.pointInfomationList[index].walkTime = transportationTime[index]
-                }
-            }
-            self.view?.setPointInfomationList(pointInfomationList: self.pointInfomationList)
         }
     }
 
-    private func addPointInfomation() {
+    private func addPointInfomation(settingPoints: [SettingPointEntity], pinPoint: CLLocationCoordinate2D, pointInfomationList: [PointInfomationEntity], transportation: Transportation) {
         var isFetchTransportationTime = true
 
         switch transportation {
@@ -125,39 +85,38 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
         }
 
         if isFetchTransportationTime {
-            var transportationTime = [Int]()
-
             let dispatchGroup = DispatchGroup()
             let dispatchQueue = DispatchQueue(label: "addPointInfomation", attributes: .concurrent)
 
-            self.settingPoints.forEach { settingPoint in
+            for index in 0...settingPoints.count - 1 {
                 dispatchGroup.enter()
                 dispatchQueue.async(group: dispatchGroup) {
-                    self.model?.calculateTransferTime(settingPoint: settingPoint, pinPoint: self.pinPoint, transportation: self.transportation) {
-                        transportationTime.append($0)
+                    self.model?.calculateTransferTime(settingPoint: settingPoints[index], pinPoint: pinPoint, transportation: transportation) { transportationTime in
+                        self.setTransportationTime(pointInfomation: pointInfomationList[index], transportation: transportation, transportationTime: transportationTime)
                         dispatchGroup.leave()
                     }
                 }
             }
 
             dispatchGroup.notify(queue: .main) {
-                for index in 0...self.settingPoints.count - 1 {
-                    switch self.transportation {
-                    case .walk:
-                        self.pointInfomationList[index].walkTime = transportationTime[index]
-
-                    case .bicycle:
-                        self.pointInfomationList[index].bicycleTime = transportationTime[index]
-
-                    case .car:
-                        self.pointInfomationList[index].carTime = transportationTime[index]
-
-                    case .train:
-                        self.pointInfomationList[index].bicycleTime = transportationTime[index]
-                    }
-                }
-                self.view?.setPointInfomationList(pointInfomationList: self.pointInfomationList)
+                self.view?.setPointInfomationList(pointInfomationList: pointInfomationList)
             }
+        }
+    }
+
+    private func setTransportationTime(pointInfomation: PointInfomationEntity, transportation: Transportation, transportationTime: Int) {
+        switch transportation {
+        case .walk:
+            pointInfomation.walkTime = transportationTime
+
+        case .bicycle:
+            pointInfomation.bicycleTime = transportationTime
+
+        case .car:
+            pointInfomation.carTime = transportationTime
+
+        case .train:
+            pointInfomation.walkTime = transportationTime
         }
     }
 }
