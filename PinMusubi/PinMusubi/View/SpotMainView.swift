@@ -24,8 +24,8 @@ class SpotMainView: UIView {
     var spot: SpotEntity?
 
     func setLayout() {
-        let imageHeight = mainImageView.image?.size.height ?? 0.0
-        let imageWidth = mainImageView.image?.size.width ?? 0.0
+        let imageHeight = mainImageView.image?.size.height ?? 1.0
+        let imageWidth = mainImageView.image?.size.width ?? 1.0
 
         // imageBackgroundView
         let resizedWidth = UIScreen.main.bounds.width - 40

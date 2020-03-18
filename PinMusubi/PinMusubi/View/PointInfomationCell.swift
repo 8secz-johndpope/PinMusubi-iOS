@@ -84,8 +84,7 @@ class PointInfomationCell: UITableViewCell {
 
     func setTransportationInformation(pointInfomation: PointInfomationEntity) {
         self.pointInfomation = pointInfomation
-        setTravelTime(transferTime: pointInfomation.travelTime)
-        setEnabledTransferGuidButton(status: pointInfomation.transferGuideResponseStatus)
+        setEnabledTransferGuidButton(enable: pointInfomation.transferGuideURLString != "")
     }
 
     /// ピン画像を設定
@@ -96,9 +95,14 @@ class PointInfomationCell: UITableViewCell {
         pinImage.image = settingPinImage
     }
 
-    private func setTravelTime(transferTime: Int) {
+    private func setTravelTime(transferTime: Int?) {
+        guard let transferTime = transferTime else {
+            transferTimeLabel.text = "計測中..."
+            return
+        }
+
         if transferTime == -1 {
-            transferTimeLabel.text = "計測不可"
+            transferTimeLabel.text = "計測エラー"
         } else if transferTime / 60 == 0 {
             transferTimeLabel.text = String(transferTime) + "分"
         } else {
@@ -106,8 +110,8 @@ class PointInfomationCell: UITableViewCell {
         }
     }
 
-    private func setEnabledTransferGuidButton(status: ResponseStatus) {
-        if status == .success {
+    private func setEnabledTransferGuidButton(enable: Bool) {
+        if enable {
             transportationGuideButton.isEnabled = true
             transportationGuideButton.layer.borderColor = UIColor(hex: "FA6400").cgColor
         } else {
@@ -116,26 +120,36 @@ class PointInfomationCell: UITableViewCell {
         }
     }
 
-    func changeTranspotation(selectedSegmentIndex: Int) {
-        switch selectedSegmentIndex {
-        case 0:
+    func replaceTranspotation(transportation: Transportation) {
+        switch transportation {
+        case .walk:
             transferTimeLabel.isHidden = false
             transportationGuideButton.isHidden = true
+            setTravelTime(transferTime: pointInfomation?.walkTime)
 
-        case 1:
+        case .bicycle:
+            transferTimeLabel.isHidden = false
+            transportationGuideButton.isHidden = true
+            setTravelTime(transferTime: pointInfomation?.bicycleTime)
+
+        case .car:
+            transferTimeLabel.isHidden = false
+            transportationGuideButton.isHidden = true
+            setTravelTime(transferTime: pointInfomation?.carTime)
+
+        case .train:
             transferTimeLabel.isHidden = true
             transportationGuideButton.isHidden = false
-
-        default:
-            break
         }
     }
 
     @IBAction private func didTapTransportationGuideButton(_ sender: Any) {
         let transportationInfomation = UIStoryboard(name: "TransportationInfomationViewController", bundle: nil)
         guard let transportationInfomationVC = transportationInfomation.instantiateInitialViewController() as? TransportationInfomationViewController else { return }
-        guard let pointInfomation = pointInfomation else { return }
-        transportationInfomationVC.setTransportationGuideInfo(urlString: pointInfomation.transferGuideURLString, fromStation: pointInfomation.fromStationName, toStation: pointInfomation.toStationName)
+        guard let transferGuideURLString = pointInfomation?.transferGuideURLString,
+            let fromStationName = pointInfomation?.fromStationName,
+            let toStationName = pointInfomation?.toStationName else { return }
+        transportationInfomationVC.setTransportationGuideInfo(urlString: transferGuideURLString, fromStation: fromStationName, toStation: toStationName)
         delegate?.sendInstance(instance: transportationInfomationVC)
     }
 }
