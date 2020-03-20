@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E441DE9EE2C81C8EAB1391B /* Pods_PinMusubiUITests.framework */; };
+		88EB53E50465ABABFC843F42 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5323361D4200F900C4 /* Pods_PinMusubiTests.framework */; };
 		91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91071C10236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift */; };
 		9107A06323A2B06000F1DD77 /* InputHistoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A06223A2B06000F1DD77 /* InputHistoryEntity.swift */; };
 		9107A06723A39A3500F1DD77 /* FavoriteInputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107A06623A39A3500F1DD77 /* FavoriteInputWrapper.swift */; };
@@ -55,6 +56,7 @@
 		911C60ED24016A5E005EC42B /* HotpepperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EC24016A5E005EC42B /* HotpepperClient.swift */; };
 		911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C60EE24016A93005EC42B /* HotpepperClientError.swift */; };
 		912E0B3E23993D63008A91FA /* PointInfomationCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */; };
+		913FE9182424B92400A24FC9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 913FE9172424B92400A24FC9 /* Settings.bundle */; };
 		914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455BC2382C8C600AE7E06 /* HotelModel.swift */; };
 		914455C32384206400AE7E06 /* LeisureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914455C22384206400AE7E06 /* LeisureModel.swift */; };
 		914D4A7C23370A7F00065648 /* SettingBasePointActionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D4A7B23370A7F00065648 /* SettingBasePointActionCellDelegate.swift */; };
@@ -268,6 +270,7 @@
 		91FCFD05240D306E00920BCC /* SpotInfomationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFD04240D306E00920BCC /* SpotInfomationCell.xib */; };
 		91FCFD07240D330300920BCC /* SpotWebInfomationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFD06240D330300920BCC /* SpotWebInfomationView.xib */; };
 		91FCFD09240D348300920BCC /* SpotMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFD08240D348300920BCC /* SpotMapView.xib */; };
+		ADE87368777F9D6722CF0937 /* Pods_PinMusubiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A5623361D4600F900C4 /* Pods_PinMusubiUITests.framework */; };
 		D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCF82DC97DB8F4D9AC967B /* Pods_PinMusubiTests.framework */; };
 		F837A212E03FC16E84B4F17E /* Pods_PinMusubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91504A84233622A800F900C4 /* Pods_PinMusubi.framework */; };
 /* End PBXBuildFile section */
@@ -348,6 +351,7 @@
 		911C60EC24016A5E005EC42B /* HotpepperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClient.swift; sourceTree = "<group>"; };
 		911C60EE24016A93005EC42B /* HotpepperClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperClientError.swift; sourceTree = "<group>"; };
 		912E0B3D23993D63008A91FA /* PointInfomationCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfomationCellDelegate.swift; sourceTree = "<group>"; };
+		913FE9172424B92400A24FC9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = PinMusubi/Settings.bundle; sourceTree = "<group>"; };
 		914455BC2382C8C600AE7E06 /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
 		914455BE2382CC9200AE7E06 /* HotelModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModelTests.swift; sourceTree = "<group>"; };
 		914455C22384206400AE7E06 /* LeisureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureModel.swift; sourceTree = "<group>"; };
@@ -595,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311F40F0FA6812B5A9186CC6 /* Pods_PinMusubiUITests.framework in Frameworks */,
+				ADE87368777F9D6722CF0937 /* Pods_PinMusubiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2094545A8DB2CD995DA23F1 /* Pods_PinMusubiTests.framework in Frameworks */,
+				88EB53E50465ABABFC843F42 /* Pods_PinMusubiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1195,6 +1201,7 @@
 		91B3EB402301296E00430D41 = {
 			isa = PBXGroup;
 			children = (
+				913FE9172424B92400A24FC9 /* Settings.bundle */,
 				91B3EB4B2301296E00430D41 /* PinMusubi */,
 				9197D6462325395B00A5C558 /* PinMusubiUITests */,
 				9197D6542325396900A5C558 /* PinMusubiTests */,
@@ -1442,10 +1449,10 @@
 				91B3EB462301296E00430D41 /* Frameworks */,
 				91B3EB472301296E00430D41 /* Resources */,
 				FB9911A95E6F814F4D409BB1 /* [CP] Embed Pods Frameworks */,
-				917E83F6232C836F005F1204 /* LicensePlist */,
 				9101C534232CA18000D5C130 /* SwiftLint */,
 				91504A7C2336226B00F900C4 /* Embed Frameworks */,
 				9107A08423A573C800F1DD77 /* Crashlytics */,
+				913FE9162424B89400A24FC9 /* License Plist */,
 			);
 			buildRules = (
 			);
@@ -1542,6 +1549,7 @@
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
 				91D1CAB12376563B0066F644 /* MyDetailsDataHeaderViewController.xib in Resources */,
 				91D1CABD23769F3B0066F644 /* MyDetailsDataActionViewController.xib in Resources */,
+				913FE9182424B92400A24FC9 /* Settings.bundle in Resources */,
 				910EC0BE239DD65D00F0D87C /* SearchCompleterViewController.storyboard in Resources */,
 				91C64A4A2371A9260046E7E7 /* SettingView.storyboard in Resources */,
 				9108A7F3237848E100099B0B /* GoogleService-Info.plist in Resources */,
@@ -1704,7 +1712,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		917E83F6232C836F005F1204 /* LicensePlist */ = {
+		913FE9162424B89400A24FC9 /* License Plist */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1713,14 +1721,14 @@
 			);
 			inputPaths = (
 			);
-			name = LicensePlist;
+			name = "License Plist";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi\n";
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Settings.bundle --github-token YOUR_GITHUB_TOKEN\nfi\n";
 		};
 		A948E6F0A1E2098900A38897 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
