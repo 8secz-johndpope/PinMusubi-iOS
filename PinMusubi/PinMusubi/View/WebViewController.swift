@@ -67,6 +67,12 @@ class WebViewController: UIViewController {
         }
     }
 
+    @IBOutlet private var errorView: UIView! {
+        didSet {
+            errorView.isHidden = true
+        }
+    }
+
     private var progressView = UIProgressView(progressViewStyle: .bar)
     private var observeLoading: NSKeyValueObservation?
 
@@ -142,5 +148,9 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate {
         } else {
             chevronRightButton.tintColor = UIColor.lightGray
         }
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation, withError error: Error) {
+        errorView.isHidden = false
     }
 }

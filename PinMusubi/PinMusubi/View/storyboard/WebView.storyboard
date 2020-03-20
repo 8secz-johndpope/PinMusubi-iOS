@@ -51,12 +51,43 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ap1-jT-orB">
+                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Exclamation" translatesAutoresizingMaskIntoConstraints="NO" id="zap-hC-tcH">
+                                        <rect key="frame" x="137.5" y="189.5" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="5Rp-PU-KOe"/>
+                                            <constraint firstAttribute="width" constant="100" id="HVS-0E-PMH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ごめんなさい。。。 ページが読み込めませんでした。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsf-xC-FyB">
+                                        <rect key="frame" x="8" y="313" width="359" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Xsf-xC-FyB" firstAttribute="leading" secondItem="ap1-jT-orB" secondAttribute="leading" constant="8" id="JVv-de-hbm"/>
+                                    <constraint firstItem="zap-hC-tcH" firstAttribute="centerX" secondItem="ap1-jT-orB" secondAttribute="centerX" id="rFJ-Sd-NI3"/>
+                                    <constraint firstItem="Xsf-xC-FyB" firstAttribute="top" secondItem="zap-hC-tcH" secondAttribute="bottom" constant="23.5" id="sUp-0P-4E3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xsf-xC-FyB" secondAttribute="trailing" constant="8" id="vfs-24-BDR"/>
+                                    <constraint firstItem="zap-hC-tcH" firstAttribute="centerY" secondItem="ap1-jT-orB" secondAttribute="centerY" constant="-50" id="x0o-sP-Zw1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="w4M-nw-1qn" firstAttribute="bottom" secondItem="qcd-lv-B7T" secondAttribute="bottom" id="2nc-Jk-dbZ"/>
                             <constraint firstItem="ZzJ-uf-CCS" firstAttribute="top" secondItem="qcd-lv-B7T" secondAttribute="top" id="9eD-cb-4MH"/>
+                            <constraint firstItem="ap1-jT-orB" firstAttribute="trailing" secondItem="qcd-lv-B7T" secondAttribute="trailing" id="Ge5-ZI-Csp"/>
+                            <constraint firstItem="ap1-jT-orB" firstAttribute="top" secondItem="qcd-lv-B7T" secondAttribute="top" id="KVN-1r-aRS"/>
+                            <constraint firstItem="ap1-jT-orB" firstAttribute="leading" secondItem="qcd-lv-B7T" secondAttribute="leading" id="Mik-WR-ffw"/>
+                            <constraint firstItem="w4M-nw-1qn" firstAttribute="top" secondItem="ap1-jT-orB" secondAttribute="bottom" symbolic="YES" id="MpZ-CS-Z0k"/>
                             <constraint firstItem="ZzJ-uf-CCS" firstAttribute="trailing" secondItem="qcd-lv-B7T" secondAttribute="trailing" id="OhD-JG-xKg"/>
                             <constraint firstItem="w4M-nw-1qn" firstAttribute="leading" secondItem="qcd-lv-B7T" secondAttribute="leading" id="iRu-RH-pQt"/>
                             <constraint firstItem="ZzJ-uf-CCS" firstAttribute="leading" secondItem="qcd-lv-B7T" secondAttribute="leading" id="knC-OS-Jh5"/>
@@ -70,6 +101,7 @@
                         <outlet property="actionButton" destination="kT6-cR-VLP" id="9xO-r5-tJl"/>
                         <outlet property="chevronLeftButton" destination="hcW-DH-R6J" id="Qa4-tB-K2e"/>
                         <outlet property="chevronRightButton" destination="lH0-dR-xaF" id="HPl-ry-4uP"/>
+                        <outlet property="errorView" destination="ap1-jT-orB" id="KrP-qV-fhf"/>
                         <outlet property="safariButton" destination="Irx-oo-APA" id="yP5-vy-HYl"/>
                         <outlet property="webView" destination="ZzJ-uf-CCS" id="Ntg-4Z-VPD"/>
                     </connections>
@@ -79,4 +111,7 @@
             <point key="canvasLocation" x="72.799999999999997" y="52.623688155922046"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Exclamation" width="50" height="50"/>
+    </resources>
 </document>
