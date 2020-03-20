@@ -7,6 +7,7 @@
 //
 
 import Cosmos
+import MapKit
 import UIKit
 
 public class MyDataCell: UITableViewCell {
@@ -36,12 +37,26 @@ public class MyDataCell: UITableViewCell {
                 imageCount += 1
             }
             titleLabel.text = title
-            subTitleLabel.text = "座標：" + String(historyData.halfwayPointLatitude) + " , " + String(historyData.halfwayPointLongitude)
             registerDateLabel.text = format.string(from: historyData.dateTime)
             ratingView.settings.filledImage = UIImage(named: "Pin")
             ratingView.settings.emptyImage = UIImage(named: "EmptyPin")
             ratingView.settings.fillMode = .half
             ratingView.rating = Double(imageCount / 2)
+
+            // マイグレーション：中間地点の名称をDBに設定する
+            if historyData.address == "" {
+                let coordinate = CLLocationCoordinate2D(latitude: historyData.halfwayPointLatitude, longitude: historyData.halfwayPointLongitude )
+                let model = SearchInterestPlaceModel()
+                model.getAddress(point: coordinate) { address, _ in
+                    DispatchQueue.main.async {
+                        historyData.address = address
+                        _ = SearchHistoryAccessor().set(data: historyData)
+                        self.subTitleLabel.text = "中間地点：\(address)"
+                    }
+                }
+            } else {
+                subTitleLabel.text = "中間地点：\(historyData.address)"
+            }
         }
     }
 
