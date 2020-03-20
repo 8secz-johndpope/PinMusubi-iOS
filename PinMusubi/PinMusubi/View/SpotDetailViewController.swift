@@ -71,6 +71,6 @@ extension SpotDetailViewController: SpotDetailViewDelegate {
         guard let webVC = webView.instantiateInitialViewController() as? WebViewController else { return }
         guard let spot = spot else { return }
         webVC.setSpot(spot: spot)
-        navigationController?.show(webVC, sender: nil)
+        show(webVC, sender: nil)
     }
 }
