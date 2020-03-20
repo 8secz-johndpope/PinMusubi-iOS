@@ -2,75 +2,143 @@
 //  CreditViewController.swift
 //  PinMusubi
 //
-//  Created by rMac on 2019/11/10.
-//  Copyright © 2019 naipaka. All rights reserved.
+//  Created by rMac on 2020/03/20.
+//  Copyright © 2020 naipaka. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-public class CreditViewController: UIViewController {
-    @IBOutlet private var creditTitleLabel: UILabel!
-    @IBOutlet private var creditBodyLabel: UILabel!
-    private var creditType: CreditType?
+class CreditViewController: UIViewController {
+    @IBOutlet private var textView: UITextView!
 
-    override public func viewDidLoad() {
+    private var baseString = ""
+
+    private var hotpepperURL = URL(string: "http://webservice.recruit.co.jp/")
+    private var rakutenURL = URL(string: "https://webservice.rakuten.co.jp/")
+    private var yahooURL = URL(string: "https://developer.yahoo.co.jp/sitemap/index.html")
+    private var ekispertURL = URL(string: "http://docs.ekispert.com/v1/le/")
+    private var icons8URL = URL(string: "https://icons8.jp/icons")
+
+    override func viewDidLoad() {
         super.viewDidLoad()
-        guard let creditType = creditType else { return }
-        configureCredit(creditType: creditType)
+
+        textView.delegate = self
+        title = "クレジット一覧"
+        baseString = textView.text
+        textView.attributedText = setAttributedString(baseString: baseString)
     }
 
-    public func setCreditType(creditType: CreditType) {
-        self.creditType = creditType
-    }
+    private func setAttributedString(baseString: String) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: baseString)
 
-    private func configureCredit(creditType: CreditType) {
-        switch creditType {
-        case .recruit:
-            creditTitleLabel.text = "ホットペッパーWebサービス"
-            let creditBodyText = "This application uses Recruit API. I ackonwledge and am grateful to Recruit teams.\n\nPowered by ホットペッパー Webサービス\nhttp://webservice.recruit.co.jp/"
-            let attributedText = NSMutableAttributedString(string: creditBodyText)
-            attributedText.addAttribute(
-                .link,
-                value: "http://webservice.recruit.co.jp/",
-                range: NSString(string: creditBodyText).range(of: "ホットペッパー Webサービス")
-            )
-            creditBodyLabel.attributedText = attributedText
+        // 文字の設定
+        attributedString.addAttribute(
+            .underlineStyle,
+            value: NSUnderlineStyle.single.rawValue,
+            range: NSString(string: baseString).range(of: "Hotpepper Web Service")
+        )
 
-        case .heartRailsExpress:
-            creditTitleLabel.text = "HeartRails Express"
-            creditBodyLabel.text = "This application uses HeartRails Express API. I ackonwledge and am grateful to HeartRails Express teams.\n\nhttp://express.heartrails.com/api.html"
-        case .busstopapi:
-            creditTitleLabel.text = "バス停検索API"
-            creditBodyLabel.text = "This application uses busstopapi. I ackonwledge and am grateful to busstopapi teams.\n\nhttps://busstopapi.docs.apiary.io"
-        case .icons8:
-            creditTitleLabel.text = "Icons8"
-            creditBodyLabel.text = "This application uses some icon images of Icon8. I ackonwledge and am grateful to Icon8 teams.\n\nhttps://icons8.jp/"
-        case .pagingCollectionView:
-            creditTitleLabel.text = "PagingCollectionView"
-            var creditBodyText = "MIT License\n\nCopyright (c) 2019 nkmrh\n\n"
-            creditBodyText += "Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\n"
-            creditBodyText += "in the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n"
-            creditBodyText += "copies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\n"
-            creditBodyText += "The above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n"
-            creditBodyText += "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n"
-            creditBodyText += "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n"
-            creditBodyText += "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n"
-            creditBodyText += "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE."
-            creditBodyLabel.text = creditBodyText
-        }
+        attributedString.addAttribute(
+            .underlineStyle,
+            value: NSUnderlineStyle.single.rawValue,
+            range: NSString(string: baseString).range(of: "Rakuten Web Service")
+        )
+
+        attributedString.addAttribute(
+            .underlineStyle,
+            value: NSUnderlineStyle.single.rawValue,
+            range: NSString(string: baseString).range(of: "Yahoo! JAPAN Web Service")
+        )
+
+        attributedString.addAttribute(
+            .underlineStyle,
+            value: NSUnderlineStyle.single.rawValue,
+            range: NSString(string: baseString).range(of: "Ekispert Web Service")
+        )
+
+        attributedString.addAttribute(
+            .underlineStyle,
+            value: NSUnderlineStyle.single.rawValue,
+            range: NSString(string: baseString).range(of: "Icons8")
+        )
+
+        attributedString.addAttribute(
+            .underlineStyle,
+            value: NSUnderlineStyle.single.rawValue,
+            range: NSString(string: baseString).range(of: "PagingCollectionView")
+        )
+
+        // リンクの設定
+        attributedString.addAttribute(
+            .link,
+            value: "HotpepperLink",
+            range: NSString(string: baseString).range(of: "ホットペッパー Webサービス")
+        )
+
+        attributedString.addAttribute(
+            .link,
+            value: "RakutenLink",
+            range: NSString(string: baseString).range(of: "Supported by Rakuten Developers")
+        )
+
+        attributedString.addAttribute(
+            .link,
+            value: "YahooLink",
+            range: NSString(string: baseString).range(of: "Web Services by Yahoo! JAPAN")
+        )
+
+        attributedString.addAttribute(
+            .link,
+            value: "EkispertLink",
+            range: NSString(string: baseString).range(of: "駅すぱあとWebサービス")
+        )
+
+        attributedString.addAttribute(
+            .link,
+            value: "icons8Link",
+            range: NSString(string: baseString).range(of: "https://icon8.jp/")
+        )
+
+        return attributedString
     }
 }
 
-/// クレジットのType
-public enum CreditType {
-    /// リクルート
-    case recruit
-    /// 電車
-    case heartRailsExpress
-    /// バス
-    case busstopapi
-    /// Icons8
-    case icons8
-    /// PagingCollectionView
-    case pagingCollectionView
+extension CreditViewController: UITextViewDelegate {
+    public func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        switch URL.absoluteString {
+        case "HotpepperLink":
+            if UIApplication.shared.canOpenURL(hotpepperURL!) {
+                UIApplication.shared.open(hotpepperURL!)
+            }
+            return true
+
+        case "RakutenLink":
+            if UIApplication.shared.canOpenURL(rakutenURL!) {
+                UIApplication.shared.open(rakutenURL!)
+            }
+            return true
+
+        case "YahooLink":
+            if UIApplication.shared.canOpenURL(yahooURL!) {
+                UIApplication.shared.open(yahooURL!)
+            }
+            return true
+
+        case "EkispertLink":
+            if UIApplication.shared.canOpenURL(ekispertURL!) {
+                UIApplication.shared.open(ekispertURL!)
+            }
+            return true
+
+        case "icons8Link":
+            if UIApplication.shared.canOpenURL(icons8URL!) {
+                UIApplication.shared.open(icons8URL!)
+            }
+            return true
+
+        default:
+            return false
+        }
+    }
 }

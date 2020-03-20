@@ -179,6 +179,8 @@
 		919E6FBC24032FA400CF8161 /* MKLocalSearchRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FBB24032FA400CF8161 /* MKLocalSearchRequestParameter.swift */; };
 		919E6FBF2403521700CF8161 /* MKLocalSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FBE2403521700CF8161 /* MKLocalSearchResponse.swift */; };
 		919E6FC12403A77B00CF8161 /* MKLocalSearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E6FC02403A77B00CF8161 /* MKLocalSearchCategory.swift */; };
+		91A1556F2424A04200F5BE21 /* CreditViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A1556E2424A04200F5BE21 /* CreditViewController.storyboard */; };
+		91A155712424A0F400F5BE21 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A155702424A0F400F5BE21 /* CreditViewController.swift */; };
 		91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */; };
 		91A4110A2331AC7B00AF7897 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A411092331AC7B00AF7897 /* TestData.swift */; };
 		91A4110C2331B66A00AF7897 /* SettingBasePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */; };
@@ -255,12 +257,8 @@
 		91EEA8042377A79B00824BBB /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA8032377A79B00824BBB /* EmptyView.xib */; };
 		91EEA8062377A7B900824BBB /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8052377A7B900824BBB /* EmptyView.swift */; };
 		91EEA8082377E75400824BBB /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA8072377E75400824BBB /* SettingTableViewController.swift */; };
-		91EEA80E2378095200824BBB /* CreditListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA80D2378095200824BBB /* CreditListViewController.storyboard */; };
-		91EEA810237809AA00824BBB /* CreditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA80F237809AA00824BBB /* CreditListViewController.swift */; };
 		91EEA81223780A2700824BBB /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA81123780A2700824BBB /* ContactFormViewController.swift */; };
 		91EEA81423780A3E00824BBB /* ContactFormViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA81323780A3E00824BBB /* ContactFormViewController.storyboard */; };
-		91EEA817237825AD00824BBB /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EEA815237825AD00824BBB /* CreditViewController.swift */; };
-		91EEA818237825AD00824BBB /* CreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91EEA816237825AD00824BBB /* CreditViewController.xib */; };
 		91EF7532236D24F80051ACCB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF7531236D24F80051ACCB /* WebViewController.swift */; };
 		91F4EB162336038D005C9EED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4EB152336038D005C9EED /* UIColor+Extension.swift */; };
 		91FCFCFD240D283700920BCC /* SpotDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FCFCFC240D283700920BCC /* SpotDetailViewController.storyboard */; };
@@ -490,6 +488,8 @@
 		919E6FBB24032FA400CF8161 /* MKLocalSearchRequestParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLocalSearchRequestParameter.swift; sourceTree = "<group>"; };
 		919E6FBE2403521700CF8161 /* MKLocalSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLocalSearchResponse.swift; sourceTree = "<group>"; };
 		919E6FC02403A77B00CF8161 /* MKLocalSearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLocalSearchCategory.swift; sourceTree = "<group>"; };
+		91A1556E2424A04200F5BE21 /* CreditViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreditViewController.storyboard; sourceTree = "<group>"; };
+		91A155702424A0F400F5BE21 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		91A41107233124D700AF7897 /* ReferenceTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReferenceTabBar.storyboard; sourceTree = "<group>"; };
 		91A411092331AC7B00AF7897 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		91A4110B2331B66A00AF7897 /* SettingBasePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -576,12 +576,8 @@
 		91EEA8032377A79B00824BBB /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		91EEA8052377A7B900824BBB /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		91EEA8072377E75400824BBB /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		91EEA80D2378095200824BBB /* CreditListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreditListViewController.storyboard; sourceTree = "<group>"; };
-		91EEA80F237809AA00824BBB /* CreditListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditListViewController.swift; sourceTree = "<group>"; };
 		91EEA81123780A2700824BBB /* ContactFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFormViewController.swift; sourceTree = "<group>"; };
 		91EEA81323780A3E00824BBB /* ContactFormViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactFormViewController.storyboard; sourceTree = "<group>"; };
-		91EEA815237825AD00824BBB /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
-		91EEA816237825AD00824BBB /* CreditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditViewController.xib; sourceTree = "<group>"; };
 		91EF7531236D24F80051ACCB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		91F4EB152336038D005C9EED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		91FCFCFC240D283700920BCC /* SpotDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpotDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -1191,7 +1187,6 @@
 				91D1CAAF2376563B0066F644 /* MyDetailsDataHeaderViewController.xib */,
 				91D1CABB23769F3B0066F644 /* MyDetailsDataActionViewController.xib */,
 				91EEA8032377A79B00824BBB /* EmptyView.xib */,
-				91EEA816237825AD00824BBB /* CreditViewController.xib */,
 				9116C905238596B60026513D /* LoadingView.xib */,
 			);
 			path = xib;
@@ -1296,8 +1291,7 @@
 				91EEA8052377A7B900824BBB /* EmptyView.swift */,
 				91C64A4D2371AB2B0046E7E7 /* SettingViewController.swift */,
 				91EEA8072377E75400824BBB /* SettingTableViewController.swift */,
-				91EEA80F237809AA00824BBB /* CreditListViewController.swift */,
-				91EEA815237825AD00824BBB /* CreditViewController.swift */,
+				91A155702424A0F400F5BE21 /* CreditViewController.swift */,
 				91EEA81123780A2700824BBB /* ContactFormViewController.swift */,
 				9116C907238598B20026513D /* LoadingView.swift */,
 				91D554AF23F264D500B06467 /* TutorialPageViewController.swift */,
@@ -1387,7 +1381,7 @@
 				91C64A472371A7B60046E7E7 /* MyPageView.storyboard */,
 				91D1CAB8237691D70066F644 /* MyDetailsDataViewController.storyboard */,
 				91C64A492371A9260046E7E7 /* SettingView.storyboard */,
-				91EEA80D2378095200824BBB /* CreditListViewController.storyboard */,
+				91A1556E2424A04200F5BE21 /* CreditViewController.storyboard */,
 				91EEA81323780A3E00824BBB /* ContactFormViewController.storyboard */,
 				9107A07E23A5323200F1DD77 /* VersionInfoViewController.storyboard */,
 			);
@@ -1530,7 +1524,6 @@
 				9170F14523F9B873002FB702 /* settingPoints.mp4 in Resources */,
 				9170F14623F9B873002FB702 /* spot.mp4 in Resources */,
 				91B3EB542301296F00430D41 /* Assets.xcassets in Resources */,
-				91EEA80E2378095200824BBB /* CreditListViewController.storyboard in Resources */,
 				91A41108233124D700AF7897 /* ReferenceTabBar.storyboard in Resources */,
 				91C64A562371BEB10046E7E7 /* MyDataCell.xib in Resources */,
 				91B3EB572301296F00430D41 /* LaunchScreen.storyboard in Resources */,
@@ -1541,9 +1534,9 @@
 				91A411242335066700AF7897 /* SettingBasePointCell.xib in Resources */,
 				91FCFD09240D348300920BCC /* SpotMapView.xib in Resources */,
 				91504A8F23366F7B00F900C4 /* SettingBasePointActionCell.xib in Resources */,
+				91A1556F2424A04200F5BE21 /* CreditViewController.storyboard in Resources */,
 				91FCFD07240D330300920BCC /* SpotWebInfomationView.xib in Resources */,
 				91EEA81423780A3E00824BBB /* ContactFormViewController.storyboard in Resources */,
-				91EEA818237825AD00824BBB /* CreditViewController.xib in Resources */,
 				91A8A1A5236C825500903354 /* TravelTimePanelCell.xib in Resources */,
 				9116C90B23859AED0026513D /* loading.gif in Resources */,
 				918CF9882338FBA8003DC7C8 /* PointsInfomationAnnotationView.xib in Resources */,
@@ -1951,7 +1944,6 @@
 				9116C908238598B20026513D /* LoadingView.swift in Sources */,
 				919E6F3A2402410500CF8161 /* RakutenTravelRequestParameter.swift in Sources */,
 				919E6F6C24027C9800CF8161 /* HeartRailsExpressResponse.swift in Sources */,
-				91EEA810237809AA00824BBB /* CreditListViewController.swift in Sources */,
 				919E6F5724025CBC00CF8161 /* YOLPCoupon.swift in Sources */,
 				911C60EF24016A93005EC42B /* HotpepperClientError.swift in Sources */,
 				919E6F342402376E00CF8161 /* RakutenTravelAPIError.swift in Sources */,
@@ -1974,7 +1966,6 @@
 				919E6F302402352200CF8161 /* RakutenTravelHotelRatingInfo.swift in Sources */,
 				91D7FEE423719BFF00520CAD /* DoneRegisterViewDelegate.swift in Sources */,
 				919E6F4924025A2900CF8161 /* YOLPResultInfo.swift in Sources */,
-				91EEA817237825AD00824BBB /* CreditViewController.swift in Sources */,
 				9170F13823F9001D002FB702 /* SpotListPresenter.swift in Sources */,
 				919E6F5124025C1500CF8161 /* YOLPCountry.swift in Sources */,
 				91071C11236FDA74002E8835 /* FavoriteRegisterModalViewDelegate.swift in Sources */,
@@ -2002,6 +1993,7 @@
 				914455BD2382C8C700AE7E06 /* HotelModel.swift in Sources */,
 				910EC0BC239A5FF800F0D87C /* TravelTimePanelCellDelegate.swift in Sources */,
 				9170F14F23FEA04E002FB702 /* HTTPMethod.swift in Sources */,
+				91A155712424A0F400F5BE21 /* CreditViewController.swift in Sources */,
 				914D4A8B23388F8500065648 /* Notification+Extension.swift in Sources */,
 				91D1907D2368073700B0329A /* SpotCell.swift in Sources */,
 				91C64A4C2371AB1D0046E7E7 /* MyPageViewController.swift in Sources */,
