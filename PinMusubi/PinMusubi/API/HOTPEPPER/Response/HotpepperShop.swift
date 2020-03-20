@@ -26,7 +26,6 @@ struct HotpepperShop: Decodable, SpotInfomationProtocol {
     let budget: HotpepperBudget
     let budgetMemo: String
     let shopCatch: String
-    let capacity: Int
     let access: String
     let mobileAccess: String
     let urls: HotpepperUrls
@@ -57,7 +56,6 @@ struct HotpepperShop: Decodable, SpotInfomationProtocol {
         case budget
         case budgetMemo = "budget_memo"
         case shopCatch = "catch"
-        case capacity
         case access
         case mobileAccess = "mobile_access"
         case urls
