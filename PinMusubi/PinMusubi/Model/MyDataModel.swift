@@ -95,6 +95,7 @@ public class MyDataModel: MyDataModelProtocol {
             historyData.id = result.id
             historyData.halfwayPointLatitude = result.halfwayPointLatitude
             historyData.halfwayPointLongitude = result.halfwayPointLongitude
+            historyData.address = result.address
             historyData.dateTime = result.dateTime
             historyData.settingPointEntityList = result.settingPointEntityList
             historyDataList.append(historyData)
