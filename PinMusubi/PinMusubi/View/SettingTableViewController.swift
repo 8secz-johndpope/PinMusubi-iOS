@@ -71,9 +71,9 @@ public class SettingTableViewController: UITableViewController {
             tutorialPageVC.modalPresentationStyle = .fullScreen
             present(tutorialPageVC, animated: true, completion: nil)
         } else if selectedCellTitle == creditTitle {
-            let creditListSV = UIStoryboard(name: "CreditListViewController", bundle: nil)
-            guard let creditListVC = creditListSV.instantiateInitialViewController() as? CreditListViewController else { return }
-            navigationController?.show(creditListVC, sender: nil)
+            let creditSV = UIStoryboard(name: "CreditViewController", bundle: nil)
+            guard let creditVC = creditSV.instantiateInitialViewController() as? CreditViewController else { return }
+            navigationController?.show(creditVC, sender: nil)
         } else if selectedCellTitle == contactTitle {
             let contactFormSV = UIStoryboard(name: "ContactFormViewController", bundle: nil)
             guard let contactFormVC = contactFormSV.instantiateInitialViewController() as? ContactFormViewController else { return }

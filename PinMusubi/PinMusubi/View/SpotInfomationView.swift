@@ -72,13 +72,6 @@ class SpotInfomationView: UIView {
         budgetCell.setContents(image: budgetImage, text: "予算：\(shop.budget.average)")
         stackView.addArrangedSubview(budgetCell)
 
-        // 総席数
-        let capacityCellNib = UINib(nibName: "SpotInfomationCell", bundle: nil)
-        guard let capacityCell = capacityCellNib.instantiate(withOwner: nil, options: nil).first as? SpotInfomationCell else { return }
-        let capacityImage = UIImage(named: "SeatIcon") ?? UIImage()
-        capacityCell.setContents(image: capacityImage, text: "総席数：\(shop.capacity)")
-        stackView.addArrangedSubview(capacityCell)
-
         // 交通アクセス
         let accessCellNib = UINib(nibName: "SpotInfomationCell", bundle: nil)
         guard let accessCell = accessCellNib.instantiate(withOwner: nil, options: nil).first as? SpotInfomationCell else { return }

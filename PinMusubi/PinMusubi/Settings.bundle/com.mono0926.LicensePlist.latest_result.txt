@@ -329,7 +329,19 @@ name: LicensePlist, nameSpecified:
 body: MIT License
 
 Copyrig…
-version: 2.5.8
+version: 2.14.0
+
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.14.0
+
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.14.0
 
 name: nanopb, nameSpecified: 
 body: Copyright (c) 2011 P…
@@ -429,4 +441,4 @@ version: 5.1.1
 
 add-version-numbers: false
 
-LicensePlist Version: 1.8.3
+LicensePlist Version: 2.14.0

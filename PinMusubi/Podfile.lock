@@ -118,7 +118,7 @@ PODS:
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.21.0)
   - leveldb-library (1.22)
-  - LicensePlist (2.5.8)
+  - LicensePlist (2.14.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -174,7 +174,6 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - leveldb-library
-    - LicensePlist
     - nanopb
     - Protobuf
     - SDWebImage
@@ -185,6 +184,7 @@ SPEC REPOS:
     - Fabric
     - FirebaseAnalyticsInterop
     - FirebaseDynamicLinks
+    - LicensePlist
 
 EXTERNAL SOURCES:
   Realm:
@@ -230,7 +230,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
-  LicensePlist: 3ad60988ec640a2aeae74cdd2e6d01531c03b7cd
+  LicensePlist: d52efb2ce5d3cf58833d362f82967ba4af25fe9a
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
@@ -239,6 +239,6 @@ SPEC CHECKSUMS:
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   SwiftyGif: f7702483db93586a41f04f4927cd682852a2fa10
 
-PODFILE CHECKSUM: 0893089b04409a8bf46dd50a18532595a6819007
+PODFILE CHECKSUM: 39469c68653bf7f8e13f293bb0203bb39ad3f7dc
 
 COCOAPODS: 1.8.4

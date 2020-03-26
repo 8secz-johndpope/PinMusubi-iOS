@@ -8,7 +8,6 @@ target 'PinMusubi' do
   # Pods for PinMusubi
   pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
   pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', submodules: true
-  pod 'LicensePlist'
   pod 'SwiftLint'
   pod 'FloatingPanel'
   pod 'SDWebImage'
@@ -21,6 +20,7 @@ target 'PinMusubi' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Firebase/DynamicLinks'
+  pod 'LicensePlist'
 
   post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -49,6 +49,7 @@ end
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'Firebase/DynamicLinks'
+    pod 'LicensePlist'
   end
 
   target 'PinMusubiUITests' do
@@ -68,6 +69,7 @@ end
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'Firebase/DynamicLinks'
+    pod 'LicensePlist'
   end
 
 end

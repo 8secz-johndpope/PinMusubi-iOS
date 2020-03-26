@@ -27,7 +27,7 @@ class PointsInfomationModelTests: XCTestCase {
         examplePinPoint.latitude = 35.710063
         examplePinPoint.longitude = 139.8107
         
-        pointsInfomationModel.calculateTransferTime(settingPoint: exampleSettingPoint, pinPoint: examplePinPoint) { transferTime  in
+        pointsInfomationModel.calculateTransferTime(settingPoint: exampleSettingPoint, pinPoint: examplePinPoint, transportation: .walk) { transferTime  in
             XCTAssert(transferTime != -1)
             calculateTransferTimeExpectation.fulfill()
         }
@@ -46,8 +46,8 @@ class PointsInfomationModelTests: XCTestCase {
         examplePinPoint.latitude = 35.710063
         examplePinPoint.longitude = 139.8107
         
-        pointsInfomationModel.getTransportationGuide(settingPoint: exampleSettingPoint, pinPoint: examplePinPoint) { responseString, fromStation, toStationName, status  in
-            XCTAssert(status == .success)
+        pointsInfomationModel.getTransportationGuide(settingPoint: exampleSettingPoint, pinPoint: examplePinPoint) { responseString, fromStation, toStationName  in
+            XCTAssert(responseString.isEmpty)
             getTransferGuideExpectation.fulfill()
         }
         waitForExpectations(timeout: 10, handler: nil)

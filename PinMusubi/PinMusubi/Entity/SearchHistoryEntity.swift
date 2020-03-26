@@ -19,6 +19,8 @@ public class SearchHistoryEntity: Object, MyDataEntityProtocol {
     public dynamic var halfwayPointLatitude = CLLocationDegrees()
     /// 中間地点の経度
     public dynamic var halfwayPointLongitude = CLLocationDegrees()
+    /// 中間地点の名称
+    public dynamic var address = ""
     /// 検索日時
     public dynamic var dateTime = Date()
     /// 設定地点情報

@@ -34,6 +34,16 @@ class WebViewController: UIViewController {
         }
     }
 
+    @IBOutlet private var actionButton: UIBarButtonItem! {
+        didSet {
+            if #available(iOS 13.0, *) {
+                actionButton.image = UIImage(systemName: "square.and.arrow.up")
+            } else {
+                actionButton.image = UIImage(named: "Action")
+            }
+        }
+    }
+
     @IBOutlet private var safariButton: UIBarButtonItem! {
         didSet {
             if #available(iOS 13.0, *) {
@@ -53,8 +63,18 @@ class WebViewController: UIViewController {
             guard let requestURL = spot?.url else { return }
             request = URLRequest(url: requestURL)
             webView.load(request)
+            setupProgressView()
         }
     }
+
+    @IBOutlet private var errorView: UIView! {
+        didSet {
+            errorView.isHidden = true
+        }
+    }
+
+    private var progressView = UIProgressView(progressViewStyle: .bar)
+    private var observeLoading: NSKeyValueObservation?
 
     private var shareTitle = ""
     private var spot: SpotEntity?
@@ -62,14 +82,15 @@ class WebViewController: UIViewController {
     func setSpot(spot: SpotEntity) {
         self.spot = spot
         shareTitle = spot.name
+        title = spot.name
+        configureLargeTitle()
     }
 
-    @IBAction private func didTapBackViewButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-
-    @IBAction private func didTapReloadButton(_ sender: Any) {
-        webView.reload()
+    private func setupProgressView() {
+        progressView = UIProgressView(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 0.0))
+        navigationController?.navigationBar.addSubview(progressView)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        observeKeysFowWebView()
     }
 
     @IBAction private func didTapHistoryBackButton(_ sender: Any) {
@@ -92,6 +113,27 @@ class WebViewController: UIViewController {
         guard let requestUrl = webView?.url else { return }
         UIApplication.shared.open(requestUrl)
     }
+
+    private func observeKeysFowWebView() {
+        observeLoading = webView.observe(\.estimatedProgress, options: [.new], changeHandler: { webView, change in
+            self.progressView.alpha = 1.0
+            self.progressView.setProgress(Float(change.newValue!), animated: true)
+
+            if self.webView.estimatedProgress >= 1.0 {
+                UIView.animate(
+                    withDuration: 0.3,
+                    delay: 0.3,
+                    options: [.curveEaseOut],
+                    animations: { [weak self] in
+                        self?.progressView.alpha = 0.0
+                    }, completion: { _ in
+                        self.progressView.setProgress(0.0, animated: false)
+                    }
+                )
+            }
+        }
+        )
+    }
 }
 
 extension WebViewController: WKUIDelegate, WKNavigationDelegate {
@@ -108,7 +150,7 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate {
         }
     }
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation) {
-        title = webView.title
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation, withError error: Error) {
+        errorView.isHidden = false
     }
 }
