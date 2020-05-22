@@ -16,7 +16,7 @@ protocol PointsInfomationModelProtocol {
     /// 設定地点とピンの地点との間の移動時間の計算
     /// - Parameter settingPoints: 設定地点情報
     /// - Parameter pinPoint: ピンの地点の座標
-    func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, transportation: Transportation, complete: @escaping (Int) -> Void)
+    func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, transportation: Transportation, complete: @escaping (Int, Double) -> Void)
 
     /// 乗換案内情報URLの文字列を取得
     /// - Parameter settingPoints: 設定地点情報
@@ -34,7 +34,7 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
     /// - Parameter pinPoint: ピンの地点の座標
     /// - Parameter transportation: 移動手段
     /// - Parameter complete: 完了ハンドラ
-    func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, transportation: Transportation, complete: @escaping (Int) -> Void) {
+    func calculateTransferTime(settingPoint: SettingPointEntity, pinPoint: CLLocationCoordinate2D, transportation: Transportation, complete: @escaping (Int, Double) -> Void) {
         // PlaceMarkに出発地と目的地の座標を設定
         let fromCoordinate = CLLocationCoordinate2D(latitude: settingPoint.latitude, longitude: settingPoint.longitude)
         let fromPlace = MKPlacemark(coordinate: fromCoordinate, addressDictionary: nil)
@@ -50,62 +50,68 @@ class PointsInfomationModel: PointsInfomationModelProtocol {
         case .walk:
             request.transportType = .walking
             fetchTravelTimeByMKDirections(request: request) {
-                complete($0)
+                complete($0, $1)
             }
 
         case .bicycle:
             request.transportType = .walking
             fetchTravelTimeBySelf(request: request) {
-                complete($0)
+                complete($0, $1)
             }
 
         case .car:
             request.transportType = .automobile
             fetchTravelTimeByMKDirections(request: request) {
-                complete($0)
+                complete($0, $1)
             }
 
         case .train:
             request.transportType = .walking
             fetchTravelTimeByMKDirections(request: request) {
-                complete($0)
+                complete($0, $1)
+            }
+
+        case .distance:
+            request.transportType = .walking
+            fetchTravelTimeByMKDirections(request: request) {
+                complete($0, $1)
             }
         }
     }
 
-    private func fetchTravelTimeByMKDirections(request: MKDirections.Request, complete: @escaping (Int) -> Void) {
+    private func fetchTravelTimeByMKDirections(request: MKDirections.Request, complete: @escaping (Int, Double) -> Void) {
         // MKDirectionsにrequestを設定し、移動時間を計算
         let directions = MKDirections(request: request)
         directions.calculate { response, error -> Void in
             if let routes = response?.routes {
                 if error != nil || routes.isEmpty {
-                    complete(-1)
+                    complete(-1, -1)
                 } else {
-                    complete(Int( routes[0].expectedTravelTime / 60))
+                    complete(Int( routes[0].expectedTravelTime / 60), routes[0].distance)
                 }
             } else {
-                complete(-1)
+                complete(-1, -1)
             }
         }
     }
 
-    private func fetchTravelTimeBySelf(request: MKDirections.Request, complete: @escaping (Int) -> Void) {
+    private func fetchTravelTimeBySelf(request: MKDirections.Request, complete: @escaping (Int, Double) -> Void) {
         // MKDirectionsにrequestを設定し、移動時間を計算
         let directions = MKDirections(request: request)
         directions.calculate { response, error -> Void in
             if let routes = response?.routes {
                 if error != nil || routes.isEmpty {
-                    complete(-1)
+                    complete(-1, -1)
                 } else {
                     guard let distance = routes.first?.distance else {
-                        complete(-1)
+                        complete(-1, -1)
                         return
                     }
                     let minuteSpeed: Double = 250
-                    complete(Int(distance / minuteSpeed))
+                    complete(Int(distance / minuteSpeed), distance)
                 }
             } else {
-                complete(-1)
+                complete(-1, -1)
             }
         }
     }

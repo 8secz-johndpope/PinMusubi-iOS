@@ -110,6 +110,21 @@ class PointInfomationCell: UITableViewCell {
         }
     }
 
+    private func setDistance(distance: Double?) {
+        guard let distance = distance else {
+            transferTimeLabel.text = "計測中..."
+            return
+        }
+
+        if distance == -1 {
+            transferTimeLabel.text = "計測エラー"
+        } else if distance < 1_000 {
+            transferTimeLabel.text = String(distance) + " m"
+        } else {
+            transferTimeLabel.text = String(distance / 1_000) + " km"
+        }
+    }
+
     private func setEnabledTransferGuidButton(enable: Bool) {
         if enable {
             transportationGuideButton.isEnabled = true
@@ -140,6 +155,11 @@ class PointInfomationCell: UITableViewCell {
         case .train:
             transferTimeLabel.isHidden = true
             transportationGuideButton.isHidden = false
+
+        case .distance:
+            transferTimeLabel.isHidden = false
+            transportationGuideButton.isHidden = true
+            setDistance(distance: pointInfomation?.distance)
         }
     }
 
