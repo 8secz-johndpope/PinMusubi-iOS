@@ -25,4 +25,7 @@ class PointInfomationEntity {
 
     /// 到着駅
     var toStationName: String = ""
+
+    /// 距離
+    var distance: Double?
 }

@@ -14,7 +14,7 @@ import UIKit
 class PointsInfomationAnnotationView: UIView {
     @IBOutlet private var titleLabel: UILabel! {
         didSet {
-            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
+            titleLabel.text = "\(baseText)(\(Transportation.distance.rawValue))"
         }
     }
 
@@ -70,9 +70,9 @@ class PointsInfomationAnnotationView: UIView {
             transportationButton.layer.shadowRadius = 3
             transportationButton.layer.shadowColor = UIColor.lightGray.cgColor
             transportationButton.layer.shadowOffset = CGSize(width: 3, height: 3)
-            transportationButton.titleLabel?.font = .systemFont(ofSize: 15.0)
             transportationButton.setTitleColor(.white, for: .normal)
-            transportationButton.setTitle("切替", for: .normal)
+            transportationButton.setTitle("表示切替", for: .normal)
+            transportationButton.titleLabel?.adjustsFontSizeToFitWidth = true
         }
     }
 
@@ -81,7 +81,7 @@ class PointsInfomationAnnotationView: UIView {
     private var pinPoint = CLLocationCoordinate2D()
     private var pointInfomationList = [PointInfomationEntity]()
     private var baseText = "各地点からの移動時間"
-    private var selectedTransportation = Transportation.walk
+    private var selectedTransportation = Transportation.distance
 
     weak var delegate: PointInfomationAnnotationViewDelegate?
 
@@ -129,30 +129,26 @@ class PointsInfomationAnnotationView: UIView {
     }
 
     @IBAction private func didTapTransportationButton(_ sender: Any) {
-        switch titleLabel.text {
-        case "\(baseText)(\(Transportation.walk.rawValue))":
+        switch selectedTransportation {
+        case .distance:
+            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
+            selectedTransportation = Transportation.walk
+
+        case .walk:
             titleLabel.text = "\(baseText)(\(Transportation.bicycle.rawValue))"
             selectedTransportation = Transportation.bicycle
 
-        case "\(baseText)(\(Transportation.bicycle.rawValue))" :
+        case .bicycle:
             titleLabel.text = "\(baseText)(\(Transportation.car.rawValue))"
             selectedTransportation = Transportation.car
 
-        case "\(baseText)(\(Transportation.car.rawValue))" :
+        case .car:
             titleLabel.text = "\(baseText)(\(Transportation.train.rawValue))"
             selectedTransportation = Transportation.train
 
-        case "\(baseText)(\(Transportation.train.rawValue))" :
-            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
-            selectedTransportation = Transportation.walk
-
-        case .none:
-            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
-            selectedTransportation = Transportation.walk
-
-        case .some(_):
-            titleLabel.text = "\(baseText)(\(Transportation.walk.rawValue))"
-            selectedTransportation = Transportation.walk
+        case .train:
+            titleLabel.text = "各地点からの移動距離"
+            selectedTransportation = Transportation.distance
         }
 
         presenter?.presentPointInfomationList(settingPoints: settingPoints, pinPoint: pinPoint, pointInfomationList: pointInfomationList, transportation: selectedTransportation)

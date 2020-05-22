@@ -50,12 +50,12 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
             pointInfomationList.append(PointInfomationEntity())
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) {
-                self.model?.calculateTransferTime(settingPoint: settingPoints[index], pinPoint: pinPoint, transportation: transportation) { transportationTime in
+                self.model?.calculateTransferTime(settingPoint: settingPoints[index], pinPoint: pinPoint, transportation: transportation) { transportationTime, distance in
                     self.model?.getTransportationGuide(settingPoint: settingPoints[index], pinPoint: pinPoint) { transferGuideURLString, fromStationName, toStationName in
                         pointInfomationList[index].transferGuideURLString = transferGuideURLString
                         pointInfomationList[index].fromStationName = fromStationName
                         pointInfomationList[index].toStationName = toStationName
-                        self.setTransportationTime(pointInfomation: pointInfomationList[index], transportation: transportation, transportationTime: transportationTime)
+                        self.setTransportationTime(pointInfomation: pointInfomationList[index], transportation: transportation, transportationTime: transportationTime, distance: distance)
                         dispatchGroup.leave()
                     }
                 }
@@ -80,7 +80,7 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
         case .car:
             isFetchTransportationTime = pointInfomationList.first?.carTime == nil
 
-        case .train:
+        case .train, .distance:
             break
         }
 
@@ -91,8 +91,8 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
             for index in 0...settingPoints.count - 1 {
                 dispatchGroup.enter()
                 dispatchQueue.async(group: dispatchGroup) {
-                    self.model?.calculateTransferTime(settingPoint: settingPoints[index], pinPoint: pinPoint, transportation: transportation) { transportationTime in
-                        self.setTransportationTime(pointInfomation: pointInfomationList[index], transportation: transportation, transportationTime: transportationTime)
+                    self.model?.calculateTransferTime(settingPoint: settingPoints[index], pinPoint: pinPoint, transportation: transportation) { transportationTime, distance in
+                        self.setTransportationTime(pointInfomation: pointInfomationList[index], transportation: transportation, transportationTime: transportationTime, distance: distance)
                         dispatchGroup.leave()
                     }
                 }
@@ -104,7 +104,7 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
         }
     }
 
-    private func setTransportationTime(pointInfomation: PointInfomationEntity, transportation: Transportation, transportationTime: Int) {
+    private func setTransportationTime(pointInfomation: PointInfomationEntity, transportation: Transportation, transportationTime: Int, distance: Double) {
         switch transportation {
         case .walk:
             pointInfomation.walkTime = transportationTime
@@ -117,6 +117,10 @@ class PointsInfomationPresenter: PointsInfomationPresenterProrocol {
 
         case .train:
             pointInfomation.walkTime = transportationTime
+
+        case .distance:
+            break
         }
+        pointInfomation.distance = distance
     }
 }

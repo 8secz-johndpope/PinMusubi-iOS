@@ -7,6 +7,7 @@
 //
 
 enum Transportation: String, CaseIterable {
+    case distance = "距離"
     case walk = "徒歩"
     case bicycle = "自転車"
     case car = "車"
